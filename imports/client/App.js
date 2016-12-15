@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
+import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
+
 import Companies from '../api/companies';
 import Company from './Company';
 
@@ -29,11 +31,14 @@ class App extends Component {
           <AccountsUIWrapper visible />
         </header>
         <main>
-          <form onSubmit={this.addStartup.bind(this)}>
-            <input type='text' ref='name' />
-            <input type='text' ref='value' />
-            <button type='submit'>Register Startup</button>
-          </form>
+          { this.props.currentUser ?
+            <form onSubmit={this.addStartup.bind(this)}>
+              <h2>Profile example (not ready)</h2>
+              <input type='text' ref='name' />
+              <input type='text' ref='value' />
+              <button type='submit'>Update</button>
+            </form> : ''
+          }
           {this.props.companies.map((company) => {
             return <Company key={company._id} company={company} />
           })}
@@ -43,8 +48,14 @@ class App extends Component {
   }
 }
 
+App.propTypes = {
+  companies: PropTypes.array.isRequired,
+  currentUser: PropTypes.object,
+};
+
 export default createContainer(() => {
   return {
-    companies: Companies.find({}).fetch()
+    companies: Companies.find({}).fetch(),
+    currentUser: Meteor.user(),
   };
 }, App);
