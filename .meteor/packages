@@ -23,7 +23,14 @@ insecure@1.0.7                # Allow all DB writes from clients (for prototypin
 
 react-meteor-data
 
+email
+
+# accounts
 accounts-ui
+accounts-ui-unstyled
+jamielob:accounts-ui-no-dropdown
 accounts-google
 accounts-github
 accounts-twitter
+accounts-facebook
+pauli:accounts-linkedin
