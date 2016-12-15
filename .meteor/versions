@@ -1,5 +1,4 @@
 accounts-base@1.2.14
-accounts-facebook@1.0.11
 accounts-github@1.0.11
 accounts-google@1.0.11
 accounts-oauth@1.1.15
@@ -33,7 +32,6 @@ ecmascript-runtime@0.3.15
 ejson@1.0.13
 email@1.1.18
 es5-shim@4.6.15
-facebook@1.2.10
 fastclick@1.0.13
 geojson-utils@1.0.10
 github@1.1.9
