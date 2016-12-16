@@ -25,18 +25,34 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <header>
           <h1>Kick Up Startup Registration</h1>
-          <AccountsUIWrapper visible />
+          <AccountsUIWrapper />
         </header>
         <main>
           { this.props.currentUser ?
             <form onSubmit={this.addStartup.bind(this)}>
-              <h2>Profile example (not ready)</h2>
-              <input type='text' ref='name' />
-              <input type='text' ref='value' />
-              <button type='submit'>Update</button>
+              <h1>Профиль</h1>
+              <div className="form-group">
+                <label htmlFor="companyName">Название компании</label>
+                <input type="text" ref="name" className="form-control" id="companyName"/>
+              </div>
+              <div className="form-group">
+                <label htmlFor="industry">Индустрия</label>
+                <input type="text" ref="value" className="form-control" id="industry"/>
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputFile">File input</label>
+                <input type="file" id="exampleInputFile"/>
+                <p className="help-block">Example block-level help text here.</p>
+              </div>
+              <div className="checkbox">
+                <label>
+                  <input type="checkbox"/> Check me out
+                </label>
+              </div>
+              <button type="submit" className="btn btn-default">Сохранить</button>
             </form> : ''
           }
           {this.props.companies.map((company) => {

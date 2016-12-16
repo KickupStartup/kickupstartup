@@ -29,7 +29,6 @@ check
 # accounts
 accounts-ui
 accounts-ui-unstyled
-jamielob:accounts-ui-no-dropdown
 accounts-google
 accounts-github
 accounts-twitter
