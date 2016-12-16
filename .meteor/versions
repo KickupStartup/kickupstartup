@@ -51,6 +51,8 @@ localstorage@1.0.12
 logging@1.1.16
 meteor@1.6.0
 meteor-base@1.0.4
+meteorhacks:meteorx@1.4.1
+meteorhacks:unblock@1.1.0
 minifier-css@1.2.15
 minifier-js@1.2.15
 minimongo@1.0.19
