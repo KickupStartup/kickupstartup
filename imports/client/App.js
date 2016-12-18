@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import Companies from '../api/companies';
+import Companies from '../api/Companies';
 import Company from './Company';
 
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
@@ -34,11 +34,11 @@ class App extends Component {
           { this.props.currentUser ?
             <form onSubmit={this.addStartup.bind(this)}>
               <h1>Профиль</h1>
-              <div className="form-group">
+              <div className="form-group input-group-lg">
                 <label htmlFor="companyName">Название компании</label>
                 <input type="text" ref="name" className="form-control" id="companyName"/>
               </div>
-              <div className="form-group">
+              <div className="form-group input-group-lg">
                 <label htmlFor="industry">Индустрия</label>
                 <input type="text" ref="value" className="form-control" id="industry"/>
               </div>

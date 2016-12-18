@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-import Companies from '../imports/api/companies';
+import Companies from '../imports/api/Companies';
 import '../imports/server/mail-service';
 
 Accounts.onCreateUser(function(options, user){

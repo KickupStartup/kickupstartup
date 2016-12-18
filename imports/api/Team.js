@@ -1,9 +1,9 @@
 import { Mongo } from 'meteor/mongo';
 import { Class } from 'meteor/jagi:astronomy';
 
-const Companies = new Mongo.Collection("companies");
+const Teams = new Mongo.Collection("teams");
 
-Companies.allow({
+Teams.allow({
   insert: function(){
     return true;
   },
@@ -15,9 +15,9 @@ Companies.allow({
   }
 });
 
-const Company = Class.create({
-  name: 'Company',
-  collection: Companies
+const Team = Class.create({
+  name: 'Team',
+  collection: Teams
 });
 
-export default Companies;
+export default Teams;
