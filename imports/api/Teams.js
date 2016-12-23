@@ -18,6 +18,8 @@ Teams.allow({
 const Team = Class.create({
   name: 'Team',
   collection: Teams
+  // rules
+  //
 });
 
 export default Teams;

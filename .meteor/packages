@@ -21,15 +21,24 @@ shell-server@0.2.1            # Server-side component of the `meteor shell` comm
 autopublish@1.0.7             # Publish all data to the clients (for prototyping)
 insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 
+# data
 react-meteor-data
 jagi:astronomy
+
+# ui
+twbs:bootstrap
+fortawesome:fontawesome
+stylus
+
+kadira:flow-router-ssr
+universe:i18n
 email
 meteorhacks:unblock
 check
 
 # accounts
-accounts-ui
-accounts-ui-unstyled
+std:accounts-bootstrap
+accounts-password
 accounts-google
 accounts-github
 accounts-twitter
