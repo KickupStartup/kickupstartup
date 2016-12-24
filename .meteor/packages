@@ -30,7 +30,7 @@ twbs:bootstrap
 fortawesome:fontawesome
 stylus
 
-kadira:flow-router-ssr
+kadira:flow-router
 universe:i18n
 email
 meteorhacks:unblock
