@@ -28,8 +28,13 @@ jagi:astronomy
 # ui
 twbs:bootstrap
 fortawesome:fontawesome
+czbaker:lightbox2
+iamkevingreen:imagesloaded
+isotope:isotope
+slam310:smooth-scroll
 stylus
 
+# app common
 kadira:flow-router
 universe:i18n
 email
