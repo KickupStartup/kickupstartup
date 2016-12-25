@@ -1,8 +1,11 @@
+// http://frozeman.de/blog/2015/01/meteor-platform-packages-and-loading-screens/
+
 export const injectLoadingScreen = function() {
   // inject a css file, to style the loading screen
   Inject.rawHead('loadingScripts', '  <link class="loading" rel="stylesheet" href="/pre-loading-styles.css">');
 
   // inject HTML into the body, to make up the screen
+  // http://tobiasahlin.com/spinkit/
   Inject.rawBody('loadingBody', '  <div class="loading">'+ "\n" +
                                   //'  <h2>LOADING..</h2>'+ "\n" +
                                   '  <div class="spinner">'+ "\n" +

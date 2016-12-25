@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { createContainer } from 'meteor/react-meteor-data';
 
 import NavigationBar from '../components/NavigationBar.jsx';
 import SideBar from '../components/SideBar.jsx';
@@ -19,10 +20,21 @@ import SideBar from '../components/SideBar.jsx';
 //   };
 // }, App);
 
-export const AppLayout = ({content}) => (
+const App = (props) => (
   <div>
-    <NavigationBar />
-    <SideBar />
-    {content}
+    { props.user ? <NavigationBar /> : '' }
+    { props.user ? <SideBar /> : '' }
+    { props.main }
   </div>
 );
+
+App.propTypes = {
+  user: PropTypes.object,
+};
+
+export default AppLayout = createContainer(props => {
+  console.log(props.content);
+  return {
+    user: Meteor.user(),
+  };
+}, App);

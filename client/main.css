@@ -2004,14 +2004,14 @@ button.close {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-.active .logo_bg,a:hover .logo_bg{background:url(/img/puff.png) 122px 140px no-repeat;display:block;width:200px;height:200px;visibility:hidden;opacity:0;transition:visibility 0s linear 1s,opacity 1s linear}
+.active .logo_bg,a:hover .logo_bg{background:url(../img/puff.png) 122px 140px no-repeat;display:block;width:200px;height:200px;visibility:hidden;opacity:0;transition:visibility 0s linear 1s,opacity 1s linear}
 .menu-1{-webkit-transition:background-position 1s ease-in-out;-moz-transition:background-position 1s ease-in-out;-o-transition:background-position 1s ease-in-out;transition:background-position 1s ease-in-out}
 .menu-2,.menu-3,.menu-4,.menu-5,.menu-6,.menu-7,.menu-8{-webkit-transition:background-position .25s ease-in-out;-moz-transition:background-position .25s ease-in-out;-o-transition:background-position .25s ease-in-out;transition:background-position .25s ease-in-out}
-.menu-1{background: url(/img/menu.png) no-repeat;height:200px;width:200px;background-position:0px 55px}
-  .active .menu-1,a:hover .menu-1{background: url(/img/menu-hover.png) no-repeat;background-position:0px 0px;display:block;height:200px;width:200px}
-.menu-2,.menu-3,.menu-4,.menu-5,.menu-6,.menu-7,.menu-8{background: url(/img/menu.png) no-repeat;display:block;height:55px;width:200px}
+.menu-1{background: url(../img/menu.png) no-repeat;height:200px;width:200px;background-position:0px 55px}
+  .active .menu-1,a:hover .menu-1{background: url(../img/menu-hover.png) no-repeat;background-position:0px 0px;display:block;height:200px;width:200px}
+.menu-2,.menu-3,.menu-4,.menu-5,.menu-6,.menu-7,.menu-8{background: url(../img/menu.png) no-repeat;display:block;height:55px;width:200px}
   .active .menu-2,a:hover .menu-2,.active .menu-3,a:hover .menu-3,.active .menu-4,a:hover .menu-4,.active .menu-5,a:hover .menu-5,.active .menu-6,a:hover .menu-6,.active .menu-7,a:hover .menu-7,.active .menu-8,a:hover .menu-8
-  {background: url(/img/menu-hover.png) no-repeat}
+  {background: url(../img/menu-hover.png) no-repeat}
   .menu-2,.active .menu-2,a:hover .menu-2{background-position:0px -225px}
   .menu-3,.active .menu-3,a:hover .menu-3{background-position:0px -280px}
   .menu-4,.active .menu-4,a:hover .menu-4{background-position:0px -335px}
@@ -2037,7 +2037,7 @@ button.close {
   font-size: 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: url(/img/logo.png) center center no-repeat;
+  background: url(../img/logo.png) center center no-repeat;
 }
 /* Sidebar links */
 .sidebar-menu__ul {
@@ -2514,7 +2514,7 @@ body:not(.classic) .site-wrapper .container {
 }
 .heading__pre::before,
 .heading__pre::after {
-  content: "★";
+  content: "â˜…";
   margin: 0 5px;
 }
 .heading__pre + .heading {

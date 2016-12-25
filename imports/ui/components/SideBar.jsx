@@ -2,6 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 
 export default class SideBar extends Component {
+  logout(e) {
+    e.preventDefault();
+    console.log('logout link clicked');
+    if (Meteor.userId()) {
+      Meteor.logout();
+    }
+  }
   render () {
     return (
       <div>
@@ -24,18 +31,15 @@ export default class SideBar extends Component {
             {/* Sidebar brand name */}
             <div className="sidebar-menu__brand"></div>
             {/* Sidebar links */}
+
             <ul className="fullpage__nav sidebar-menu__ul nav">
-                <li className="active"><a href="#">Home</a></li>
-                <li><a href="#">Profiles</a></li>
-                <li><a href="#">Positions</a></li>
-                <li><a href="#">Teams</a></li>
+                <li><a href="#">News</a></li>
+                <li className="active"><a href="#">Connections</a></li>
                 <li><a href="#">Startups</a></li>
-                <li><a href="#">Communities</a></li>
-                <li><a href="#">Investors</a></li>
+                <li><a href="#">Teams</a></li>
                 <li className="divider"></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li>
             </ul>
         </div>
         {/* / .sidebar-menu__ul */}
