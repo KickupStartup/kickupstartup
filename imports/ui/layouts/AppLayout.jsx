@@ -1,5 +1,8 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+
+import NavigationBar from '../components/NavigationBar.jsx';
+import SideBar from '../components/SideBar.jsx';
 // import { createContainer } from 'meteor/react-meteor-data';
 
 // const App = (props) => (
@@ -17,7 +20,9 @@ import { Meteor } from 'meteor/meteor';
 // }, App);
 
 export const AppLayout = ({content}) => (
-  <div> // mandatory wrapper
+  <div>
+    <NavigationBar />
+    <SideBar />
     {content}
   </div>
 );

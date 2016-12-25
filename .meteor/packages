@@ -23,6 +23,8 @@ insecure@1.0.7                # Allow all DB writes from clients (for prototypin
 
 # data
 react-meteor-data
+jagi:astronomy-timestamp-behavior
+jagi:astronomy-softremove-behavior
 jagi:astronomy
 
 # ui
@@ -32,14 +34,19 @@ czbaker:lightbox2
 iamkevingreen:imagesloaded
 isotope:isotope
 slam310:smooth-scroll
+settinghead:auto-nprogress
+meteorhacks:inject-initial
 stylus
 
 # app common
-kadira:flow-router
+kadira:flow-router-ssr
 universe:i18n
 email
 meteorhacks:unblock
 check
+
+# tests
+practicalmeteor:mocha
 
 # accounts
 std:accounts-bootstrap

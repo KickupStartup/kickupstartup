@@ -11,4 +11,5 @@ Meteor.startup(function () {
     // initialize smooth scroll library
     smoothScroll.init();
     $('body').addClass('classic page');
+    $(".loading").remove();
 });

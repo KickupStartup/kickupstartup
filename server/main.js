@@ -1,7 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import Companies from '../imports/api/Companies';
-import '../imports/server/mail-service';
+import '../imports/startup/server/mail-service';
+import { injectLoadingScreen } from '../imports/startup/server/loadingScreen';
 
 Accounts.onCreateUser(function(options, user){
   if (options) {
@@ -59,5 +60,5 @@ Accounts.onCreateUser(function(options, user){
 
 Meteor.startup(() => {
   // code to run on server at startup
-
+  injectLoadingScreen();
 });
