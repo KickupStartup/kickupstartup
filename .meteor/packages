@@ -28,7 +28,10 @@ jagi:astronomy-softremove-behavior
 jagi:astronomy
 
 # ui
+stylus
+fourseven:scss
 twbs:bootstrap
+materialize:materialize@0.97.7
 fortawesome:fontawesome
 czbaker:lightbox2
 iamkevingreen:imagesloaded
@@ -36,7 +39,6 @@ isotope:isotope
 slam310:smooth-scroll
 settinghead:auto-nprogress
 meteorhacks:inject-initial
-stylus
 
 # app common
 kadira:flow-router-ssr
@@ -47,6 +49,10 @@ check
 
 # tests
 practicalmeteor:mocha
+# kadira:debug
+
+# performance
+meteorhacks:kadira
 
 # accounts
 std:accounts-bootstrap
