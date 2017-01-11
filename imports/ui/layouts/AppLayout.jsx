@@ -1,30 +1,26 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-
-import NavigationBar from '../components/NavigationBar.jsx';
-import SideBar from '../components/SideBar.jsx';
-// import { createContainer } from 'meteor/react-meteor-data';
-
-// const App = (props) => (
-//   <div>
-//     {props.main}
-//   </div>
-// );
-//
-// export default AppLayout = createContainer(props => {
-//   // props here will have `main`, passed from the router
-//   // anything we return from this function will be *added* to it
-//   return {
-//     user: Meteor.user(),
-//   };
-// }, App);
+import Navigation from '../components/navigation/Navigation.jsx';
+import JoinUsPanel from '../components/JoinUsPanel.jsx';
+import LoginPanel from '../components/LoginPanel.jsx';
+import SignUpPanel from '../components/SignUpPanel.jsx';
 
 const App = (props) => (
   <div>
-    { props.user ? <NavigationBar /> : '' }
-    { props.user ? <SideBar /> : '' }
-    { props.main }
+    <Navigation />
+    {/* { props.user ? <Navigation /> : '' } */}
+    {/* { props.user ? <SideBar /> : '' } */}
+    <div className="container main">
+      <div className="row">
+        <div className="col-xs-12">
+          { props.user ? '' : <JoinUsPanel /> }
+          { props.main }
+        </div>
+      </div>
+    </div>
+    { props.user ? '' : <LoginPanel /> }
+    { props.user ? '' : <SignUpPanel /> }
   </div>
 );
 
@@ -33,7 +29,6 @@ App.propTypes = {
 };
 
 export default AppLayout = createContainer(props => {
-  console.log(props.content);
   return {
     user: Meteor.user(),
   };

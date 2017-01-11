@@ -11,7 +11,7 @@ export default class LoginPage extends Component {
                       <div className="white row-border">
                           <div className="content">
                               <h3 className="text-center">SIGN IN / REGISTER</h3>
-                              <Accounts.ui.LoginForm />
+                              {/* <Accounts.ui.LoginForm /> */}
                           </div>
                       </div>
                   </div>

@@ -30,7 +30,6 @@ jagi:astronomy
 # ui
 stylus
 fourseven:scss
-twbs:bootstrap
 materialize:materialize@0.97.7
 fortawesome:fontawesome
 czbaker:lightbox2
@@ -55,7 +54,7 @@ practicalmeteor:mocha
 meteorhacks:kadira
 
 # accounts
-std:accounts-bootstrap
+accounts-base
 accounts-password
 accounts-google
 accounts-github

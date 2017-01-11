@@ -1,12 +1,13 @@
 import React from 'react';
 import i18n from 'meteor/universe:i18n';
-import { Accounts } from 'meteor/std:accounts-ui';
+//import { Accounts } from 'meteor/std:accounts-ui';
 import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
 import { mount } from 'react-mounter';
 
 import AppLayout from '../../ui/layouts/AppLayout.jsx';
 import ProfilePage from '../../ui/pages/ProfilePage.jsx';
 import LoginPage from '../../ui/pages/LoginPage.jsx';
+import LandingPage from '../../ui/pages/LandingPage.jsx';
 
 i18n.setLocale('ru');
 
@@ -21,15 +22,15 @@ i18n.setLocale('ru');
 //   passwordSignupFields: 'EMAIL_ONLY',
 // });
 
-Accounts.ui.config({
-  //passwordSignupFields: 'EMAIL_ONLY_NO_PASSWORD',
-  loginPath: '/login',
-  onSignedInHook: () => FlowRouter.go('/profile'),
-  onSignedOutHook: () => {
-    console.log('on signed out hook worked');
-    FlowRouter.go('/');
-  }
-});
+// Accounts.ui.config({
+//   //passwordSignupFields: 'EMAIL_ONLY_NO_PASSWORD',
+//   loginPath: '/login',
+//   onSignedInHook: () => FlowRouter.go('/profile'),
+//   onSignedOutHook: () => {
+//     console.log('on signed out hook worked');
+//     FlowRouter.go('/');
+//   }
+// });
 
 //const publicRoutes = FlowRouter.group( { name: 'public' } );
 
@@ -47,7 +48,7 @@ FlowRouter.route('/', {
   // do some action for this route
   action: function(params, queryParams) {
     mount(AppLayout, {
-      main: (<LoginPage />)
+      main: (<LandingPage />)
     });
   }
 });
