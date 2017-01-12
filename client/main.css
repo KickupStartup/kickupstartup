@@ -15,6 +15,26 @@ body {
   font-size: 15px;
   line-height: 1.42857143;
 }
+
+/* START modal css should be reviewed when materialize restored to the latest version*/
+.modal {
+    overflow-y: inherit;
+}
+.input-field label {
+  left: 0;
+}
+.modal.bottom-sheet {
+    top: auto;
+    bottom: -100%;
+    max-height: 96%;
+    border-radius: 0;
+    will-change: bottom, opacity;
+    margin: auto;
+    max-width: 600px;
+    width: 55%;
+}
+/* END modal css should be reviewed when materialize restored to the latest version*/
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,

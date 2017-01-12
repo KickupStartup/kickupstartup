@@ -3,8 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Navigation from '../components/navigation/Navigation.jsx';
 import JoinUsPanel from '../components/JoinUsPanel.jsx';
-import LoginPanel from '../components/LoginPanel.jsx';
-import SignUpPanel from '../components/SignUpPanel.jsx';
+// import LoginPanel from '../components/LoginPanel.jsx';
+// import SignUpPanel from '../components/SignUpPanel.jsx';
 
 const App = (props) => (
   <div>
@@ -19,8 +19,8 @@ const App = (props) => (
         </div>
       </div>
     </div>
-    { props.user ? '' : <LoginPanel /> }
-    { props.user ? '' : <SignUpPanel /> }
+    {/* { props.user ? '' : <LoginPanel /> } */}
+    {/* { props.user ? '' : <SignUpPanel /> } */}
   </div>
 );
 

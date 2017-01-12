@@ -4,6 +4,9 @@ import { Meteor } from 'meteor/meteor';
 import JoinUsPanel from '../components/JoinUsPanel';
 
 export default class LandingPage extends Component {
+  componentDidMount() {
+    $('.slider').slider({ full_width: true });
+  }
   render() {
     return (
       <div className="row">
@@ -23,7 +26,7 @@ export default class LandingPage extends Component {
             <div className="slider">
                 <ul className="slides">
                     <li>
-                        <img src="../img/cover/1.jpg" />
+                        <img src="img/cover/1.jpg" />
                         <div className="carousel-caption">
                             <div className="carousel-text left-align">
                                 <h3>Kick Up Startup!</h3>
@@ -33,7 +36,7 @@ export default class LandingPage extends Component {
                         </div>
                     </li>
                     <li>
-                        <img src="../img/cover/2.jpg" />
+                        <img src="/img/cover/2.jpg" />
                         <div className="carousel-caption">
                             <div className="carousel-text left-align">
                                 <h3>Second slide label</h3>
@@ -43,7 +46,7 @@ export default class LandingPage extends Component {
                         </div>
                     </li>
                     <li>
-                        <img src="../img/cover/3.jpg" />
+                        <img src="img/cover/3.jpg" />
                         <div className="carousel-caption">
                             <div className="carousel-text left-align">
                                 <h3>Right Aligned Caption</h3>
