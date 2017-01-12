@@ -45,7 +45,7 @@ FlowRouter.route("/login", {
 });
 
 FlowRouter.route('/', {
-  name: "Landing.NoAuth",
+  name: "Home",
   // do some action for this route
   action: function(params, queryParams) {
     mount(AppLayout, {

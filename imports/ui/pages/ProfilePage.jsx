@@ -2,6 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 
 export default class ProfilePage extends Component {
+  componentDidMount() {
+    // init modals
+    $('.modal-trigger').leanModal();
+  }
   render () {
     return (
       <div className="row">

@@ -41,7 +41,7 @@ meteorhacks:inject-initial
 
 # app common
 kadira:flow-router-ssr
-zimme:active-route
+zimme:active-route@=2.3.3-rc.2
 universe:i18n
 email
 meteorhacks:unblock

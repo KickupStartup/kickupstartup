@@ -1,8 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
+import classNames from 'classnames';
 
 export default class SideBar extends Component {
+  constructor(props) {
+    super(props);
+  }
+  classes(path) {
+    let menuClass = classNames(this.props.className, {
+        'active': ActiveRoute.path(path),
+    //include here some other classes that you may want to have for a component
+      });
+    return menuClass;
+  }
   toggleSideBar(e) {
     e.preventDefault();
     console.log('toggleSideBar link clicked');
@@ -42,12 +53,12 @@ export default class SideBar extends Component {
             {/* Sidebar links */}
 
             <ul className="fullpage__nav sidebar-menu__ul nav">
-                <li className="active"><a href="#">Home</a></li>
+                <li className={this.classes("/")}><a href="/">Home</a></li>
                 {/* <li><a href="#">Connections</a></li> */}
-                <li><a href="#">Startups</a></li>
-                <li><a href="#">Teams</a></li>
+                <li><a href="/startups">Startups</a></li>
+                <li><a href="/teams">Teams</a></li>
                 { Meteor.userId() ? <li className="divider"></li> : '' }
-                { Meteor.userId() ? <li><a href="/profile">Profile</a></li> : '' }
+                { Meteor.userId() ? <li className={this.classes("/profile")}><a href="/profile">Profile</a></li> : '' }
                 { Meteor.userId() ? <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li> : '' }
             </ul>
         </div>
