@@ -41,7 +41,7 @@ export default class JoinUsPanel extends Component {
     if (error) {
       console.log(error);
     } else {
-      FlowRouter.go('/');
+      FlowRouter.go('/profile');
     }
   }
   render () {

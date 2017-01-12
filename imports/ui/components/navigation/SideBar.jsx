@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
 
 export default class SideBar extends Component {
   toggleSideBar(e) {
@@ -14,6 +15,7 @@ export default class SideBar extends Component {
     console.log('logout link clicked');
     if (Meteor.userId()) {
       Meteor.logout();
+      FlowRouter.go('/');
     }
   }
   render () {
