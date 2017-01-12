@@ -8,6 +8,7 @@ import AppLayout from '../../ui/layouts/AppLayout.jsx';
 import ProfilePage from '../../ui/pages/ProfilePage.jsx';
 import LoginPage from '../../ui/pages/LoginPage.jsx';
 import LandingPage from '../../ui/pages/LandingPage.jsx';
+import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
 
 i18n.setLocale('ru');
 
@@ -61,6 +62,14 @@ FlowRouter.route('/profile', {
     });
   }
 });
+
+FlowRouter.notFound = {
+  action(params, queryParams) {
+    mount(AppLayout, {
+      main: (<NotFoundPage />)
+    });
+  }
+};
 //
 // FlowRouter.route('/companies', {
 //   name: 'Companies',

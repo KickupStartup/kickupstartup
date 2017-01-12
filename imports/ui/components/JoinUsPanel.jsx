@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
 
 export default class JoinUsPanel extends Component {
   componentDidMount() {
@@ -8,12 +9,37 @@ export default class JoinUsPanel extends Component {
   }
   signUpWithPassword(e) {
     e.preventDefault();
+    console.log('signUpWithPassword clicked: ' + e);
+  }
+  loginWithPassword(e) {
+    e.preventDefault();
+    console.log('loginWithPassword clicked: ' + e);
   }
   loginWithGithub(e) {
     e.preventDefault();
+
+    console.log('loginWithGithub clicked: ' + e);
   }
   loginWithTwitter(e) {
     e.preventDefault();
+    console.log('loginWithTwitter clicked: ' + e);
+  }
+  loginWithLinkedIn(e) {
+    e.preventDefault();
+    console.log('loginWithLinkedIn clicked: ' + e);
+  }
+  loginWithGoogle(e) {
+    e.preventDefault();
+    Meteor.loginWithGoogle({ requestPermissions: ['profile']}, function(error) {
+      if (error) {
+        console.log(error);
+      } else {
+        $('#modal-sign_up').closeModal();
+        $('#modal-login').closeModal();
+        FlowRouter.go('/');
+      }
+    });
+    console.log('loginWithGoogle clicked: ' + e);
   }
   render () {
     return (
@@ -74,7 +100,7 @@ export default class JoinUsPanel extends Component {
                               <span className="fa fa-github fa-lg" title="Github"></span>
                               <span>Github</span>
                           </button>
-                          <button className="waves-effect waves-light btn-flat">
+                          <button onClick={this.loginWithGoogle.bind(this)} className="waves-effect waves-light btn-flat">
                               <span className="fa fa-google-plus fa-lg" title="Google+"></span>
                               <span>Google+</span>
                           </button>
@@ -116,19 +142,19 @@ export default class JoinUsPanel extends Component {
                   </div>
                   <div className="card-footer clearfix">
                       <div className="pull-right">
-                          <button className="waves-effect waves-light btn-flat">
+                          <button onClick={this.loginWithLinkedIn.bind(this)} className="waves-effect waves-light btn btn-flat">
                               <span className="fa fa-linkedin fa-lg" title="Linkedin"></span>
                               <span>Linkedin</span>
                           </button>
-                          <button className="waves-effect waves-light btn-flat">
+                          <button onClick={this.loginWithGithub.bind(this)} className="waves-effect waves-light btn btn-flat">
                               <span className="fa fa-github fa-lg" title="Github"></span>
                               <span>Github</span>
                           </button>
-                          <button className="waves-effect waves-light btn-flat">
+                          <button onClick={this.loginWithGoogle.bind(this)} className="waves-effect waves-light btn btn-flat">
                               <span className="fa fa-google-plus fa-lg" title="Google+"></span>
                               <span>Google+</span>
                           </button>
-                          <button className="waves-effect waves-light btn-flat">
+                          <button onClick={this.loginWithTwitter.bind(this)} className="waves-effect waves-light btn btn-flat">
                               <span className="fa fa-twitter fa-lg" title="Google+"></span>
                               <span>Twitter</span>
                           </button>
