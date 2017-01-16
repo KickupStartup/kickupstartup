@@ -8,7 +8,7 @@ export default class Navigation extends Component {
     return (
       <div>
         <TopBar />
-        <SideBar />
+        {/* <SideBar /> */}
       </div>
     )
   }

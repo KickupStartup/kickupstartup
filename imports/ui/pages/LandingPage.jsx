@@ -10,6 +10,9 @@ export default class LandingPage extends Component {
   componentDidMount() {
     $('html').addClass('welcome');
   }
+  componentWillUnmount() {
+    $('html').removeClass('welcome');
+  }
   render() {
     return (
       <div className="row">
@@ -25,10 +28,10 @@ export default class LandingPage extends Component {
           </h3>
           <div className="row">
               <div className="col s12 text-center">
-                  <button type="submit" className="waves-effect waves-light btn-large btn-warning btn-margin">
+                  <a href="/ideas/create" className="waves-effect waves-light btn-large btn-warning btn-margin">
                       <span className="fa fa-lightbulb-o fa-lg"></span>
                       <span><T>landing.button</T></span>
-                  </button>
+                  </a>
               </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ import JoinUsPanel from '../components/JoinUsPanel.jsx';
 
 const App = (props) => (
   <div>
-    <Navigation />
+    { props.user ? <Navigation /> : '' }
     {/* { props.user ? <Navigation /> : '' } */}
     {/* { props.user ? <SideBar /> : '' } */}
     <div className="container main">

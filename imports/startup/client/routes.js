@@ -11,6 +11,7 @@ import ProfilePage from '../../ui/pages/ProfilePage.jsx';
 import LoginPage from '../../ui/pages/LoginPage.jsx';
 import LandingPage from '../../ui/pages/LandingPage.jsx';
 import IdeasPage from '../../ui/pages/IdeasPage.jsx';
+import IdeasCreateContainer from '../../ui/pages/IdeasCreatePage.jsx';
 import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
 
 function getLang () {
@@ -49,6 +50,15 @@ FlowRouter.route('/ideas', {
   action(params, queryParams) {
     mount(AppLayout, {
       main: (<IdeasPage />)
+    });
+  }
+});
+
+FlowRouter.route('/ideas/create', {
+  name: 'Ideas.create',
+  action(params, queryParams) {
+    mount(AppLayout, {
+      main: (<IdeasCreateContainer />)
     });
   }
 });
