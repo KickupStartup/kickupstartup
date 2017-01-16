@@ -5,12 +5,78 @@ import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
 import { mount } from 'react-mounter';
 
 import AppLayout from '../../ui/layouts/AppLayout.jsx';
+import MvpLayout from '../../ui/layouts/MvpLayout.jsx';
+
 import ProfilePage from '../../ui/pages/ProfilePage.jsx';
 import LoginPage from '../../ui/pages/LoginPage.jsx';
 import LandingPage from '../../ui/pages/LandingPage.jsx';
+import IdeasPage from '../../ui/pages/IdeasPage.jsx';
 import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
 
 i18n.setLocale('ru');
+
+FlowRouter.route('/', {
+  name: "Home",
+  // do some action for this route
+  action: function(params, queryParams) {
+    mount(MvpLayout, {
+      main: (<LandingPage />)
+    });
+  }
+});
+
+FlowRouter.route('/profile', {
+  name: 'Profile',
+  action(params, queryParams) {
+    mount(AppLayout, {
+      main: (<ProfilePage />)
+    });
+  }
+});
+
+FlowRouter.route('/ideas', {
+  name: 'Ideas',
+  action(params, queryParams) {
+    mount(AppLayout, {
+      main: (<IdeasPage />)
+    });
+  }
+});
+
+FlowRouter.notFound = {
+  action(params, queryParams) {
+    mount(AppLayout, {
+      main: (<NotFoundPage />)
+    });
+  }
+};
+
+
+// FlowRouter.route("/login", {
+//   name: "LoginForm",
+//   action: function(params, queryParams) {
+//     mount(AppLayout, {
+//       main: (<LoginPage />)
+//     });
+//   }
+// });
+
+//const publicRoutes = FlowRouter.group( { name: 'public' } );
+//
+// FlowRouter.route('/companies', {
+//   name: 'Companies',
+//   action(params, queryParams) {
+//     console.log("Looking at a profile?");
+//   }
+// });
+//
+// FlowRouter.route('/teams', {
+//   name: 'Teams',
+//   action(params, queryParams) {
+//     console.log("Looking at a profile?");
+//   }
+// });
+
 
 // Accounts.ui.config({
 //   requestPermissions: {
@@ -30,57 +96,5 @@ i18n.setLocale('ru');
 //   onSignedOutHook: () => {
 //     console.log('on signed out hook worked');
 //     FlowRouter.go('/');
-//   }
-// });
-
-//const publicRoutes = FlowRouter.group( { name: 'public' } );
-
-FlowRouter.route("/login", {
-  name: "LoginForm",
-  action: function(params, queryParams) {
-    mount(AppLayout, {
-      main: (<LoginPage />)
-    });
-  }
-});
-
-FlowRouter.route('/', {
-  name: "Home",
-  // do some action for this route
-  action: function(params, queryParams) {
-    mount(AppLayout, {
-      main: (<LandingPage />)
-    });
-  }
-});
-
-FlowRouter.route('/profile', {
-  name: 'Profile',
-  action(params, queryParams) {
-    mount(AppLayout, {
-      main: (<ProfilePage />)
-    });
-  }
-});
-
-FlowRouter.notFound = {
-  action(params, queryParams) {
-    mount(AppLayout, {
-      main: (<NotFoundPage />)
-    });
-  }
-};
-//
-// FlowRouter.route('/companies', {
-//   name: 'Companies',
-//   action(params, queryParams) {
-//     console.log("Looking at a profile?");
-//   }
-// });
-//
-// FlowRouter.route('/teams', {
-//   name: 'Teams',
-//   action(params, queryParams) {
-//     console.log("Looking at a profile?");
 //   }
 // });

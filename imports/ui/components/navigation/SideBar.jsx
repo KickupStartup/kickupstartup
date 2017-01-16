@@ -16,14 +16,11 @@ export default class SideBar extends Component {
   }
   toggleSideBar(e) {
     e.preventDefault();
-    console.log('toggleSideBar link clicked');
     $(".sidebar__btn_open").toggleClass("show hidden");
     $(".sidebar__menu").toggleClass("sidebar__menu_hidden");
-    //return !1;
   }
   logout(e) {
     e.preventDefault();
-    console.log('logout link clicked');
     if (Meteor.userId()) {
       Meteor.logout();
       FlowRouter.go('/');
@@ -55,8 +52,9 @@ export default class SideBar extends Component {
             <ul className="fullpage__nav sidebar-menu__ul nav">
                 <li className={this.classes("/")}><a href="/">Home</a></li>
                 {/* <li><a href="#">Connections</a></li> */}
-                <li><a href="/startups">Startups</a></li>
-                <li><a href="/teams">Teams</a></li>
+                <li className={this.classes("/ideas")}><a href="/ideas">Ideas</a></li>
+                <li className={this.classes("/startups")}><a href="/startups">Startups</a></li>
+                <li className={this.classes("/teams")}><a href="/teams">Teams</a></li>
                 { Meteor.userId() ? <li className="divider"></li> : '' }
                 { Meteor.userId() ? <li className={this.classes("/profile")}><a href="/profile">Profile</a></li> : '' }
                 { Meteor.userId() ? <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li> : '' }
