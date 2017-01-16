@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
-//instance of translate component with top-level context
 const T = i18n.createComponent();
 
 import JoinUsPanel from '../components/JoinUsPanel';
@@ -28,7 +27,7 @@ export default class LandingPage extends Component {
           </h3>
           <div className="row">
               <div className="col s12 text-center">
-                  <a href="/ideas/create" className="waves-effect waves-light btn-large btn-warning btn-margin">
+                  <a href="/login" className="waves-effect waves-light btn-large btn-warning btn-margin">
                       <span className="fa fa-lightbulb-o fa-lg"></span>
                       <span><T>landing.button</T></span>
                   </a>

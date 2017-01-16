@@ -30,7 +30,7 @@ export default class NavigationBar extends Component {
                   </ul>
                 </div>
                 <div className="col-xs-10">
-                    <ul className="fullpage__nav nav navbar-nav pull-right">
+                    <ul className="fullpage_nav nav navbar-nav pull-right">
                         <li className="active"><a href="/ideas/create">Ideas</a></li>
                         <li><a href="/people">People</a></li>
                         <li><a href="#!" onClick={this.logout.bind(this)}>Logout</a></li>

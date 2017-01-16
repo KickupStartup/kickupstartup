@@ -63,6 +63,15 @@ FlowRouter.route('/ideas/create', {
   }
 });
 
+FlowRouter.route("/login", {
+  name: "LoginPage",
+  action: function(params, queryParams) {
+    mount(MvpLayout, {
+      main: (<LoginPage />)
+    });
+  }
+});
+
 FlowRouter.notFound = {
   action(params, queryParams) {
     mount(AppLayout, {
@@ -70,16 +79,6 @@ FlowRouter.notFound = {
     });
   }
 };
-
-
-// FlowRouter.route("/login", {
-//   name: "LoginForm",
-//   action: function(params, queryParams) {
-//     mount(AppLayout, {
-//       main: (<LoginPage />)
-//     });
-//   }
-// });
 
 //const publicRoutes = FlowRouter.group( { name: 'public' } );
 //
