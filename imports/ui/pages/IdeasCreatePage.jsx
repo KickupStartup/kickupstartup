@@ -5,12 +5,19 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
 class IdeasCreatePage extends Component {
+  componentDidMount() {
+    $('html').addClass('welcome');
+  }
+  componentWillUnmount() {
+    $('html').removeClass('welcome');
+  }
   validateIdea(e) {
     e.preventDefault();
   }
   render() {
     return (
       <div className="row">
+        <h1 className="center white-text"><T>idea.header</T></h1>
         <div className="col s12">
           <div className="white card row-border clearfix">
             <div className="content text-center">
@@ -39,7 +46,7 @@ class IdeasCreatePage extends Component {
                     </div>
                 </div>
                 <div className="col s12 text-center">
-                    <button type="submit" className="activator waves-effect waves-light btn-large btn-margin">
+                    <button type="submit" className="activator waves-effect waves-light btn-large btn-margin orange lighten-2">
                         <i className="fa fa-bullhorn fa-lg"></i>
                         Submit and Request Feedback
                     </button>

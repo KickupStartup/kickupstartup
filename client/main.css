@@ -523,7 +523,7 @@ dd {
 .back a{color:#333333}
 @media (min-width: 768px) {
     .back{background-color:#f9f9f9;margin-top:-20px;padding-top:20px!important;position:fixed;z-index:2}
-  .page .main{padding-top:90px}
+  .page .main{padding-top:30px}
     .page .main-padding{padding-top:22px}
     .page .main.inner{padding-top:140px}
   .container {
@@ -3406,7 +3406,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .banner{border:4px solid #fff;margin:-10px -40px;height:120px}
 .avatar-photo{clear:both;top:-40px;position:relative}
   .avatar-photo img{border-radius:50%;border:4px solid #fff;display:block;margin:0 auto -40px;top:-40px;width:104px;height:104px}
-.avatar-small{padding:10px!important}
+/*.avatar-small{padding:10px!important}*/
   .avatar-small img{border-radius:50%;border:1px solid #fff;box-shadow:0 0 0 2px #f2f2f2;width:50px;height:50px}
 .marging-top{margin-top:0}
 .stat {
