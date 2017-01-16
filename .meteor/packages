@@ -43,6 +43,7 @@ meteorhacks:inject-initial
 kadira:flow-router-ssr
 zimme:active-route@=2.3.3-rc.2
 universe:i18n
+momentjs:moment
 email
 meteorhacks:unblock
 check
