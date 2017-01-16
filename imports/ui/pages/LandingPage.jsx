@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import i18n from 'meteor/universe:i18n';
+//instance of translate component with top-level context
+const T = i18n.createComponent();
 
 import JoinUsPanel from '../components/JoinUsPanel';
 
@@ -12,19 +15,19 @@ export default class LandingPage extends Component {
       <div className="row">
         <div className="col s12">
           <p className="heading_pre">
-              A community based Startup Foundry
+              <T>landing.description</T>
           </p>
           <h1 className="heading">
-              Kick Up <span className="text-primary">Your</span> Startup!
+              <T>landing.name.begin</T> <span className="text-primary"><T>landing.name.middle</T></span> <T>landing.name.end</T>
           </h1>
           <h3 className="heading_sub">
-              To make the World a Better Place
+              <T>landing.motto</T>
           </h3>
           <div className="row">
               <div className="col s12 text-center">
                   <button type="submit" className="waves-effect waves-light btn-large btn-warning btn-margin">
                       <span className="fa fa-lightbulb-o fa-lg"></span>
-                      <span>Validate Your Idea</span>
+                      <span><T>landing.button</T></span>
                   </button>
               </div>
           </div>

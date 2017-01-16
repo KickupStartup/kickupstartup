@@ -1,5 +1,15 @@
 {
   "app": {
     "header": "Kick Up Startup"
+  },
+  "landing": {
+    "description": "A community based Startup Foundry",
+    "motto": "To make the World a Better Place",
+    "name": {
+      "begin": "KICK UP",
+      "middle": "YOUR",
+      "end": "STARTUP!"
+    },
+    "button": "VALIDATE YOUR IDEA"
   }
 }

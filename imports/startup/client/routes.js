@@ -13,7 +13,17 @@ import LandingPage from '../../ui/pages/LandingPage.jsx';
 import IdeasPage from '../../ui/pages/IdeasPage.jsx';
 import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
 
-i18n.setLocale('ru');
+function getLang () {
+    return (
+        navigator.languages && navigator.languages[0] ||
+        navigator.language ||
+        navigator.browserLanguage ||
+        navigator.userLanguage ||
+        'en-US'
+    );
+}
+
+i18n.setLocale(getLang());
 
 FlowRouter.route('/', {
   name: "Home",
