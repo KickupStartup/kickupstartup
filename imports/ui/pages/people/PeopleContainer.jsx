@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
+import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
@@ -8,6 +9,10 @@ class PeoplePage extends Component {
   componentDidMount() {
   }
   componentWillUnmount() {
+  }
+  gotoPerson(e) {
+    e.preventDefault();
+    FlowRouter.go('/people/1');
   }
   render() {
     var customImage = {
@@ -19,7 +24,7 @@ class PeoplePage extends Component {
     return (
       <div className="row">
         <div className="col s12">
-            <div className="white row-border pointer clearfix">
+            <div onClick={this.gotoPerson.bind(this)} className="white row-border pointer clearfix">
                 <div className="content text-center clearfix">
                     <div className="banner" style={customImage}></div>
                     <div className="avatar-photo"><img src="/img/avatar.jpg" /></div>
@@ -35,10 +40,10 @@ class PeoplePage extends Component {
                     <div className="card-nexus-border col s1"></div>
                 </div>
             </div>
-            <div className="white row-border pointer clearfix">
+            <div onClick={this.gotoPerson.bind(this)} className="white row-border pointer clearfix">
                 <div className="content text-center">
                     <div className="banner" style={noImage}></div>
-                    <div className="avatar-photo"><img src="/img/no-photo.png" /></div>
+                    <div className="avatar-photo"><img src="/img/no-photo.png"/></div>
                     <ul className="stat"><li><h3>Greg Brown</h3></li></ul>
                     <ul className="stat"><li>New York, USA</li></ul>
                     <h4>Headline</h4>
