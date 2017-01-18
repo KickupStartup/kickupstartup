@@ -1,0 +1,27 @@
+.banner-bg {
+  background: url(img/no-banner.png) center center no-repeat;
+}
+.banner-bg2 {
+  background: url(img/banner-idea.jpg) center center no-repeat
+}
+.no-banner {
+  background: url(/img/no-banner.png) center center no-repeat;
+}
+
+.counter {
+  float: right; font-size: 12px; height: 1px;
+}
+
+.textarea-height {
+  height: 63px;
+}
+
+.width60p {
+  width: 60%;
+}
+.width30p {
+  width: 30%;
+}
+.width10p {
+  width: 10%;
+}
