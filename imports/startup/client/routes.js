@@ -7,12 +7,17 @@ import { mount } from 'react-mounter';
 import AppLayout from '../../ui/layouts/AppLayout.jsx';
 import MvpLayout from '../../ui/layouts/MvpLayout.jsx';
 
-import ProfilePage from '../../ui/pages/ProfilePage.jsx';
-import LoginPage from '../../ui/pages/LoginPage.jsx';
 import LandingPage from '../../ui/pages/LandingPage.jsx';
-import IdeasPage from '../../ui/pages/IdeasPage.jsx';
-import IdeasCreateContainer from '../../ui/pages/IdeasCreatePage.jsx';
+import ProfileContainer from '../../ui/pages/ProfileContainer.jsx';
 import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
+//import LoginPage from '../../ui/pages/LoginPage.jsx';
+
+import IdeasContainer from '../../ui/pages/ideas/IdeasContainer.jsx';
+import IdeaContainer from '../../ui/pages/ideas/IdeaContainer.jsx';
+import IdeaCreateContainer from '../../ui/pages/ideas/IdeaCreateContainer.jsx';
+
+import PeopleContainer from '../../ui/pages/people/PeopleContainer.jsx';
+import PersonContainer from '../../ui/pages/people/PersonContainer.jsx';
 
 function getLang () {
     return (
@@ -26,48 +31,90 @@ function getLang () {
 
 i18n.setLocale(getLang());
 
+// handling landing page
 FlowRouter.route('/', {
   name: "Home",
-  // do some action for this route
   action: function(params, queryParams) {
-    mount(MvpLayout, {
+    mount(MvpLayout, { // layout is different for landing page
       main: (<LandingPage />)
     });
   }
 });
 
+// group ideas routes
+const ideasRoutes = FlowRouter.group({
+  prefix: '/ideas',
+  name: 'ideas',
+  triggersEnter: [function(context, redirect) {
+    console.log('running ideas group triggers');
+  }]
+});
+
+// handle /ideas request - show list of public ideas
+ideasRoutes.route('/', {
+  name: 'ideas',
+  action(params, queryParams) {
+    mount(AppLayout, {
+      main: (<IdeasContainer />)
+    });
+  }
+});
+
+// handling idea create route - form to come up with an idea
+// order is important!!! /create route must be declared before /:id
+ideasRoutes.route('/create', {
+  name: 'ideaCreate',
+  action(params, queryParams) {
+    mount(AppLayout, {
+      main: (<IdeaCreateContainer />)
+    });
+  }
+});
+
+// handling single idea request by id
+ideasRoutes.route('/:idea_id', {
+  name: 'idea',
+  action(params, queryParams) {
+    console.log(queryParams);
+    mount(AppLayout, {
+      main: (<IdeaContainer />)
+    });
+  }
+});
+
+// group people routes
+const peopleRoutes = FlowRouter.group({
+  prefix: '/people',
+  name: 'people',
+  triggersEnter: [function(context, redirect) {
+    console.log('running people group triggers');
+  }]
+});
+
+// handling people
+peopleRoutes.route('/', {
+  name: 'people',
+  action(params, queryParams) {
+    mount(AppLayout, {
+      main: (<PeopleContainer />)
+    });
+  }
+})
+
+peopleRoutes.route('/:userId', {
+  name: 'person',
+  action(params, queryParams) {
+    mount(AppLayout, {
+      main: (<PersonContainer />)
+    });
+  }
+})
+
 FlowRouter.route('/profile', {
-  name: 'Profile',
+  name: 'profile',
   action(params, queryParams) {
     mount(AppLayout, {
-      main: (<ProfilePage />)
-    });
-  }
-});
-
-FlowRouter.route('/ideas', {
-  name: 'Ideas',
-  action(params, queryParams) {
-    mount(AppLayout, {
-      main: (<IdeasPage />)
-    });
-  }
-});
-
-FlowRouter.route('/ideas/create', {
-  name: 'Ideas.create',
-  action(params, queryParams) {
-    mount(AppLayout, {
-      main: (<IdeasCreateContainer />)
-    });
-  }
-});
-
-FlowRouter.route("/login", {
-  name: "LoginPage",
-  action: function(params, queryParams) {
-    mount(MvpLayout, {
-      main: (<LoginPage />)
+      main: (<ProfileContainer />)
     });
   }
 });
@@ -79,6 +126,15 @@ FlowRouter.notFound = {
     });
   }
 };
+
+// FlowRouter.route("/login", {
+//   name: "LoginPage",
+//   action: function(params, queryParams) {
+//     mount(MvpLayout, {
+//       main: (<LoginPage />)
+//     });
+//   }
+// });
 
 //const publicRoutes = FlowRouter.group( { name: 'public' } );
 //
@@ -95,7 +151,6 @@ FlowRouter.notFound = {
 //     console.log("Looking at a profile?");
 //   }
 // });
-
 
 // Accounts.ui.config({
 //   requestPermissions: {

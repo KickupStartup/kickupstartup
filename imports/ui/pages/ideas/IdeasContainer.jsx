@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 
-export default class ProfilePage extends Component {
+export default class IdeasContainer extends Component {
   render () {
     return (
       <div className="row">
@@ -11,7 +11,7 @@ export default class ProfilePage extends Component {
               <p>
                   Любой бизнес создается, чтобы решать проблемы других людей. И от того насколько просто и эффективно вы их решаете зависит успешность вашего дела.
                   <br />
-                  
+
                   <br />
                   Поэтому, постарайтесь передать суть вашей идеи таким образом, чтобы обязательно присутствовали:
                   <ol>

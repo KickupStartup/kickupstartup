@@ -4,12 +4,10 @@ import { createContainer } from 'meteor/react-meteor-data';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-class IdeasCreatePage extends Component {
+class IdeaCreatePage extends Component {
   componentDidMount() {
-    $('html').addClass('welcome');
   }
   componentWillUnmount() {
-    $('html').removeClass('welcome');
   }
   validateIdea(e) {
     e.preventDefault();
@@ -92,8 +90,8 @@ class IdeasCreatePage extends Component {
   }
 }
 
-export default IdeasCreateContainer = createContainer(props => {
+export default IdeaCreateContainer = createContainer(props => {
   return {
     user: Meteor.user(),
   };
-}, IdeasCreatePage);
+}, IdeaCreatePage);

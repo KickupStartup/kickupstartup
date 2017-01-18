@@ -1,7 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { createContainer } from 'meteor/react-meteor-data';
+import i18n from 'meteor/universe:i18n';
+const T = i18n.createComponent();
 
-export default class ProfilePage extends Component {
+class ProfilePage extends Component {
   componentDidMount() {
     // init modals
     $('.modal-trigger').leanModal();
@@ -81,3 +84,9 @@ export default class ProfilePage extends Component {
     )
   }
 }
+
+export default ProfileContainer = createContainer(props => {
+  return {
+    user: Meteor.user(),
+  };
+}, ProfilePage);
