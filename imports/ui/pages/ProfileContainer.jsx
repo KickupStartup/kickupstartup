@@ -7,6 +7,13 @@ const T = i18n.createComponent();
 class ProfilePage extends Component {
   componentDidMount() {
   }
+  logout(e) {
+    e.preventDefault();
+    if (Meteor.userId()) {
+      Meteor.logout();
+      FlowRouter.go('/');
+    }
+  }
   render () {
     var bannerImage = {
       background: "url(/img/no-banner.jpg) center center no-repeat"
@@ -20,7 +27,7 @@ class ProfilePage extends Component {
                         <a href="#" className="active modal-bottom-link">English</a>&middot;<a href="#" className="modal-bottom-link">Русский</a>
                     </div>
                     <h3>Logout</h3>
-                    <div>Если вы хотите сменить пользователя, то <a href="#">click here</a> to logout.</div>
+                    <div>Если вы хотите сменить пользователя, то <a onClick={this.logout.bind(this)} href="#">click here</a> to logout.</div>
                 </div>
             </div>
         </div>

@@ -46,7 +46,7 @@ export default class JoinUsPanel extends Component {
   }
   render () {
     return (
-      <div className="row">
+      // <div className="row">
         <div className="white row-border">
           <div className="content text-center clearfix">
               <h3><T>joinus.header</T></h3>
@@ -63,7 +63,7 @@ export default class JoinUsPanel extends Component {
               </div>
           </div>
         </div>
-      </div>
+      // </div>
     )
   }
 }

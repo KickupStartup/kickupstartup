@@ -6,10 +6,10 @@ import JoinUsPanel from '../components/JoinUsPanel.jsx';
 
 const App = (props) => (
   <div>
-    { props.user ? <Navigation /> : '' }
+    <Navigation />
     <div className="container main">
       <div className="row">
-        <div className="col-xs-12">
+        <div className="col s12">
           { props.user ? '' : <JoinUsPanel /> }
         </div>
       </div>

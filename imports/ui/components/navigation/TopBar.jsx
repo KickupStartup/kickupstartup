@@ -14,13 +14,6 @@ export default class NavigationBar extends Component {
       });
     return menuClass;
   }
-  logout(e) {
-    e.preventDefault();
-    if (Meteor.userId()) {
-      Meteor.logout();
-      FlowRouter.go('/');
-    }
-  }
   render () {
     return (
       <div className="navbar navbar-fixed-top" role="navigation">
