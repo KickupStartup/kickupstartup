@@ -1,6 +1,5 @@
 import React from 'react';
 import i18n from 'meteor/universe:i18n';
-//import { Accounts } from 'meteor/std:accounts-ui';
 import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
 import { mount } from 'react-mounter';
 
@@ -10,7 +9,6 @@ import MvpLayout from '../../ui/layouts/MvpLayout.jsx';
 import LandingPage from '../../ui/pages/LandingPage.jsx';
 import ProfileContainer from '../../ui/pages/ProfileContainer.jsx';
 import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
-//import LoginPage from '../../ui/pages/LoginPage.jsx';
 
 import IdeasContainer from '../../ui/pages/ideas/IdeasContainer.jsx';
 import IdeaContainer from '../../ui/pages/ideas/IdeaContainer.jsx';
