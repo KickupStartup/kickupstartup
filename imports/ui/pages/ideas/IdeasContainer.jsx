@@ -13,7 +13,11 @@ export default class IdeasContainer extends Component {
                             <div className="avatar-photo"><img src="img/avatar-idea.jpg"/></div>
                             <ul className="stat"><li><h3>Idea</h3></li></ul>
                         </div>
-                        <p>
+                        <blockquote className="col s12">
+                          <div>“Revolutions tend to be about ideas and not profits or market share.”</div>
+                          <span className="right">Laszlo Bock, "Work Rules"</span>
+                        </blockquote>
+                        <p className="col s12">
                             Для создания amazing стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.
                         </p>
                     </div>

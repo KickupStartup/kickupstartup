@@ -32,6 +32,10 @@ export default class LandingPage extends Component {
               <T>landing.motto</T>
           </h3>
           <div className="row">
+                        <blockquote className="col s12">
+                          <div>“Что вы должны сделать — так это создать великолепный продукт или сервис с целью изменить мир. Если вы сделаете это, вы можете стать легендой.”</div>
+                          <span className="right">Гай Кавассаки</span>
+                        </blockquote>
               <div className="col s12 text-center">
                 <p>
                     <T>landing.text</T>
