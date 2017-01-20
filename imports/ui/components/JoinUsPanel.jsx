@@ -54,10 +54,10 @@ export default class JoinUsPanel extends Component {
           <h3><T>joinus.header</T></h3>
           <p><T>joinus.text</T></p>
           <div className="card-footer clearfix pull-right">
-            <a href={this.loginWithGoogle.bind(this)} className="ticket-btn">
+            <a href="#!" onClick={this.loginWithGoogle.bind(this)} className="ticket-btn">
               <i className="fa fa-google-plus fa-lg" title="Google+"></i>Google+
             </a>
-            <a href={this.loginWithTwitter.bind(this)} className="ticket-btn">
+            <a href="#!" onClick={this.loginWithTwitter.bind(this)} className="ticket-btn">
               <i className="fa fa-twitter fa-lg" title="Twitter"></i>Twitter
             </a>
           </div>
