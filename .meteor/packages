@@ -62,5 +62,6 @@ accounts-password
 accounts-google
 accounts-github
 accounts-twitter
+service-configuration
 pauli:accounts-linkedin
 alanning:roles
