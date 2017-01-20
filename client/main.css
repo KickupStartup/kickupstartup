@@ -4,7 +4,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 html {
   background-color: #f9f9f9;
   font-family: 'Roboto', sans-serif;
@@ -22,19 +21,22 @@ html.welcome{
   -o-background-size: cover;
   background-size: cover;
 }
-    html.welcome .container.shadow{padding-top:68px;text-shadow:0 0 20px rgba(0,0,0,.7)}
-    html.welcome .container.shadow .heading,html.welcome a{color:#eee}
-        html.welcome a:hover,.languages a:hover{color:#fff}
-        .shadow .languages a{color:#eee;text-shadow:none}
-            .shadow .languages a.active:hover{color:#333}
-    .shadow .languages{color:#eee;text-align:center;padding-bottom:68px}
-        .shadow .languages a{border-radius:4px;margin:0 12px;padding:8px 12px}
-            .shadow .languages a.active{color:#333;background-color:#eee}
     .main .languages{margin:20px -20px 0}
         .main .languages a{color:#333;margin:12px}
             .main .languages a{color:#333}
             .main .languages a:hover{color:#ffab40}
             .main .languages a.active{color:#ff9100}
+
+    .shadow{color:#fff;padding-top:68px;text-shadow:0 0 20px rgba(0,0,0,.7)}
+    .shadow .orange{text-shadow:none}
+    .shadow .heading,.container.shadow a{color:#eee}
+        .shadow a:hover,.languages a:hover{color:#fff}
+        .shadow .languages a{color:#fff;text-shadow:none}
+            .shadow .languages a.active:hover{color:#333}
+    .shadow .languages{color:#eee;text-align:center;padding-bottom:68px}
+        .shadow .languages a{border-radius:4px;margin:0 12px;padding:8px 12px}
+            .shadow .languages a.active{color:#333;background-color:#eee}
+          .shadow .orange .fa{margin-right:8px}
     .heading .text-primary{color:#ff9100}
 @media print {
   *,
@@ -1367,7 +1369,7 @@ fieldset[disabled] .radio label,
 fieldset[disabled] .checkbox label {
   cursor: not-allowed;
 }
-.card-top-icon{padding-top:24px;position:relative;right:-6px}
+.card-top-icon{position:relative;right:-6px;top:24px}
 .close,.card-top-icon {
   float: right;
   font-size: 21px;
@@ -3468,7 +3470,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .card-nexus-the-end .content{padding-bottom:24px}
 .card-nexus-info-icon{color:#eee;position:relative;right:51px;margin-right:-16px}
 .card-nexus-info .content{padding-left:32px}
-.card-footer{margin:24px -22px 6px}
+.card-footer{margin:24px -24px 8px}
   .card-footer button{color:#555;padding:0 18px;text-transform:none}
     .card-footer button:hover{background-color:transparent;color:#0072dc}
     .card-footer .fa{margin-right:5px}
@@ -3490,7 +3492,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
           -o-transition: background-color .5s linear, border .5s ease;
           -ms-transition: background-color .5s linear, border .5s ease;
           transition: background-color .5s linear, border .5s ease}
-.card-reveal{border:1px solid #f2f2f2}
+.card-reveal{}
 .editable{border-bottom:1px solid #f2f2f2}
 .editable{display:inline-block;padding:10px;margin:0 -4px}
   .editable.avatar-photo:hover img{box-shadow:0 0 0 1px #ccc}
@@ -3910,7 +3912,7 @@ a{color:#ff9100;
     .card .tips a{color:#555;float:right}
         .card .tips a:hover{color:#0072dc}
         .card .card-content{padding:0;margin-bottom:12px}
-        .card .card-reveal{padding:30px 40px;cursor:default}
+        .card .card-reveal{padding:30px 40px;cursor:default;left:0}
             .card .card-reveal .modal-title{margin-top:0}
 .card,.card-panel,.collapsible{box-shadow:none}
 .collapsible{border-color:#f2f2f2;margin:0}
@@ -3933,6 +3935,7 @@ a{color:#ff9100;
 .btn i, .btn-large i, .btn-floating i, .btn-large i, .btn-flat i{line-height:.75em}
     .btn-large i{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
     .btn i{font-size:1em}
+    .btn .fa,a .fa{margin-right:8px}
 .switch label input[type=checkbox]:checked + .lever{background-color:#818181}
 .switch label input[type=checkbox]:checked + .lever:after{background-color:#F1F1F1}
 .green:hover{background-color:#5eb762!important}

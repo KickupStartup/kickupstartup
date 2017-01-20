@@ -12,7 +12,7 @@ export default class NotFoundPage extends Component {
                 <p>
                     The page you are looking for doesn't exist or an other error occurred.
                     <br/>
-                    <a href="#">Go back</a>, or head over to <a href="#">main page</a> to choose a new direction.
+                    <a href="javascript:history.back()">Go back</a>, or head over to <a href="/">main page</a> to choose a new direction.
                 </p>
             </div>
         </div>

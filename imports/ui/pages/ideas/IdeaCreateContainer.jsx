@@ -25,7 +25,7 @@ class IdeaCreatePage extends Component {
         <div className="row">
             <div className="col s12">
                 <div className="white card row-border clearfix">
-                    <i className="fa fa-lock card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible" data-tooltip-id="bd001746-e4cd-4629-94ff-6c66c3e5c762"></i>
+                    <i className="fa fa-lock card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
                     <div className="modal-header">
                         <h3 className="modal-title">Vague idea</h3>
                     </div>
@@ -33,10 +33,9 @@ class IdeaCreatePage extends Component {
                         <p>Если у вас пока нет сформулированной идеи, то начните с ее описания в свободной форме. Обязательно пригласите друзей, которые помогут вам с кристализацией идеи. В результате вы получите информацию необходимую для заполнения следующего блока.</p>
                         <div className="form">
                             <div className="input-field">
-                                 {/* length="4096" */}
-                                <textarea id="description" className="materialize-textarea" rows="18"></textarea>
                                 <label htmlFor="description">Description</label>
-                            <span className="character-counter counter"></span></div>
+                                <textarea id="description" className="materialize-textarea clearfix"></textarea>
+                            </div>
                         </div>
                         <div className="col s12 text-center">
                             <button type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
@@ -49,25 +48,22 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                     <div className="card-reveal">
-                        <button type="button" className="card-title close">×</button>
+                        <button type="button" className="card-title close">&times;</button>
                         <h3 className="modal-title">Invite friends to edit</h3>
                         <div className="modal-body">
                             <div className="form-group form clearfix">
                                 <div className="input-field">
-                                    <input id="emails" type="text" className="validate" placeholder="Please separate the recipients email by using commas"/>
-                                    <label htmlFor="emails" className="active">Emails</label>
+                                    <label htmlFor="emails">Emails</label>
+                                    <input id="emails" type="text" className="validate" placeholder="Please separate the recipients email by using commas" />
                                 </div>
                                 <div className="input-field">
-                                    <textarea id="message" className="materialize-textarea validate textarea-height" rows="6" defaultValue="Hello!
-Мне нужна помощь с написанием идеи нового стартапа.
-Спасибо!"></textarea>
-                                    <label htmlFor="Message" className="active">Message</label>
+                                    <label htmlFor="Message">Message</label>
+                                    <textarea id="message" className="materialize-textarea validate">Hello!&#10;Мне нужна помощь с написанием идеи нового стартапа.&#10;Спасибо!</textarea>
                                 </div>
                             </div>
                             <div className="col s12 text-center">
                                 <button type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
-                                    <span className="fa fa-envelope"></span>
-                                    <span>Send</span>
+                                    <i className="fa fa-envelope"></i>Send
                                 </button>
                             </div>
                         </div>
@@ -86,19 +82,20 @@ class IdeaCreatePage extends Component {
                     <div className="modal-body">
                         <div className="form">
                             <div className="input-field">
+                                <label htmlFor="idea_name" className="active">Idea name</label>
                                 {/* length="64"*/}
                                 <input placeholder="Around the World Jobs" id="idea_name" type="text"/>
-                                <label htmlFor="idea_name" className="active">Idea name</label>
                             <span className="character-counter counter"></span></div>
                             <div className="input-field">
                                 {/* length="256" */}
                                 <textarea id="value_proposition" className="materialize-textarea" placeholder="Поиск разовой работы для путешественников."></textarea>
+                                <br />
                                 <label htmlFor="value_proposition" className="active">Value Proposition</label>
                             <span className="character-counter counter"></span></div>
                             <div className="input-field">
+                                <label htmlFor="problem_worth_solving" className="active">Problem Worth Solving</label>
                                  {/* length="256" */}
                                 <textarea id="problem_worth_solving" className="materialize-textarea" placeholder="Путешественникам сложно найти дополнительный заработок в чужой стране."></textarea>
-                                <label htmlFor="problem_worth_solving" className="active">Problem Worth Solving</label>
                             <span className="character-counter counter"></span></div>
                         </div>
                     </div>
@@ -152,14 +149,14 @@ class IdeaCreatePage extends Component {
                         <p>На этапе формирования идеи наиболее важно получить как можно больше отзывов для выбора правильного направления. Мы рекомендуем пригласить друзей и знакомых дать отзыв о вашей идее.</p>
                         <div className="form-group form clearfix">
                             <div className="input-field">
-                                <input id="emails" type="text" className="validate" placeholder="Please separate the recipients email by using commas"/>
                                 <label htmlFor="emails" className="active">Emails</label>
+                                <input id="emails" type="text" className="validate" placeholder="Please separate the recipients email by using commas"/>
                             </div>
                             <div className="input-field">
+                                <label htmlFor="Message" className="active">Message</label>
                                 <textarea id="message" className="materialize-textarea validate textarea-height" rows="6" defaultValue="Hello!
 Прошу оценить идею моего нового стартапа.
 Спасибо!"></textarea>
-                                <label htmlFor="Message" className="active">Message</label>
                             </div>
                         </div>
                         <div className="col s12 text-center">
