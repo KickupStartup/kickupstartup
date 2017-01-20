@@ -3959,6 +3959,7 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
     background-color: #ff9100;
     z-index: 0;
 }
+.z-depth-1-half,.btn:hover,.btn-large:hover,.btn-floating:hover{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
 /* material update END */
 .tips-blue{color:#31708f;background-color:#d9edf7!important;border-color:#bce8f1}
 .search{margin:32px 0 -20px}
