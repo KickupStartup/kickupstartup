@@ -3185,7 +3185,6 @@ fieldset[disabled] a.btn {
   .navbar-form .form-group:last-child {
     margin-bottom: 0;
   }
-  .fullpage_nav{padding-left:40px}
 }
 @media (min-width: 768px) {
   .navbar-form {
