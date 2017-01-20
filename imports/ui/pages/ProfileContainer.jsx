@@ -27,7 +27,13 @@ class ProfilePage extends Component {
                         <a href="#" className="active modal-bottom-link">English</a>&middot;<a href="#" className="modal-bottom-link">Русский</a>
                     </div>
                     <h3>Logout</h3>
-                    <div>Если вы хотите сменить пользователя, то <a onClick={this.logout.bind(this)} href="#">click here</a> to logout.</div>
+                    <p>Хотите сменить пользователя?</p>
+                    <div className="col s12 text-center">
+                        <button type="submit" className="activator waves-effect waves-light orange accent-3 btn" onClick={this.logout.bind(this)}>
+                            <i className="fa fa-lock"></i>
+                            Logout
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -531,11 +531,11 @@ dd {
   -o-transition: all 0.2s ease-in-out
   transition: all 0.2s ease-in-out}
 .back .fa{margin-right:8px}
-@media (min-width: 768px) {
-    .submenu .back{background-color:#f9f9f9;margin-top:-42px;padding-top:20px!important;position:fixed;z-index:4}
-    .submenu .main{padding-top:114px}
+    .submenu .back{background-color:#f9f9f9;margin-top:-46px;padding-top:24px!important;position:fixed;z-index:4}
+    .submenu .main{padding-top:118px}
     .no-submenu .back{display:none}
-    .no-submenu .main{padding-top:72px}
+    .no-submenu .main{padding-top:74px}
+@media (min-width: 768px) {
     .page .main-padding{padding-top:22px}
     .page .main.inner{padding-top:140px}
   .container {
@@ -1835,8 +1835,6 @@ button.close {
   }
 }
  @media (max-width: 768px) {
-     .page .main{padding-top:20px;margin-bottom:-40px}
-  .avatar-small{margin-left:40px}
 }
 /**
  * Navbar transform
@@ -2062,7 +2060,7 @@ html {
 .main .white.cover{padding:10px}
 .main .content{padding-bottom: 40px}
   .page .content{padding-bottom:10px}
-  .page .content .btn{margin:10px 0 15px}
+  .page .content .btn{margin:12px 0 0}
 .divider {
     height: 1px;
     margin: 9px 0;
@@ -2932,7 +2930,10 @@ fieldset[disabled] a.btn {
   border-top-left-radius: 0;
 }
 .navbar {
-  position: relative;
+    border-radius: 0;
+    position: fixed;
+    right: 0;
+    left: 0;
   min-height: 70px;
   border: 1px solid transparent;
 }
@@ -3013,7 +3014,6 @@ fieldset[disabled] a.btn {
   .navbar-static-top {
     border-radius: 0;
   }
-  .navbar-fixed-top,
   .navbar-fixed-bottom {
     border-radius: 0;
     position: fixed;
@@ -3886,9 +3886,9 @@ sup.badge{display:inline-block;min-width:10px;padding:3px 7px;font-size:10px;fon
 .carousel-text h3{text-transform:uppercase;font-size:16px;font-weight:bold}
 .carousel-text h5{text-transform:uppercase;font-size:11px;font-weight:bold}
 .fixed-action-btn .fa{margin:0;line-height:26px}
-.btn-margin{margin:24px 0}
+.btn-margin{margin:24px 0 12px}
 .content-no-header{margin-top:20px}
-.modal-bottom-link{margin:4px 4px 12px}
+.modal-bottom-link{margin:12px 4px}
 .modal-bottom-link a{padding:8px}
     .modal-bottom-link a:hover{text-decoration:none}
 .content-form{margin:20px 12px 12px}
