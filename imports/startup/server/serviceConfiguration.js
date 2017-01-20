@@ -1,9 +1,6 @@
 if (!process.env.METEOR_SETTINGS) {
   console.log("=> No METEOR_SETTINGS passed in, using locally defined settings.");
-  console.log(Meteor.settings);
 } else {
-  console.log(process.env.METEOR_SETTINGS);
-
   ServiceConfiguration.configurations.upsert({
     service: "google"
   }, {
@@ -20,6 +17,24 @@ if (!process.env.METEOR_SETTINGS) {
       consumerKey: Meteor.settings.twitter.consumerKey,
       loginStyle: Meteor.settings.twitter.loginStyle,
       secret: Meteor.settings.twitter.secret
+    }
+  });
+  ServiceConfiguration.configurations.upsert({
+    service: "github"
+  }, {
+    $set: {
+      clientId: Meteor.settings.github.clientId,
+      loginStyle: Meteor.settings.github.loginStyle,
+      secret: Meteor.settings.github.secret
+    }
+  });
+  ServiceConfiguration.configurations.upsert({
+    service: "linkedin"
+  }, {
+    $set: {
+      clientId: Meteor.settings.linkedin.clientId,
+      loginStyle: Meteor.settings.linkedin.loginStyle,
+      secret: Meteor.settings.linkedin.secret
     }
   });
 }

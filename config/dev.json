@@ -1,12 +1,12 @@
 {
   "github": {
-    "clientId": "6f242166b82f17f373d4",
-    "secret": "67c58ab9ad0f644b82820bfb3c36cb8c21ce26ea",
+    "clientId": "6526ce11ed931b6125e8",
+    "secret": "8268cd0aacea96d9a13adc4b5912c24d376b38ee",
     "loginStyle": "popup"
   },
   "google": {
-    "clientId": "254941689558-50e9f84ul3i8n70s0fcikaf5hautvkvt.apps.googleusercontent.com",
-    "secret": "N2G565Akc58K5GV3WIyrPq-1",
+    "clientId": "114753858298-9jd3cmho37fltqjb62n76je2b9jt0er3.apps.googleusercontent.com",
+    "secret": "H6U6TiO8z29hzohZElwAXdWh",
     "loginStyle": "popup"
   },
   "twitter": {
@@ -15,8 +15,8 @@
     "loginStyle": "popup"
   },
   "linkedin": {
-    "clientId": "78rxgb2xhzgfdh",
-    "secret": "W1xnv7uzJr5TxVwX",
+    "clientId": "78besi4tjxbzrs",
+    "secret": "6ikyCw5bUU2PV4bS",
     "loginStyle": "popup"
   }
 }
