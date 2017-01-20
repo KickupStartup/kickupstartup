@@ -15,7 +15,7 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div className="row">
-      
+
 <style>
 </style>
         <div className="col s12">
@@ -33,12 +33,22 @@ export default class LandingPage extends Component {
           </h3>
           <div className="row">
               <div className="col s12 text-center">
+                <p>
+                    <T>landing.text</T>
+                </p>
+                <p>
+                    <T>landing.text2</T>
+                </p>
+              </div>
+          </div>
+          <div className="row">
+              <div className="col s12 text-center">
                   <a href="/ideas/create" className="waves-effect waves-light orange accent-3 btn-large btn-margin">
                       <span className="fa fa-lightbulb-o fa-lg"></span>
                       <span><T>landing.button</T></span>
                   </a>
                   <div data-target="modal-login">
-                      <a href="/ideas">View other ideas</a>
+                      <a href="/ideas">Explore</a>
                   </div>
               </div>
           </div>

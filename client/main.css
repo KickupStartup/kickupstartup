@@ -28,7 +28,7 @@ html.welcome{
             .main .languages a.active{color:#ff9100}
 
     .shadow{color:#fff;padding-top:68px;text-shadow:0 0 20px rgba(0,0,0,.7)}
-    .shadow .orange{text-shadow:none}
+    .shadow .orange{margin:12px 0 24px;text-shadow:none}
     .shadow .heading,.container.shadow a{color:#eee}
         .shadow a:hover,.languages a:hover{color:#fff}
         .shadow .languages a{color:#fff;text-shadow:none}
