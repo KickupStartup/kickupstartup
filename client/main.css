@@ -21,11 +21,12 @@ html.welcome{
   -o-background-size: cover;
   background-size: cover;
 }
-html.welcome body{height:100%;
-  background: -webkit-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.3), rgba(0,0,0,0));
-  background: -o-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.3), rgba(0,0,0,0)));
-  background: -moz-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.3), rgba(0,0,0,0)));
-  background: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.3), rgba(0,0,0,0)))}
+html.welcome body{min-height:100%;
+  background: -webkit-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0));
+  background: -o-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)));
+  background: -moz-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)));
+  background: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0));
+  background-image: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)))}
     .main .languages{margin:0 -12px}
         .main .languages a{color:#333;margin:12px}
             .main .languages a{color:#333}
