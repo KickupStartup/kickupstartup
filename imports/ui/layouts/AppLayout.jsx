@@ -5,14 +5,17 @@ import Navigation from '../components/navigation/Navigation.jsx';
 import JoinUsPanel from '../components/JoinUsPanel.jsx';
 
 const App = (props) => (
-  <div>
+  <div className="submenu">
     <Navigation />
     <div className="container main">
-      <div className="row">
-        <div className="col s12">
-          { props.user ? '' : <JoinUsPanel /> }
-        </div>
-      </div>
+        <div className="row">
+            <div className="col s12 back clearfix">
+                <div className="row">
+                    <div className="col s12"><a href="/ideas"><i className="fa fa-arrow-circle-left"></i>Back</a></div>
+                </div>
+            </div>
+          </div>
+      { props.user ? '' : <JoinUsPanel /> }
       { props.main }
     </div>
   </div>

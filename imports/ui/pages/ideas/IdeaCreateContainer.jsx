@@ -14,14 +14,6 @@ class IdeaCreatePage extends Component {
   }
   render() {
     return (
-      <div>
-        <div className="row">
-            <div className="col s12 back clearfix">
-                <div className="row">
-                    <div className="col s12"><a href="/ideas"><i className="fa fa-arrow-circle-left"></i>Back</a></div>
-                </div>
-            </div>
-        </div>
         <div className="row">
             <div className="col s12">
                 <div className="white card row-border clearfix">
@@ -339,7 +331,6 @@ class IdeaCreatePage extends Component {
                 </div>
             </div>
         </div>
-      </div>
     );
   }
 }

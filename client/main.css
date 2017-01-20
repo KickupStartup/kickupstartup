@@ -526,16 +526,16 @@ dd {
   padding-left: 15px;
   padding-right: 15px;
 }
-.back a{color:#333333;padding:15px;  -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;}
+.back a{color:#333333;padding:15px;-webkit-transition:all 0.2s ease-in-out;-o-transition:all 0.2s ease-in-out;transition: all 0.2s ease-in-out}
     .back a:hover{color:#ff9100;  -webkit-transition: all 0.2s ease-in-out
   -o-transition: all 0.2s ease-in-out
   transition: all 0.2s ease-in-out}
 .back .fa{margin-right:8px}
 @media (min-width: 768px) {
-    .back{background-color:#f9f9f9;margin-top:-24px;padding-top:28px!important;position:fixed;z-index:4}
-  .page .main{padding-top:86px}
+    .submenu .back{background-color:#f9f9f9;margin-top:-42px;padding-top:20px!important;position:fixed;z-index:4}
+    .submenu .main{padding-top:114px}
+    .no-submenu .back{display:none}
+    .no-submenu .main{padding-top:72px}
     .page .main-padding{padding-top:22px}
     .page .main.inner{padding-top:140px}
   .container {
@@ -1369,7 +1369,7 @@ fieldset[disabled] .radio label,
 fieldset[disabled] .checkbox label {
   cursor: not-allowed;
 }
-.card-top-icon{position:relative;right:-6px;top:24px}
+.card-top-icon{position:relative;right:-6px}
 .close,.card-top-icon {
   float: right;
   font-size: 21px;

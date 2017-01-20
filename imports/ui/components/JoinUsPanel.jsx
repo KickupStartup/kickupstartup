@@ -46,6 +46,8 @@ export default class JoinUsPanel extends Component {
   }
   render () {
     return (
+        <div className="row">
+          <div className="col s12 clearfix">
       <div className="white row-border">
         <div className="content clearfix">
           <div className="languages right">
@@ -62,6 +64,8 @@ export default class JoinUsPanel extends Component {
             </a>
           </div>
         </div>
+      </div>
+          </div>
       </div>
     )
   }
