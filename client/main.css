@@ -21,7 +21,7 @@ html.welcome{
   -o-background-size: cover;
   background-size: cover;
 }
-    .main .languages{margin:20px -20px 0}
+    .main .languages{margin:0 -12px}
         .main .languages a{color:#333;margin:12px}
             .main .languages a{color:#333}
             .main .languages a:hover{color:#ffab40}
@@ -296,7 +296,7 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin:22px 0 10px;
+  margin:0 0 12px;
 }
 h1 small,
 .h1 small,
@@ -2057,7 +2057,7 @@ html {
   height: 100% !important;
   /* Added !important to override smoothscroll.js height: auto; */
 }
-.main .white{background-color:#fff;padding:10px 40px}
+.main .white{background-color:#fff;padding:32px 40px 20px}
 .main .white h4{font-weight:normal}
 .main .white.cover{padding:10px}
 .main .content{padding-bottom: 40px}
@@ -3430,8 +3430,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   .navbar-fixed-top .nav > li{display: inline-block}
 }
 .sidebar__btn .fa-lg{vertical-align:0}
-.banner{border:4px solid #fff;margin:-10px -40px;height:120px}
-.avatar-photo{clear:both;top:-40px;position:relative}
+.banner{border:4px solid #fff;margin:-32px -40px;height:120px}
+.avatar-photo{clear:both;top:-40px;margin-bottom:18px;position:relative}
   .avatar-photo img{border-radius:50%;border:4px solid #fff;display:block;margin:0 auto -40px;top:-40px;width:104px;height:104px}
 .avatar-small{padding:10px!important}
   .avatar-small img{border-radius:50%;box-shadow:0 0 0 3px #f2f2f2;width:50px;height:50px}
@@ -3470,14 +3470,14 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .card-nexus-the-end .content{padding-bottom:24px}
 .card-nexus-info-icon{color:#eee;position:relative;right:51px;margin-right:-16px}
 .card-nexus-info .content{padding-left:32px}
-.card-footer{margin:24px -24px 8px}
+.card-footer{margin:24px -12px 0}
   .card-footer button{color:#555;padding:0 18px;text-transform:none}
     .card-footer button:hover{background-color:transparent;color:#0072dc}
     .card-footer .fa{margin-right:5px}
 .modal-content .card-footer{margin:20px -10px 0}
 .modal-title small{position:relative;top:-1px}
 
-.ticket-btn,.modal-footer a{color:#555;padding:15px}
+.ticket-btn,.modal-footer a{color:#555;padding:12px}
 .nav-tabs{margin:0 0 -1px}
   .nav-tabs li > a{color:#555}
 .pointer{background:#fff;border:1px solid #f2f2f2;
@@ -3889,7 +3889,7 @@ sup.badge{display:inline-block;min-width:10px;padding:3px 7px;font-size:10px;fon
 .fixed-action-btn .fa{margin:0;line-height:26px}
 .btn-margin{margin:24px 0}
 .content-no-header{margin-top:20px}
-.modal-bottom-link{margin:4px 0 16px}
+.modal-bottom-link{margin:4px 4px 12px}
 .modal-bottom-link a{padding:8px}
     .modal-bottom-link a:hover{text-decoration:none}
 .content-form{margin:20px 12px 12px}
@@ -3935,7 +3935,7 @@ a{color:#ff9100;
 .btn i, .btn-large i, .btn-floating i, .btn-large i, .btn-flat i{line-height:.75em}
     .btn-large i{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
     .btn i{font-size:1em}
-    .btn .fa,a .fa{margin-right:8px}
+    .btn .fa,a .fa,.btn-large .fa{margin-right:8px}
 .switch label input[type=checkbox]:checked + .lever{background-color:#818181}
 .switch label input[type=checkbox]:checked + .lever:after{background-color:#F1F1F1}
 .green:hover{background-color:#5eb762!important}
@@ -3963,7 +3963,7 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
 .tips-blue{color:#31708f;background-color:#d9edf7!important;border-color:#bce8f1}
 .search{margin:32px 0 -20px}
 .tweet{margin-top:8px}
-.chat{border:none;margin:60px -15px 20px}
+.chat{border:none;margin:60px -15px 12px}
     .chat .collection-item{border:none}
     .chat .chat-date{color:#9e9e9e;float:right;font-size:0.8rem}
 

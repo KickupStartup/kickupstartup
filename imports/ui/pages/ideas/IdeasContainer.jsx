@@ -18,12 +18,10 @@ export default class IdeasContainer extends Component {
                         </p>
                     </div>
                     <div className="col s12 text-center">
-                        <div className="col s12 text-center">
-                            <a href="/ideas/create" className="waves-effect waves-light orange accent-3 btn-large btn-margin">
-                                <i className="fa fa-bullhorn fa-lg"></i>
-                                Validate Your Idea
-                            </a>
-                        </div>
+                        <a href="/ideas/create" className="waves-effect waves-light orange accent-3 btn-large btn-margin">
+                            <i className="fa fa-bullhorn fa-lg"></i>
+                            Validate Your Idea
+                        </a>
                     </div>
                     <div className="white card-reveal">
                         <div className="tips">

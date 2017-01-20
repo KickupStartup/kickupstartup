@@ -7,6 +7,9 @@
 .no-banner {
   background: url(/img/no-banner.png) center center no-repeat;
 }
+.progress-bar-success{width:60%!important}
+.progress-bar-warning{width:30%!important}
+.progress-bar-danger{width:10%!important}
 
 .counter {
   float: right; font-size: 12px; height: 1px;
