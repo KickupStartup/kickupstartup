@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 //import Companies from '../imports/api/Companies';
 import '../imports/startup/server/mail-service';
+import '../imports/startup/server/dataStubs';
 import { injectLoadingScreen } from '../imports/startup/server/loadingScreen';
 
 Accounts.onCreateUser(function(options, user){
