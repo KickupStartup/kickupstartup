@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
+import classNames from 'classnames';
 
 export default class NavigationBar extends Component {
   constructor(props) {
@@ -12,31 +14,25 @@ export default class NavigationBar extends Component {
       });
     return menuClass;
   }
-  logout(e) {
-    e.preventDefault();
-    if (Meteor.userId()) {
-      Meteor.logout();
-      FlowRouter.go('/');
-    }
-  }
   render () {
     return (
-      <nav className="grey darken-4" role="navigation">
-        <div className="container nav-wrapper">
-          <div className="row">
-            <div className="col s12">
-              <ul className="right hide-on-med-and-down">
-                <li><a href="/profile" className="avatar-small"><img src="/img/avatar.jpg"/></a></li>
-                <li><a href="#!" onClick={this.logout.bind(this)}>Logout</a></li>
-              </ul>
-              <ul className="left hide-on-med-and-down">
-                <li className="active"><a href="/ideas/create">Ideas</a></li>
-                <li><a href="/people">People</a></li>
-              </ul>
+      <div className="navbar navbar-fixed-top">
+        <div className="container">
+            <div className="row">
+                <div className="col s10">
+                    <ul className="fullpage_nav nav navbar-nav">
+                        <li className={this.classes("/ideas")}><a href="/ideas">Ideas</a></li>
+                        <li className={this.classes("/people")}><a href="/people">People</a></li>
+                    </ul>
+                </div>
+                <div className="col s2">
+                    <ul className="fullpage_nav nav navbar-nav right">
+                        <li className={this.classes("/profile")}><a href="/profile" className="avatar-small"><img src="/img/avatar.jpg"/></a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </div>
-      </nav>
+    </div>
     )
   }
 }

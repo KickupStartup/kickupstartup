@@ -1,0 +1,30 @@
+.banner-bg {
+  background: url(img/no-banner.png) center center no-repeat;
+}
+.banner-bg2 {
+  background: url(img/banner-idea.jpg) center center no-repeat
+}
+.no-banner {
+  background: url(/img/no-banner.png) center center no-repeat;
+}
+.progress-bar-success{width:60%!important}
+.progress-bar-warning{width:30%!important}
+.progress-bar-danger{width:10%!important}
+
+.counter {
+  float: right; font-size: 12px; height: 1px;
+}
+
+.textarea-height {
+  height: 63px;
+}
+
+.width60p {
+  width: 60%;
+}
+.width30p {
+  width: 30%;
+}
+.width10p {
+  width: 10%;
+}

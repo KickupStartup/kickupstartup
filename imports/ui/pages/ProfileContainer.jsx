@@ -6,81 +6,72 @@ const T = i18n.createComponent();
 
 class ProfilePage extends Component {
   componentDidMount() {
-    // init modals
-    $('.modal-trigger').leanModal();
+  }
+  logout(e) {
+    e.preventDefault();
+    if (Meteor.userId()) {
+      Meteor.logout();
+      FlowRouter.go('/');
+    }
   }
   render () {
+    var bannerImage = {
+      background: "url(/img/no-banner.jpg) center center no-repeat"
+    };
     return (
       <div className="row">
-        <div className="white row-border">
-          <div className="content clearfix">
-              <h3>Мы готовы начать.</h3>
-              <p>
-                  Ваш профайл — это ваше лицо в сообществе Kick Up Startup. Мы с вами последовательно пройдем по каждому разделу, и по мере продвижения вам будут открываться новые возможности платформы.
-                  <br/>
-                  Первым шагом станет заполнение basic information.
-              </p>
-              <div className="col-sm-12 text-center">
-                  <a href="#" className="waves-effect waves-light btn-large btn-margin">
-                      <span className="fa fa-check-circle fa-lg"></span>
-                      <span>Start</span>
-                  </a>
-              </div>
-          </div>
-      </div>
-      <div className="fixed-action-btn">
-        <a href="#modal-create" className="btn-floating btn-large waves-effect waves-light modal-trigger">
-            <span className="fa fa-plus fa-lg"></span>
-        </a>
-    </div>
-    <div id="modal-create" className="modal bottom-sheet">
-        <div className="modal-content">
-            <a href="#" className="default pull-right"><span className="fa fa-remove fa-lg"></span></a>
-            <h3>Create</h3>
-            <div className="content modal-create">
-                <ul className="collection">
-                    <li className="collection-item avatar">
-                        <i className="fa fa-rocket fa-lg material-icons circle"></i>
-                        <span className="title">Awesome Startup</span>
-                        <p>
-                            Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Nulla facilisi. Ut fringilla. Suspendisse potenti.
-                        </p>
-                    </li>
-                </ul>
-                <div className="col-sm-12 clearfix">
-                    <div className="row card-nexus">
-                        <div className="col s1">&nbsp;</div>
-                        <div className="card-nexus-no-border col s1"></div>
+        <div className="col s12">
+            <div className="card white row-border">
+                <div className="content clearfix">
+                    <div className="languages right">
+                        <a href="#" className="active modal-bottom-link">English</a>&middot;<a href="#" className="modal-bottom-link">Русский</a>
                     </div>
+                    <h3>Logout</h3>
+                    <div>Если вы хотите сменить пользователя, то <a onClick={this.logout.bind(this)} href="#">click here</a> to logout.</div>
                 </div>
-                <ul className="collection">
-                    <li className="collection-item avatar">
-                        <i className="fa fa-users fa-lg material-icons circle"></i>
-                        <span className="title">Ad-hoc Team</span>
-                        <p>
-                            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis.
-                        </p>
-                    </li>
-                </ul>
-                <div className="col-sm-12 clearfix">
-                    <div className="row card-nexus">
-                        <div className="col s1">&nbsp;</div>
-                        <div className="card-nexus-no-border col s1"></div>
-                    </div>
-                </div>
-                <ul className="collection">
-                    <li className="collection-item avatar">
-                        <i className="fa fa-archive fa-lg material-icons circle"></i>
-                        <span className="title">Amazing Collection</span>
-                        <p>
-                            Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit.
-                        </p>
-                    </li>
-                </ul>
             </div>
         </div>
-      </div>
-    </div>
+        <div className="col s12 clearfix">
+            <div className="row card-nexus">
+                <div className="col s1">&nbsp;</div>
+                <div className="card-nexus-no-border col s1"></div>
+            </div>
+        </div>
+        <div className="col s12">
+            <div className="white row-border">
+                <div className="content text-center clearfix">
+                    <div className="banner banner-edit" style={bannerImage}></div>
+                    <div className="avatar-photo editable"><a href="#"><img src="/img/no-photo.png" /></a></div>
+                    <div className="row">
+                        <div className="col s3">
+                        </div>
+                        <div className="col s6">
+                            <input type="text" placeholder="Your name" className="text-center" />
+                        </div>
+                        <div className="col s3">
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col s3">
+                        </div>
+                        <div className="col s6">
+                            <input type="text" placeholder="Location" className="text-center" />
+                        </div>
+                        <div className="col s3">
+                        </div>
+                    </div>
+                    <div className="row">
+                        {/* length="140" */}
+                        <input type="text" placeholder="Headline. 140 charachetrs" />
+                    </div>
+                    <div className="row">
+                        {/*  length="1024" */}
+                        <textarea className="materialize-textarea editable" placeholder="Write briefly about yourself in 1024 charachetrs"></textarea>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
     )
   }
 }

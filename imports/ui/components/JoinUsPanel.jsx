@@ -46,21 +46,20 @@ export default class JoinUsPanel extends Component {
   }
   render () {
     return (
-      <div className="row">
-        <div className="white row-border">
-          <div className="content text-center clearfix">
-              <h3><T>joinus.header</T></h3>
-              <p><T>joinus.text</T></p>
-              <div className="col-sm-12 text-center">
-                <button onClick={this.loginWithGoogle.bind(this)} className="waves-effect waves-light btn-flat">
-                    <span className="fa fa-google-plus fa-lg" title="Google+"></span>
-                    <span>Google+</span>
-                </button>
-                <button onClick={this.loginWithTwitter.bind(this)} className="waves-effect waves-light btn-flat">
-                    <span className="fa fa-twitter fa-lg" title="Twitter"></span>
-                    <span>Twitter</span>
-                </button>
-              </div>
+      <div className="white row-border">
+        <div className="content clearfix">
+          <div className="languages right">
+            <a href="#" className="active modal-bottom-link">English</a>&middot;<a href="#" className="modal-bottom-link">Русский</a>
+          </div>
+          <h3><T>joinus.header</T></h3>
+          <p><T>joinus.text</T></p>
+          <div className="card-footer clearfix pull-right">
+            <a href={this.loginWithGoogle.bind(this)} className="ticket-btn">
+              <i className="fa fa-google-plus fa-lg" title="Google+"></i>Google+
+            </a>
+            <a href={this.loginWithTwitter.bind(this)} className="ticket-btn">
+              <i className="fa fa-twitter fa-lg" title="Twitter"></i>Twitter
+            </a>
           </div>
         </div>
       </div>
