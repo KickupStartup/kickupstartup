@@ -9,14 +9,17 @@ export default class SwitchLocaleLinks extends Component {
   constructor(props) {
     super(props);
     let locale = i18n.getLocale();
-    // this.change =
     this.state = {
       localeActive: locale
     };
-    //this.switchLocale = this.switchLocale.bind(this);
   }
-  switchLocale() {
-    let newLocale = i18n.getLocale() == 'en' ? 'ru' : 'en';
+  switchLocaleToEn() {
+    let newLocale = 'en';
+    i18n.setLocale(newLocale);
+    this.setState({ localeActive: newLocale });
+  }
+  switchLocaleToRu() {
+    let newLocale = 'ru';
     i18n.setLocale(newLocale);
     this.setState({ localeActive: newLocale });
   }
@@ -29,8 +32,8 @@ export default class SwitchLocaleLinks extends Component {
   render () {
     return (
       <div className={this.props.classNames}>
-        <a href="#" onClick={this.switchLocale.bind(this)} className={this.localeClasses('en')}>English</a>&middot;
-        <a href="#" onClick={this.switchLocale.bind(this)} className={this.localeClasses('ru')}>Русский</a>
+        <a href="#" onClick={this.switchLocaleToEn.bind(this)} className={this.localeClasses('en')}>English</a>&middot;
+        <a href="#" onClick={this.switchLocaleToRu.bind(this)} className={this.localeClasses('ru')}>Русский</a>
       </div>
     )
   }
