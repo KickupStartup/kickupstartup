@@ -26,7 +26,7 @@ export default class JoinUsPanel extends Component {
   }
   loginWithGoogle(e) {
     e.preventDefault();
-    Meteor.loginWithGoogle({ requestPermissions: ['profile']}, this.afterLogin);
+    Meteor.loginWithGoogle({ requestPermissions: ['email']}, this.afterLogin);
   }
   afterLogin(error) {
     if (error) {

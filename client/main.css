@@ -15,21 +15,26 @@ body {
   line-height: 1.42857143;
 }
 html.welcome{ 
-  background:url(../img/bg-pattern.png),  url(../img/welcome.jpg) no-repeat center center fixed; 
+  background:url(../img/welcome.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+html.welcome body{min-height:100%;
+  background: -webkit-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0));
+  background: -o-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)));
+  background: -moz-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)));
+  background: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0));
+  background-image: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)))}
     .main .languages{margin:0 -12px}
         .main .languages a{color:#333;margin:12px}
             .main .languages a{color:#333}
             .main .languages a:hover{color:#ffab40}
             .main .languages a.active{color:#ff9100}
-
     .shadow{color:#fff;padding-top:68px;text-shadow:0 0 20px rgba(0,0,0,.7)}
     .shadow .orange{margin:12px 0 24px;text-shadow:none}
-    .shadow .heading,.container.shadow a{color:#eee}
+    .shadow blockquote{color:#fff;margin:0 0 24px}
         .shadow a:hover,.languages a:hover{color:#fff}
         .shadow .languages a{color:#fff;text-shadow:none}
             .shadow .languages a.active:hover{color:#333}
@@ -526,13 +531,13 @@ dd {
   padding-left: 15px;
   padding-right: 15px;
 }
-.back a{color:#333333;padding:15px;-webkit-transition:all 0.2s ease-in-out;-o-transition:all 0.2s ease-in-out;transition: all 0.2s ease-in-out}
+.back a{color:#333333;padding:18px;-webkit-transition:all 0.2s ease-in-out;-o-transition:all 0.2s ease-in-out;transition: all 0.2s ease-in-out}
     .back a:hover{color:#ff9100;  -webkit-transition: all 0.2s ease-in-out
   -o-transition: all 0.2s ease-in-out
   transition: all 0.2s ease-in-out}
 .back .fa{margin-right:8px}
-    .submenu .back{background-color:#f9f9f9;margin-top:-46px;padding-top:24px!important;position:fixed;z-index:4}
-    .submenu .main{padding-top:118px}
+    .submenu .back{background-color:#f9f9f9;padding-top:24px!important;position:fixed;top:70px;z-index:4}
+    .submenu .main{padding-top:116px}
     .no-submenu .back{display:none}
     .no-submenu .main{padding-top:74px}
 @media (min-width: 768px) {
@@ -2271,7 +2276,7 @@ body:not(.classic) .site-wrapper .container {
 .heading_pre {
   text-align: center;
   margin-bottom: 20px;
-  color: rgba(255, 255, 255, 0.75);
+  color:#eee;
 }
 .heading_pre::before,
 .heading_pre::after {
@@ -3438,7 +3443,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .stat {
     list-style: none;
     border-radius: 4px;
-    padding: 0;
+    margin:0;
 }
 .fa{margin:1px} /* search icon fix */
 .stat > li {
@@ -3959,7 +3964,9 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
     z-index: 0;
 }
 .z-depth-1-half,.btn:hover,.btn-large:hover,.btn-floating:hover{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
+blockquote{border-left:none;color:#aaa;margin:0 0 12px}
 /* material update END */
+blockquote div{font-style:italic}
 .tips-blue{color:#31708f;background-color:#d9edf7!important;border-color:#bce8f1}
 .search{margin:32px 0 -20px}
 .tweet{margin-top:8px}
