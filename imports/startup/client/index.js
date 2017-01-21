@@ -1,1 +1,2 @@
-import './routes.js';
+// import './reactRoutes';
+import './setBrowserLocale'
