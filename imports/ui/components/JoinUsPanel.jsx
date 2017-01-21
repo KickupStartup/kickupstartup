@@ -41,7 +41,7 @@ export default class JoinUsPanel extends Component {
         <div className="col s12 clearfix">
           <div className="white row-border">
             <div className="content clearfix">
-              <SwitchLocaleLinks />
+              <SwitchLocaleLinks classNames="languages right" linkClassNames="modal-bottom-link" />
               <h3><T>joinus.header</T></h3>
               <p><T>joinus.text</T></p>
               <div className="card-footer clearfix pull-right">

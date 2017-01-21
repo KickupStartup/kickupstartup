@@ -4,6 +4,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
 import JoinUsPanel from '../components/JoinUsPanel';
+import SwitchLocaleLinks from '../components/locale/SwitchLocaleLinks';
 
 export default class LandingPage extends Component {
   componentDidMount() {
@@ -15,13 +16,11 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div className="row">
-
-<style>
-</style>
         <div className="col s12">
-          <div className="languages">
+          {/* <div className="languages">
               <a href="#" className="active">English</a>&middot;<a href="#">Русский</a>
-          </div>
+          </div> */}
+          <SwitchLocaleLinks classNames="languages" linkClassNames="" />
           <p className="heading_pre">
               <T>landing.description</T>
           </p>
