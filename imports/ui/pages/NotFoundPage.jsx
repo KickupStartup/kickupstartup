@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { browserHistory, Link } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 
 export default class NotFoundPage extends Component {
