@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 
 export default class IdeasContainer extends Component {
@@ -22,10 +23,10 @@ export default class IdeasContainer extends Component {
                         </p>
                     </div>
                     <div className="col s12 text-center">
-                        <a href="/ideas/create" className="waves-effect waves-light orange accent-3 btn-large btn-margin">
+                        <Link to="/ideas/create" className="waves-effect waves-light orange accent-3 btn-large btn-margin">
                             <i className="fa fa-bullhorn fa-lg"></i>
                             Validate Your Idea
-                        </a>
+                        </Link>
                     </div>
                     <div className="white card-reveal">
                         <div className="tips">
@@ -64,9 +65,9 @@ export default class IdeasContainer extends Component {
                             <input id="search" type="text" placeholder="Search"/>
                         </div>
                         <div className="search col s1">
-                            <a href="/ideas/create" className="waves-effect waves-light">
+                            <Link to="/ideas/create" className="waves-effect waves-light">
                                 <span className="fa fa-search fa-lg"></span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

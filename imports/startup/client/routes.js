@@ -26,6 +26,7 @@ export const renderRoutes = () => (
     <Route component={AppLayout}>
       <Route path="profile" component={ProfileContainer}/>
       <Route path="ideas" component={IdeasContainer}/>
+      <Route path="ideas/create" component={IdeaCreateContainer}/>
       <Route path="ideas/:id" component={IdeaContainer}/>
       <Route path="people" component={PeopleContainer}/>
       <Route path="people/:id" component={PersonContainer}/>

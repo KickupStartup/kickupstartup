@@ -49,13 +49,10 @@ export default class SideBar extends Component {
             {/* Sidebar links */}
 
             <ul className="fullpage__nav sidebar-menu__ul nav">
-                <li className={this.classes("/")}><a href="/">Home</a></li>
-                {/* <li><a href="#">Connections</a></li> */}
-                <li className={this.classes("/ideas")}><a href="/ideas">Ideas</a></li>
-                <li className={this.classes("/startups")}><a href="/startups">Startups</a></li>
-                <li className={this.classes("/teams")}><a href="/teams">Teams</a></li>
+                <li><Link to="/" activeClassName="active">Home</Link></li>
+                <li><Link to="/ideas" activeClassName="active">Ideas</Link></li>
                 { Meteor.userId() ? <li className="divider"></li> : '' }
-                { Meteor.userId() ? <li className={this.classes("/profile")}><a href="/profile">Profile</a></li> : '' }
+                { Meteor.userId() ? <li><Link to="/profile" activeClassName="active">Profile</Link></li> : '' }
                 { Meteor.userId() ? <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li> : '' }
             </ul>
         </div>
