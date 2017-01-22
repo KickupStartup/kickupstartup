@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import SwitchLocaleLinks from './locale/SwitchLocaleLinks';
@@ -31,8 +30,6 @@ export default class JoinUsPanel extends Component {
   afterLogin(error) {
     if (error) {
       console.log(error);
-    } else {
-      FlowRouter.go('/ideas/create');
     }
   }
   render () {

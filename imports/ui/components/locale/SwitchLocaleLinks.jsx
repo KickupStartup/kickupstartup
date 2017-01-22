@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import classNames from 'classnames';
@@ -9,6 +8,12 @@ export default class SwitchLocaleLinks extends Component {
   constructor(props) {
     super(props);
     let locale = i18n.getLocale();
+    if (['en-AU','en-BZ','en-CA','en-GB','en-IE','en-IN','en-JM','en-MY','en-NZ','en-PH','en-SG','en-TT','en-US','en-ZA','en-ZW'].indexOf(locale) > -1) {
+      locale = 'en';
+    }
+    if (locale == 'ru-RU') {
+      locale = 'ru';
+    }
     this.state = {
       localeActive: locale
     };

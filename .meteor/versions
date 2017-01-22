@@ -19,7 +19,6 @@ caching-compiler@1.1.9
 caching-html-compiler@1.0.7
 callback-hook@1.0.10
 check@1.2.4
-chuangbo:cookie@1.1.0
 coffeescript@1.11.1_4
 czbaker:lightbox2@2.7.1_1
 ddp@1.2.5
@@ -51,7 +50,6 @@ jagi:astronomy@2.3.11
 jagi:astronomy-softremove-behavior@2.0.6
 jagi:astronomy-timestamp-behavior@2.0.0
 jquery@1.11.10
-kadira:flow-router-ssr@3.13.0
 launch-screen@1.1.0
 livedata@1.0.18
 localstorage@1.0.12
@@ -60,14 +58,11 @@ materialize:materialize@0.97.7
 mdg:validation-error@0.5.1
 meteor@1.6.0
 meteor-base@1.0.4
-meteorhacks:fast-render@2.16.0
-meteorhacks:inject-data@2.0.0
 meteorhacks:inject-initial@1.0.4
 meteorhacks:kadira@2.30.3
 meteorhacks:kadira-binary-deps@1.5.0
 meteorhacks:kadira-profiler@1.3.0
 meteorhacks:meteorx@1.4.1
-meteorhacks:picker@1.0.3
 meteorhacks:unblock@1.1.0
 minifier-css@1.2.15
 minifier-js@1.2.15
@@ -99,7 +94,6 @@ promise@0.8.8
 random@1.0.10
 rate-limit@1.0.6
 react-meteor-data@0.2.9
-reactive-dict@1.1.8
 reactive-var@1.0.11
 reload@1.1.11
 retry@1.0.9
@@ -130,4 +124,3 @@ universe:utilities@2.3.3
 url@1.0.11
 webapp@1.3.12
 webapp-hashing@1.0.9
-zimme:active-route@2.3.3-rc.2

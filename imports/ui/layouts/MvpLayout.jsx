@@ -5,7 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 const AppMvp = (props) => (
   <div>
     <div className="container shadow main">
-      { props.main }
+      { props.children }
     </div>
   </div>
 );
