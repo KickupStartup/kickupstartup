@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
+import SwitchLocaleLinks from '../components/locale/SwitchLocaleLinks';
 
 class ProfilePage extends Component {
   componentDidMount() {
@@ -23,10 +24,8 @@ class ProfilePage extends Component {
         <div className="col s12">
             <div className="card white row-border">
                 <div className="content clearfix">
-                    <div className="languages right">
-                        <a href="#" className="active modal-bottom-link">English</a>&middot;<a href="#" className="modal-bottom-link">Русский</a>
-                    </div>
-                    <h3>Logout</h3>
+                    <SwitchLocaleLinks classNames="languages right" linkClassNames="modal-bottom-link" />
+                    <h3>Управление учетными записями</h3>
                     <p>Хотите сменить пользователя?</p>
                     <div className="col s12 text-center">
                         <button type="submit" className="activator waves-effect waves-light orange accent-3 btn" onClick={this.logout.bind(this)}>
