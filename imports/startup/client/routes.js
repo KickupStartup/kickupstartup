@@ -16,8 +16,6 @@ import IdeaCreateContainer from '../../ui/pages/ideas/IdeaCreateContainer.jsx';
 import PeopleContainer from '../../ui/pages/people/PeopleContainer.jsx';
 import PersonContainer from '../../ui/pages/people/PersonContainer.jsx';
 
-console.log("loaded routes");
-
 export const renderRoutes = () => (
   <Router history={browserHistory}>
     <Route path="/" component={MvpLayout}>
@@ -25,11 +23,15 @@ export const renderRoutes = () => (
     </Route>
     <Route component={AppLayout}>
       <Route path="profile" component={ProfileContainer}/>
-      <Route path="ideas" component={IdeasContainer}/>
-      <Route path="ideas/create" component={IdeaCreateContainer}/>
-      <Route path="ideas/:id" component={IdeaContainer}/>
-      <Route path="people" component={PeopleContainer}/>
-      <Route path="people/:id" component={PersonContainer}/>
+      <Route path="ideas">
+        <IndexRoute component={IdeasContainer}/>
+        <Route path="create" component={IdeaCreateContainer}/>
+        <Route path=":id" component={IdeaContainer}/>
+      </Route>
+      <Route path="people">
+        <IndexRoute component={PeopleContainer}/>
+        <Route path=":id" component={PersonContainer}/>
+      </Route>
       <Route path="*" component={NotFoundPage}/>
     </Route>
   </Router>
