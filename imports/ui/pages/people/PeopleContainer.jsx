@@ -3,11 +3,12 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
+import { browserHistory } from 'react-router';
 
 class PeoplePage extends Component {
   gotoPerson(e) {
     e.preventDefault();
-    // !TODO: go to person
+    browserHistory.push("/people/1");
   }
   render() {
     var customImage = {

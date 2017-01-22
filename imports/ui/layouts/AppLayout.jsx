@@ -16,7 +16,7 @@ const App = (props) => (
             </div>
           </div>
       { props.user ? '' : <JoinUsPanel /> }
-      { props.main }
+      { props.children }
     </div>
   </div>
 );

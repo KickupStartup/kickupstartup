@@ -20,8 +20,10 @@ console.log("loaded routes");
 
 export const renderRoutes = () => (
   <Router history={browserHistory}>
-    <Route path="/" component={AppLayout}>
+    <Route path="/" component={MvpLayout}>
       <IndexRoute component={LandingPage}/>
+    </Route>
+    <Route component={AppLayout}>
       <Route path="profile" component={ProfileContainer}/>
       <Route path="ideas" component={IdeasContainer}/>
       <Route path="ideas/:id" component={IdeaContainer}/>
