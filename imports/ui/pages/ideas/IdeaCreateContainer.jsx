@@ -1,14 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { browserHistory } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
 class IdeaCreatePage extends Component {
-  componentDidMount() {
-  }
-  componentWillUnmount() {
-  }
   validateIdea(e) {
     e.preventDefault();
   }
@@ -19,7 +16,7 @@ class IdeaCreatePage extends Component {
                 <div className="white card row-border clearfix">
                     <i className="fa fa-lock card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
                     <div className="modal-header">
-                        <h3 className="modal-title">Vague idea</h3>
+                      <h3 className="modal-title">Vague idea</h3>
                     </div>
                     <div className="modal-body">
                         <p>Если у вас пока нет сформулированной идеи, то начните с ее описания в свободной форме. Обязательно пригласите друзей, которые помогут вам с кристализацией идеи. В результате вы получите информацию необходимую для заполнения следующего блока.</p>
@@ -141,12 +138,12 @@ class IdeaCreatePage extends Component {
                         <p>На этапе формирования идеи наиболее важно получить как можно больше отзывов для выбора правильного направления. Мы рекомендуем пригласить друзей и знакомых дать отзыв о вашей идее.</p>
                         <div className="form-group form clearfix">
                             <div className="input-field">
-                                <label htmlFor="emails" className="active">Emails</label>
-                                <input id="emails" type="text" className="validate" placeholder="Please separate the recipients email by using commas"/>
+                              <label htmlFor="emails" className="active">Emails</label>
+                              <input id="emails" type="text" className="validate" placeholder="Please separate the recipients email by using commas"/>
                             </div>
                             <div className="input-field">
-                                <label htmlFor="Message" className="active">Message</label>
-                                <textarea id="message" className="materialize-textarea validate textarea-height" rows="6" defaultValue="Hello!
+                              <label htmlFor="Message" className="active">Message</label>
+                              <textarea id="message" className="materialize-textarea validate textarea-height" rows="6" defaultValue="Hello!
 Прошу оценить идею моего нового стартапа.
 Спасибо!"></textarea>
                             </div>
@@ -227,9 +224,9 @@ class IdeaCreatePage extends Component {
                                         </div>
                                         Проблемы не существует (10%, 5 votes):
                                         <div className="progress active">
-                                            <div className="progress-bar progress-bar-danger width10p" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
-                                                <span className="sr-only">10% Complete (success)</span>
-                                            </div>
+                                          <div className="progress-bar progress-bar-danger width10p" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                            <span className="sr-only">10% Complete (success)</span>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -313,21 +310,21 @@ class IdeaCreatePage extends Component {
                     </div>
                 </div>
                 <div className="col s12 clearfix">
-                    <div className="row card-nexus">
-                        <div className="col s1">&nbsp;</div>
-                        <div className="card-nexus-border col s1"></div>
-                    </div>
+                  <div className="row card-nexus">
+                    <div className="col s1">&nbsp;</div>
+                    <div className="card-nexus-border col s1"></div>
+                  </div>
                 </div>
                 <div className="col s12 clearfix lock-info">
-                    <div className="row card-nexus card-nexus-the-end">
-                        <div className="col s1">&nbsp;</div>
-                        <div className="card-nexus-info col s11">
-                            <div className="content">
-                                <h4><span className="card-nexus-info-icon fa fa-circle"></span>You have reached the end</h4>
-                                <p><a href="0.html">Back</a> or jump to <a href="#">top of page</a></p>
-                            </div>
-                        </div>
+                  <div className="row card-nexus card-nexus-the-end">
+                    <div className="col s1">&nbsp;</div>
+                    <div className="card-nexus-info col s11">
+                      <div className="content">
+                        <h4><span className="card-nexus-info-icon fa fa-circle"></span>You have reached the end</h4>
+                        <p><a href="#!" onClick={browserHistory.goBack}>Back</a> or jump to <a href="#">top of page</a></p>
+                      </div>
                     </div>
+                  </div>
                 </div>
             </div>
         </div>
