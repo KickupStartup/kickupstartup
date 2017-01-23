@@ -22,11 +22,11 @@ html.welcome{
   background-size: cover;
 }
 html.welcome body{min-height:100%;
-  background: -webkit-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0));
-  background: -o-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)));
-  background: -moz-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)));
-  background: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0));
-  background-image: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)))}
+  background: -webkit-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0));
+  background: -o-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0)));
+  background: -moz-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0)));
+  background: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0));
+  background-image: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0)))}
     .main .languages{margin:0 -12px}
         .main .languages a{color:#333;margin:12px}
             .main .languages a{color:#333}
@@ -2044,11 +2044,11 @@ button.close {
  {
   background: transparent;
 }
-.fullpage_nav > li.active > a:hover
+.fullpage_nav > li > a.active:hover
  {
   color: #fff;
 }
-.fullpage_nav > li.active > a {
+.fullpage_nav > li > a.active {
   color: #fff;
   background-color:#ffab40;
   outline: none;
@@ -2290,7 +2290,8 @@ body:not(.classic) .site-wrapper .container {
   margin: 0 auto 60px;
   text-align: center;
   text-transform: uppercase;
-  font-size: 28.8px;
+  font-size: 26px;
+    font-weight: 600;
 }
 .heading_lg {
   font-size: 36px;
@@ -2302,7 +2303,8 @@ body:not(.classic) .site-wrapper .container {
 @media (min-width: 768px) {
   .heading {
     margin-top: 0;
-    font-size: 36px;
+    font-size: 30px;
+    font-weight: 600;
   }
   .heading_lg {
     font-size: 54px;
@@ -3497,8 +3499,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
           -ms-transition: background-color .5s linear, border .5s ease;
           transition: background-color .5s linear, border .5s ease}
 .card-reveal{}
-.editable{border-bottom:1px solid #f2f2f2}
-.editable{display:inline-block;padding:10px;margin:0 -4px}
+.editable{border-bottom:1px solid #f2f2f2;display:inline-block;padding:10px;margin:0 -4px}
+.avatar-photo.editable{border-bottom:none}
   .editable.avatar-photo:hover img{box-shadow:0 0 0 1px #ccc}
   .banner-edit{background:url(../img/edit-banner.png) no-repeat!important}
   .banner-edit:hover{box-shadow:0 0 0 1px #ccc;cursor:pointer}
