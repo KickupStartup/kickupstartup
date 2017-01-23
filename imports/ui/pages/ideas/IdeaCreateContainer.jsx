@@ -73,7 +73,7 @@ class IdeaCreatePage extends Component {
                             <div className="input-field">
                                 <label htmlFor="idea_name" className="active">Idea name</label>
                                 {/* length="64"*/}
-                                <input value="Idea #15" placeholder="Around the World Jobs" id="idea_name" type="text" />
+                                <input defaultValue="Idea #1" placeholder="Around the World Jobs" id="idea_name" type="text" />
                             <span className="character-counter counter"></span></div>
                             <div className="input-field">
                                 <label htmlFor="problem_worth_solving" className="active">Problem Worth Solving</label>
