@@ -10,5 +10,10 @@ Meteor.startup(() => {
   $('body').addClass('page');
   $(".loading").remove();
 
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+
   render(renderRoutes(), document.getElementById('react-root'));
 });
