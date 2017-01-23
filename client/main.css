@@ -3967,6 +3967,7 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
 }
 .z-depth-1-half,.btn:hover,.btn-large:hover,.btn-floating:hover{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
 blockquote{border-left:none;color:#aaa;margin:0 0 12px}
+.dropdown-content li > a, .dropdown-content li > span{color:#ff9100;font-size:1em}
 /* material update END */
 blockquote div{font-style:italic}
 .tips-blue{color:#31708f;background-color:#d9edf7!important;border-color:#bce8f1}
