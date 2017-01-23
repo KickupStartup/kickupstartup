@@ -1,8 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 
-const Persons = new Mongo.Collection("persons");
+const People = new Mongo.Collection("people");
 
-Persons.allow({
+People.allow({
   insert: function(){
     return true;
   },
@@ -14,4 +14,4 @@ Persons.allow({
   }
 });
 
-export default Persons;
+export default People;
