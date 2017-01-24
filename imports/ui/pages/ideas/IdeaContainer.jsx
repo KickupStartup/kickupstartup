@@ -5,10 +5,6 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
 class IdeaPage extends Component {
-  componentDidMount() {
-  }
-  componentWillUnmount() {
-  }
   render() {
     return (
       <div className="row">

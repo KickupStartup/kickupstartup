@@ -9,7 +9,7 @@ import LandingPage from '../../ui/pages/LandingPage.jsx';
 import ProfileContainer from '../../ui/pages/ProfileContainer.jsx';
 import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
 
-import IdeasContainer from '../../ui/pages/ideas/IdeasContainer.jsx';
+import IdeasPageContainer from '../../ui/pages/ideas/IdeasPageContainer.jsx';
 import IdeaContainer from '../../ui/pages/ideas/IdeaContainer.jsx';
 import IdeaCreateContainer from '../../ui/pages/ideas/IdeaCreateContainer.jsx';
 
@@ -24,7 +24,7 @@ export const renderRoutes = () => (
     <Route component={AppLayout}>
       <Route path="profile" component={ProfileContainer}/>
       <Route path="ideas">
-        <IndexRoute component={IdeasContainer}/>
+        <IndexRoute component={IdeasPageContainer}/>
         <Route path="create" component={IdeaCreateContainer}/>
         <Route path=":id" component={IdeaContainer}/>
       </Route>

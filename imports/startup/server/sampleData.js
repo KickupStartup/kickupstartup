@@ -35,6 +35,7 @@ Person.upsert({userId: uid}, {
 Idea.upsert({ name: "Idea 1", userId: uid}, {
   name: "Idea 1",
   draft: "Draft of an idea.",
+  public: true,
   categories: ["Toys", "Weapon"],
   problemDefinition: "Problem 1 definition",
   targetCustomer: "Target customer 1 description",
@@ -47,6 +48,8 @@ Idea.upsert({ name: "Idea 1", userId: uid}, {
 Idea.upsert({ name: "Idea 2", userId: uid}, {
   name: 'Idea 2',
   draft: 'Draft of an idea.',
+  problemDefinition: "Problem 2 definition",
+  public: true,
   userId: uid
 });
 Idea.upsert({ name: "Idea 3", userId: uid}, {
