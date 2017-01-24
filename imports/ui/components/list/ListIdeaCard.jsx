@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-class IdeaListCard extends Component {
+class ListIdeaCard extends Component {
   render () {
     return (
       <div className="white row-border pointer clearfix">
@@ -24,8 +24,8 @@ class IdeaListCard extends Component {
   }
 }
 
-IdeaListCard.propTypes = {
-  idea: React.PropTypes.object
+ListIdeaCard.propTypes = {
+  idea: PropTypes.object
 }
 
-export default IdeaListCard;
+export default ListIdeaCard;

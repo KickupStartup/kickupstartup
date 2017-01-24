@@ -6,8 +6,6 @@ const T = i18n.createComponent();
 import SwitchLocaleLinks from '../components/locale/SwitchLocaleLinks';
 
 class ProfilePage extends Component {
-  componentDidMount() {
-  }
   logout(e) {
     e.preventDefault();
     if (Meteor.userId()) {
@@ -81,7 +79,7 @@ class ProfilePage extends Component {
   }
 }
 
-export default ProfileContainer = createContainer(props => {
+export default ProfilePageContainer = createContainer(props => {
   return {
     user: Meteor.user(),
   };

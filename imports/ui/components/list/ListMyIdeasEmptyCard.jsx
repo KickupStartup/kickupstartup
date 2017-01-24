@@ -4,7 +4,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { Link } from 'react-router';
 
-export default class EmptyMyIdeasList extends Component {
+export default class ListMyIdeasEmptyCard extends Component {
   render () {
     return (
       <div className="col s12">
