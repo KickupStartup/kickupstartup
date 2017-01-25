@@ -91,7 +91,7 @@ export default class ProfileForm extends Component {
         </div>
         <div className="row">
           {/* length="140" */}
-          <input type="text" placeholder="Headline. 140 charachetrs" value={this.state.headline} onChange={this.handleHeadlineChange}/>
+          <input type="text" placeholder="Headline. 140 charachetrs" value={this.state.headline} onChange={this.handleHeadLineChange}/>
         </div>
         <div className="row">
           {/*  length="1024" */}
