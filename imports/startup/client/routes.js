@@ -6,7 +6,7 @@ import AppLayout from '../../ui/layouts/AppLayout.jsx';
 import MvpLayout from '../../ui/layouts/MvpLayout.jsx';
 
 import LandingPage from '../../ui/pages/LandingPage.jsx';
-import ProfilePageContainer from '../../ui/pages/ProfilePageContainer.jsx';
+import ProfilePageContainer from '../../ui/pages/profile/ProfilePageContainer.jsx';
 import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
 
 import IdeasPageContainer from '../../ui/pages/ideas/IdeasPageContainer.jsx';

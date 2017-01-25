@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { browserHistory, Link } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
 import Navigation from '../components/navigation/Navigation.jsx';
-import JoinUsPanel from '../components/JoinUsPanel.jsx';
+import JoinUsForm from '../components/common/JoinUsForm.jsx';
 
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
@@ -24,7 +24,7 @@ class App extends Component {
               </div>
             </div>
           </div>
-          { this.props.user ? '' : <JoinUsPanel /> }
+          { this.props.user ? '' : <JoinUsForm /> }
           { this.props.children }
         </div>
       </div>

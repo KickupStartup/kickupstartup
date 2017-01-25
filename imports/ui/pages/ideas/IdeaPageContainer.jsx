@@ -8,7 +8,7 @@ export default IdeaPageContainer = createContainer(props => {
   const loading = !ideaHandle.ready();
   return {
     loading,
-    idea: Idea.findOne({}),
+    idea: Idea.findOne({_id: props.params.id}),
     user: Meteor.user(),
   };
 }, IdeaPage);
