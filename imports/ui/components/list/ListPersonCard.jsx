@@ -5,7 +5,7 @@ const T = i18n.createComponent();
 import { browserHistory } from 'react-router';
 
 class ListPersonCard extends Component {
-  gotoPerson(e) {
+  gotoPersonDetails(e) {
     e.preventDefault();
     browserHistory.push("/people/" + this.props.person._id);
   }
@@ -17,7 +17,7 @@ class ListPersonCard extends Component {
       background: "url(/img/no-banner.png) center center no-repeat"
     };
     return (
-      <div onClick={this.gotoPerson.bind(this)} className="white row-border pointer clearfix">
+      <div onClick={this.gotoPersonDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
           <div className="banner" style={noImage}></div>
           <div className="avatar-photo"><img src="/img/avatar.jpg" /></div>

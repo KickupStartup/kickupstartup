@@ -2,14 +2,25 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
+import { browserHistory } from 'react-router';
 
 class ListIdeaCard extends Component {
+  gotoIdeaDetails(e) {
+    e.preventDefault();
+    browserHistory.push("/ideas/" + this.props.idea._id);
+  }
   render () {
+    var customImage = {
+      background: "url(/img/banner-avatar.jpg) center center no-repeat"
+    };
+    var noImage = {
+      background: "url(/img/no-banner.png) center center no-repeat"
+    };
     return (
-      <div className="white row-border pointer clearfix">
+      <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
-          <div className="banner no-banner"></div>
-          <div className="avatar-photo"><img src="img/avatar.jpg"/></div>
+          <div className="banner" style={noImage}></div>
+          <div className="avatar-photo"><img src="/img/avatar.jpg"/></div>
           <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
           <ul className="stat"><li>70 Comments</li><li>18 Jan 2017</li></ul>
         </div>

@@ -10,7 +10,7 @@ import ProfilePageContainer from '../../ui/pages/ProfilePageContainer.jsx';
 import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
 
 import IdeasPageContainer from '../../ui/pages/ideas/IdeasPageContainer.jsx';
-import IdeaContainer from '../../ui/pages/ideas/IdeaContainer.jsx';
+import IdeaPageContainer from '../../ui/pages/ideas/IdeaPageContainer.jsx';
 import IdeaCreateContainer from '../../ui/pages/ideas/IdeaCreateContainer.jsx';
 
 import PeoplePageContainer from '../../ui/pages/people/PeoplePageContainer.jsx';
@@ -26,7 +26,7 @@ export const renderRoutes = () => (
       <Route path="ideas">
         <IndexRoute component={IdeasPageContainer}/>
         <Route path="create" component={IdeaCreateContainer}/>
-        <Route path=":id" component={IdeaContainer}/>
+        <Route path=":id" component={IdeaPageContainer}/>
       </Route>
       <Route path="people">
         <IndexRoute component={PeoplePageContainer}/>
