@@ -35,5 +35,11 @@
       "jump": "Вернуться",
       "link": "наверх страницы"
     }
+  },
+  "profile": {
+    "saveButton": "Сохранить изменения",
+    "logoutButton": "Выйти",
+    "manageAccountsHeader": "Управление учетными записями",
+    "manageAccountsSubHeader": "Хотите сменить пользователя?"
   }
 }
