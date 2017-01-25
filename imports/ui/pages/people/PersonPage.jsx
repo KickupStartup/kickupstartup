@@ -5,6 +5,12 @@ import ListPersonCard from '../../components/list/ListPersonCard';
 import ListLoading from '../../components/list/ListLoading';
 
 class PersonPage extends Component {
+  componentDidMount() {
+    $("#backButtonMenu").show();
+  }
+  componentWillUnmount() {
+    $("#backButtonMenu").hide();
+  }
   render() {
     if (this.props.loading) {
       return (

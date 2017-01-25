@@ -5,6 +5,12 @@ import ListIdeaCard from '../../components/list/ListIdeaCard';
 import ListLoading from '../../components/list/ListLoading';
 
 class IdeaPage extends Component {
+  componentDidMount() {
+    $("#backButtonMenu").show();
+  }
+  componentWillUnmount() {
+    $("#backButtonMenu").hide();
+  }
   render() {
     if (this.props.loading) {
       return (

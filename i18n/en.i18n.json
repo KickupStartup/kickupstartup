@@ -2,6 +2,13 @@
   "app": {
     "header": "Kick Up Startup"
   },
+  "layout": {
+    "backButton": "Back"
+  },
+  "navigation": {
+    "ideas": "Ideas",
+    "people": "People"
+  },
   "landing": {
     "description": "A community based Startup Foundry",
     "motto": "To make the World a Better Place",
@@ -21,5 +28,12 @@
   },
   "idea": {
     "header": "Come up with an idea"
+  },
+  "list": {
+    "end": {
+      "reached": "You have reached the end",
+      "jump": "Jump to",
+      "link": "top of the page"
+    }
   }
 }

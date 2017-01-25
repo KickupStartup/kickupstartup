@@ -5,22 +5,33 @@ import { createContainer } from 'meteor/react-meteor-data';
 import Navigation from '../components/navigation/Navigation.jsx';
 import JoinUsPanel from '../components/JoinUsPanel.jsx';
 
-const App = (props) => (
-  <div className="submenu">
-    <Navigation />
-    <div className="container main">
-        <div className="row">
+import i18n from 'meteor/universe:i18n';
+const T = i18n.createComponent();
+
+class App extends Component {
+  componentDidMount() {
+    $("#backButtonMenu").hide();
+  }
+  render() {
+    return (
+      <div className="submenu">
+        <Navigation />
+        <div className="container main">
+          <div id="backButtonMenu" className="row">
             <div className="col s12 back clearfix">
-                <div className="row">
-                    <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i>Back</Link></div>
-                </div>
+              <div className="row">
+                <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i><T>layout.backButton</T></Link></div>
+              </div>
             </div>
           </div>
-      { props.user ? '' : <JoinUsPanel /> }
-      { props.children }
-    </div>
-  </div>
-);
+          { this.props.user ? '' : <JoinUsPanel /> }
+          { this.props.children }
+        </div>
+      </div>
+    );
+  }
+}
+
 
 App.propTypes = {
   user: PropTypes.object,
