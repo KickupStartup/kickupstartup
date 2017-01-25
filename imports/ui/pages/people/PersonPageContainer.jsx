@@ -8,7 +8,7 @@ export default PersonPageContainer = createContainer(props => {
   const loading = !personHandle.ready();
   return {
     loading,
-    person: Person.findOne({_id: props.params.id}),
+    person: Person.findOne({}),
     user: Meteor.user(),
   };
 }, PersonPage);

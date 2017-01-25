@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Class, Enum } from 'meteor/jagi:astronomy';
 import People from './people';
 
