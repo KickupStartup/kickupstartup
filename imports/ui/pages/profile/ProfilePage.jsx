@@ -54,7 +54,7 @@ class ProfilePage extends Component {
                 <div className="card-nexus-no-border col s1"></div>
               </div>
             </div>
-            <div className="col s12">
+            {/* <div className="col s12">
               <div className="white row-border">
                 <div className="content clearfix">
                   <LiveEditor/>
@@ -66,7 +66,7 @@ class ProfilePage extends Component {
                 <div className="col s1">&nbsp;</div>
                 <div className="card-nexus-no-border col s1"></div>
               </div>
-            </div>
+            </div> */}
             <div className="col s12">
               <div className="white row-border">
                 <div className="content text-center clearfix">
