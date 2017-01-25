@@ -6,15 +6,15 @@ import AppLayout from '../../ui/layouts/AppLayout.jsx';
 import MvpLayout from '../../ui/layouts/MvpLayout.jsx';
 
 import LandingPage from '../../ui/pages/LandingPage.jsx';
-import ProfileContainer from '../../ui/pages/ProfileContainer.jsx';
+import ProfilePageContainer from '../../ui/pages/profile/ProfilePageContainer.jsx';
 import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
 
-import IdeasContainer from '../../ui/pages/ideas/IdeasContainer.jsx';
-import IdeaContainer from '../../ui/pages/ideas/IdeaContainer.jsx';
+import IdeasPageContainer from '../../ui/pages/ideas/IdeasPageContainer.jsx';
+import IdeaPageContainer from '../../ui/pages/ideas/IdeaPageContainer.jsx';
 import IdeaCreateContainer from '../../ui/pages/ideas/IdeaCreateContainer.jsx';
 
-import PeopleContainer from '../../ui/pages/people/PeopleContainer.jsx';
-import PersonContainer from '../../ui/pages/people/PersonContainer.jsx';
+import PeoplePageContainer from '../../ui/pages/people/PeoplePageContainer.jsx';
+import PersonPageContainer from '../../ui/pages/people/PersonPageContainer.jsx';
 
 export const renderRoutes = () => (
   <Router history={browserHistory}>
@@ -22,15 +22,15 @@ export const renderRoutes = () => (
       <IndexRoute component={LandingPage}/>
     </Route>
     <Route component={AppLayout}>
-      <Route path="profile" component={ProfileContainer}/>
+      <Route path="profile" component={ProfilePageContainer}/>
       <Route path="ideas">
-        <IndexRoute component={IdeasContainer}/>
+        <IndexRoute component={IdeasPageContainer}/>
         <Route path="create" component={IdeaCreateContainer}/>
-        <Route path=":id" component={IdeaContainer}/>
+        <Route path=":id" component={IdeaPageContainer}/>
       </Route>
       <Route path="people">
-        <IndexRoute component={PeopleContainer}/>
-        <Route path=":id" component={PersonContainer}/>
+        <IndexRoute component={PeoplePageContainer}/>
+        <Route path=":id" component={PersonPageContainer}/>
       </Route>
       <Route path="*" component={NotFoundPage}/>
     </Route>

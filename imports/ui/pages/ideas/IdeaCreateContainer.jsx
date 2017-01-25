@@ -81,7 +81,7 @@ class IdeaCreatePage extends Component {
                                 <textarea id="problem_worth_solving" className="materialize-textarea" placeholder="Путешественникам сложно найти дополнительный заработок в чужой стране."></textarea>
                             <span className="character-counter counter"></span></div>
                             <p>Мы рекомендуем в общих чертах обозначить рынок. Это поможет нам подобрать для review наиболее подходящую аудиторию:</p>
-                              <div class="input-field">
+                              <div className="input-field">
                                 <select>
                                   <option value="" disabled selected>Choose Your Target Market</option>
                                   <option value="1">Arts, Entertainment and Hobbies</option>

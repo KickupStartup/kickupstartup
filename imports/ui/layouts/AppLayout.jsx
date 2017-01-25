@@ -3,24 +3,35 @@ import { Meteor } from 'meteor/meteor';
 import { browserHistory, Link } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
 import Navigation from '../components/navigation/Navigation.jsx';
-import JoinUsPanel from '../components/JoinUsPanel.jsx';
+import JoinUsForm from '../components/common/JoinUsForm.jsx';
 
-const App = (props) => (
-  <div className="submenu">
-    <Navigation />
-    <div className="container main">
-        <div className="row">
+import i18n from 'meteor/universe:i18n';
+const T = i18n.createComponent();
+
+class App extends Component {
+  componentDidMount() {
+    $("#backButtonMenu").hide();
+  }
+  render() {
+    return (
+      <div className="submenu">
+        <Navigation />
+        <div className="container main">
+          <div id="backButtonMenu" className="row">
             <div className="col s12 back clearfix">
-                <div className="row">
-                    <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i>Back</Link></div>
-                </div>
+              <div className="row">
+                <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i><T>layout.backButton</T></Link></div>
+              </div>
             </div>
           </div>
-      { props.user ? '' : <JoinUsPanel /> }
-      { props.children }
-    </div>
-  </div>
-);
+          { this.props.user ? '' : <JoinUsForm /> }
+          { this.props.children }
+        </div>
+      </div>
+    );
+  }
+}
+
 
 App.propTypes = {
   user: PropTypes.object,
