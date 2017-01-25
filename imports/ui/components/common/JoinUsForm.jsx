@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
-import SwitchLocaleLinks from './locale/SwitchLocaleLinks';
+import SwitchLocaleLinks from '../locale/SwitchLocaleLinks';
 
-export default class JoinUsPanel extends Component {
+export default class JoinUsForm extends Component {
   signUpWithPassword(e) {
     e.preventDefault();
   }

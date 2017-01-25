@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-import JoinUsPanel from '../components/JoinUsPanel';
 import SwitchLocaleLinks from '../components/locale/SwitchLocaleLinks';
 
 export default class LandingPage extends Component {
