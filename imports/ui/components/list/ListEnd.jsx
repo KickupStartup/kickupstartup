@@ -11,8 +11,8 @@ export default class ListEnd extends Component {
           <div className="col s1">&nbsp;</div>
           <div className="card-nexus-info col s11">
             <div className="content">
-              <h4><span className="card-nexus-info-icon fa fa-circle"></span>You have reached the end</h4>
-              <p>Jump to <a href="#">top of page</a></p>
+              <h4><span className="card-nexus-info-icon fa fa-circle"></span><T>list.end.reached</T></h4>
+              <p><T>list.end.jump</T> <a href="#"><T>list.end.link</T></a></p>
             </div>
           </div>
         </div>

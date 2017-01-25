@@ -14,7 +14,13 @@ let uid = user._id;
 Person.upsert({userId: uid}, {
   firstName: "John",
   lastName: "Smith",
+  headline: "Product Manager, Blockchain Enthusiast, Web, UI/UX Designer",
+  aboutMe: "I am the best from the best.",
   languages: ["English"],
+  location: {
+    city: "London",
+    country: "United Kingdom"
+  },
   info : {
     maritalStatus: 2,
     children: 2,
@@ -76,9 +82,19 @@ Meteor.users.upsert({ email: "test1@kickupstartup.com"}, {
 });
 let user1 = Meteor.users.findOne({ email: "test1@kickupstartup.com"});
 Person.upsert({userId: user1._id}, {
-  firstName: "Ivan",
-  lastName: "Ivanov",
-  languages: ["English", "Russian"],
+  firstName: "Иван",
+  lastName: "Иванов",
+  headline: "Менеджер закупок",
+  aboutMe: "Ищу новую работу.",
+  languages: ["Английский", "Русский"],
+  location: {
+    city: "Москва",
+    country: "Россия"
+  },
+  interests: {
+    industries: ["Еда"],
+    sports: ["Футбол"]
+  },
   userId: user1._id
 });
 Meteor.users.upsert({ email: "test2@kickupstartup.com"}, {
@@ -88,16 +104,35 @@ Meteor.users.upsert({ email: "test2@kickupstartup.com"}, {
 });
 let user2 = Meteor.users.findOne({ email: "test2@kickupstartup.com"});
 Person.upsert({userId: user2._id}, {
-  userId: user2._id
+  userId: user2._id,
+  firstName: "Семен",
+  lastName: "Бенедиктович",
+  headline: "Депутат",
+  aboutMe: "Золотые мои слова.",
+  languages: ["Русский"],
+  location: {
+    city: "Минск",
+    country: "Беларусь"
+  },
+  interests: {
+    industries: ["Финансы"],
+    sports: ["Хоккей"]
+  },
 });
 Meteor.users.upsert({ email: "test3@kickupstartup.com"}, {
   username: "test 3",
   email: "test3@kickupstartup.com",
-  password: "pwd test account 3"
+  password: "pwd test account 3",
 });
 let user3 = Meteor.users.findOne({ email: "test3@kickupstartup.com"});
 Person.upsert({userId: user3._id}, {
-  userId: user3._id
+  userId: user3._id,
+  firstName: "Tom",
+  lastName: "Cat",
+  headline: "Chaising Mouse",
+  location: {
+    city: "Holywood"
+  }
 });
 Meteor.users.upsert({ email: "test4@kickupstartup.com"}, {
   username: "test 4",
@@ -106,5 +141,6 @@ Meteor.users.upsert({ email: "test4@kickupstartup.com"}, {
 });
 let user4 = Meteor.users.findOne({ email: "test4@kickupstartup.com"});
 Person.upsert({userId: user4._id}, {
-  userId: user4._id
+  userId: user4._id,
+  headline: "Никому ничего не скажу."
 });

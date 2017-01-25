@@ -4,15 +4,14 @@ import { createContainer } from 'meteor/react-meteor-data';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import SwitchLocaleLinks from '../components/locale/SwitchLocaleLinks';
+import { browserHistory } from 'react-router';
 
 class ProfilePage extends Component {
-  componentDidMount() {
-  }
   logout(e) {
     e.preventDefault();
     if (Meteor.userId()) {
       Meteor.logout();
-      FlowRouter.go('/');
+      browserHistory.push("/");
     }
   }
   render () {
@@ -81,7 +80,7 @@ class ProfilePage extends Component {
   }
 }
 
-export default ProfileContainer = createContainer(props => {
+export default ProfilePageContainer = createContainer(props => {
   return {
     user: Meteor.user(),
   };

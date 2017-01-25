@@ -1,5 +1,10 @@
 import Ideas from './ideas';
-import { Class } from 'meteor/jagi:astronomy';
+import { Class, Enum } from 'meteor/jagi:astronomy';
+
+const IdeaStatus = Enum.create({
+  name: 'IdeaStatus',
+  identifiers: {NEW: 0, WAITING: 1, REVIEWED: 2, APPROVED: 3}
+});
 
 const Idea = Class.create({
   name: 'Idea',
@@ -7,6 +12,7 @@ const Idea = Class.create({
   fields: {
     userId: String,
     draft: String,
+    status: { type: IdeaStatus, default: 0 },
     name: { type: String, optional: true },
     public: { type: Boolean, default: false },
     categories: { type: [String], optional: true },

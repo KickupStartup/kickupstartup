@@ -3,34 +3,30 @@ import { Link } from 'react-router';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-import IdeaListCard from '../../components/list/IdeaListCard';
+import ListIdeaCard from '../../components/list/ListIdeaCard';
 import ListEnd from '../../components/list/ListEnd';
 import ListDivider from '../../components/list/ListDivider';
-import EmptyMyIdeasList from '../../components/list/EmptyMyIdeasList';
+import ListLoading from '../../components/list/ListLoading';
+import ListMyIdeasEmptyCard from '../../components/list/ListMyIdeasEmptyCard';
 
 class IdeasPage extends Component {
   renderIdeas() {
     return this.props.ideas.map((idea) => (
       <div key={idea._id}>
-        <IdeaListCard idea={idea} />
+        <ListIdeaCard idea={idea} />
         <ListDivider borderClassNames="card-nexus-border"/>
       </div>
     ));
   }
   render () {
     if (this.props.loading) {
-      // show loading html
       return (
-        <div className="row">
-          <div className="col s12">
-            Loading..
-          </div>
-        </div>
+        <ListLoading/>
       );
     } else {
       return (
         <div className="row">
-          <EmptyMyIdeasList />
+          <ListMyIdeasEmptyCard />
           <ListDivider borderClassNames="card-nexus-no-border" />
           <div className="col s12">
             <ul className="nav nav-tabs">
@@ -69,9 +65,9 @@ class IdeasPage extends Component {
 }
 
 IdeasPage.propTypes = {
-  ideas: React.PropTypes.array,
-  loading: React.PropTypes.bool,
-  user: React.PropTypes.object
+  ideas: PropTypes.array,
+  loading: PropTypes.bool,
+  user: PropTypes.object
 }
 
 export default IdeasPage;
