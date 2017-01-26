@@ -5,12 +5,17 @@ const T = i18n.createComponent();
 import { browserHistory } from 'react-router';
 
 import ListCommentItem from './list/ListCommentItem';
+import Person from '../../api/people/Person';
 
 class Comments extends Component {
+  getAuthorName(authorId) {
+    const person = Person.findOne({userId: authorId});
+    return person;
+  }
   renderComments() {
     return this.props.comments.map((comment) => (
       <div key={comment._id}>
-        <ListCommentItem comment={comment} />
+        <ListCommentItem comment={comment} author={this.getAuthorName(comment.userId)} />
       </div>
     ));
   }

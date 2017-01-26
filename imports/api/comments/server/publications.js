@@ -18,7 +18,7 @@ if (Meteor.isServer) {
           // since this function should return a cursor.
           return Person.find(
             { userId: comment.userId },
-            { limit: 1, fields: { firstName: 1, lastName: 1, fullName: 1 } });
+            { limit: 1, fields: { firstName: 1, lastName: 1, fullName: 1, userId: 1 } });
         }
       }]
     };
