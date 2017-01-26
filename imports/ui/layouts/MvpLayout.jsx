@@ -3,11 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
 const AppMvp = (props) => (
-  <div>
-    <div className="container shadow main">
-      { props.children }
-    </div>
-  </div>
+	<div className="container shadow main">
+	  { props.children }
+	</div>
 );
 
 AppMvp.propTypes = {
