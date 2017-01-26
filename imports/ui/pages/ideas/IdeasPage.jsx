@@ -30,8 +30,8 @@ class IdeasPage extends Component {
           <ListDivider borderClassNames="card-nexus-no-border" />
           <div className="col s12">
             <ul className="nav nav-tabs">
-              <li className="active"><a href="#!">All</a></li>
-              <li><a href="#!">My Ideas</a></li>
+              <li className="active"><a href="#!"><T>ideas.tabs.all</T></a></li>
+              <li><a href="#!"><T>ideas.tabs.my</T></a></li>
             </ul>
           </div>
           <div className="col s12">

@@ -53,5 +53,11 @@
       "headline": "Headline. 140 characters",
       "aboutMe": "Write briefly about yourself in 1024 characters"
     }
+  },
+  "ideas": {
+    "tabs": {
+      "all": "All",
+      "my": "My ideas"
+    }
   }
 }
