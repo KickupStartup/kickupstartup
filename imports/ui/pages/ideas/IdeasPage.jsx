@@ -14,7 +14,7 @@ class IdeasPage extends Component {
     return this.props.ideas.map((idea) => (
       <div key={idea._id}>
         <ListIdeaCard idea={idea} />
-        <ListDivider borderClassNames="card-nexus-border"/>
+        {/*<ListDivider borderClassNames="card-nexus-border"/>*/}
       </div>
     ));
   }

@@ -11,26 +11,52 @@ const T = i18n.createComponent();
 class App extends Component {
   componentDidMount() {
     $("#backButtonMenu").hide();
+    $('.modal-trigger').leanModal();
+  }
+  handleIdeaCreate(event) {
+    event.preventDefault();
+    $('#modal').closeModal();
+    browserHistory.push('/ideas/create');
   }
   render() {
     return (
+    <div>
       <div className="submenu">
         <Navigation />
-        <div className="container main">
-          <div id="backButtonMenu" className="row">
-            <div className="col s12 back clearfix">
-              <div className="row">
-                <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i><T>layout.backButton</T></Link></div>
+          <div className="container main">
+            <div id="backButtonMenu" className="row">
+              <div className="col s12 back clearfix">
+                <div className="row">
+                  <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i><T>layout.backButton</T></Link></div>
+                </div>
               </div>
             </div>
+            { this.props.user ? '' : <JoinUsForm /> }
+            { this.props.children }
           </div>
-          { this.props.user ? '' : <JoinUsForm /> }
-          { this.props.children }
+          <div className="fixed-action-btn">
+            <a className="btn-floating btn-large modal-trigger waves-effect waves-light" href="#modal">
+              <span className="fa fa-plus fa-lg"></span>
+            </a>
+          </div>
         </div>
-        <div className="fixed-action-btn">
-          <a data-target="modal" className="btn-floating btn-large waves-effect waves-light">
-            <span className="fa fa-plus fa-lg"></span>
-          </a>
+        
+        <div id="modal" className="modal bottom-sheet">
+          <div className="modal-content">
+            <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
+            <h3>Create</h3>
+            <div className="content modal-create">
+              <ul className="collection">
+                <li className="collection-item avatar" onClick={this.handleIdeaCreate}>
+                  <i className="fa fa-lightbulb-o circle"></i>
+                  <span className="title">Idea</span>
+                  <p>
+                    Для создания amazing стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     );

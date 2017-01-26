@@ -21,12 +21,18 @@ html.welcome{
   -o-background-size: cover;
   background-size: cover;
 }
+  html.welcome body{min-height:100%;
+    background:url(../img/bg-pattern.png),url(../img/welcome.jpg) no-repeat center center fixed;
+  }
+
+@media only screen and (min-width: 930px) {
 html.welcome body{min-height:100%;
   background: -webkit-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0));
   background: -o-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0)));
   background: -moz-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0)));
   background: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0));
   background-image: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0)))}
+}
     .main .languages{margin:0 -12px}
         .main .languages a{color:#333;margin:12px}
             .main .languages a{color:#333}
@@ -3937,7 +3943,7 @@ a{color:#ff9100;
     .modal-create .collection{margin:0}
 .modal h3{font-weight:normal}
 .modal .collection .collection-item:hover{background-color:#f9f9f9;cursor:pointer}
-.modal .collection .collection-item.avatar i.circle{background-color:#039be5}
+.modal .collection .collection-item.avatar i.circle{background-color:#ff9100}
 .btn-floating{background-color:#ff9100;-webkit-transition:none;-o-transition:none;transition:none} /* we need these transitions to avoid hover-out transition */
   .btn-floating:hover{background-color:#ffab40}
     .btn-floating .fa{margin:0!important}
@@ -3972,6 +3978,12 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
 .z-depth-1-half,.btn:hover,.btn-large:hover,.btn-floating:hover{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
 blockquote{border-left:none;color:#aaa;margin:0 0 12px}
 .dropdown-content li > a, .dropdown-content li > span{color:#ff9100;font-size:1em}
+.bottom-sheet{margin:0 auto!important}
+@media only screen and (min-width: 960px) {
+  .flow-text {
+      font-size: 1.4rem;
+  }
+}
 /* material update END */
 blockquote div{font-style:italic}
 .tips-blue{color:#31708f;background-color:#d9edf7!important;border-color:#bce8f1}
