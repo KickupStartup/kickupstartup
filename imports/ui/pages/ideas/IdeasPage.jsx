@@ -26,7 +26,7 @@ class IdeasPage extends Component {
     } else {
       return (
         <div className="row">
-          <ListMyIdeasEmptyCard />
+          {/*<ListMyIdeasEmptyCard />*/}
           <ListDivider borderClassNames="card-nexus-no-border" />
           <div className="col s12">
             <ul className="nav nav-tabs">
