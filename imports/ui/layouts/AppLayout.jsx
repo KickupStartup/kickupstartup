@@ -11,7 +11,12 @@ const T = i18n.createComponent();
 class App extends Component {
   componentDidMount() {
     $("#backButtonMenu").hide();
-    $('#modal').openModal();
+    $('.modal-trigger').leanModal();
+  }
+  handleIdeaCreate(event) {
+    event.preventDefault();
+    $('#modal').closeModal();
+    browserHistory.push('/ideas/create');
   }
   render() {
     return (
@@ -30,7 +35,7 @@ class App extends Component {
             { this.props.children }
           </div>
           <div className="fixed-action-btn">
-            <a className="btn-floating btn-large modal-trigger waves-effect waves-light" data-target="modal">
+            <a className="btn-floating btn-large modal-trigger waves-effect waves-light" href="#modal">
               <span className="fa fa-plus fa-lg"></span>
             </a>
           </div>
@@ -42,8 +47,8 @@ class App extends Component {
             <h3>Create</h3>
             <div className="content modal-create">
               <ul className="collection">
-                <li className="collection-item avatar">
-                  <i className="fa fa-google-plus fa-lg material-icons circle"></i>
+                <li className="collection-item avatar" onClick={this.handleIdeaCreate}>
+                  <i className="fa fa-lightbulb-o circle"></i>
                   <span className="title">Idea</span>
                   <p>
                     Для создания amazing стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.

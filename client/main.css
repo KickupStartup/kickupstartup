@@ -3943,7 +3943,7 @@ a{color:#ff9100;
     .modal-create .collection{margin:0}
 .modal h3{font-weight:normal}
 .modal .collection .collection-item:hover{background-color:#f9f9f9;cursor:pointer}
-.modal .collection .collection-item.avatar i.circle{background-color:#039be5}
+.modal .collection .collection-item.avatar i.circle{background-color:#ff9100}
 .btn-floating{background-color:#ff9100;-webkit-transition:none;-o-transition:none;transition:none} /* we need these transitions to avoid hover-out transition */
   .btn-floating:hover{background-color:#ffab40}
     .btn-floating .fa{margin:0!important}
