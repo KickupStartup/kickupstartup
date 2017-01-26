@@ -40,6 +40,14 @@
     "saveButton": "Сохранить изменения",
     "logoutButton": "Выйти",
     "manageAccountsHeader": "Управление учетными записями",
-    "manageAccountsSubHeader": "Хотите сменить пользователя?"
+    "manageAccountsSubHeader": "Хотите сменить пользователя?",
+    "placeholder": {
+      "firstName": "Ваше имя",
+      "lastName": "Ваша фамилия",
+      "city": "Город проживания",
+      "country": "Страна проживания",
+      "headline": "Заголовок. 140 символов",
+      "aboutMe": "Напишите коротко о себе."
+    }
   }
 }

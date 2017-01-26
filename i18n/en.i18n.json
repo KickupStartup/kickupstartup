@@ -40,6 +40,14 @@
     "saveButton": "Save Changes",
     "logoutButton": "Logout",
     "manageAccountsHeader": "Manage Accounts",
-    "manageAccountsSubHeader": "Would like to change an account?"
+    "manageAccountsSubHeader": "Would like to change an account?",
+    "placeholder": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "city": "City",
+      "country": "Country",
+      "headline": "Headline. 140 characters",
+      "aboutMe": "Write briefly about yourself in 1024 characters"
+    }
   }
 }
