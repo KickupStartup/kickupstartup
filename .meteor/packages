@@ -43,6 +43,7 @@ meteorhacks:inject-initial
 # app common
 universe:i18n
 momentjs:moment
+rzymek:moment-locale-ru
 email
 meteorhacks:unblock
 check
