@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
+
+import Comments from '../../components/Comments';
 import ListIdeaCard from '../../components/list/ListIdeaCard';
 import ListLoading from '../../components/list/ListLoading';
 
@@ -18,7 +20,10 @@ class IdeaPage extends Component {
       );
     } else {
       return (
-        <ListIdeaCard idea={this.props.idea}/>
+         <div>
+           <ListIdeaCard idea={this.props.idea}/>
+           <Comments idea={this.props.idea} comments={this.props.comments}/>
+         </div>
       );
     }
   }
@@ -26,7 +31,9 @@ class IdeaPage extends Component {
 
 IdeaPage.propTypes = {
   loading: PropTypes.bool,
+  comments: PropTypes.array,
   idea: PropTypes.object,
+  author: PropTypes.object,
   user: PropTypes.object
 }
 
