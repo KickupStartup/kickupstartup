@@ -30,8 +30,8 @@ class IdeasPage extends Component {
           <ListDivider borderClassNames="card-nexus-no-border" />
           <div className="col s12">
             <ul className="nav nav-tabs">
-              <li className="active"><a href="#!">All</a></li>
-              <li><a href="#!">My Ideas</a></li>
+              <li className="active"><a href="#!"><T>ideas.tabs.all</T></a></li>
+              <li><a href="#!"><T>ideas.tabs.my</T></a></li>
             </ul>
           </div>
           <div className="col s12">
@@ -48,12 +48,7 @@ class IdeasPage extends Component {
               </div>
             </div>
           </div>
-          <div className="col s12 clearfix">
-            <div className="row card-nexus">
-              <div className="col s1">&nbsp;</div>
-              <div className="card-nexus-border col s1"></div>
-            </div>
-          </div>
+          <ListDivider borderClassNames="card-nexus-border"/>
           <div className="col s12">
             {this.renderIdeas()}
             <ListEnd/>
