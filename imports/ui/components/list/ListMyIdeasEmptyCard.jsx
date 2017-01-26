@@ -6,8 +6,8 @@ import { Link } from 'react-router';
 
 export default class ListMyIdeasEmptyCard extends Component {
   render () {
-    return (
-      <div className="col s12">
+    return (<div></div>
+      /*<div className="col s12">
         <div className="card white row-border clearfix">
           <div data-target="modal-post">
             <div className="content text-center">
@@ -46,7 +46,7 @@ export default class ListMyIdeasEmptyCard extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </div>*/
     )
   }
 }

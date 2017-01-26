@@ -27,11 +27,15 @@ class App extends Component {
           { this.props.user ? '' : <JoinUsForm /> }
           { this.props.children }
         </div>
+        <div className="fixed-action-btn">
+          <a data-target="modal" className="btn-floating btn-large waves-effect waves-light">
+            <span className="fa fa-plus fa-lg"></span>
+          </a>
+        </div>
       </div>
     );
   }
 }
-
 
 App.propTypes = {
   user: PropTypes.object,

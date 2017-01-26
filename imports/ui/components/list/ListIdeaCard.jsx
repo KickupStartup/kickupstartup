@@ -17,6 +17,7 @@ class ListIdeaCard extends Component {
       background: "url(/img/no-banner.png) center center no-repeat"
     };
     return (
+    <div>
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
           <div className="banner" style={noImage}></div>
@@ -31,6 +32,11 @@ class ListIdeaCard extends Component {
           <p>{this.props.idea.problemDefinition}</p>
         </div>
       </div>
+      <div className="row card-nexus">
+        <div className="col s1">&nbsp;</div>
+        <div className="card-nexus-border col s1"></div>
+      </div>
+    </div>
     )
   }
 }

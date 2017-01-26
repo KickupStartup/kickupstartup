@@ -3912,7 +3912,7 @@ a{color:#ff9100;
     a:hover{color:#ffab40;
     -webkit-transition: color .6s ease;
     -o-transition: color .6s ease;
-    transition: color .6s ease;}
+    transition: color .6s ease}
 .orange.accent-3:hover{background-color:#ffab40!important;color:#fff}
 .card{margin:0!important}
     .card .tips a{color:#555;float:right}
@@ -3938,14 +3938,18 @@ a{color:#ff9100;
 .modal h3{font-weight:normal}
 .modal .collection .collection-item:hover{background-color:#f9f9f9;cursor:pointer}
 .modal .collection .collection-item.avatar i.circle{background-color:#039be5}
-.btn i, .btn-large i, .btn-floating i, .btn-large i, .btn-flat i{line-height:.75em}
+.btn-floating{background-color:#ff9100;-webkit-transition:none;-o-transition:none;transition:none} /* we need these transitions to avoid hover-out transition */
+  .btn-floating:hover{background-color:#ffab40}
+    .btn-floating .fa{margin:0!important}
+  .btn-floating:hover .fa{color:#fff}
+.btn i, .btn-large i, .btn-large i, .btn-flat i{line-height:.75em}
     .btn-large i{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
     .btn i{font-size:1em}
     .btn .fa,a .fa,.btn-large .fa{margin-right:8px}
 .switch label input[type=checkbox]:checked + .lever{background-color:#818181}
-.switch label input[type=checkbox]:checked + .lever:after{background-color:#F1F1F1}
+.switch label input[type=checkbox]:checked + .lever:after{background-color:#f1f1f1}
 .green:hover{background-color:#5eb762!important}
-[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {background-color: #ff9100;
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {background-color:#ff9100;
 }
 [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
     border: 2px solid #ff9100;

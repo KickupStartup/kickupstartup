@@ -7,7 +7,7 @@ export default class ListLoading extends Component {
     return (
       <div className="row">
         <div className="col s12">
-          Loading..
+          Loading...
         </div>
       </div>
     )
