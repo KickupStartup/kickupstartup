@@ -41,7 +41,7 @@ class IdeasPage extends Component {
     } else {
       return (
         <div className="row">
-          {/*<ListMyIdeasEmptyCard />*/}
+          {/*<ListMyIdeasEmptyCard />
           <ListDivider borderClassNames="card-nexus-no-border" />
           <div className="col s12">
             <ul className="nav nav-tabs">
@@ -62,7 +62,7 @@ class IdeasPage extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div>*/}
           <ListDivider borderClassNames="card-nexus-border"/>
           <div className="col s12">
             {this.renderIdeas()}

@@ -11,8 +11,7 @@ class ListCommentItem extends Component {
     return (
       <li className="collection-item avatar">
         <span className="chat-date">{moment(this.props.comment.createdAt).fromNow()}</span>
-        {/* <img src="/img/banner-avatar.jpg" alt="" className="circle"/> */}
-        <Avatar name={this.props.author.fullName} round={true} size={40}></Avatar>
+        <Avatar className="circle" name={this.props.author.fullName} round={true} size={48}></Avatar>
         <span className="title">{this.props.author.fullName}</span>
         <p>{this.props.comment.message}</p>
       </li>
