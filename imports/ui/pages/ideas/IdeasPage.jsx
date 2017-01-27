@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import { moment } from 'meteor/momentjs:moment';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
@@ -9,11 +10,26 @@ import ListDivider from '../../components/list/ListDivider';
 import ListLoading from '../../components/list/ListLoading';
 import ListMyIdeasEmptyCard from '../../components/list/ListMyIdeasEmptyCard';
 
+import Person from '../../../api/people/Person';
+import Comment from '../../../api/comments/Comment';
+
 class IdeasPage extends Component {
+  getIdeaAuthor(userId) {
+    return Person.findOne({userId: userId});
+  }
+  getLastCommentTime(idea) {
+    return Comment.findOne({ideaId:idea._id}, { $sort: { createdAt: -1}});
+  }
+  getCommentsCount(idea) {
+    return Comment.find({ideaId: idea._id}).count();
+  }
   renderIdeas() {
     return this.props.ideas.map((idea) => (
       <div key={idea._id}>
-        <ListIdeaCard idea={idea} />
+        <ListIdeaCard idea={idea}
+                      author={this.getIdeaAuthor(idea.userId)}
+                      commentsCount={this.getCommentsCount(idea)}
+                      lastCommentTime={this.getLastCommentTime(idea)} />
         <ListDivider borderClassNames="card-nexus-border"/>
       </div>
     ));
