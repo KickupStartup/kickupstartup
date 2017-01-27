@@ -11,8 +11,28 @@ import ListDivider from '../../components/list/ListDivider';
 import ProfileForm from '../../components/profile/ProfileForm';
 
 class ProfilePage extends Component {
-  constructor(props) {
-    super(props);
+  renderManageAccountPanel() {
+    if (Meteor.userId()) {
+      return (
+        <div className="col s12">
+          <div className="card white row-border">
+            <div className="content clearfix">
+              <SwitchLocaleLinks classNames="languages right" linkClassNames="modal-bottom-link" />
+              <h3><T>profile.manageAccountsHeader</T></h3>
+              <p><T>profile.manageAccountsSubHeader</T></p>
+              <div className="col s12 text-center">
+                <button type="submit" className="activator waves-effect waves-light orange accent-3 btn" onClick={this.logout.bind(this)}>
+                  <i className="fa fa-lock"></i>
+                  <T>profile.logoutButton</T>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return;
+    }
   }
   logout(e) {
     e.preventDefault();
@@ -30,21 +50,7 @@ class ProfilePage extends Component {
       } else {
         return (
           <div className="row">
-            <div className="col s12">
-              <div className="card white row-border">
-                <div className="content clearfix">
-                  <SwitchLocaleLinks classNames="languages right" linkClassNames="modal-bottom-link" />
-                  <h3><T>profile.manageAccountsHeader</T></h3>
-                  <p><T>profile.manageAccountsSubHeader</T></p>
-                  <div className="col s12 text-center">
-                    <button type="submit" className="activator waves-effect waves-light orange accent-3 btn" onClick={this.logout.bind(this)}>
-                      <i className="fa fa-lock"></i>
-                      <T>profile.logoutButton</T>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {this.renderManageAccountPanel()}
             <ListDivider borderClassNames="card-nexus-no-border" />
             <div className="col s12">
               <ProfileForm profile={this.props.profile} />
