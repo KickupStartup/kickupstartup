@@ -3,7 +3,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { moment } from 'meteor/momentjs:moment';
 
-import Comments from '../../components/Comments';
+import Comments from '../../components/comments/Comments';
 import ListIdeaCard from '../../components/list/ListIdeaCard';
 import ListLoading from '../../components/list/ListLoading';
 
