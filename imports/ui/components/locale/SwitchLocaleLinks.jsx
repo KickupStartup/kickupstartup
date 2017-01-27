@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import classNames from 'classnames';
+import { moment } from 'meteor/momentjs:moment';
 
 export default class SwitchLocaleLinks extends Component {
   constructor(props) {
@@ -21,11 +22,13 @@ export default class SwitchLocaleLinks extends Component {
   switchLocaleToEn() {
     let newLocale = 'en';
     i18n.setLocale(newLocale);
+    moment.locale(newLocale);
     this.setState({ localeActive: newLocale });
   }
   switchLocaleToRu() {
     let newLocale = 'ru';
     i18n.setLocale(newLocale);
+    moment.locale(newLocale);
     this.setState({ localeActive: newLocale });
   }
   localeClasses(locale) {

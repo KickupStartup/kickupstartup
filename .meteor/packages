@@ -23,6 +23,7 @@ shell-server@0.2.1            # Server-side component of the `meteor shell` comm
 
 # data
 react-meteor-data
+reywood:publish-composite
 jagi:astronomy-timestamp-behavior
 jagi:astronomy-softremove-behavior
 jagi:astronomy
@@ -42,6 +43,7 @@ meteorhacks:inject-initial
 # app common
 universe:i18n
 momentjs:moment
+rzymek:moment-locale-ru
 email
 meteorhacks:unblock
 check

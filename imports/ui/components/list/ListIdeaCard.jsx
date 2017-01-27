@@ -3,11 +3,17 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { browserHistory } from 'react-router';
+import Avatar from 'react-avatar';
+import { moment } from 'meteor/momentjs:moment';
 
 class ListIdeaCard extends Component {
   gotoIdeaDetails(e) {
     e.preventDefault();
     browserHistory.push("/ideas/" + this.props.idea._id);
+  }
+  showLastCommentTime() {
+    return this.props.lastCommentTime ?
+      moment(this.props.lastCommentTime.createdAt).fromNow() : '';
   }
   render () {
     var customImage = {
@@ -21,9 +27,9 @@ class ListIdeaCard extends Component {
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
           <div className="banner" style={noImage}></div>
-          <div className="avatar-photo"><img src="/img/avatar.jpg"/></div>
+          <div className="avatar-photo"><Avatar name={this.props.author.fullName} textSizeRatio={1.9} round={true} size={96}/></div>
           <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
-          <ul className="stat"><li>70 Comments</li><li>18 Jan 2017</li></ul>
+          <ul className="stat"><li>{this.props.commentsCount} comments</li><li>{this.showLastCommentTime()}</li></ul>
         </div>
         <div className="modal-body">
           <b>Draft</b>
@@ -42,7 +48,8 @@ class ListIdeaCard extends Component {
 }
 
 ListIdeaCard.propTypes = {
-  idea: PropTypes.object
+  idea: PropTypes.object,
+  author: PropTypes.object
 }
 
 export default ListIdeaCard;

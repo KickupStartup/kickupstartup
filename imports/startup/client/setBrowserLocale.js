@@ -1,5 +1,6 @@
 import React from 'react';
 import i18n from 'meteor/universe:i18n';
+import { moment } from 'meteor/momentjs:moment';
 
 function getLang () {
     return (
@@ -11,4 +12,6 @@ function getLang () {
     );
 }
 
-i18n.setLocale(getLang());
+const lang = getLang();
+i18n.setLocale(lang);
+moment.locale(lang);
