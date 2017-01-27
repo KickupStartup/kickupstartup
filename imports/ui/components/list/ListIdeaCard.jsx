@@ -29,12 +29,12 @@ class ListIdeaCard extends Component {
           <div className="banner" style={noImage}></div>
           <div className="avatar-photo"><Avatar name={this.props.author.fullName} textSizeRatio={1.9} round={true} size={96}/></div>
           <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
-          <ul className="stat"><li>{this.props.commentsCount} comments</li><li>{this.showLastCommentTime()}</li></ul>
+          <ul className="stat"><li>{this.props.commentsCount} <T>ideas.comments</T></li><li>{this.showLastCommentTime()}</li></ul>
         </div>
         <div className="modal-body">
-          <b>Draft</b>
+          <b><T>ideas.header.draft</T></b>
           <p>{this.props.idea.draft}</p>
-          <b>Problem Worth Solving</b>
+          <b><T>ideas.header.problem</T></b>
           <p>{this.props.idea.problemDefinition}</p>
         </div>
       </div>
