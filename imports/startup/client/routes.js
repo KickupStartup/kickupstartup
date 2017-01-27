@@ -11,7 +11,7 @@ import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
 
 import IdeasPageContainer from '../../ui/pages/ideas/IdeasPageContainer.jsx';
 import IdeaPageContainer from '../../ui/pages/ideas/IdeaPageContainer.jsx';
-import IdeaCreateContainer from '../../ui/pages/ideas/IdeaCreateContainer.jsx';
+import IdeaCreatePageContainer from '../../ui/pages/ideas/IdeaCreatePageContainer.jsx';
 
 import PeoplePageContainer from '../../ui/pages/people/PeoplePageContainer.jsx';
 import PersonPageContainer from '../../ui/pages/people/PersonPageContainer.jsx';
@@ -25,7 +25,7 @@ export const renderRoutes = () => (
       <Route path="profile" component={ProfilePageContainer}/>
       <Route path="ideas">
         <IndexRoute component={IdeasPageContainer}/>
-        <Route path="create" component={IdeaCreateContainer}/>
+        <Route path="create" component={IdeaCreatePageContainer}/>
         <Route path=":id" component={IdeaPageContainer}/>
       </Route>
       <Route path="people">
