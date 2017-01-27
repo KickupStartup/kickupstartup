@@ -60,7 +60,7 @@ class IdeasPage extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div>*/}
           <ListDivider borderClassNames="card-nexus-border"/>
           <div className="col s12">
             {this.renderIdeas()}
