@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import { moment } from 'meteor/momentjs:moment';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
@@ -9,12 +10,26 @@ import ListDivider from '../../components/list/ListDivider';
 import ListLoading from '../../components/list/ListLoading';
 import ListMyIdeasEmptyCard from '../../components/list/ListMyIdeasEmptyCard';
 
+import Person from '../../../api/people/Person';
+import Comment from '../../../api/comments/Comment';
+
 class IdeasPage extends Component {
+  getIdeaAuthor(userId) {
+    return Person.findOne({userId: userId});
+  }
+  getLastCommentTime(idea) {
+    return Comment.findOne({ideaId:idea._id}, { $sort: { createdAt: -1}});
+  }
+  getCommentsCount(idea) {
+    return Comment.find({ideaId: idea._id}).count();
+  }
   renderIdeas() {
     return this.props.ideas.map((idea) => (
       <div key={idea._id}>
-        <ListIdeaCard idea={idea} />
-        {/*<ListDivider borderClassNames="card-nexus-border"/>*/}
+        <ListIdeaCard idea={idea}
+                      author={this.getIdeaAuthor(idea.userId)}
+                      commentsCount={this.getCommentsCount(idea)}
+                      lastCommentTime={this.getLastCommentTime(idea)} />
       </div>
     ));
   }
@@ -30,8 +45,8 @@ class IdeasPage extends Component {
           <ListDivider borderClassNames="card-nexus-no-border" />
           <div className="col s12">
             <ul className="nav nav-tabs">
-              <li className="active"><a href="#!">All</a></li>
-              <li><a href="#!">My Ideas</a></li>
+              <li className="active"><a href="#!"><T>ideas.tabs.all</T></a></li>
+              <li><a href="#!"><T>ideas.tabs.my</T></a></li>
             </ul>
           </div>
           <div className="col s12">
@@ -48,12 +63,7 @@ class IdeasPage extends Component {
               </div>
             </div>
           </div>
-          <div className="col s12 clearfix">
-            <div className="row card-nexus">
-              <div className="col s1">&nbsp;</div>
-              <div className="card-nexus-border col s1"></div>
-            </div>
-          </div>
+          <ListDivider borderClassNames="card-nexus-border"/>
           <div className="col s12">
             {this.renderIdeas()}
             <ListEnd/>

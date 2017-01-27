@@ -17,14 +17,18 @@
       "middle": "Your",
       "end": "Startup!"
     },
+    "quote": {
+      "text": "Great companies start because the founders want to change the world... not make a fast buck.",
+      "author": "Guy Kawasaki"
+    },
     "explore": "Explore other's ideas",
     "button": "Validate Your Idea",
-    "text": "Платформа для успешного построения стартапов с использованием best practices. Пошаговое разбиение процесса создания и поддержка на каждом этапе. Поиск co-founders, разработчиков, пользователей и инвесторов.",
-    "text2": "Уже сейчас вы можете проверить свою идею и собирать early adopters!"
+    "aboutUs": "We are developing platform for creating successful startups, where you will find help and people interested in your business.",
+    "text2": "Although we are on our early stage, you can start validating your ideas first!"
   },
   "joinus": {
     "header": "Welcome aboard!",
-    "text": "Login or Sign up чтобы создать свой awesome стартап или присоединяйтесь к разработке уже существующих!"
+    "text": "Sign up or login to create your awesome startup or join developing others!"
   },
   "idea": {
     "header": "Come up with an idea"
@@ -34,6 +38,26 @@
       "reached": "You have reached the end",
       "jump": "Jump to",
       "link": "top of the page"
+    }
+  },
+  "profile": {
+    "saveButton": "Save Changes",
+    "logoutButton": "Logout",
+    "manageAccountsHeader": "Manage Accounts",
+    "manageAccountsSubHeader": "Would you like to change an account?",
+    "placeholder": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "city": "City",
+      "country": "Country",
+      "headline": "Headline. 140 characters",
+      "aboutMe": "Write briefly about yourself in 1024 characters"
+    }
+  },
+  "ideas": {
+    "tabs": {
+      "all": "All",
+      "my": "My ideas"
     }
   }
 }

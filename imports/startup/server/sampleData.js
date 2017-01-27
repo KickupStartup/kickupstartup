@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { moment } from 'meteor/momentjs:moment';
 import Idea from '../../api/ideas/Idea';
 import Person from '../../api/people/Person';
+import Comment from '../../api/comments/Comment';
 
 // create test user and his personal account
 Meteor.users.upsert({ email: "test@kickupstartup.com"}, {
@@ -42,6 +43,7 @@ Idea.upsert({ name: "Idea 1", userId: uid}, {
   name: "Idea 1",
   draft: "Draft of an idea.",
   public: true,
+  status: 1,
   categories: ["Toys", "Weapon"],
   problemDefinition: "Problem 1 definition",
   targetCustomer: "Target customer 1 description",
@@ -143,4 +145,33 @@ let user4 = Meteor.users.findOne({ email: "test4@kickupstartup.com"});
 Person.upsert({userId: user4._id}, {
   userId: user4._id,
   headline: "Никому ничего не скажу."
+});
+
+// insert comments for testing
+const idea = Idea.findOne({userId: uid, name: "Idea 1"});
+
+Comment.upsert({userId: user2._id, ideaId: idea._id}, {
+  userId: user2._id,
+  ideaId: idea._id,
+  message: "Каким образом вы думаете зарабатывать?"
+});
+Comment.upsert({userId: uid, ideaId: idea._id}, {
+  userId: uid,
+  ideaId: idea._id,
+  message: "We did not think about it."
+});
+Comment.upsert({userId: user3._id, ideaId: idea._id}, {
+  userId: user3._id,
+  ideaId: idea._id,
+  message: "А мышей ловить с помощью вашего продукта можно будет?"
+});
+Comment.upsert({userId: user4._id, ideaId: idea._id}, {
+  userId: user4._id,
+  ideaId: idea._id,
+  message: "Какой-то странный у вас продукт"
+});
+Comment.upsert({userId: user1._id, ideaId: idea._id}, {
+  userId: user1._id,
+  ideaId: idea._id,
+  message: "Я хотел бы у вас работать. Как можно присоединиться?"
 });

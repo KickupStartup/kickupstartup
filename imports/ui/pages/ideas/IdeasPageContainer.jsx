@@ -4,9 +4,8 @@ import IdeasPage from './IdeasPage';
 import Idea from '../../../api/ideas/Idea';
 
 export default IdeasPageContainer = createContainer(props => {
-  const ideasPublicHandle = Meteor.subscribe('ideas.public');
-  const ideasMyHandle = Meteor.subscribe("ideas.own");
-  const loading = !ideasPublicHandle.ready() || !ideasMyHandle.ready();
+  const ideasHandle = Meteor.subscribe('ideas.withAuthorAndCommentsCount');
+  const loading = !ideasHandle.ready();
   return {
     loading,
     ideas: Idea.find({}).fetch(),
