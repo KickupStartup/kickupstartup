@@ -11,8 +11,9 @@ const T = i18n.createComponent();
 import Person from '../../api/people/Person';
 
 class App extends Component {
-  componentDidMount() {
-    $('.modal-trigger').leanModal();
+  handlePlusButtonClick(event) {
+    event.preventDefault();
+    $('#modal').openModal();
   }
   handleIdeaCreate(event) {
     event.preventDefault();
@@ -41,7 +42,7 @@ class App extends Component {
             { this.props.children }
           </div>
           <div className="fixed-action-btn">
-            <a className="btn-floating btn-large modal-trigger waves-effect waves-light" href="#modal">
+            <a onClick={this.handlePlusButtonClick} className="btn-floating btn-large modal-trigger waves-effect waves-light" href="!#">
               <span className="fa fa-plus fa-lg"></span>
             </a>
           </div>
