@@ -7,16 +7,11 @@ import Avatar from 'react-avatar';
 import { moment } from 'meteor/momentjs:moment';
 
 class ListIdeaCard extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
   gotoIdeaDetails(e) {
     e.preventDefault();
     browserHistory.push("/ideas/" + this.props.idea._id);
   }
   showLastCommentTime() {
-    console.log("show last comment time");
     return this.props.lastCommentTime ?
       moment(this.props.lastCommentTime.createdAt).fromNow() : '';
   }
