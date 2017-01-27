@@ -5,9 +5,6 @@ const T = i18n.createComponent();
 import classNames from 'classnames';
 
 export default class ListDivider extends Component {
-  constructor(props) {
-    super(props);
-  }
   borderClasses() {
     return classNames(this.props.borderClassNames, 'col', 's1');
   }
