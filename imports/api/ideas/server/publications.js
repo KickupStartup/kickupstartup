@@ -28,7 +28,7 @@ if (Meteor.isServer) {
           // since this function should return a cursor.
           return Person.find(
             { userId: idea.userId },
-            { limit: 1, fields: { firstName: 1, lastName: 1, fullName: 1, userId: 1 } }
+            { limit: 1 }
           );
         }
       }, {
@@ -40,8 +40,8 @@ if (Meteor.isServer) {
           find: function(comment) {
             // find comment author
             return Person.find(
-              {userId: comment.userId},
-              { limit: 1, fields: { firstName: 1, lastName: 1, fullName: 1, userId: 1 }}
+              { userId: comment.userId },
+              { limit: 1 }
             );
           }
         }]
@@ -67,7 +67,8 @@ if (Meteor.isServer) {
           // since this function should return a cursor.
           return Person.find(
             { userId: idea.userId },
-            { limit: 1, fields: { firstName: 1, lastName: 1, fullName: 1, userId: 1 } });
+            { limit: 1 }
+          );
         }
       }, {
         find: function(idea) {
