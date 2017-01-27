@@ -15,7 +15,7 @@ export default class LandingPage extends Component {
   }
   render() {
     return (
-      <div className="row">
+      <div className="row flow-text">
         <div className="col s12">
           <SwitchLocaleLinks classNames="languages" linkClassNames="" />
           <p className="heading_pre">

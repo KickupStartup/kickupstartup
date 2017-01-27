@@ -30,7 +30,6 @@ class IdeasPage extends Component {
                       author={this.getIdeaAuthor(idea.userId)}
                       commentsCount={this.getCommentsCount(idea)}
                       lastCommentTime={this.getLastCommentTime(idea)} />
-        <ListDivider borderClassNames="card-nexus-border"/>
       </div>
     ));
   }
