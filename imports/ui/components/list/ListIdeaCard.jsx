@@ -7,13 +7,30 @@ import Avatar from 'react-avatar';
 import { moment } from 'meteor/momentjs:moment';
 
 class ListIdeaCard extends Component {
+  constructor(props) {
+    super(props);
+    this.renderNumberOfCommentsText = this.renderNumberOfCommentsText.bind(this);
+  }
   gotoIdeaDetails(e) {
     e.preventDefault();
     browserHistory.push("/ideas/" + this.props.idea._id);
   }
-  showLastCommentTime() {
-    return this.props.lastCommentTime ?
-      moment(this.props.lastCommentTime.createdAt).fromNow() : '';
+  renderLastCommentTime() {
+    if (this.props.lastCommentTime) {
+      return (<li>{moment(this.props.lastCommentTime.createdAt).fromNow()}</li>);
+    } else {
+      return (<div></div>);
+    }
+  }
+  renderNumberOfCommentsText() {
+    switch(this.props.commentsCount) {
+      case 1: return(<T>ideas.comments.single</T>);
+      case 2: case 3: case 4: return(<T>ideas.comments.few</T>);
+      default: return(<T>ideas.comments.many</T>);
+    }
+  }
+  renderNumberOfComments() {
+    return (this.props.commentsCount == 0) ? i18n.__('comment.no') : this.props.commentsCount;
   }
   render () {
     var customImage = {
@@ -29,7 +46,7 @@ class ListIdeaCard extends Component {
           <div className="banner" style={noImage}></div>
           <div className="avatar-photo"><Avatar name={this.props.author.fullName} textSizeRatio={1.9} round={true} size={96}/></div>
           <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
-          <ul className="stat"><li>{this.props.commentsCount} <T>ideas.comments</T></li><li>{this.showLastCommentTime()}</li></ul>
+          <ul className="stat"><li>{this.renderNumberOfComments()} {this.renderNumberOfCommentsText()}</li>{this.renderLastCommentTime()}</ul>
         </div>
         <div className="modal-body">
           <b><T>ideas.header.draft</T></b>
