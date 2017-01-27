@@ -8,7 +8,7 @@ const Comment = Class.create({
   fields: {
     userId: String,
     ideaId: String,
-    // author: String,
+    title: { type: String, optional: true },
     message: String
   },
   indexes: {

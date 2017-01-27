@@ -58,6 +58,7 @@ Idea.upsert({ name: "Idea 2", userId: uid}, {
   draft: 'Draft of an idea.',
   problemDefinition: "Problem 2 definition",
   public: true,
+  status: 1,
   userId: uid
 });
 Idea.upsert({ name: "Idea 3", userId: uid}, {
@@ -68,11 +69,13 @@ Idea.upsert({ name: "Idea 3", userId: uid}, {
 Idea.upsert({ name: "Idea 4", userId: uid}, {
   name: 'Idea 4',
   draft: 'Draft of an idea.',
+  status: 1,
   userId: uid
 });
 Idea.upsert({ name: "Idea 5", userId: uid}, {
   name: 'Idea 5',
   draft: 'Draft of an idea.',
+  status: 1,
   userId: uid
 });
 

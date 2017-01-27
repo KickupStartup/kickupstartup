@@ -63,6 +63,20 @@
       "draft": "Vague idea",
       "problem": "Problem Worth Solving"
     },
-    "comments": "comments"
+    "comments": {
+      "single": "comment",
+      "few": "comments",
+      "many": "comments"
+    }
+  },
+  "comment": {
+    "addHeader": "Leave feedback",
+    "tweetCheckbox": "tweet it",
+    "submitButton": "submit",
+    "no": "no",
+    "placeholder": {
+      "title": "Title, hashtags or mentions. Max 72 characters",
+      "message": "Add a comment..."
+    }
   }
 }
