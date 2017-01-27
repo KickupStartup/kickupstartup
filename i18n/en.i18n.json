@@ -64,5 +64,14 @@
       "problem": "Problem Worth Solving"
     },
     "comments": "comments"
+  },
+  "comment": {
+    "addHeader": "Leave feedback",
+    "tweetCheckbox": "tweet it",
+    "submitButton": "submit",
+    "placeholder": {
+      "title": "Title, hashtags or mentions. Max 72 characters",
+      "message": "Let us know your thoughts! Max 672 characters"
+    }
   }
 }
