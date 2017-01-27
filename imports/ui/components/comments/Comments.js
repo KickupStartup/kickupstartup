@@ -21,15 +21,15 @@ class Comments extends Component {
   }
   render () {
     return (
-      <div className="white row-border clearfix" id="comments">
-        <div className="modal-header scrollspy">
+      <div className="white row-border clearfix">
+        {/* <div className="modal-header scrollspy">
           <h3 className="modal-title"><T>comment.addHeader</T></h3>
-        </div>
+        </div> */}
         <div className="modal-body">
-          <CommentForm />
           <ul className="collection chat">
             {this.renderComments()}
           </ul>
+          <CommentForm idea={this.props.idea} />
         </div>
       </div>
     )
