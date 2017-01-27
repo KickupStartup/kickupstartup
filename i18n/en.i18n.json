@@ -58,6 +58,11 @@
     "tabs": {
       "all": "All",
       "my": "My ideas"
-    }
+    },
+    "header": {
+      "draft": "Vague idea",
+      "problem": "Problem Worth Solving"
+    },
+    "comments": "comments"
   }
 }

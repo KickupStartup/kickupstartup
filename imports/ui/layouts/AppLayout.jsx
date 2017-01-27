@@ -2,16 +2,18 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { browserHistory, Link } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
-import Navigation from '../components/navigation/Navigation.jsx';
+import TopBar from '../components/navigation/TopBar.jsx';
 import JoinUsForm from '../components/common/JoinUsForm.jsx';
 
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
+import Person from '../../api/people/Person';
+
 class App extends Component {
-  componentDidMount() {
-    $("#backButtonMenu").hide();
-    $('.modal-trigger').leanModal();
+  handlePlusButtonClick(event) {
+    event.preventDefault();
+    $('#modal').openModal();
   }
   handleIdeaCreate(event) {
     event.preventDefault();
@@ -19,12 +21,17 @@ class App extends Component {
     browserHistory.push('/ideas/create');
   }
   render() {
-    return (
-    <div>
-      <div className="submenu">
-        <Navigation />
+    if (this.props.loading) {
+      return (
+        <div></div>
+      );
+    } else {
+      return (
+      <div>
+        <div className="submenu">
+          <TopBar profile={this.props.profile} />
           <div className="container main">
-            <div id="backButtonMenu" className="row">
+            <div id="backButtonMenu" className="row hidden">
               <div className="col s12 back clearfix">
                 <div className="row">
                   <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i><T>layout.backButton</T></Link></div>
@@ -35,40 +42,46 @@ class App extends Component {
             { this.props.children }
           </div>
           <div className="fixed-action-btn">
-            <a className="btn-floating btn-large modal-trigger waves-effect waves-light" href="#modal">
+            <a onClick={this.handlePlusButtonClick} className="btn-floating btn-large modal-trigger waves-effect waves-light" href="!#">
               <span className="fa fa-plus fa-lg"></span>
             </a>
           </div>
         </div>
-        
-        <div id="modal" className="modal bottom-sheet">
-          <div className="modal-content">
-            <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
-            <h3>Create</h3>
-            <div className="content modal-create">
-              <ul className="collection">
-                <li className="collection-item avatar" onClick={this.handleIdeaCreate}>
-                  <i className="fa fa-lightbulb-o circle"></i>
-                  <span className="title">Idea</span>
-                  <p>
-                    Для создания amazing стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.
-                  </p>
-                </li>
-              </ul>
+
+          <div id="modal" className="modal bottom-sheet">
+            <div className="modal-content">
+              <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
+              <h3>Create</h3>
+              <div className="content modal-create">
+                <ul className="collection">
+                  <li className="collection-item avatar" onClick={this.handleIdeaCreate}>
+                    <i className="fa fa-lightbulb-o circle"></i>
+                    <span className="title">Idea</span>
+                    <p>
+                      Для создания amazing стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.
+                    </p>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
 App.propTypes = {
   user: PropTypes.object,
+  profile: PropTypes.object
 };
 
 export default AppLayout = createContainer(props => {
+  const profileHandle = Meteor.subscribe("person.byuserid", Meteor.userId());
+  const loading = !profileHandle.ready();
   return {
+    loading,
     user: Meteor.user(),
+    profile: Person.findOne({userId: Meteor.userId()})
   };
 }, App);
