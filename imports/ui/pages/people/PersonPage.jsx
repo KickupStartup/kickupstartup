@@ -6,10 +6,10 @@ import ListLoading from '../../components/list/ListLoading';
 
 class PersonPage extends Component {
   componentDidMount() {
-    $("#backButtonMenu").show();
+    $("#backButtonMenu").removeClass('hidden');
   }
   componentWillUnmount() {
-    $("#backButtonMenu").hide();
+    $("#backButtonMenu").addClass('hidden');
   }
   render() {
     if (this.props.loading) {

@@ -12,7 +12,6 @@ import Person from '../../api/people/Person';
 
 class App extends Component {
   componentDidMount() {
-    $("#backButtonMenu").hide();
     $('.modal-trigger').leanModal();
   }
   handleIdeaCreate(event) {
@@ -30,23 +29,23 @@ class App extends Component {
       <div>
         <div className="submenu">
           <TopBar profile={this.props.profile} />
-            <div className="container main">
-              <div id="backButtonMenu" className="row">
-                <div className="col s12 back clearfix">
-                  <div className="row">
-                    <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i><T>layout.backButton</T></Link></div>
-                  </div>
+          <div className="container main">
+            <div id="backButtonMenu" className="row hidden">
+              <div className="col s12 back clearfix">
+                <div className="row">
+                  <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i><T>layout.backButton</T></Link></div>
                 </div>
               </div>
-              { this.props.user ? '' : <JoinUsForm /> }
-              { this.props.children }
             </div>
-            <div className="fixed-action-btn">
-              <a className="btn-floating btn-large modal-trigger waves-effect waves-light" href="#modal">
-                <span className="fa fa-plus fa-lg"></span>
-              </a>
-            </div>
+            { this.props.user ? '' : <JoinUsForm /> }
+            { this.props.children }
           </div>
+          <div className="fixed-action-btn">
+            <a className="btn-floating btn-large modal-trigger waves-effect waves-light" href="#modal">
+              <span className="fa fa-plus fa-lg"></span>
+            </a>
+          </div>
+        </div>
 
           <div id="modal" className="modal bottom-sheet">
             <div className="modal-content">

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
+import Avatar from 'react-avatar';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import Person from '../../../api/people/Person';
@@ -64,6 +65,9 @@ export default class ProfileForm extends Component {
         }
       });
   }
+  getFullName() {
+    return this.state.firstName + ' ' + this.state.lastName;
+  }
   render () {
     var bannerImage = {
       background: "url(/img/no-banner.jpg) center center no-repeat"
@@ -73,7 +77,7 @@ export default class ProfileForm extends Component {
         <div className="content text-center clearfix">
           <form onSubmit={this.handleSubmit}>
             <div className="banner banner-edit" style={bannerImage}></div>
-            <div className="avatar-photo editable"><a href="#"><img src="/img/no-photo.png" /></a></div>
+            <div className="avatar-photo editable"><a href="#"><Avatar name={this.getFullName()} textSizeRatio={1.9} round={true} size={104} /></a></div>
             <div className="row">
               <div className="col s4 offset-s2">
                 <input type="text" placeholder={i18n.__('profile.placeholder.firstName')} className="text-center" value={this.state.firstName} onChange={this.handleFirstNameChange} />

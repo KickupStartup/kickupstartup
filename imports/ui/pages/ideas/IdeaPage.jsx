@@ -11,10 +11,10 @@ import Person from '../../../api/people/Person';
 
 class IdeaPage extends Component {
   componentDidMount() {
-    $("#backButtonMenu").show();
+    $("#backButtonMenu").removeClass('hidden');
   }
   componentWillUnmount() {
-    $("#backButtonMenu").hide();
+    $("#backButtonMenu").addClass('hidden');
   }
   getIdeaAuthor(userId) {
     return Person.findOne({userId: userId});
