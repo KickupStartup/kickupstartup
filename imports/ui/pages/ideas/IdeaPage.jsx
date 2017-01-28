@@ -6,6 +6,8 @@ import { moment } from 'meteor/momentjs:moment';
 import Comments from '../../components/comments/Comments';
 import ListIdeaCard from '../../components/list/ListIdeaCard';
 import ListLoading from '../../components/list/ListLoading';
+import IdeaView from '../../components/ideas/IdeaView';
+import IdeaSurvey from '../../components/ideas/IdeaSurvey';
 
 import Person from '../../../api/people/Person';
 import Comment from '../../../api/comments/Comment';
@@ -30,23 +32,26 @@ class IdeaPage extends Component {
       );
     } else {
       return (
-         <div>
-           <ListIdeaCard
-             idea={this.props.idea}
-             author={this.getIdeaAuthor(this.props.idea.userId)}
-             commentsCount={this.getCommentsCount(this.props.idea)}
-             lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''}/>
-           <Comments idea={this.props.idea} comments={this.props.comments}/>
-         </div>
+        <div>
+         <ListIdeaCard
+           idea={this.props.idea}
+           author={this.getIdeaAuthor(this.props.idea.userId)}
+           commentsCount={this.getCommentsCount(this.props.idea)}
+           lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
+         <IdeaView idea={this.props.idea}
+                   author={this.getIdeaAuthor(this.props.idea.userId)} />
+         <IdeaSurvey />
+         <Comments idea={this.props.idea} comments={this.props.comments} />
+        </div>
       );
     }
   }
 }
 
 IdeaPage.propTypes = {
-  loading: PropTypes.bool,
-  comments: PropTypes.array,
-  idea: PropTypes.object,
+  loading: PropTypes.bool.isRequired,
+  comments: PropTypes.array.isRequired,
+  idea: PropTypes.object.isRequired,
   user: PropTypes.object
 }
 

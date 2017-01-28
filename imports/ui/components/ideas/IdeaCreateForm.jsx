@@ -14,12 +14,12 @@ export default class IdeaCreateForm extends Component {
           <div className="modal-body">
               <div className="form">
                   <div className="input-field">
-                      <label htmlFor="idea_name" className="active">Idea name</label>
+                      <label htmlFor="idea_name" className="active"><T>ideas.header.title</T></label>
                       {/* length="64"*/}
                       <input defaultValue="Idea #1" placeholder="Around the World Jobs" id="idea_name" type="text" />
                   <span className="character-counter counter"></span></div>
                   <div className="input-field">
-                      <label htmlFor="problem_worth_solving" className="active">Problem Worth Solving</label>
+                      <label htmlFor="problem_worth_solving" className="active"><T>ideas.header.problem</T></label>
                        {/* length="256" */}
                       <textarea id="problem_worth_solving" className="materialize-textarea" placeholder="Путешественникам сложно найти дополнительный заработок в чужой стране."></textarea>
                   <span className="character-counter counter"></span></div>
