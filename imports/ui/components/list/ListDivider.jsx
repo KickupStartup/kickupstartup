@@ -5,15 +5,12 @@ const T = i18n.createComponent();
 import classNames from 'classnames';
 
 export default class ListDivider extends Component {
-  borderClasses() {
-    return classNames(this.props.borderClassNames, 'col', 's1');
-  }
   render () {
     return (
       <div className="col s12 clearfix">
         <div className="row card-nexus">
           <div className="col s1">&nbsp;</div>
-          <div className={this.borderClasses}></div>
+          <div className={this.props.border ? 'card-nexus-border col s1' : 'col s1'}></div>
         </div>
       </div>
     )

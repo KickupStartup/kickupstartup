@@ -4,8 +4,10 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { browserHistory } from 'react-router';
 
-import ListCommentItem from '../list/ListCommentItem';
+import StartComment from '../../components/comments/StartComment';
 import CommentForm from '../comments/CommentForm';
+import ListCommentItem from '../list/ListCommentItem';
+import ListDivider from '../../components/list/ListDivider';
 import Person from '../../../api/people/Person';
 
 class Comments extends Component {
@@ -13,25 +15,28 @@ class Comments extends Component {
     return Person.findOne({userId: authorId});
   }
   renderComments() {
-    return this.props.comments.map((comment) => (
-      <div key={comment._id}>
-        <ListCommentItem comment={comment} author={this.getAuthorName(comment.userId)} />
+    return (
+      <div className="modal-body">
+        <ul className="collection chat">
+         {this.props.comments.map((comment) => (
+          <div key={comment._id}>
+            <ListCommentItem comment={comment} author={this.getAuthorName(comment.userId)} />
+          </div>
+          )
+          )}
+        </ul>
       </div>
-    ));
+    );
   }
   render () {
     return (
+    <div>
       <div className="white row-border clearfix">
-        {/* <div className="modal-header scrollspy">
-          <h3 className="modal-title"><T>comment.addHeader</T></h3>
-        </div> */}
-        <div className="modal-body">
-          <ul className="collection chat">
-            {this.renderComments()}
-          </ul>
-          <CommentForm idea={this.props.idea} />
-        </div>
+        { Meteor.userId() ? <CommentForm idea={this.props.idea} /> : <StartComment /> }
+        { this.renderComments() }
       </div>
+      <ListDivider border={true}/>
+    </div>
     )
   }
 }

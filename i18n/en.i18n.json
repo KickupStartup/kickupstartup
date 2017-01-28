@@ -30,6 +30,10 @@
     "header": "Welcome aboard!",
     "text": "Sign up or login to create your awesome startup or join developing others!"
   },
+  "startComment": {
+    "header": "Start to comment!",
+    "text": "Please login to be able to comment."
+  },
   "idea": {
     "header": "Come up with an idea"
   },
