@@ -40,11 +40,9 @@ class IdeasPage extends Component {
       );
     } else {
       return (
-        <div className="row">
-          <div className="col s12">
-            {this.renderIdeas()}
-            <ListEnd/>
-          </div>
+        <div className="col s12">
+          {this.renderIdeas()}
+          <ListEnd/>
         </div>
       )
     }

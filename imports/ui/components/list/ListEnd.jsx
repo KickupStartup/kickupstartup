@@ -7,7 +7,7 @@ export default class ListEnd extends Component {
   render () {
     return (
       <div className="clearfix lock-info">
-        <div className="card-nexus card-nexus-the-end">
+        <div className="row card-nexus card-nexus-the-end">
           <div className="col s1">&nbsp;</div>
           <div className="card-nexus-info col s11">
             <div className="content">
