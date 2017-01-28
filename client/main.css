@@ -14,7 +14,7 @@ body {
   font-size: 15px;
   line-height: 1.42857143;
 }
-html.welcome{ 
+html.welcome{
   background:url(../img/welcome.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3477,9 +3477,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .card-nexus-info .content{padding:10px}
 .card-nexus-start{margin-top:24px}
     .card-nexus-start .card-nexus-info .content{margin-top:-24px}
+.card-nexus-the-end{margin-top:-24px}
 .card-nexus-the-end .card-nexus-info{height:24px}
     .card-nexus-the-end p a:hover{text-decoration:none}
-    .card-nexus-the-end .content{padding-bottom:24px}
 .card-nexus-info-icon{color:#eee;position:relative;right:51px;margin-right:-16px}
 .card-nexus-info .content{padding-left:32px}
 .card-footer{margin:24px -12px 0}

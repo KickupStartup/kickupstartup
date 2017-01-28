@@ -5,6 +5,8 @@ import { createContainer } from 'meteor/react-meteor-data';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
+import ListDividerBorder from '../../components/list/ListDividerBorder';
+
 class IdeaCreatePage extends Component {
   validateIdea(e) {
     e.preventDefault();
@@ -58,12 +60,7 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="col s12 clearfix">
-                    <div className="row card-nexus">
-                        <div className="col s1">&nbsp;</div>
-                        <div className="card-nexus-border col s1"></div>
-                    </div>
-                </div>
+                <ListDividerBorder/>
                 <div className="card white row-border clearfix">
                     <div className="modal-header">
                         <h3 className="modal-title">Idea</h3>
@@ -130,12 +127,7 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="col s12 clearfix">
-                    <div className="row card-nexus">
-                        <div className="col s1">&nbsp;</div>
-                        <div className="card-nexus-border col s1"></div>
-                    </div>
-                </div>
+                <ListDividerBorder/>
                 <div className="white row-border clearfix">
                     <div className="modal-header">
                         <h3 className="modal-title">Around the World Jobs</h3>
@@ -156,12 +148,7 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="col s12 clearfix">
-                    <div className="row card-nexus">
-                        <div className="col s1">&nbsp;</div>
-                        <div className="card-nexus-border col s1"></div>
-                    </div>
-                </div>
+                <ListDividerBorder/>
                 <div className="white row-border clearfix">
                     <div className="modal-header">
                         <h3 className="modal-title">Send invites and share</h3>
@@ -191,12 +178,7 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="col s12 clearfix">
-                    <div className="row card-nexus">
-                        <div className="col s1">&nbsp;</div>
-                        <div className="card-nexus-border col s1"></div>
-                    </div>
-                </div>
+                <ListDividerBorder/>
                 <div className="card white row-border clearfix" id="poll">
                     <div className="modal-header">
                         <h3 className="modal-title">Poll</h3>
@@ -266,12 +248,7 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="col s12 clearfix">
-                    <div className="row card-nexus">
-                        <div className="col s1">&nbsp;</div>
-                        <div className="card-nexus-border col s1"></div>
-                    </div>
-                </div>
+                <ListDividerBorder/>
                 <div className="white row-border clearfix" id="comments">
                     <div className="modal-header scrollspy">
                         <h3 className="modal-title">Add Comment</h3>
@@ -341,12 +318,7 @@ class IdeaCreatePage extends Component {
                         </ul>
                     </div>
                 </div>
-                <div className="col s12 clearfix">
-                  <div className="row card-nexus">
-                    <div className="col s1">&nbsp;</div>
-                    <div className="card-nexus-border col s1"></div>
-                  </div>
-                </div>
+                <ListDividerBorder/>
                 <div className="col s12 clearfix lock-info">
                   <div className="row card-nexus card-nexus-the-end">
                     <div className="col s1">&nbsp;</div>
