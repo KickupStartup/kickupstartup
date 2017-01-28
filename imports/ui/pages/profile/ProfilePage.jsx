@@ -51,7 +51,7 @@ class ProfilePage extends Component {
         return (
           <div className="row">
             {this.renderManageAccountPanel()}
-            <ListDivider borderClassNames="card-nexus-no-border" />
+            <ListDivider />
             <div className="col s12">
               <ProfileForm profile={this.props.profile} />
             </div>

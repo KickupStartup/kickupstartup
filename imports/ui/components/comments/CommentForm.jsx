@@ -29,7 +29,7 @@ export default class CommentForm extends Component {
   }
   render () {
     return (
-      <form className="scrollspy" role="form">
+      <form role="form">
         {/* <div className="form-horizontal">
           <div className="form-group clearfix">
             <div className="input-field">

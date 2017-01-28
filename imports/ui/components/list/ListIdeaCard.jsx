@@ -6,6 +6,8 @@ import { browserHistory } from 'react-router';
 import Avatar from 'react-avatar';
 import { moment } from 'meteor/momentjs:moment';
 
+import ListDivider from '../../components/list/ListDivider';
+
 class ListIdeaCard extends Component {
   constructor(props) {
     super(props);
@@ -55,10 +57,7 @@ class ListIdeaCard extends Component {
           <p>{this.props.idea.problemDefinition}</p>
         </div>
       </div>
-      <div className="row card-nexus">
-        <div className="col s1">&nbsp;</div>
-        <div className="card-nexus-border col s1"></div>
-      </div>
+      <ListDivider border={true}/>
     </div>
     )
   }
