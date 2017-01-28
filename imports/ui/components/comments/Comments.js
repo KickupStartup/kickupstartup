@@ -7,7 +7,7 @@ import { browserHistory } from 'react-router';
 import StartComment from '../../components/comments/StartComment';
 import CommentForm from '../comments/CommentForm';
 import ListCommentItem from '../list/ListCommentItem';
-import ListDividerBorder from '../../components/list/ListDividerBorder';
+import ListDivider from '../../components/list/ListDivider';
 import Person from '../../../api/people/Person';
 
 class Comments extends Component {
@@ -32,10 +32,10 @@ class Comments extends Component {
     return (
     <div>
       <div className="white row-border clearfix">
-        { this.props.user ? <CommentForm idea={this.props.idea} /> : <StartComment /> }
+        { Meteor.userId() ? <CommentForm idea={this.props.idea} /> : <StartComment /> }
         { this.renderComments() }
       </div>
-      <ListDividerBorder/>
+      <ListDivider border={true}/>
     </div>
     )
   }

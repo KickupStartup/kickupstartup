@@ -5,7 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-import ListDividerBorder from '../../components/list/ListDividerBorder';
+import ListDivider from '../../components/list/ListDivider';
 
 class IdeaCreatePage extends Component {
   validateIdea(e) {
@@ -60,7 +60,7 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                 </div>
-                <ListDividerBorder/>
+                <ListDivider border={true}/>
                 <div className="card white row-border clearfix">
                     <div className="modal-header">
                         <h3 className="modal-title">Idea</h3>
@@ -127,7 +127,7 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                 </div>
-                <ListDividerBorder/>
+                <ListDivider border={true}/>
                 <div className="white row-border clearfix">
                     <div className="modal-header">
                         <h3 className="modal-title">Around the World Jobs</h3>
@@ -148,7 +148,7 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                 </div>
-                <ListDividerBorder/>
+                <ListDivider border={true}/>
                 <div className="white row-border clearfix">
                     <div className="modal-header">
                         <h3 className="modal-title">Send invites and share</h3>
@@ -178,7 +178,7 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                 </div>
-                <ListDividerBorder/>
+                <ListDivider border={true}/>
                 <div className="card white row-border clearfix" id="poll">
                     <div className="modal-header">
                         <h3 className="modal-title">Poll</h3>
@@ -248,7 +248,7 @@ class IdeaCreatePage extends Component {
                         </div>
                     </div>
                 </div>
-                <ListDividerBorder/>
+                <ListDivider border={true}/>
                 <div className="white row-border clearfix" id="comments">
                     <div className="modal-header scrollspy">
                         <h3 className="modal-title">Add Comment</h3>
@@ -318,7 +318,7 @@ class IdeaCreatePage extends Component {
                         </ul>
                     </div>
                 </div>
-                <ListDividerBorder/>
+                <ListDivider border={true}/>
                 <div className="col s12 clearfix lock-info">
                   <div className="row card-nexus card-nexus-the-end">
                     <div className="col s1">&nbsp;</div>

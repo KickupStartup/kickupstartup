@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-import ListDividerBorder from '../../components/list/ListDividerBorder';
+import ListDivider from '../../components/list/ListDivider';
 
 class StartComment extends Component {
   signUpWithPassword(e) {
