@@ -10,7 +10,7 @@ import ListCommentItem from '../list/ListCommentItem';
 import ListDivider from '../../components/list/ListDivider';
 import Person from '../../../api/people/Person';
 
-class Comments extends Component {
+export default class Comments extends Component {
   getAuthorName(authorId) {
     return Person.findOne({userId: authorId});
   }
@@ -45,5 +45,3 @@ Comments.propTypes = {
   idea: PropTypes.object,
   comments: PropTypes.array
 }
-
-export default Comments;

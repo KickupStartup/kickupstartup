@@ -1,6 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 
-const Companies = new Mongo.Collection("companies");
+export default const Companies = new Mongo.Collection("companies");
 
 Companies.allow({
   insert: function(){
@@ -13,5 +13,3 @@ Companies.allow({
     return true;
   }
 });
-
-export default Companies;

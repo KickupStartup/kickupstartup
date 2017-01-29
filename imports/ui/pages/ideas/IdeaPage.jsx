@@ -10,7 +10,7 @@ import Person from '../../../api/people/Person';
 import Comments from '../../components/comments/Comments';
 import Comment from '../../../api/comments/Comment';
 
-class IdeaPage extends Component {
+export default class IdeaPage extends Component {
   componentDidMount() {
     $("#backButtonMenu").removeClass('hidden');
   }
@@ -50,5 +50,3 @@ IdeaPage.propTypes = {
   idea: PropTypes.object,
   user: PropTypes.object
 }
-
-export default IdeaPage;

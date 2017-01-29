@@ -8,7 +8,7 @@ import { moment } from 'meteor/momentjs:moment';
 
 import ListDivider from '../../components/list/ListDivider';
 
-class ListIdeaCard extends Component {
+export default class ListIdeaCard extends Component {
   constructor(props) {
     super(props);
     this.renderNumberOfCommentsText = this.renderNumberOfCommentsText.bind(this);
@@ -67,5 +67,3 @@ ListIdeaCard.propTypes = {
   idea: PropTypes.object,
   author: PropTypes.object
 }
-
-export default ListIdeaCard;
