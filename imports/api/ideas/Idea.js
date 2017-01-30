@@ -6,7 +6,7 @@ const IdeaStatus = Enum.create({
   identifiers: {NEW: 0, WAITING: 1, REVIEWED: 2, APPROVED: 3}
 });
 
-export default const Idea = Class.create({
+export default Idea = Class.create({
   name: 'Idea',
   collection: Ideas,
   fields: {
