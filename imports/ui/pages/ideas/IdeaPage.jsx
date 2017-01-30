@@ -11,6 +11,7 @@ import ListEnd from '../../components/list/ListEnd';
 import IdeaName from '../../components/ideas/IdeaName';
 import IdeaDraft from '../../components/ideas/IdeaDraft';
 import IdeaProblem from '../../components/ideas/IdeaProblem';
+import IdeaStory from '../../components/ideas/IdeaStory';
 import IdeaTargetMarket from '../../components/ideas/IdeaTargetMarket';
 import IdeaView from '../../components/ideas/IdeaView';
 import IdeaSurvey from '../../components/ideas/IdeaSurvey';
@@ -44,11 +45,13 @@ export default class IdeaPage extends Component {
           <div>
             {idea.step >= 4 ? <IdeaName idea={idea}/> : ''}
             {idea.step >= 4 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 8 ? <IdeaDraft idea={Idea}/> : ''}
+            {idea.step >= 8 ? <IdeaDraft idea={idea}/> : ''}
             {idea.step >= 8 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 12 ? <IdeaProblem idea={Idea} /> : ''}
+            {idea.step >= 12 ? <IdeaProblem idea={idea} /> : ''}
             {idea.step >= 12 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 20 ? <IdeaTargetMarket idea={Idea} /> : ''}
+            {idea.step >= 16 ? <IdeaStory idea={idea} /> : ''}
+            {idea.step >= 16 ? <ListDivider border={true} /> : ''}
+            {idea.step >= 20 ? <IdeaTargetMarket idea={idea} /> : ''}
             {idea.step >= 20 ? <ListDivider border={true} /> : ''}
             {idea.step >= 32 ? <IdeaSurvey idea={idea} /> : ''}
             {idea.step >= 32 ? <ListDivider border={true} /> : ''}

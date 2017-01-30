@@ -4,24 +4,24 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import classNames from 'classnames';
 
-export default class IdeaProblem extends Component {
+export default class IdeaStory extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      problem: props.idea.problem || ''
+      story: props.idea.story || ''
     }
 
-    this.handleProblemChange = this.handleProblemChange.bind(this);
+    this.handleStoryChange = this.handleStoryChange.bind(this);
     this.saveAndGoNext = this.saveAndGoNext.bind(this);
   }
-  handleProblemChange(event) {
-    this.setState({problem: event.target.value});
+  handleStoryChange(event) {
+    this.setState({story: event.target.value});
   }
   saveAndGoNext(event) {
     event.preventDefault();
     const idea = this.props.idea;
-    Meteor.call("idea.update.problem", idea._id, this.state.problem, function(error, result) {
+    Meteor.call("idea.update.story", idea._id, this.state.story, function(error, result) {
       if(error) {
         console.log("error", error);
       }
@@ -32,18 +32,18 @@ export default class IdeaProblem extends Component {
     return (
       <div className="card white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Шаг 3. Проблема</h3>
+          <h3 className="modal-title">Шаг 4. Расскажите историю</h3>
         </div>
           <div className="modal-body">
-            <p>Какую проблему Вы собираетесь решить?</p>
+            <p>“Эпичность совсем необязательна, важна иллюстративность.” Гай Кавасаки.</p>
             <div className="form">
               <div className="input-field">
-                <label htmlFor="problem_worth_solving" className="active"><T>ideas.header.problem</T></label>
+                <label htmlFor="problem_worth_solving" className="active">История</label>
                 <textarea id="problem_worth_solving"
-                          value={this.state.problem}
-                          onChange={this.handleProblemChange}
+                          value={this.state.story}
+                          onChange={this.handleStoryChange}
                           className="materialize-textarea"
-                          placeholder="Путешественникам сложно найти дополнительный заработок в чужой стране.">
+                          placeholder="Моя девушка решила продать свои коробочки-дозаторы конфет Pez в Интернете (история о том как появился eBay)">
                 </textarea>
                 <span className="character-counter counter"></span>
               </div>

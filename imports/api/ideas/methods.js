@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import Idea from './Idea';
+import Idea, { FormStep } from './Idea';
 
 Meteor.methods({
   'idea.new': function() {
@@ -21,6 +21,110 @@ Meteor.methods({
       } else {
         const newIdea = new Idea({ userId: this.userId });
         newIdea.save();
+      }
+    }
+  },
+  'idea.update.name': function(ideaId, name) {
+    check(ideaId, String);
+    check(name, String);
+
+    if (!this.userId) {
+      throw new Meteor.Error('idea.update.unauthorized',
+        'Cannot update the idea if unauthorized.');
+    } else {
+      const idea = Idea.findOne({ userId: this.userId, _id: ideaId });
+      if (!idea) {
+        throw new Meteor.Error('idea.update.notfound',
+          'There is no idea in our database that you want to update.');
+      } else {
+        if (this.userId !== idea.userId) {
+          throw new Meteor.Error('idea.update.unauthorized',
+            'Cannot update the idea if you are not an author.');
+        } else {
+          idea.name = name;
+          if (idea.step === FormStep.NAME) {
+            idea.step = FormStep.DRAFT;
+          }
+          idea.save();
+        }
+      }
+    }
+  },
+  'idea.update.draft': function(ideaId, draft) {
+    check(ideaId, String);
+    check(draft, String);
+
+    if (!this.userId) {
+      throw new Meteor.Error('idea.update.unauthorized',
+        'Cannot update the idea if unauthorized.');
+    } else {
+      const idea = Idea.findOne({ userId: this.userId, _id: ideaId });
+      if (!idea) {
+        throw new Meteor.Error('idea.update.notfound',
+          'There is no idea in our database that you want to update.');
+      } else {
+        if (this.userId !== idea.userId) {
+          throw new Meteor.Error('idea.update.unauthorized',
+            'Cannot update the idea if you are not an author.');
+        } else {
+          idea.draft = draft;
+          if (idea.step === FormStep.DRAFT) {
+            idea.step = FormStep.PROBLEM;
+          }
+          idea.save();
+        }
+      }
+    }
+  },
+  'idea.update.problem': function(ideaId, problem) {
+    check(ideaId, String);
+    check(problem, String);
+
+    if (!this.userId) {
+      throw new Meteor.Error('idea.update.unauthorized',
+        'Cannot update the idea if unauthorized.');
+    } else {
+      const idea = Idea.findOne({ userId: this.userId, _id: ideaId });
+      if (!idea) {
+        throw new Meteor.Error('idea.update.notfound',
+          'There is no idea in our database that you want to update.');
+      } else {
+        if (this.userId !== idea.userId) {
+          throw new Meteor.Error('idea.update.unauthorized',
+            'Cannot update the idea if you are not an author.');
+        } else {
+          idea.problem = problem;
+          if (idea.step === FormStep.PROBLEM) {
+            idea.step = FormStep.STORY;
+          }
+          idea.save();
+        }
+      }
+    }
+  },
+  'idea.update.story': function(ideaId, story) {
+    check(ideaId, String);
+    check(story, String);
+
+    if (!this.userId) {
+      throw new Meteor.Error('idea.update.unauthorized',
+        'Cannot update the idea if unauthorized.');
+    } else {
+      const idea = Idea.findOne({ userId: this.userId, _id: ideaId });
+      if (!idea) {
+        throw new Meteor.Error('idea.update.notfound',
+          'There is no idea in our database that you want to update.');
+      } else {
+        if (this.userId !== idea.userId) {
+          throw new Meteor.Error('idea.update.unauthorized',
+            'Cannot update the idea if you are not an author.');
+        } else {
+          idea.story = story;
+          if (idea.step === FormStep.STORY) {
+            idea.step = FormStep.WHOISCUSTOMER;
+          }
+          idea.save();
+        }
       }
     }
   }
