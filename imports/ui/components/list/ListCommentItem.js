@@ -6,7 +6,7 @@ const T = i18n.createComponent();
 import { moment } from 'meteor/momentjs:moment';
 import Avatar from 'react-avatar';
 
-class ListCommentItem extends Component {
+export default class ListCommentItem extends Component {
   render () {
     return (
       <li className="collection-item avatar">
@@ -23,5 +23,3 @@ ListCommentItem.propTypes = {
   comment: PropTypes.object,
   author: PropTypes.object
 }
-
-export default ListCommentItem;

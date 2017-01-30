@@ -51,7 +51,7 @@ const Location = Class.create({
   }
 });
 
-const Person = Class.create({
+export default const Person = Class.create({
   name: 'Person',
   collection: People,
   fields: {
@@ -82,5 +82,3 @@ const Person = Class.create({
     timestamp: {}
   }
 });
-
-export default Person;

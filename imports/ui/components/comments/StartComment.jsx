@@ -5,7 +5,7 @@ const T = i18n.createComponent();
 
 import ListDivider from '../../components/list/ListDivider';
 
-class StartComment extends Component {
+export default class StartComment extends Component {
   signUpWithPassword(e) {
     e.preventDefault();
   }
@@ -45,5 +45,3 @@ class StartComment extends Component {
     )
   }
 }
-
-export default StartComment;

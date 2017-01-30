@@ -32,7 +32,7 @@ const CompanyOpportunity = Class.create({
   }
 });
 
-const Company = Class.create({
+export default const Company = Class.create({
   name: 'Company',
   collection: Companies,
   fields: {
@@ -53,5 +53,3 @@ const Company = Class.create({
     timestamp: {}
   }
 });
-
-export default Company;

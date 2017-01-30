@@ -6,7 +6,7 @@ import Avatar from 'react-avatar';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-class ListPersonCard extends Component {
+export default class ListPersonCard extends Component {
   gotoPersonDetails(e) {
     e.preventDefault();
     browserHistory.push("/people/" + this.props.person._id);
@@ -36,5 +36,3 @@ class ListPersonCard extends Component {
 ListPersonCard.propTypes = {
   person: PropTypes.object
 }
-
-export default ListPersonCard;

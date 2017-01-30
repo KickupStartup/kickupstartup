@@ -13,7 +13,7 @@ import ListMyIdeasEmptyCard from '../../components/list/ListMyIdeasEmptyCard';
 import Person from '../../../api/people/Person';
 import Comment from '../../../api/comments/Comment';
 
-class IdeasPage extends Component {
+export default class IdeasPage extends Component {
   getIdeaAuthor(userId) {
     return Person.findOne({userId: userId});
   }
@@ -54,5 +54,3 @@ IdeasPage.propTypes = {
   loading: PropTypes.bool,
   user: PropTypes.object
 }
-
-export default IdeasPage;

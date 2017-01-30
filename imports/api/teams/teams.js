@@ -2,7 +2,7 @@ import { Mongo } from 'meteor/mongo';
 
 const Teams = new Mongo.Collection("teams");
 
-Teams.allow({
+export default Teams.allow({
   insert: function(){
     return true;
   },
@@ -13,5 +13,3 @@ Teams.allow({
     return true;
   }
 });
-
-export default Teams;

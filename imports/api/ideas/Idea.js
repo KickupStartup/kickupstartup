@@ -6,7 +6,7 @@ const IdeaStatus = Enum.create({
   identifiers: {NEW: 0, WAITING: 1, REVIEWED: 2, APPROVED: 3}
 });
 
-const Idea = Class.create({
+export default const Idea = Class.create({
   name: 'Idea',
   collection: Ideas,
   fields: {
@@ -31,5 +31,3 @@ const Idea = Class.create({
     timestamp: {}
   }
 });
-
-export default Idea;

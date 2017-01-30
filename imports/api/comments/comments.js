@@ -1,6 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 
-const Comments = new Mongo.Collection("comments");
+export default const Comments = new Mongo.Collection("comments");
 
 Comments.allow({
   insert: function(){
@@ -13,5 +13,3 @@ Comments.allow({
     return false;
   }
 });
-
-export default Comments;

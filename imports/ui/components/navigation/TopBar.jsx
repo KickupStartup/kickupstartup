@@ -5,7 +5,7 @@ const T = i18n.createComponent();
 import { Meteor } from 'meteor/meteor';
 import Avatar from 'react-avatar';
 
-class TopBar extends Component {
+export default class TopBar extends Component {
   getProfileName() {
     return this.props.profile ? this.props.profile.fullName : '';
   }
@@ -43,5 +43,3 @@ class TopBar extends Component {
 TopBar.propTypes = {
   profile: PropTypes.object
 }
-
-export default TopBar;
