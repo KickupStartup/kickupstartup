@@ -1,6 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 
-const Ideas = new Mongo.Collection("ideas");
+export default const Ideas = new Mongo.Collection("ideas");
 
 Ideas.allow({
   insert: function(){
@@ -13,5 +13,3 @@ Ideas.allow({
     return true;
   }
 });
-
-export default Ideas;
