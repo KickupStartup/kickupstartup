@@ -11,12 +11,12 @@ const Idea = Class.create({
   collection: Ideas,
   fields: {
     userId: String,
-    draft: String,
+    draft: { type: String, optional: true },
     status: { type: IdeaStatus, default: 0 },
     name: { type: String, optional: true },
     public: { type: Boolean, default: false },
     categories: { type: [String], optional: true },
-    problemDefinition: { type: String, optional: true },
+    problem: { type: String, optional: true },
     targetCustomer: { type: String, optional: true },
     needStatement: { type: String, optional: true },
     keyBenefit: { type: String, optional: true },
@@ -24,7 +24,8 @@ const Idea = Class.create({
     differentiationStatement: { type: String, optional: true }
   },
   indexes: {
-    userId: { fields: { userId: 1 }}
+    userId: { fields: { userId: 1 }},
+    status: { fields: { status: 1 }}
   },
   behaviors: {
     timestamp: {}

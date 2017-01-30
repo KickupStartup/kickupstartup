@@ -3,7 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { browserHistory } from 'react-router';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
-import IdeaCreateForm from '../../components/ideas/IdeaCreateForm';
+import IdeaProblem from '../../components/ideas/IdeaProblem';
+import IdeaDraft from '../../components/ideas/IdeaDraft';
 
 class IdeaCreatePage extends Component {
   validateIdea(e) {
@@ -13,7 +14,8 @@ class IdeaCreatePage extends Component {
     return (
       <div className="row">
         <div className="col s12">
-          <IdeaCreateForm/>
+          <IdeaDraft/>
+          <IdeaProblem/>
         </div>
       </div>
     );

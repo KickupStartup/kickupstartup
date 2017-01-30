@@ -54,7 +54,7 @@ class IdeaPage extends Component {
 IdeaPage.propTypes = {
   loading: PropTypes.bool.isRequired,
   comments: PropTypes.array.isRequired,
-  idea: PropTypes.object.isRequired,
+  idea: PropTypes.object,
   user: PropTypes.object
 }
 

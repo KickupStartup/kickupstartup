@@ -54,7 +54,7 @@ class ListIdeaCard extends Component {
           <b><T>ideas.header.draft</T></b>
           <p>{this.props.idea.draft}</p>
           <b><T>ideas.header.problem</T></b>
-          <p>{this.props.idea.problemDefinition}</p>
+          <p>{this.props.idea.problem}</p>
         </div>
       </div>
       <ListDivider border={true}/>

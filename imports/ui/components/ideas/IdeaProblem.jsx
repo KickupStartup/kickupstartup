@@ -4,7 +4,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import classNames from 'classnames';
 
-export default class IdeaCreateForm extends Component {
+export default class IdeaProblem extends Component {
   render () {
     return (
       <div className="card white row-border clearfix">
