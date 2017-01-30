@@ -3,10 +3,15 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { moment } from 'meteor/momentjs:moment';
 
-import ListIdeaCard from '../../components/list/ListIdeaCard';
+// import ListIdeaCard from '../../components/list/ListIdeaCard';
 import ListLoading from '../../components/list/ListLoading';
+import ListDivider from '../../components/list/ListDivider';
 import ListEnd from '../../components/list/ListEnd';
 
+import IdeaName from '../../components/ideas/IdeaName';
+import IdeaDraft from '../../components/ideas/IdeaDraft';
+import IdeaProblem from '../../components/ideas/IdeaProblem';
+import IdeaTargetMarket from '../../components/ideas/IdeaTargetMarket';
 import IdeaView from '../../components/ideas/IdeaView';
 import IdeaSurvey from '../../components/ideas/IdeaSurvey';
 import Comments from '../../components/comments/Comments';
@@ -33,20 +38,44 @@ export default class IdeaPage extends Component {
         <ListLoading/>
       );
     } else {
-      return (
-        <div>
-         <ListIdeaCard
-           idea={this.props.idea}
-           author={this.getIdeaAuthor(this.props.idea.userId)}
-           commentsCount={this.getCommentsCount(this.props.idea)}
-           lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
-         <IdeaView idea={this.props.idea}
-                   author={this.getIdeaAuthor(this.props.idea.userId)} />
-         <IdeaSurvey />
-         <Comments idea={this.props.idea} comments={this.props.comments} />
-         <ListEnd/>
-        </div>
-      );
+      const idea = this.props.idea;
+      if (idea.userId === Meteor.userId()) {
+        return (
+          <div>
+            {idea.step >= 4 ? <IdeaName idea={idea}/> : ''}
+            {idea.step >= 4 ? <ListDivider border={true} /> : ''}
+            {idea.step >= 8 ? <IdeaDraft idea={Idea}/> : ''}
+            {idea.step >= 8 ? <ListDivider border={true} /> : ''}
+            {idea.step >= 12 ? <IdeaProblem idea={Idea} /> : ''}
+            {idea.step >= 12 ? <ListDivider border={true} /> : ''}
+            {idea.step >= 20 ? <IdeaTargetMarket idea={Idea} /> : ''}
+            {idea.step >= 20 ? <ListDivider border={true} /> : ''}
+            {idea.step >= 32 ? <IdeaSurvey idea={idea} /> : ''}
+            {idea.step >= 32 ? <ListDivider border={true} /> : ''}
+            {idea.step >= 32 ? <Comments idea={idea} comments={this.props.comments} /> : ''}
+            <ListEnd/>
+          </div>
+        );
+      } else {
+        return (
+          // <ListIdeaCard
+          //   idea={this.props.idea}
+          //   author={this.getIdeaAuthor(this.props.idea.userId)}
+          //   commentsCount={this.getCommentsCount(this.props.idea)}
+          //   lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
+          <div>
+            <IdeaView idea={this.props.idea}
+                      author={this.getIdeaAuthor(this.props.idea.userId)}
+                      commentsCount={this.getCommentsCount(this.props.idea)}
+                      lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
+            <ListDivider border={true} />
+            <IdeaSurvey idea={idea} />
+            <ListDivider border={true} />
+            <Comments idea={idea} comments={this.props.comments} />
+            <ListEnd/>
+          </div>
+        );
+      }
     }
   }
 }
