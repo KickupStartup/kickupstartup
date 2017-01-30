@@ -13,6 +13,7 @@ import IdeaDraft from '../../components/ideas/IdeaDraft';
 import IdeaProblem from '../../components/ideas/IdeaProblem';
 import IdeaStory from '../../components/ideas/IdeaStory';
 import IdeaTargetMarket from '../../components/ideas/IdeaTargetMarket';
+import IdeaEmailInvite from '../../components/ideas/IdeaEmailInvite';
 import IdeaView from '../../components/ideas/IdeaView';
 import IdeaSurvey from '../../components/ideas/IdeaSurvey';
 import Comments from '../../components/comments/Comments';
@@ -53,6 +54,8 @@ export default class IdeaPage extends Component {
             {idea.step >= 16 ? <ListDivider border={true} /> : ''}
             {idea.step >= 20 ? <IdeaTargetMarket idea={idea} /> : ''}
             {idea.step >= 20 ? <ListDivider border={true} /> : ''}
+            {idea.step >= 28 ? <IdeaEmailInvite idea={idea} /> : ''}
+            {idea.step >= 28 ? <ListDivider border={true} /> : ''}
             {idea.step >= 32 ? <IdeaSurvey idea={idea} /> : ''}
             {idea.step >= 32 ? <ListDivider border={true} /> : ''}
             {idea.step >= 32 ? <Comments idea={idea} comments={this.props.comments} /> : ''}

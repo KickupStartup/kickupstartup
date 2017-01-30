@@ -5,18 +5,24 @@ const T = i18n.createComponent();
 import classNames from 'classnames';
 
 export default class IdeaProblem extends Component {
+  componentDidMount() {
+    $('select').material_select();
+  }
+  componentWillUnmount() {
+    $('select').material_select('destroy');
+  }
   render () {
     return (
       <div className="card white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Шаг 4. Чья это проблема? Кто Ваш покупатель?</h3>
+          <h3 className="modal-title">Шаг 5. Уточните, для кого то, что Вы написали, проблема</h3>
         </div>
           <div className="modal-body">
             <div className="form">
-              <p>Это поможет нам подобрать для отзывов наиболее подходящую аудиторию:</p>
+              <p>Это поможет подобрать для отзывов подходящую аудиторию:</p>
                 <div className="input-field">
                   <select>
-                    <option value="" disabled selected>Choose Your Target Market</option>
+                    <option value="0" defaultValue="0" disabled>Choose Your Target Market</option>
                     <option value="1">Arts, Entertainment and Hobbies</option>
                     <option value="2">Finance and Business</option>
                     <option value="3">Clothing, Accessories and Shoes</option>
@@ -31,7 +37,7 @@ export default class IdeaProblem extends Component {
                     <option value="12">Other</option>
                   </select>
                   <select multiple>
-                    <option value="" disabled selected>Geographic</option>
+                    <option value="0" defaultValue="0" disabled>Geographic</option>
                     <option value="1">Africa</option>
                     <option value="2">America</option>
                     <option value="3">Asia</option>
@@ -39,12 +45,12 @@ export default class IdeaProblem extends Component {
                     <option value="5">Europe</option>
                   </select>
                   <select multiple>
-                    <option value="" disabled selected>Gender</option>
+                    <option value="0" defaultValue="0" disabled>Gender</option>
                     <option value="1">Female</option>
                     <option value="2">Male</option>
                   </select>
                   <select multiple>
-                    <option value="" disabled selected>Demographic</option>
+                    <option value="0" defaultValue="0" disabled>Demographic</option>
                     <option value="1">Children</option>
                     <option value="2">Teens</option>
                     <option value="3">Adults</option>
