@@ -6,15 +6,15 @@ import AppLayout from '../../ui/layouts/AppLayout.jsx';
 import MvpLayout from '../../ui/layouts/MvpLayout.jsx';
 
 import LandingPage from '../../ui/pages/LandingPage.jsx';
-import ProfilePageContainer from '../../ui/pages/profile/ProfilePageContainer.jsx';
 import NotFoundPage from '../../ui/pages/NotFoundPage.jsx';
 
 import IdeasPageContainer from '../../ui/pages/ideas/IdeasPageContainer.jsx';
 import IdeaPageContainer from '../../ui/pages/ideas/IdeaPageContainer.jsx';
-import IdeaCreatePageContainer from '../../ui/pages/ideas/IdeaCreatePageContainer.jsx';
 
 import PeoplePageContainer from '../../ui/pages/people/PeoplePageContainer.jsx';
 import PersonPageContainer from '../../ui/pages/people/PersonPageContainer.jsx';
+
+import ProfilePageContainer from '../../ui/pages/profile/ProfilePageContainer.jsx';
 
 export const renderRoutes = () => (
   <Router history={browserHistory}>
@@ -25,7 +25,6 @@ export const renderRoutes = () => (
       <Route path="profile" component={ProfilePageContainer}/>
       <Route path="ideas">
         <IndexRoute component={IdeasPageContainer}/>
-        <Route path="create" component={IdeaCreatePageContainer}/>
         <Route path=":id" component={IdeaPageContainer}/>
       </Route>
       <Route path="people">
