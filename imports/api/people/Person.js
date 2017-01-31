@@ -51,7 +51,7 @@ const Location = Class.create({
   }
 });
 
-export default const Person = Class.create({
+export default Person = Class.create({
   name: 'Person',
   collection: People,
   fields: {

@@ -32,6 +32,9 @@ export default class Comments extends Component {
     return (
     <div>
       <div className="white row-border clearfix">
+        <div className="modal-header">
+          <h3 className="modal-title">Комментарии</h3>
+        </div>
         { Meteor.userId() ? <CommentForm idea={this.props.idea} /> : <StartComment /> }
         { this.renderComments() }
       </div>
