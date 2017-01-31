@@ -65,7 +65,7 @@ export default class IdeaStory extends Component {
                   Сохранить
               </button>
               <div className="modal-bottom-link">
-                  <a href="#" onClick={this.goNext}>Нужна помощь?</a>
+                  <a href="#!" onClick={this.goNext}>Пропустить и перейти к следующему шагу</a>
               </div>
           </div>
       </div>

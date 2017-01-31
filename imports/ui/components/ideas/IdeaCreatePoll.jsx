@@ -22,6 +22,7 @@ export default class IdeaComposeSurveyQuestions extends Component {
     });
   }
   goNext() {
+    const idea = this.props.idea;
     Meteor.call("idea.update.nextstep", idea._id, 24, function(error, result) {
       if(error) {
         console.log("error", error);

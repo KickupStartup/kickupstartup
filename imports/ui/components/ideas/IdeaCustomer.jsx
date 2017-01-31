@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
@@ -24,14 +25,24 @@ export default class IdeaProblem extends Component {
   }
   componentDidMount() {
     $('select').material_select();
+    // walkaround change event issue with material_select
+    $(ReactDOM.findDOMNode(this.refs.market)).on('change',this.handleMarketChange);
+    //$(ReactDOM.findDOMNode(this.refs.geographic)).on('change',this.handleGeographicChange);
+    //$(ReactDOM.findDOMNode(this.refs.demographic)).on('change',this.handleDemographicChange);
+    $(ReactDOM.findDOMNode(this.refs.gender)).on('change',this.handleGenderChange);
   }
   componentWillUnmount() {
     $('select').material_select('destroy');
   }
   handleMarketChange(event) {
+    console.log("handleMarketChange raised");
+
     this.setState({market: event.target.value});
   }
   handleGeographicChange(event) {
+    console.log("handleGeographicChange raised");
+    console.log(event);
+
     this.setState({geographic: event.target.value});
   }
   handleDemographicChange(event) {
@@ -61,6 +72,7 @@ export default class IdeaProblem extends Component {
     // });
   }
   goNext() {
+    const idea = this.props.idea;
     Meteor.call("idea.update.nextstep", idea._id, 20, function(error, result) {
       if(error) {
         console.log("error", error);
@@ -69,6 +81,7 @@ export default class IdeaProblem extends Component {
     });
   }
   render () {
+    $('select').material_select();
     return (
       <div className="card white row-border clearfix">
         <div className="modal-header">
@@ -78,7 +91,7 @@ export default class IdeaProblem extends Component {
             <div className="form">
               <p>Это поможет подобрать для отзывов подходящую аудиторию:</p>
                 <div className="input-field">
-                  <select value={this.state.market} onChange={this.handleMarketChange}>
+                  <select ref="market" value={this.state.market} onChange={this.handleMarketChange}>
                     <option value="0" defaultValue="0" disabled>Choose Your Target Market</option>
                     <option value="1">Arts, Entertainment and Hobbies</option>
                     <option value="2">Finance and Business</option>
@@ -93,7 +106,7 @@ export default class IdeaProblem extends Component {
                     <option value="11">Home, Family and Gifts</option>
                     <option value="12">Other</option>
                   </select>
-                  <select value={this.state.geographic} onChange={this.handleGeographicChange} multiple>
+                  <select ref="geographic" value={this.state.geographic} onChange={this.handleGeographicChange} multiple>
                     <option value="0" defaultValue="0" disabled>Geographic</option>
                     <option value="1">Africa</option>
                     <option value="2">America</option>
@@ -101,12 +114,12 @@ export default class IdeaProblem extends Component {
                     <option value="4">Australia</option>
                     <option value="5">Europe</option>
                   </select>
-                  <select value={this.state.gender} onChange={this.handleGenderChange}>
+                  <select ref="gender" value={this.state.gender} onChange={this.handleGenderChange}>
                     <option value="0" defaultValue="0" disabled>Gender (any)</option>
                     <option value="1">Female</option>
                     <option value="2">Male</option>
                   </select>
-                  <select value={this.state.demographic} onChange={this.handleDemographicChange} multiple>
+                  <select ref="demographic" value={this.state.demographic} onChange={this.handleDemographicChange} multiple>
                     <option value="0" defaultValue="0" disabled>Demographic</option>
                     <option value="1">Children</option>
                     <option value="2">Teens</option>
@@ -118,11 +131,10 @@ export default class IdeaProblem extends Component {
           </div>
           <div className="col s12 text-center">
               <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
-                  <i className="fa fa-bullhorn fa-lg"></i>
                   Сохранить
               </button>
               <div className="modal-bottom-link">
-                  <a href="#" onClick={this.goNext}>Пропустить</a>
+                  <a href="#!" onClick={this.goNext}>Пропустить и перейти к следующему шагу</a>
               </div>
           </div>
       </div>

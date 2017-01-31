@@ -57,8 +57,8 @@ export default class IdeaPage extends Component {
             {idea.step >= 20 ? <ListDivider border={true} /> : ''}
             {idea.step >= 24 ? <IdeaCreatePoll idea={idea} /> : ''}
             {idea.step >= 24 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 32 ? <IdeaAskForReview idea={idea} /> : ''}
-            {idea.step >= 32 ? <ListDivider border={true} /> : ''}
+            {idea.step >= 28 ? <IdeaAskForReview idea={idea} /> : ''}
+            {idea.step >= 28 ? <ListDivider border={true} /> : ''}
             {idea.step >= 32 ? <Comments idea={idea} comments={this.props.comments} /> : ''}
             <ListEnd/>
           </div>

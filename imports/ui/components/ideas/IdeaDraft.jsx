@@ -63,7 +63,7 @@ export default class IdeaDraft extends Component {
               Сохранить
             </button>
             <div className="modal-bottom-link">
-              <a href="#" onClick={this.goNext}>Пропустить и перейти к следующему шагу</a>
+              <a href="#!" onClick={this.goNext}>Пропустить и перейти к следующему шагу</a>
             </div>
           </div>
         </div>
