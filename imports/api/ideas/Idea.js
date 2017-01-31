@@ -14,9 +14,19 @@ export const FormStep = Enum.create({
     PROBLEM: 12,
     STORY: 16,
     WHOISCUSTOMER: 20,
-    SURVEY: 24,
+    CREATEPOLL: 24,
     ASKFORREVIEW: 28,
     COMMENTS: 32
+  }
+});
+
+const Customer = Class.create({
+  name: 'Customer',
+  fields: {
+    market: { type: Number, optional: true },
+    geographic: { type: [Number], optional: true },
+    gender: { type: Number, optional: true },
+    demographic: { type: [Number], optional: true }
   }
 });
 
@@ -33,7 +43,7 @@ export default Idea = Class.create({
     problem: { type: String, optional: true },
     story: { type: String, optional: true },
     categories: { type: [String], optional: true },
-    targetCustomer: { type: String, optional: true },
+    customer: { type: Customer, optional: true },
     needStatement: { type: String, optional: true },
     keyBenefit: { type: String, optional: true },
     primaryCompetitor: { type: String, optional: true },

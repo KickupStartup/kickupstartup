@@ -12,10 +12,11 @@ import IdeaName from '../../components/ideas/IdeaName';
 import IdeaDraft from '../../components/ideas/IdeaDraft';
 import IdeaProblem from '../../components/ideas/IdeaProblem';
 import IdeaStory from '../../components/ideas/IdeaStory';
-import IdeaTargetMarket from '../../components/ideas/IdeaTargetMarket';
-import IdeaEmailInvite from '../../components/ideas/IdeaEmailInvite';
+import IdeaCustomer from '../../components/ideas/IdeaCustomer';
+import IdeaAskForReview from '../../components/ideas/IdeaAskForReview';
+import IdeaCreatePoll from '../../components/ideas/IdeaCreatePoll';
 import IdeaView from '../../components/ideas/IdeaView';
-import IdeaSurvey from '../../components/ideas/IdeaSurvey';
+import IdeaPoll from '../../components/ideas/IdeaPoll';
 import Comments from '../../components/comments/Comments';
 
 import Person from '../../../api/people/Person';
@@ -52,11 +53,11 @@ export default class IdeaPage extends Component {
             {idea.step >= 12 ? <ListDivider border={true} /> : ''}
             {idea.step >= 16 ? <IdeaStory idea={idea} /> : ''}
             {idea.step >= 16 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 20 ? <IdeaTargetMarket idea={idea} /> : ''}
+            {idea.step >= 20 ? <IdeaCustomer idea={idea} /> : ''}
             {idea.step >= 20 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 28 ? <IdeaEmailInvite idea={idea} /> : ''}
-            {idea.step >= 28 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 32 ? <IdeaSurvey idea={idea} /> : ''}
+            {idea.step >= 24 ? <IdeaCreatePoll idea={idea} /> : ''}
+            {idea.step >= 24 ? <ListDivider border={true} /> : ''}
+            {idea.step >= 32 ? <IdeaAskForReview idea={idea} /> : ''}
             {idea.step >= 32 ? <ListDivider border={true} /> : ''}
             {idea.step >= 32 ? <Comments idea={idea} comments={this.props.comments} /> : ''}
             <ListEnd/>
@@ -75,7 +76,7 @@ export default class IdeaPage extends Component {
                       commentsCount={this.getCommentsCount(this.props.idea)}
                       lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
             <ListDivider border={true} />
-            <IdeaSurvey idea={idea} />
+            <IdeaPoll idea={idea} />
             <ListDivider border={true} />
             <Comments idea={idea} comments={this.props.comments} />
             <ListEnd/>

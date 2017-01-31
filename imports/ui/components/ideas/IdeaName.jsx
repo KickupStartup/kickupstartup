@@ -14,6 +14,7 @@ export default class IdeaName extends Component {
 
     this.handleNameChange = this.handleNameChange.bind(this);
     this.saveAndGoNext = this.saveAndGoNext.bind(this);
+    this.goNext = this.goNext.bind(this);
   }
   handleNameChange(event) {
     this.setState({name: event.target.value});
@@ -22,6 +23,15 @@ export default class IdeaName extends Component {
     event.preventDefault();
     const idea = this.props.idea;
     Meteor.call("idea.update.name", idea._id, this.state.name, function(error, result) {
+      if(error) {
+        console.log("error", error);
+      }
+      if(result) {}
+    });
+  }
+  goNext() {
+    const idea = this.props.idea;
+    Meteor.call("idea.update.nextstep", idea._id, 4, function(error, result) {
       if(error) {
         console.log("error", error);
       }
@@ -49,7 +59,7 @@ export default class IdeaName extends Component {
               Сохранить
             </button>
             <div className="modal-bottom-link">
-              <a href="#">Пропустить и перейти к следующему шагу</a>
+              <a href="#" onClick={this.goNext}>Пропустить и перейти к следующему шагу</a>
             </div>
           </div>
         </div>

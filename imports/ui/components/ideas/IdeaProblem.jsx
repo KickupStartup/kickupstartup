@@ -14,6 +14,7 @@ export default class IdeaProblem extends Component {
 
     this.handleProblemChange = this.handleProblemChange.bind(this);
     this.saveAndGoNext = this.saveAndGoNext.bind(this);
+    this.goNext = this.goNext.bind(this);
   }
   handleProblemChange(event) {
     this.setState({problem: event.target.value});
@@ -22,6 +23,15 @@ export default class IdeaProblem extends Component {
     event.preventDefault();
     const idea = this.props.idea;
     Meteor.call("idea.update.problem", idea._id, this.state.problem, function(error, result) {
+      if(error) {
+        console.log("error", error);
+      }
+      if(result) {}
+    });
+  }
+  goNext() {
+    const idea = this.props.idea;
+    Meteor.call("idea.update.nextstep", idea._id, 12, function(error, result) {
       if(error) {
         console.log("error", error);
       }
@@ -55,7 +65,7 @@ export default class IdeaProblem extends Component {
                   Сохранить
               </button>
               <div className="modal-bottom-link">
-                  <a href="#">Нужна помощь?</a>
+                  <a href="#" onClick={this.goNext}>Нужна помощь?</a>
               </div>
           </div>
       </div>

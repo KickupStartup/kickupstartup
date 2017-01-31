@@ -46,7 +46,12 @@ Idea.upsert({ name: "Idea 1", userId: uid}, {
   status: 1,
   categories: ["Toys", "Weapon"],
   problem: "Problem 1 definition",
-  targetCustomer: "Target customer 1 description",
+  customer: {
+    market: 3,
+    geographic: [1,3],
+    demographic: [2,3],
+    gender: 2
+  },
   needStatement: "Need statement 1",
   keyBenefit: "Key benefit 1",
   primaryCompetitor: "Primary competitor 1",

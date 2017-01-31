@@ -14,6 +14,7 @@ export default class IdeaStory extends Component {
 
     this.handleStoryChange = this.handleStoryChange.bind(this);
     this.saveAndGoNext = this.saveAndGoNext.bind(this);
+    this.goNext = this.goNext.bind(this);
   }
   handleStoryChange(event) {
     this.setState({story: event.target.value});
@@ -22,6 +23,15 @@ export default class IdeaStory extends Component {
     event.preventDefault();
     const idea = this.props.idea;
     Meteor.call("idea.update.story", idea._id, this.state.story, function(error, result) {
+      if(error) {
+        console.log("error", error);
+      }
+      if(result) {}
+    });
+  }
+  goNext() {
+    const idea = this.props.idea;
+    Meteor.call("idea.update.nextstep", idea._id, 16, function(error, result) {
       if(error) {
         console.log("error", error);
       }
@@ -55,7 +65,7 @@ export default class IdeaStory extends Component {
                   Сохранить
               </button>
               <div className="modal-bottom-link">
-                  <a href="#">Нужна помощь?</a>
+                  <a href="#" onClick={this.goNext}>Нужна помощь?</a>
               </div>
           </div>
       </div>

@@ -4,7 +4,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import classNames from 'classnames';
 
-export default class IdeaEmailInvite extends Component {
+export default class IdeaAskForReview extends Component {
   render () {
     return (
       <div className="white row-border clearfix">
