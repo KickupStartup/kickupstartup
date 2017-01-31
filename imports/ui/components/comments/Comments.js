@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { browserHistory } from 'react-router';
+import classNames from 'classnames';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
-import { browserHistory } from 'react-router';
 
 import StartComment from '../../components/comments/StartComment';
 import CommentForm from '../comments/CommentForm';
@@ -14,12 +15,18 @@ export default class Comments extends Component {
   getAuthorName(authorId) {
     return Person.findOne({userId: authorId});
   }
+  getClasses() {
+    let className = classNames({
+      'collection chat': this.props.comments.length > 0
+    });
+    return className;
+  }
   renderComments() {
     return (
       <div className="modal-body">
-        <ul className="collection chat">
-         {this.props.comments.map((comment) => (
-          <div key={comment._id}>
+        <ul className={this.getClasses()}>
+          {this.props.comments.map((comment) => (
+            <div key={comment._id}>
             <ListCommentItem comment={comment} author={this.getAuthorName(comment.userId)} />
           </div>
           )
