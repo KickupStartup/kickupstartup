@@ -9,11 +9,13 @@ class IdeaView extends Component {
     return (
       <div className="white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title text-center">{this.props.idea.title}</h3>
+          <h3 className="modal-title">{this.props.idea.name}</h3>
         </div>
         <div className="modal-body">
-          <p>{this.props.idea.draft}</p>
+          <h4>Проблема</h4>
           <p>{this.props.idea.problem}</p>
+          <h4>История</h4>
+          <p>{this.props.idea.story}</p>
           {/* <div className="col s12 text-center">
             <button type="submit" className="waves-effect green waves-light btn-large btn-margin">
               <i className="fa fa-thumbs-up fa-lg"></i>

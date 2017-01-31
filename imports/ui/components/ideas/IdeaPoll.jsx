@@ -9,7 +9,7 @@ export default class IdeaPoll extends Component {
     return (
       <div className="card white row-border clearfix" id="poll">
           <div className="modal-header">
-              <h3 className="modal-title">Poll</h3>
+              <h3 className="modal-title">Опрос</h3>
           </div>
           <div className="modal-body">
               <div className="user-poll-section">
@@ -35,7 +35,7 @@ export default class IdeaPoll extends Component {
                           <div className="panel-footer">
                               <div className="col s12 text-center">
                                   <button type="button" className="activator waves-effect waves-light btn orange accent-3 btn-margin">
-                                      <i className="fa fa-thumbs-up"></i>Mark Your Vote
+                                      <i className="fa fa-thumbs-up"></i>Отправить ответ
                                   </button>
                               </div>
                           </div>
@@ -44,30 +44,30 @@ export default class IdeaPoll extends Component {
               </div>
           </div>
           <div className="card-reveal">
-              <h3 className="modal-title">Results</h3>
+              <h3 className="modal-title">Результаты</h3>
               <div className="modal-body">
                   <div className="user-poll-section">
                       <div className="panel panel-default">
                           <div className="panel-heading">
-                              <b>Question:</b> Понравилась ли вам идея?
+                              <b>Вопрос:</b> Понравилась ли вам идея?
                           </div>
                           <div className="panel-body">
-                              Проблема существует, буду пользователем! (60%, 5 votes):
+                              Проблема существует, буду пользователем! (60%, 5 голосов):
                               <div className="progress active">
                                   <div className="progress-bar progress-bar-success width60p" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                                      <span className="sr-only">60% Complete (success)</span>
+                                      <span className="sr-only">60% Завершено (успех)</span>
                                   </div>
                               </div>
-                              Я не из целевой аудитории (30%, 15 votes):
+                              Я не из целевой аудитории (30%, 15 голосов):
                               <div className="progress active">
                                   <div className="progress-bar progress-bar-warning width30p" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
-                                      <span className="sr-only">30% Complete (success)</span>
+                                      <span className="sr-only">30% Завершено (успех)</span>
                                   </div>
                               </div>
                               Проблемы не существует (10%, 5 votes):
                               <div className="progress active">
                                 <div className="progress-bar progress-bar-danger width10p" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
-                                  <span className="sr-only">10% Complete (success)</span>
+                                  <span className="sr-only">10% Завершено (успех)</span>
                                 </div>
                               </div>
                           </div>
