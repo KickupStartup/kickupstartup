@@ -18,7 +18,16 @@ class App extends Component {
   handleIdeaCreate(event) {
     event.preventDefault();
     $('#modal').closeModal();
-    browserHistory.push('/ideas/create');
+    // create new idea
+    Meteor.call("idea.new", function(error, newIdea){
+      if(error) {
+        console.log("idea.new error ", error);
+      }
+      if(newIdea) {
+        console.log("idea.new result ", newIdea);
+        browserHistory.push('/ideas/' + newIdea._id);
+      }
+    });
   }
   render() {
     if (this.props.loading) {

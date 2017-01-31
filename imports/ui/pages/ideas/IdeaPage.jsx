@@ -3,12 +3,25 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { moment } from 'meteor/momentjs:moment';
 
-import ListIdeaCard from '../../components/list/ListIdeaCard';
+// import ListIdeaCard from '../../components/list/ListIdeaCard';
 import ListLoading from '../../components/list/ListLoading';
+import ListDivider from '../../components/list/ListDivider';
 import ListEnd from '../../components/list/ListEnd';
-import Person from '../../../api/people/Person';
+
+import IdeaName from '../../components/ideas/IdeaName';
+import IdeaDraft from '../../components/ideas/IdeaDraft';
+import IdeaProblem from '../../components/ideas/IdeaProblem';
+import IdeaStory from '../../components/ideas/IdeaStory';
+import IdeaCustomer from '../../components/ideas/IdeaCustomer';
+import IdeaAskForReview from '../../components/ideas/IdeaAskForReview';
+import IdeaCreatePoll from '../../components/ideas/IdeaCreatePoll';
+import IdeaView from '../../components/ideas/IdeaView';
+import IdeaPoll from '../../components/ideas/IdeaPoll';
 import Comments from '../../components/comments/Comments';
+
+import Person from '../../../api/people/Person';
 import Comment from '../../../api/comments/Comment';
+import { FormStep } from '../../../api/ideas/Idea';
 
 export default class IdeaPage extends Component {
   componentDidMount() {
@@ -29,24 +42,54 @@ export default class IdeaPage extends Component {
         <ListLoading/>
       );
     } else {
-      return (
-         <div>
-           <ListIdeaCard
-             idea={this.props.idea}
-             author={this.getIdeaAuthor(this.props.idea.userId)}
-             commentsCount={this.getCommentsCount(this.props.idea)}
-             lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''}/>
-           <Comments idea={this.props.idea} comments={this.props.comments}/>
-           <ListEnd/>
-         </div>
-      );
+      const idea = this.props.idea;
+      if (idea.userId === Meteor.userId() && idea.step !== FormStep.DONE) {
+        return (
+          <div>
+            {idea.step >= FormStep.NAME ? <IdeaName idea={idea}/> : ''}
+            {idea.step >= FormStep.NAME ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.DRAFT ? <IdeaDraft idea={idea}/> : ''}
+            {idea.step >= FormStep.DRAFT ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.PROBLEM ? <IdeaProblem idea={idea} /> : ''}
+            {idea.step >= FormStep.PROBLEM ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.STORY ? <IdeaStory idea={idea} /> : ''}
+            {idea.step >= FormStep.STORY ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.WHOISCUSTOMER ? <IdeaCustomer idea={idea} /> : ''}
+            {idea.step >= FormStep.WHOISCUSTOMER ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.CREATEPOLL ? <IdeaCreatePoll idea={idea} /> : ''}
+            {idea.step >= FormStep.CREATEPOLL ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.ASKFORREVIEW ? <IdeaAskForReview idea={idea} /> : ''}
+            {idea.step >= FormStep.ASKFORREVIEW ? <ListDivider border={true} /> : ''}
+            <ListEnd/>
+          </div>
+        );
+      } else {
+        return (
+          // <ListIdeaCard
+          //   idea={this.props.idea}
+          //   author={this.getIdeaAuthor(this.props.idea.userId)}
+          //   commentsCount={this.getCommentsCount(this.props.idea)}
+          //   lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
+          <div>
+            <IdeaView idea={this.props.idea}
+                      author={this.getIdeaAuthor(this.props.idea.userId)}
+                      commentsCount={this.getCommentsCount(this.props.idea)}
+                      lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
+            <ListDivider border={true} />
+            <IdeaPoll idea={idea} />
+            <ListDivider border={true} />
+            <Comments idea={idea} comments={this.props.comments} />
+            <ListEnd/>
+          </div>
+        );
+      }
     }
   }
 }
 
 IdeaPage.propTypes = {
-  loading: PropTypes.bool,
-  comments: PropTypes.array,
+  loading: PropTypes.bool.isRequired,
+  comments: PropTypes.array.isRequired,
   idea: PropTypes.object,
   user: PropTypes.object
 }

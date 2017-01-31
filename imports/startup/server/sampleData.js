@@ -45,8 +45,13 @@ Idea.upsert({ name: "Idea 1", userId: uid}, {
   public: true,
   status: 1,
   categories: ["Toys", "Weapon"],
-  problemDefinition: "Problem 1 definition",
-  targetCustomer: "Target customer 1 description",
+  problem: "Problem 1 definition",
+  customer: {
+    market: 3,
+    geographic: [1,3],
+    demographic: [2,3],
+    gender: 2
+  },
   needStatement: "Need statement 1",
   keyBenefit: "Key benefit 1",
   primaryCompetitor: "Primary competitor 1",
@@ -56,7 +61,7 @@ Idea.upsert({ name: "Idea 1", userId: uid}, {
 Idea.upsert({ name: "Idea 2", userId: uid}, {
   name: 'Idea 2',
   draft: 'Draft of an idea.',
-  problemDefinition: "Problem 2 definition",
+  problem: "Problem 2 definition",
   public: true,
   status: 1,
   userId: uid
