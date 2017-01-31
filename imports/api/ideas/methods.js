@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import Idea, { FormStep } from './Idea';
+import Idea, { FormStep, IdeaStatus } from './Idea';
 
 Meteor.methods({
   'idea.new': function() {
@@ -181,6 +181,32 @@ Meteor.methods({
         } else {
           if (idea.step === currentStep) {
             idea.step += 4;
+          }
+          idea.save();
+        }
+      }
+    }
+  },
+  'idea.publish': function(ideaId) {
+    check(ideaId, String);
+
+    if (!this.userId) {
+      throw new Meteor.Error('idea.update.unauthorized',
+        'Cannot update the idea if unauthorized.');
+    } else {
+      const idea = Idea.findOne({ userId: this.userId, _id: ideaId });
+      if (!idea) {
+        throw new Meteor.Error('idea.update.notfound',
+          'There is no idea in our database that you want to update.');
+      } else {
+        if (this.userId !== idea.userId) {
+          throw new Meteor.Error('idea.update.unauthorized',
+            'Cannot update the idea if you are not an author.');
+        } else {
+          idea.public = true;
+          idea.status = IdeaStatus.WAITING;
+          if (idea.step === FormStep.ASKFORREVIEW) {
+            idea.step = FormStep.DONE;
           }
           idea.save();
         }

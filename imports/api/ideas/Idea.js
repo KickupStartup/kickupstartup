@@ -1,7 +1,7 @@
 import Ideas from './ideas';
 import { Class, Enum } from 'meteor/jagi:astronomy';
 
-const IdeaStatus = Enum.create({
+export const IdeaStatus = Enum.create({
   name: 'IdeaStatus',
   identifiers: {NEW: 0, WAITING: 1, REVIEWED: 2, APPROVED: 3}
 });
@@ -16,7 +16,7 @@ export const FormStep = Enum.create({
     WHOISCUSTOMER: 20,
     CREATEPOLL: 24,
     ASKFORREVIEW: 28,
-    COMMENTS: 32
+    DONE: 32
   }
 });
 

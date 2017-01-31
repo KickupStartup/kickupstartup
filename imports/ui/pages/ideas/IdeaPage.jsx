@@ -21,6 +21,7 @@ import Comments from '../../components/comments/Comments';
 
 import Person from '../../../api/people/Person';
 import Comment from '../../../api/comments/Comment';
+import { FormStep } from '../../../api/ideas/Idea';
 
 export default class IdeaPage extends Component {
   componentDidMount() {
@@ -42,24 +43,23 @@ export default class IdeaPage extends Component {
       );
     } else {
       const idea = this.props.idea;
-      if (idea.userId === Meteor.userId()) {
+      if (idea.userId === Meteor.userId() && idea.step !== FormStep.DONE) {
         return (
           <div>
-            {idea.step >= 4 ? <IdeaName idea={idea}/> : ''}
-            {idea.step >= 4 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 8 ? <IdeaDraft idea={idea}/> : ''}
-            {idea.step >= 8 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 12 ? <IdeaProblem idea={idea} /> : ''}
-            {idea.step >= 12 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 16 ? <IdeaStory idea={idea} /> : ''}
-            {idea.step >= 16 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 20 ? <IdeaCustomer idea={idea} /> : ''}
-            {idea.step >= 20 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 24 ? <IdeaCreatePoll idea={idea} /> : ''}
-            {idea.step >= 24 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 28 ? <IdeaAskForReview idea={idea} /> : ''}
-            {idea.step >= 28 ? <ListDivider border={true} /> : ''}
-            {idea.step >= 32 ? <Comments idea={idea} comments={this.props.comments} /> : ''}
+            {idea.step >= FormStep.NAME ? <IdeaName idea={idea}/> : ''}
+            {idea.step >= FormStep.NAME ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.DRAFT ? <IdeaDraft idea={idea}/> : ''}
+            {idea.step >= FormStep.DRAFT ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.PROBLEM ? <IdeaProblem idea={idea} /> : ''}
+            {idea.step >= FormStep.PROBLEM ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.STORY ? <IdeaStory idea={idea} /> : ''}
+            {idea.step >= FormStep.STORY ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.WHOISCUSTOMER ? <IdeaCustomer idea={idea} /> : ''}
+            {idea.step >= FormStep.WHOISCUSTOMER ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.CREATEPOLL ? <IdeaCreatePoll idea={idea} /> : ''}
+            {idea.step >= FormStep.CREATEPOLL ? <ListDivider border={true} /> : ''}
+            {idea.step >= FormStep.ASKFORREVIEW ? <IdeaAskForReview idea={idea} /> : ''}
+            {idea.step >= FormStep.ASKFORREVIEW ? <ListDivider border={true} /> : ''}
             <ListEnd/>
           </div>
         );

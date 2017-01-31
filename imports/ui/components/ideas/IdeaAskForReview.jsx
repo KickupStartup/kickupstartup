@@ -5,14 +5,28 @@ const T = i18n.createComponent();
 import classNames from 'classnames';
 
 export default class IdeaAskForReview extends Component {
+  constructor(props) {
+    super(props);
+    this.publishIdea = this.publishIdea.bind(this);
+  }
+  publishIdea() {
+    Meteor.call("idea.publish", this.props.idea._id, function(error, result){
+      if(error){
+        console.log("error", error);
+      }
+      if(result){
+
+      }
+    });
+  }
   render () {
     return (
       <div className="white row-border clearfix">
           <div className="modal-header">
-              <h3 className="modal-title">Шаг 7. Получите отзывы и обсудите идею с другими</h3>
+              <h3 className="modal-title">Шаг 7. Время проверить свои предположения</h3>
           </div>
           <div className="modal-body">
-              <p>Мы откроем Вашу идею для остальных членов нашего сообщества. Вы также можете пригласить по e-mail своих друзей и знакомых оставить отзыв.</p>
+              <p>После того, как Вы нажмете кнопку, Мы опубликуем и пригласим остальных членов сообщества оставить отзыв об идее. Вы также можете позвать по e-mail своих друзей и знакомых оставить отзыв.</p>
               <div className="form-group form clearfix">
                   <div className="input-field">
                     <label htmlFor="emails" className="active">Электронные адреса</label>
@@ -26,7 +40,7 @@ export default class IdeaAskForReview extends Component {
                   </div>
               </div>
               <div className="col s12 text-center">
-                  <button type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
+                  <button onClick={this.publishIdea} type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
                       <span className="fa fa-envelope"></span>
                       <span>Ask people for a review</span>
                   </button>
