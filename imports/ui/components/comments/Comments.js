@@ -14,12 +14,20 @@ export default class Comments extends Component {
   getAuthorName(authorId) {
     return Person.findOne({userId: authorId});
   }
+  // render() {
+  //   const style = this.props.comments ? 'collection chat' : '111';
+  // }
+  componentDidMount() {
+    if (!this.props.comments.length - 1) {
+      $('.comments').addClass(' collection chat');
+    }
+  }
   renderComments() {
     return (
       <div className="modal-body">
-        <ul className="collection chat">
-         {this.props.comments.map((comment) => (
-          <div key={comment._id}>
+        <ul className="comments">
+          {this.props.comments.map((comment) => (
+            <div key={comment._id}>
             <ListCommentItem comment={comment} author={this.getAuthorName(comment.userId)} />
           </div>
           )
