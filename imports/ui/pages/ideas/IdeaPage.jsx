@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { moment } from 'meteor/momentjs:moment';
+import { browserHistory } from 'react-router';
 
 // import ListIdeaCard from '../../components/list/ListIdeaCard';
 import ListLoading from '../../components/list/ListLoading';
@@ -43,6 +44,10 @@ export default class IdeaPage extends Component {
       );
     } else {
       const idea = this.props.idea;
+      if (!idea) {
+        // there is no such idea found in the database - show ideas instead
+        browserHistory.push('/ideas');
+      }
       if (idea.userId === Meteor.userId() && idea.step !== FormStep.DONE) {
         return (
           <div>

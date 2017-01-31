@@ -39,7 +39,7 @@ export default class LandingPage extends Component {
           </div>
           <div className="row">
               <div className="col s12 text-center">
-                <Link to="/ideas/create" className="waves-effect waves-light orange accent-3 btn-large btn-margin">
+                <Link to="/ideas?new" className="waves-effect waves-light orange accent-3 btn-large btn-margin">
                 <span className="fa fa-lightbulb-o fa-lg"></span>
                 <span><T>landing.button</T></span>
                 </Link>
