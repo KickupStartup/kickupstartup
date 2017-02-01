@@ -16,8 +16,9 @@ class App extends Component {
     $('#modal').openModal();
   }
   handleIdeaCreate(event) {
+    console.log(event);
+
     event.preventDefault();
-    $('#modal').closeModal();
     // create new idea
     Meteor.call("idea.new", function(error, newIdea){
       if(error) {
@@ -25,6 +26,7 @@ class App extends Component {
       }
       if(newIdea) {
         console.log("idea.new result ", newIdea);
+        $('#modal').closeModal();
         browserHistory.push('/ideas/' + newIdea._id);
       }
     });
@@ -61,9 +63,9 @@ class App extends Component {
             <div className="modal-content">
               <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
               <h3>Create</h3>
-              <div className="content modal-create">
+              <div className="content modal-create" onClick={this.handleIdeaCreate}>
                 <ul className="collection">
-                  <li className="collection-item avatar" onClick={this.handleIdeaCreate}>
+                  <li className="collection-item avatar">
                     <i className="fa fa-lightbulb-o circle"></i>
                     <span className="title">Idea</span>
                     <p>
