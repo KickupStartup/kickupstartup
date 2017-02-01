@@ -16,8 +16,10 @@ export default class CommentForm extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    Meteor.call("comment.insert", this.props.idea._id, this.state.message, this.afterSubmit);
-    this.setState({message: ''});
+    if(this.state.message.length > 0) {
+      Meteor.call("comment.insert", this.props.idea._id, this.state.message, this.afterSubmit);
+      this.setState({message: ''});
+    }
   }
   afterSubmit(error, result) {
     if(error) {
@@ -41,9 +43,9 @@ export default class CommentForm extends Component {
         <div className="form-group clearfix">
           <div className="input-field">
             <textarea className="materialize-textarea"
-                      value={this.state.message}
-                      onChange={this.handleMessageChange}
-                      placeholder={i18n.__('comment.placeholder.message')}>
+              value={this.state.message}
+              onChange={this.handleMessageChange}
+              placeholder={i18n.__('comment.placeholder.message')}>
             </textarea>
             <span className="character-counter counter"></span>
           </div>

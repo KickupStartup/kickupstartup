@@ -77,8 +77,8 @@
   },
   "comment": {
     "addHeader": "Leave feedback",
-    "tweetCheckbox": "tweet it",
-    "submitButton": "submit",
+    "tweetCheckbox": "Tweet it",
+    "submitButton": "Submit",
     "no": "no",
     "placeholder": {
       "title": "Title, hashtags or mentions. Max 72 characters",

@@ -77,8 +77,8 @@
   },
   "comment": {
     "addHeader": "Оставить отзыв",
-    "tweetCheckbox": "твитнуть",
-    "submitButton": "отправить",
+    "tweetCheckbox": "Твитнуть",
+    "submitButton": "Отправить",
     "no": "нет",
     "placeholder": {
       "title": "Заголовок, хэштаги и упоминания. Максимально 72 символа",
