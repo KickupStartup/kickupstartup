@@ -28,7 +28,7 @@ jagi:astronomy
 # ui
 stylus
 fourseven:scss
-materialize:materialize@=0.97.7
+materialize:materialize@=0.98.0
 fortawesome:fontawesome
 czbaker:lightbox2
 iamkevingreen:imagesloaded
