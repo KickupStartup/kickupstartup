@@ -43,13 +43,12 @@ export default class IdeaDraft extends Component {
       <div className="card white row-border clearfix">
         <i className="fa fa-lock card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
         <div className="modal-header">
-          <h3 className="modal-title">Шаг 2. Наброски</h3>
+          <h3 className="modal-title">Черновик</h3>
         </div>
         <div className="modal-body">
-          <p>Everything that has ever been created was first created in someone’s mind.</p>
           <div className="form">
             <div className="input-field">
-              <label htmlFor="ideaDraft" className="active">Наброски</label>
+              <label htmlFor="ideaDraft" className="active"><T>ideas.header.draft</T></label>
               <textarea id="ideaDraft"
                         value={this.state.draft}
                         onChange={this.handleDraftChange}
@@ -57,14 +56,10 @@ export default class IdeaDraft extends Component {
               </textarea>
             </div>
           </div>
-          <div className="col s12 text-center">
+          <div className="col s12 pull-right">
             <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
-              {/* <i className="fa fa-envelope-open"></i> */}
-              Сохранить
+              Далее
             </button>
-            <div className="modal-bottom-link">
-              <a href="#!" onClick={this.goNext}>Пропустить и перейти к следующему шагу</a>
-            </div>
           </div>
         </div>
       </div>

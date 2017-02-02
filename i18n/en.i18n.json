@@ -65,9 +65,9 @@
       "my": "My ideas"
     },
     "header": {
-      "draft": "Vague idea",
-      "title": "Idea title",
-      "problem": "Problem Worth Solving"
+      "draft": "Everything that has ever been created was first created in someone’s mind.",
+      "title": "Idea name",
+      "problem": "What problem do you want to solve?"
     },
     "comments": {
       "single": "comment",
