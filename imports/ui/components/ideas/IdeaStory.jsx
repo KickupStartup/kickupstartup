@@ -42,13 +42,12 @@ export default class IdeaStory extends Component {
     return (
       <div className="card white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Шаг 4. Расскажите историю</h3>
+          <h3 className="modal-title">Расскажите историю</h3>
         </div>
           <div className="modal-body">
-            <p>“Эпичность совсем необязательна, важна иллюстративность.” Гай Кавасаки.</p>
             <div className="form">
               <div className="input-field">
-                <label htmlFor="problem_worth_solving" className="active">История</label>
+                <label htmlFor="problem_worth_solving" className="active">“Эпичность совсем необязательна, важна иллюстративность.” Гай Кавасаки.</label>
                 <textarea id="problem_worth_solving"
                           value={this.state.story}
                           onChange={this.handleStoryChange}
@@ -59,14 +58,10 @@ export default class IdeaStory extends Component {
               </div>
             </div>
           </div>
-          <div className="col s12 text-center">
-              <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
-                  {/* <i className="fa fa-bullhorn fa-lg"></i> */}
-                  Сохранить
-              </button>
-              <div className="modal-bottom-link">
-                  <a href="#!" onClick={this.goNext}>Пропустить и перейти к следующему шагу</a>
-              </div>
+          <div className="col s12 pull-right">
+            <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
+              Далее
+            </button>
           </div>
       </div>
     )

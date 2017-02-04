@@ -11,20 +11,20 @@ const T = i18n.createComponent();
 import Person from '../../api/people/Person';
 
 class App extends Component {
-  handlePlusButtonClick(event) {
-    event.preventDefault();
-    $('#modal').openModal();
+  openCreateIdeaModal() {
+    console.log("clicked");
+    $('.modal').modal();
+    $('#createidea').modal('open');
   }
   handleIdeaCreate(event) {
     event.preventDefault();
-    $('#modal').closeModal();
     // create new idea
     Meteor.call("idea.new", function(error, newIdea){
       if(error) {
         console.log("idea.new error ", error);
       }
       if(newIdea) {
-        console.log("idea.new result ", newIdea);
+        $('#createidea').modal('close');
         browserHistory.push('/ideas/' + newIdea._id);
       }
     });
@@ -51,19 +51,19 @@ class App extends Component {
             { this.props.children }
           </div>
           <div className="fixed-action-btn">
-            <a onClick={this.handlePlusButtonClick} className="btn-floating btn-large modal-trigger waves-effect waves-light" href="!#">
+            <a className="btn-floating btn-large waves-effect waves-light modal-trigger" href="#createidea" onClick={this.openCreateIdeaModal}>
               <span className="fa fa-plus fa-lg"></span>
             </a>
           </div>
         </div>
 
-          <div id="modal" className="modal bottom-sheet">
+          <div id="createidea" className="modal bottom-sheet">
             <div className="modal-content">
               <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
               <h3>Create</h3>
-              <div className="content modal-create">
+              <div className="content modal-create modal-action modal-close" onClick={this.handleIdeaCreate}>
                 <ul className="collection">
-                  <li className="collection-item avatar" onClick={this.handleIdeaCreate}>
+                  <li className="collection-item avatar">
                     <i className="fa fa-lightbulb-o circle"></i>
                     <span className="title">Idea</span>
                     <p>
