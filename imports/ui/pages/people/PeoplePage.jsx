@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
@@ -25,7 +26,16 @@ class PeoplePage extends Component {
       return (
         <div className="row">
           <div className="col s12">
-            {this.renderPeople()}
+            <ReactCSSTransitionGroup
+              transitionName="example"
+              transitionAppear={true}
+              transitionAppearTimeout={500}
+              transitionEnter={true}
+              transitionEnterTimeout={500}
+              transitionLeave={true}
+              transitionLeaveTimeout={500}>
+              {this.renderPeople()}
+            </ReactCSSTransitionGroup>
             <ListEnd/>
           </div>
         </div>

@@ -5,10 +5,10 @@ const T = i18n.createComponent();
 export default class ListLoading extends Component {
   render () {
     return (
-      <div className="row">
-        <div className="col s12">
-          Loading...
-        </div>
+      <div className="spinner-page">
+        <div className="bounce1"></div>
+        <div className="bounce2"></div>
+        <div className="bounce3"></div>
       </div>
     )
   }

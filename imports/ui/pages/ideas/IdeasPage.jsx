@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link } from 'react-router';
 import { moment } from 'meteor/momentjs:moment';
 import i18n from 'meteor/universe:i18n';
@@ -41,7 +42,16 @@ export default class IdeasPage extends Component {
     } else {
       return (
         <div className="col s12">
-          {this.renderIdeas()}
+          <ReactCSSTransitionGroup
+            transitionName="example"
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnter={true}
+            transitionEnterTimeout={500}
+            transitionLeave={true}
+            transitionLeaveTimeout={500}>
+            {this.renderIdeas()}
+          </ReactCSSTransitionGroup>
           <ListEnd/>
         </div>
       )

@@ -41,11 +41,11 @@ export default class IdeaProblem extends Component {
   render () {
     return (
       <div className="card white row-border clearfix">
+        <i className="fa fa-lock card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
         <div className="modal-header">
-          <h3 className="modal-title">Шаг 3. Проблема</h3>
+          <h3 className="modal-title">Проблема</h3>
         </div>
           <div className="modal-body">
-            <p>Какую проблему Вы собираетесь решить?</p>
             <div className="form">
               <div className="input-field">
                 <label htmlFor="problem_worth_solving" className="active"><T>ideas.header.problem</T></label>
@@ -59,14 +59,10 @@ export default class IdeaProblem extends Component {
               </div>
             </div>
           </div>
-          <div className="col s12 text-center">
-              <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
-                  {/* <i className="fa fa-bullhorn fa-lg"></i> */}
-                  Сохранить
-              </button>
-              <div className="modal-bottom-link">
-                  <a href="#!">Нужна помощь?</a>
-              </div>
+          <div className="col s12 pull-right">
+            <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
+              Далее
+            </button>
           </div>
       </div>
     )
