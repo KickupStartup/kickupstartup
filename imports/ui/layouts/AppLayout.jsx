@@ -39,17 +39,16 @@ class App extends Component {
       <div>
         <div className="submenu">
           <TopBar profile={this.props.profile} />
-          <div className="container main">
-            <div id="backButtonMenu" className="row hidden">
+
+            {/* <div id="backButtonMenu" className="row hidden">
               <div className="col s12 back clearfix">
                 <div className="row">
                   <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i><T>layout.backButton</T></Link></div>
                 </div>
               </div>
-            </div>
-            { this.props.user ? '' : <JoinUsForm /> }
-            { this.props.children }
-          </div>
+            </div> */}
+          { this.props.user ? '' : <div className="container main"><JoinUsForm /></div> }
+          { this.props.children }
           <div className="fixed-action-btn">
             <a className="btn-floating btn-large waves-effect waves-light modal-trigger" href="#createidea" onClick={this.openCreateIdeaModal}>
               <span className="fa fa-plus fa-lg"></span>
