@@ -1,0 +1,11 @@
+@media (min-width: 768px) {
+  .logo {
+      position: fixed;
+  }
+}
+.logo {
+    background: url(../img/logo.png) no-repeat center center;
+    height: 72px;
+    width: 72px;
+    z-index: 99;
+}
