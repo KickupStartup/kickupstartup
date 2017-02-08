@@ -6,9 +6,9 @@
     "backButton": "Назад"
   },
   "navigation": {
-    "ideas": "Все Идеи",
-    "following": "Любимые",
-    "yours": "Свои",
+    "ideas": "Идеи",
+    "following": "Закладки",
+    "yours": "Мои",
     "people": "Люди"
   },
   "landing": {
