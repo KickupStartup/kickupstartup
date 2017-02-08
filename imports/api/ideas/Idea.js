@@ -41,6 +41,7 @@ export default Idea = Class.create({
     name: { type: String, optional: true },
     draft: { type: String, optional: true },
     problem: { type: String, optional: true },
+    solution: { type: String, optional: true },
     story: { type: String, optional: true },
     categories: { type: [String], optional: true },
     customer: { type: Customer, optional: true },

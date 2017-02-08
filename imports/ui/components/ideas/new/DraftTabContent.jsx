@@ -10,7 +10,7 @@ export default class DraftTabContent extends Component {
   constructor(props) {
     super(props);
     this.handleDraftChange = this.handleDraftChange.bind(this);
-    this.handleDraftChange = _.debounce(this.handleDraftChange, 5000);
+    this.handleDraftChange = _.debounce(this.handleDraftChange, 3000);
   }
   handleDraftChange(draft) {
     const idea = this.props.idea;
@@ -23,17 +23,17 @@ export default class DraftTabContent extends Component {
   }
   render () {
     return (
-      <div>
+      <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
           <h4>Tip: Dapibus nec</h4>
           <p>Начните с описания идеи в свободной форме. Обязательно пригласите друзей, которые помогут вам с кристализацией идеи. В результате вы получите информацию необходимую для заполнения
               следующих блоков. Для удобства редактирования рекомендуем использовать FullScreen Mode <i className="fa fa-window-maximize"></i>.
           </p>
-          <ul className="controls right">
+          {/* <ul className="controls right">
               <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
               <li><span>3 of 5</span></li>
               <li><a href="#!"><i className="fa fa-chevron-circle-right"></i></a></li>
-          </ul>
+          </ul> */}
         </div>
         <LiveEditor
           onChange={this.handleDraftChange}

@@ -66,6 +66,7 @@
       "draft": "Draft",
       "problem": "Problem",
       "solution": "Solution",
+      "story": "Story",
       "validation": "Validation",
       "preview": "Preview"
     },

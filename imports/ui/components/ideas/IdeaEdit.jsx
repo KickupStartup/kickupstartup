@@ -6,6 +6,13 @@ import { Meteor } from 'meteor/meteor';
 import Avatar from 'react-avatar';
 import classNames from 'classnames';
 
+// tab content
+import DraftTabContent from './new/DraftTabContent';
+import ProblemTabContent from './new/ProblemTabContent';
+import SolutionTabContent from './new/SolutionTabContent';
+import StoryTabContent from './new/StoryTabContent';
+import ValidationTabContent from './new/ValidationTabContent';
+
 import IdeaName from './IdeaName';
 import IdeaDraft from './IdeaDraft';
 import IdeaProblem from './IdeaProblem';
@@ -26,7 +33,11 @@ export default class IdeaEdit extends Component {
   }
   switchTab(event) {
     event.preventDefault();
-    this.setState({ activeTab: event.target.dataset.tabindex });
+    this.setState({
+      activeTab: (event.target.nodeName == 'SPAN') ?
+      event.target.parentElement.dataset.tabindex :
+      event.target.dataset.tabindex
+    });
   }
   tabActiveClass(active) {
     let classes = classNames({
@@ -42,29 +53,38 @@ export default class IdeaEdit extends Component {
           <div className="container main">
             <h3>Проверка идеи</h3>
             <ul className="nav nav-tabs">
-              <li role="presentation" className={this.tabActiveClass(0)}><a href="#!" data-tabindex="0" onClick={this.switchTab}>Черновик</a></li>
-              <li role="presentation" className={this.tabActiveClass(1)}><a href="#!" data-tabindex="1" onClick={this.switchTab}>Предположение</a></li>
-              <li role="presentation" className={this.tabActiveClass(2)}><a href="#!" data-tabindex="2" onClick={this.switchTab}>Решение</a></li>
-              <li role="presentation" className={this.tabActiveClass(3)}><a href="#!" data-tabindex="3" onClick={this.switchTab}>Тестирование</a></li>
-              <li role="presentation" className={this.tabActiveClass(4)}><a href="#!" data-tabindex="4" onClick={this.switchTab}>Просмотр</a></li>
+              <li className={this.tabActiveClass(0)}><a href="#0" data-tabindex="0" onClick={this.switchTab}><T>ideas.tabs.draft</T></a></li>
+              <li className={this.tabActiveClass(1)}><a href="#1" data-tabindex="1" onClick={this.switchTab}><T>ideas.tabs.story</T></a></li>
+              <li className={this.tabActiveClass(2)}><a href="#2" data-tabindex="2" onClick={this.switchTab}><T>ideas.tabs.problem</T></a></li>
+              <li className={this.tabActiveClass(3)}><a href="#3" data-tabindex="3" onClick={this.switchTab}><T>ideas.tabs.solution</T></a></li>
+              <li className={this.tabActiveClass(4)}><a href="#4" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation</T></a></li>
             </ul>
           </div>
         </div>
         <div className="main"></div>
-          <div className="container main">
-            {this.state.activeTab == 0 ? <IdeaDraft idea={idea}/> : ''}
-            {this.state.activeTab == 1 ? <IdeaName idea={idea}/> : ''}
-            {this.state.activeTab == 1 ? <IdeaStory idea={idea}/> : ''}
-            {this.state.activeTab == 3 ? <IdeaCustomer idea={idea}/> : ''}
-            {this.state.activeTab == 3 ? <IdeaCreatePoll idea={idea}/> : ''}
-            {this.state.activeTab == 3 ? <IdeaAskForReview idea={idea}/> : ''}
+        <div className="container main">
+          <DraftTabContent hidden={this.state.activeTab != 0 ? 'hidden' : ''} idea={idea} />
+          <StoryTabContent hidden={this.state.activeTab != 1 ? 'hidden' : ''} idea={idea} />
+          <ProblemTabContent hidden={this.state.activeTab != 2 ? 'hidden' : ''} idea={idea} />
+          <SolutionTabContent hidden={this.state.activeTab != 3 ? 'hidden' : ''} idea={idea} />
+          <ValidationTabContent hidden={this.state.activeTab != 4 ? 'hidden' : ''} idea={idea}/>
+          {/* {this.state.activeTab == 2 ? <SolutionTabContent idea={idea}/> : ''}
+          {this.state.activeTab == 3 ? <ValidationTabContent idea={idea}/> : ''}
+          {this.state.activeTab == 4 ? <PreviewTabContent idea={idea}/> : ''} */}
 
-            {/* {this.state.activeTab === 4 ? <IdeaView idea={this.props.idea}
-                      author={this.props.author}
-                      commentsCount={0}
-                      lastCommentTime={''} */}
-          </div>
+          {/*
+          {this.state.activeTab == 1 ? <IdeaName idea={idea}/> : ''}
+          {this.state.activeTab == 1 ? <IdeaStory idea={idea}/> : ''}
+          {this.state.activeTab == 3 ? <IdeaCustomer idea={idea}/> : ''}
+          {this.state.activeTab == 3 ? <IdeaCreatePoll idea={idea}/> : ''}
+          {this.state.activeTab == 3 ? <IdeaAskForReview idea={idea}/> : ''} */}
+
+          {/* {this.state.activeTab === 4 ? <IdeaView idea={this.props.idea}
+                    author={this.props.author}
+                    commentsCount={0}
+                    lastCommentTime={''} */}
         </div>
+      </div>
     )
   }
 }
