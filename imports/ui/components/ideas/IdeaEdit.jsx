@@ -51,7 +51,11 @@ export default class IdeaEdit extends Component {
       <div>
         <div className="main-grey">
           <div className="container main">
-            <h3>Проверка идеи</h3>
+            <button type="submit" className="waves-effect waves-light green btn right">
+              <span className="fa fa-check-circle"></span>
+              <span>Review</span>
+            </button>
+            <h3>Idea #14</h3>
             <ul className="nav nav-tabs">
               <li className={this.tabActiveClass(0)}><a href="#0" data-tabindex="0" onClick={this.switchTab}><T>ideas.tabs.draft</T></a></li>
               <li className={this.tabActiveClass(1)}><a href="#1" data-tabindex="1" onClick={this.switchTab}><T>ideas.tabs.story</T></a></li>

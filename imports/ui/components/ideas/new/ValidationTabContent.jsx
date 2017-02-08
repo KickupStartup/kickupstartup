@@ -40,7 +40,7 @@ export default class StoryTabContent extends Component {
         <div className="col s12 text-center">
           <button className="waves-effect waves-light green btn-large btn-margin">
             <span className="fa fa-check-circle fa-lg"></span>
-            <span>Publish</span>
+            <span>Review</span>
           </button>
           <div className="modal-bottom-link">
             <a href="#!">Back</a>
