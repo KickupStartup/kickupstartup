@@ -112,11 +112,11 @@ export default class IdeaProblem extends Component {
           </div>
           <div className="col s12">
             <input type="checkbox" id="id2" />
-            <label htmlFor="id2">Finance and Business</label>
+            <label htmlFor="id2">Clothing, Accessories and Shoes</label>
           </div>
           <div className="col s12">
             <input type="checkbox" id="id3" />
-            <label htmlFor="id3">Clothing, Accessories and Shoes</label>
+            <label htmlFor="id3">Finance and Business</label>
           </div>
           <div className="col s12">
             <input type="checkbox" id="id4" />
@@ -128,7 +128,7 @@ export default class IdeaProblem extends Component {
           </div>
           <div className="col s12">
             <input type="checkbox" id="id6" />
-            <label htmlFor="id6">Science and Education</label>
+            <label htmlFor="id6">Home, Family and Gifts</label>
           </div>
           <div className="col s12">
             <input type="checkbox" id="id7" />
@@ -140,7 +140,7 @@ export default class IdeaProblem extends Component {
           </div>
           <div className="col s12">
             <input type="checkbox" id="id9" />
-            <label htmlFor="id9">Travel and Sports</label>
+            <label htmlFor="id9">Science and Education</label>
           </div>
           <div className="col s12">
             <input type="checkbox" id="id10" />
@@ -148,7 +148,7 @@ export default class IdeaProblem extends Component {
           </div>
           <div className="col s12">
             <input type="checkbox" id="id11" />
-            <label htmlFor="id11">Home, Family and Gifts</label>
+            <label htmlFor="id11">Travel and Sports</label>
           </div>
           <div className="col s12">
             <input type="checkbox" id="id12" />
