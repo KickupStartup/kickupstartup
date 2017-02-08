@@ -50,9 +50,6 @@ Meteor.methods({
 
     const idea = getValidatedIdea(this.userId, ideaId);
     idea.name = name;
-    if (idea.step === FormStep.NAME) {
-      idea.step = FormStep.DRAFT;
-    }
     idea.save();
   },
   'idea.update.draft': function(ideaId, draft) {
@@ -61,9 +58,6 @@ Meteor.methods({
 
     const idea = getValidatedIdea(this.userId, ideaId);
     idea.draft = draft;
-    if (idea.step === FormStep.DRAFT) {
-      idea.step = FormStep.PROBLEM;
-    }
     idea.save();
   },
   'idea.update.problem': function(ideaId, problem) {
@@ -72,9 +66,14 @@ Meteor.methods({
 
     const idea = getValidatedIdea(this.userId, ideaId);
     idea.problem = problem;
-    if (idea.step === FormStep.PROBLEM) {
-      idea.step = FormStep.STORY;
-    }
+    idea.save();
+  },
+  'idea.update.solution': function(ideaId, solution) {
+    check(ideaId, String);
+    check(solution, String);
+
+    const idea = getValidatedIdea(this.userId, ideaId);
+    idea.solution = solution;
     idea.save();
   },
   'idea.update.story': function(ideaId, story) {
@@ -83,9 +82,6 @@ Meteor.methods({
 
     const idea = getValidatedIdea(this.userId, ideaId);
     idea.story = story;
-    if (idea.step === FormStep.STORY) {
-      idea.step = FormStep.WHOISCUSTOMER;
-    }
     idea.save();
   },
   'idea.update.customer': function(ideaId, market, geographic, demographic, gender) {
@@ -102,30 +98,24 @@ Meteor.methods({
       gender: gender,
       demographic: demographic
     };
-    if (idea.step === FormStep.WHOISCUSTOMER) {
-      idea.step = FormStep.CREATEPOLL;
-    }
     idea.save();
   },
-  'idea.update.nextstep': function(ideaId, currentStep) {
-    check(ideaId, String);
-    check(currentStep, Number);
-
-    const idea = getValidatedIdea(this.userId, ideaId);
-    if (idea.step === currentStep) {
-      idea.step += 4;
-    }
-    idea.save();
-  },
+  // 'idea.update.nextstep': function(ideaId, currentStep) {
+  //   check(ideaId, String);
+  //   check(currentStep, Number);
+  //
+  //   const idea = getValidatedIdea(this.userId, ideaId);
+  //   if (idea.step === currentStep) {
+  //     idea.step += 4;
+  //   }
+  //   idea.save();
+  // },
   'idea.publish': function(ideaId) {
     check(ideaId, String);
 
     const idea = getValidatedIdea(this.userId, ideaId);
     idea.public = true;
     idea.status = IdeaStatus.WAITING;
-    if (idea.step === FormStep.ASKFORREVIEW) {
-      idea.step = FormStep.DONE;
-    }
     idea.save();
   }
 });
