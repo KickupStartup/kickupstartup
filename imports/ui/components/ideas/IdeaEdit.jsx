@@ -65,14 +65,14 @@ export default class IdeaEdit extends Component {
           <div className="container main">
             <div className="row">
               <div className="col s6">
+                <h3>Проверка идеи</h3>
+              </div>
+              <div className="col s6">
                 <ReactInput id="ideaName"
                   value={this.props.idea.name}
                   onChange={this.handleNameChange}
                   //label={i18n.__('ideas.header.title')}
                   placeholder="Your awesome idea title" />
-              </div>
-              <div className="col s6">
-                <button>Preview</button>
               </div>
             </div>
             <ul className="nav nav-tabs">
@@ -84,27 +84,14 @@ export default class IdeaEdit extends Component {
             </ul>
           </div>
         </div>
+        <div className="container main"></div>
+        <div className="container main"></div>
         <div className="container main">
           <DraftTabContent hidden={this.state.activeTab != 0 ? 'hidden' : ''} idea={idea} />
           <StoryTabContent hidden={this.state.activeTab != 1 ? 'hidden' : ''} idea={idea} />
           <ProblemTabContent hidden={this.state.activeTab != 2 ? 'hidden' : ''} idea={idea} />
           <SolutionTabContent hidden={this.state.activeTab != 3 ? 'hidden' : ''} idea={idea} />
           <ValidationTabContent hidden={this.state.activeTab != 4 ? 'hidden' : ''} idea={idea}/>
-          {/* {this.state.activeTab == 2 ? <SolutionTabContent idea={idea}/> : ''}
-          {this.state.activeTab == 3 ? <ValidationTabContent idea={idea}/> : ''}
-          {this.state.activeTab == 4 ? <PreviewTabContent idea={idea}/> : ''} */}
-
-          {/*
-          {this.state.activeTab == 1 ? <IdeaName idea={idea}/> : ''}
-          {this.state.activeTab == 1 ? <IdeaStory idea={idea}/> : ''}
-          {this.state.activeTab == 3 ? <IdeaCustomer idea={idea}/> : ''}
-          {this.state.activeTab == 3 ? <IdeaCreatePoll idea={idea}/> : ''}
-          {this.state.activeTab == 3 ? <IdeaAskForReview idea={idea}/> : ''} */}
-
-          {/* {this.state.activeTab === 4 ? <IdeaView idea={this.props.idea}
-                    author={this.props.author}
-                    commentsCount={0}
-                    lastCommentTime={''} */}
         </div>
       </div>
     )
