@@ -23,7 +23,7 @@ export default class IdeaAskForReview extends Component {
     return (
       <div className="white row-border clearfix">
           <div className="modal-header">
-              <h3 className="modal-title">Шаг 7. Время проверить свои предположения</h3>
+              <h3 className="modal-title">Время проверить свои предположения</h3>
           </div>
           <div className="modal-body">
               <p>После того, как Вы нажмете кнопку, Мы опубликуем и пригласим остальных членов сообщества оставить отзыв об идее. Вы также можете позвать по e-mail своих друзей и знакомых оставить отзыв.</p>

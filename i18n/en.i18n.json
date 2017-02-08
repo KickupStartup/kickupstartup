@@ -7,6 +7,8 @@
   },
   "navigation": {
     "ideas": "Ideas",
+    "following": "Following",
+    "yours": "Yours",
     "people": "People"
   },
   "landing": {
@@ -61,8 +63,12 @@
   },
   "ideas": {
     "tabs": {
-      "all": "All",
-      "my": "My ideas"
+      "draft": "Draft",
+      "problem": "Problem",
+      "solution": "Solution",
+      "story": "Story",
+      "validation": "Validation",
+      "preview": "Preview"
     },
     "header": {
       "draft": "Everything that has ever been created was first created in someone’s mind.",

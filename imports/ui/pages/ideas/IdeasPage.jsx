@@ -41,18 +41,20 @@ export default class IdeasPage extends Component {
       );
     } else {
       return (
-        <div className="col s12">
-          <ReactCSSTransitionGroup
-            transitionName="example"
-            transitionAppear={true}
-            transitionAppearTimeout={500}
-            transitionEnter={true}
-            transitionEnterTimeout={500}
-            transitionLeave={true}
-            transitionLeaveTimeout={500}>
-            {this.renderIdeas()}
-          </ReactCSSTransitionGroup>
-          <ListEnd/>
+        <div className="container main">
+          <div className="col s12">
+            <ReactCSSTransitionGroup
+              transitionName="example"
+              transitionAppear={true}
+              transitionAppearTimeout={500}
+              transitionEnter={true}
+              transitionEnterTimeout={500}
+              transitionLeave={true}
+              transitionLeaveTimeout={500}>
+              {this.renderIdeas()}
+            </ReactCSSTransitionGroup>
+            <ListEnd/>
+          </div>
         </div>
       )
     }

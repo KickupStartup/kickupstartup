@@ -85,7 +85,7 @@ export default class IdeaProblem extends Component {
     return (
       <div className="card white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Шаг 5. Чью проблему Вы хотите решить?</h3>
+          <h3 className="modal-title">Чью проблему Вы хотите решить?</h3>
         </div>
           <div className="modal-body">
             <div className="form">
@@ -129,14 +129,14 @@ export default class IdeaProblem extends Component {
                 </div>
               </div>
           </div>
-          <div className="col s12 text-center">
+          {/* <div className="col s12 text-center">
               <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
                   Сохранить
               </button>
               <div className="modal-bottom-link">
                   <a href="#!" onClick={this.goNext}>Пропустить и перейти к следующему шагу</a>
               </div>
-          </div>
+          </div> */}
       </div>
     )
   }
