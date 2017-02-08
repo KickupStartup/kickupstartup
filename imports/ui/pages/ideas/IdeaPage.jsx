@@ -42,7 +42,7 @@ export default class IdeaPage extends Component {
         // there is no such idea found in the database - show ideas instead
         browserHistory.push('/ideas');
       }
-      if (idea.userId === Meteor.userId() && idea.step !== FormStep.DONE) {
+      if (idea.userId === Meteor.userId()) {
         return (
           <IdeaEdit idea={idea} author={this.getIdeaAuthor(idea.userId)}/>
         );

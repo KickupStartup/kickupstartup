@@ -5,9 +5,6 @@ const T = i18n.createComponent();
 import classNames from 'classnames';
 
 import LiveEditor from '../../common/LiveEditor';
-import IdeaName from '../IdeaName';
-import IdeaProblem from '../IdeaProblem';
-import IdeaStory from '../IdeaStory';
 
 export default class ProblemTabContent extends Component {
   constructor(props) {
@@ -37,9 +34,6 @@ export default class ProblemTabContent extends Component {
               <li><a href="#!"><i className="fa fa-chevron-circle-right"></i></a></li>
           </ul> */}
         </div>
-        {/* <IdeaName idea={this.props.idea} />
-        <IdeaProblem idea={this.props.idea} />
-        <IdeaStory idea={this.props.idea} /> */}
         <LiveEditor
           onChange={this.handleProblemChange}
           value={this.props.idea.problem}

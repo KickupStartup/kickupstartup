@@ -13,6 +13,8 @@ import SolutionTabContent from './new/SolutionTabContent';
 import StoryTabContent from './new/StoryTabContent';
 import ValidationTabContent from './new/ValidationTabContent';
 
+import ReactInput from '../common/ReactInput';
+
 import IdeaName from './IdeaName';
 import IdeaDraft from './IdeaDraft';
 import IdeaProblem from './IdeaProblem';
@@ -30,6 +32,7 @@ export default class IdeaEdit extends Component {
       activeTab: 0
     }
     this.switchTab = this.switchTab.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
   }
   switchTab(event) {
     event.preventDefault();
@@ -37,6 +40,15 @@ export default class IdeaEdit extends Component {
       activeTab: (event.target.nodeName == 'SPAN') ?
       event.target.parentElement.dataset.tabindex :
       event.target.dataset.tabindex
+    });
+  }
+  handleNameChange(name) {
+    const idea = this.props.idea;
+    Meteor.call("idea.update.name", idea._id, name, function(error, result) {
+      if(error) {
+        console.log("error", error);
+      }
+      if(result) {}
     });
   }
   tabActiveClass(active) {
@@ -51,17 +63,27 @@ export default class IdeaEdit extends Component {
       <div>
         <div className="main-grey">
           <div className="container main">
-            <h3>Проверка идеи</h3>
+            <div className="row">
+              <div className="col s6">
+                <ReactInput id="ideaName"
+                  value={this.props.idea.name}
+                  onChange={this.handleNameChange}
+                  //label={i18n.__('ideas.header.title')}
+                  placeholder="Your awesome idea title" />
+              </div>
+              <div className="col s6">
+                <button>Preview</button>
+              </div>
+            </div>
             <ul className="nav nav-tabs">
-              <li className={this.tabActiveClass(0)}><a href="#0" data-tabindex="0" onClick={this.switchTab}><T>ideas.tabs.draft</T></a></li>
-              <li className={this.tabActiveClass(1)}><a href="#1" data-tabindex="1" onClick={this.switchTab}><T>ideas.tabs.story</T></a></li>
-              <li className={this.tabActiveClass(2)}><a href="#2" data-tabindex="2" onClick={this.switchTab}><T>ideas.tabs.problem</T></a></li>
-              <li className={this.tabActiveClass(3)}><a href="#3" data-tabindex="3" onClick={this.switchTab}><T>ideas.tabs.solution</T></a></li>
-              <li className={this.tabActiveClass(4)}><a href="#4" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation</T></a></li>
+              <li className={this.tabActiveClass(0)}><a href="#draft" data-tabindex="0" onClick={this.switchTab}><T>ideas.tabs.draft</T></a></li>
+              <li className={this.tabActiveClass(1)}><a href="#story" data-tabindex="1" onClick={this.switchTab}><T>ideas.tabs.story</T></a></li>
+              <li className={this.tabActiveClass(2)}><a href="#problem" data-tabindex="2" onClick={this.switchTab}><T>ideas.tabs.problem</T></a></li>
+              <li className={this.tabActiveClass(3)}><a href="#solution" data-tabindex="3" onClick={this.switchTab}><T>ideas.tabs.solution</T></a></li>
+              <li className={this.tabActiveClass(4)}><a href="#validation" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation</T></a></li>
             </ul>
           </div>
         </div>
-        <div className="main"></div>
         <div className="container main">
           <DraftTabContent hidden={this.state.activeTab != 0 ? 'hidden' : ''} idea={idea} />
           <StoryTabContent hidden={this.state.activeTab != 1 ? 'hidden' : ''} idea={idea} />
