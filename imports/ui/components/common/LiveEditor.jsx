@@ -1,5 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {
+  convertToRaw,
+} from 'draft-js';
 import {
   Editor,
   createEditorState,
@@ -8,11 +10,19 @@ import {
 export default class LiveEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {editorState: createEditorState()};
+    if (this.props.value) {
+      const blockData = JSON.parse(this.props.value);
+      this.state = {editorState: createEditorState(blockData)};
+    } else {
+      this.state = {editorState: createEditorState()};
+    }
+
+    //this.props.onChange = _.debounce(this.props.onChange, 1000);
     this.onChange = (editorState) => {
       this.setState({editorState});
-      console.log(editorState.getCurrentContent());
-      this.props.onChange(convertToRaw(this.state.editorState.getCurrentContent());
+      const content = convertToRaw(this.state.editorState.getCurrentContent());
+      const contentString = JSON.stringify(content);
+      this.props.onChange(contentString);
     }
   }
   render() {
