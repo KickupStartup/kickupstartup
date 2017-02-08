@@ -50,9 +50,9 @@ export default class IdeaPage extends Component {
         return (
           <div className="container main">
             <IdeaView idea={this.props.idea}
-                      author={this.getIdeaAuthor(this.props.idea.userId)}
-                      commentsCount={this.getCommentsCount(this.props.idea)}
-                      lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
+              author={this.getIdeaAuthor(this.props.idea.userId)}
+              commentsCount={this.getCommentsCount(this.props.idea)}
+              lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
             <ListDivider border={true} />
             <IdeaPoll idea={idea} />
             <ListDivider border={true} />

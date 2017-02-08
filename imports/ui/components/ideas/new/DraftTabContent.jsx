@@ -27,7 +27,7 @@ export default class DraftTabContent extends Component {
         <div className="alert alert-info clearfix" role="alert">
           <h4>Tip: Dapibus nec</h4>
           <p>Начните с описания идеи в свободной форме. Обязательно пригласите друзей, которые помогут вам с кристализацией идеи. В результате вы получите информацию необходимую для заполнения
-              следующих блоков. Для удобства редактирования рекомендуем использовать FullScreen Mode <i className="fa fa-window-maximize"></i>.
+            следующих блоков. Для удобства редактирования рекомендуем использовать FullScreen Mode <i className="fa fa-window-maximize"></i>.
           </p>
           {/* <ul className="controls right">
               <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
@@ -38,7 +38,7 @@ export default class DraftTabContent extends Component {
         <LiveEditor
           onChange={this.handleDraftChange}
           value={this.props.idea.draft}
-          placeholder="Write your idea..." />
+          placeholder="Write your idea" />
       </div>
 
     )

@@ -120,12 +120,7 @@ html.welcome body{min-height:100%;
     border: 1px solid #ddd !important;
   }
 }
-.navbar-fixed-top {
-  border-bottom:1px solid #f2f2f2!important;
-  border-width: 0 0 1px;
-  top: 0;
-}
-  .navbar-fixed-top .row{margin:0}
+.navbar-fixed-top .row{margin:0}
 .navbar {
     position: relative;
     min-height: 70px;
@@ -134,7 +129,6 @@ html.welcome body{min-height:100%;
 .navbar-fixed-top,
 .navbar-fixed-bottom {
     background-color:#ff9100;
-  box-shadow: 1px 1px 1px #f2f2f2;
   position: fixed;
   right: 0;
   left: 0;
@@ -544,7 +538,7 @@ dd {
   transition: all 0.2s ease-in-out}
 .back .fa{margin-right:8px}
     .submenu .back{background-color:#f9f9f9;padding-top:24px!important;position:fixed;top:70px;z-index:4}
-    .submenu .main{padding-top:116px}
+    .submenu .main{padding-top:106px}
     .no-submenu .back{display:none}
     .no-submenu .main{padding-top:74px}
 @media (min-width: 768px) {
@@ -2815,8 +2809,8 @@ fieldset[disabled] a.btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #555555;
-  background-color: #ffffff;
-  border: 1px solid #f2f2f2;
+  background-color: #fcfcfc;
+  border: 1px solid #eee;
   border-bottom-color: transparent;
   cursor: default;
 }
@@ -2949,12 +2943,6 @@ fieldset[disabled] a.btn {
     right: 0;
     left: 0;
   min-height: 70px;
-  border: 1px solid transparent;
-}
-@media (min-width: 768px) {
-  .navbar {
-    border-radius: 4px;
-  }
 }
 @media (min-width: 768px) {
   .navbar-header {
@@ -3037,7 +3025,6 @@ fieldset[disabled] a.btn {
 }
 .navbar-fixed-top {
   top: 0;
-  border-width: 0 0 1px;
   z-index: 10;
 }
 .navbar-fixed-top .active a{
@@ -3987,6 +3974,8 @@ blockquote{border-left:none;color:#aaa;margin:0 0 12px}
   }
 }
 /* material update END */
+.alert{padding:12px 24px 4px;margin:0 0 20px;border-radius:4px}
+.alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1}
 blockquote div{font-style:italic}
 .tips-blue{color:#31708f;background-color:#d9edf7!important;border-color:#bce8f1}
 .search{margin:32px 0 -20px}
@@ -4036,3 +4025,29 @@ blockquote div{font-style:italic}
 .poll p{padding:4px}
 .user-poll-section .panel-body{margin:18px 0 0}
 .user-poll-section .progress{height:5px}
+@media (min-width: 768px) {
+  .logo {
+    position: fixed;
+  }
+  .main-grey .main {
+    padding-top: 90px;
+  }
+}
+.logo {
+    background: url(../img/logo.png) no-repeat center center;
+    height: 70px;
+    width: 70px;
+    z-index: 99;
+}
+
+.main-grey {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+
+.main-grey h3 {
+    margin: 12px 12px 28px;
+}

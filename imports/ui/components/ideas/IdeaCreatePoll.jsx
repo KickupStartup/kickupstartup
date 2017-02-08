@@ -35,7 +35,7 @@ export default class IdeaComposeSurveyQuestions extends Component {
       <div className="card white row-border clearfix">
         <i className="fa fa-lock card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
         <div className="modal-header">
-          <h3 className="modal-title">Вопросы для опросника</h3>
+          <h3 className="modal-title">Вопросы для читателей</h3>
         </div>
         <div className="modal-body">
           <p>Что бы Вы хотели узнать о Ваших потенциальных клиентах или о том, что они думают о Вашей идее?</p>

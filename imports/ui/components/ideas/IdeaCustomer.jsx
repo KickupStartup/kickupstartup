@@ -87,56 +87,152 @@ export default class IdeaProblem extends Component {
         <div className="modal-header">
           <h3 className="modal-title">Чью проблему Вы хотите решить?</h3>
         </div>
-          <div className="modal-body">
-            <div className="form">
-              <p>Это поможет подобрать для отзывов подходящую аудиторию:</p>
-                <div className="input-field">
-                  <select ref="market" value={this.state.market} onChange={this.handleMarketChange}>
-                    <option value="0" defaultValue="0" disabled>Choose Your Target Market</option>
-                    <option value="1">Arts, Entertainment and Hobbies</option>
-                    <option value="2">Finance and Business</option>
-                    <option value="3">Clothing, Accessories and Shoes</option>
-                    <option value="4">Food and Health</option>
-                    <option value="5">General Consumer</option>
-                    <option value="6">Science and Education</option>
-                    <option value="7">Nonprofit</option>
-                    <option value="8">Pets and Animals</option>
-                    <option value="9">Travel and Sports</option>
-                    <option value="10">Technology</option>
-                    <option value="11">Home, Family and Gifts</option>
-                    <option value="12">Other</option>
-                  </select>
-                  <select ref="geographic" value={this.state.geographic} onChange={this.handleGeographicChange} multiple>
-                    <option value="0" defaultValue="0" disabled>Geographic</option>
-                    <option value="1">Africa</option>
-                    <option value="2">America</option>
-                    <option value="3">Asia</option>
-                    <option value="4">Australia</option>
-                    <option value="5">Europe</option>
-                  </select>
-                  <select ref="gender" value={this.state.gender} onChange={this.handleGenderChange}>
-                    <option value="0" defaultValue="0" disabled>Gender (any)</option>
-                    <option value="1">Female</option>
-                    <option value="2">Male</option>
-                  </select>
-                  <select ref="demographic" value={this.state.demographic} onChange={this.handleDemographicChange} multiple>
-                    <option value="0" defaultValue="0" disabled>Demographic</option>
-                    <option value="1">Children</option>
-                    <option value="2">Teens</option>
-                    <option value="3">Adults</option>
-                    <option value="4">Seniors</option>
-                  </select>
-                </div>
+        <div className="modal-body">
+          <div className="form">
+            <p>Это поможет подобрать для отзывов подходящую аудиторию:</p>
+            {/* <div className="input-field">
+              <select ref="market" value={this.state.market} onChange={this.handleMarketChange}>
+                <option value="0" defaultValue="0" disabled>Choose Your Target Market</option>
+                <option value="1">Arts, Entertainment and Hobbies</option>
+                <option value="2">Finance and Business</option>
+                <option value="3">Clothing, Accessories and Shoes</option>
+                <option value="4">Food and Health</option>
+                <option value="5">General Consumer</option>
+                <option value="6">Science and Education</option>
+                <option value="7">Nonprofit</option>
+                <option value="8">Pets and Animals</option>
+                <option value="9">Travel and Sports</option>
+                <option value="10">Technology</option>
+                <option value="11">Home, Family and Gifts</option>
+                <option value="12">Other</option>
+              </select>
+            </div> */}
+            <div className="row">
+              <h4>Choose Your Target Market</h4>
+              <div className="col s12">
+                <input type="checkbox" id="id1" />
+                <label htmlFor="id1">Arts, Entertainment and Hobbies</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id2" />
+                <label htmlFor="id2">Finance and Business</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id3" />
+                <label htmlFor="id3">Clothing, Accessories and Shoes</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id4" />
+                <label htmlFor="id4">Food and Health</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id5" />
+                <label htmlFor="id5">General Consumer</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id6" />
+                <label htmlFor="id6">Science and Education</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id7" />
+                <label htmlFor="id7">Nonprofit</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id8" />
+                <label htmlFor="id8">Pets and Animals</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id9" />
+                <label htmlFor="id9">Travel and Sports</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id10" />
+                <label htmlFor="id10">Technology</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id11" />
+                <label htmlFor="id11">Home, Family and Gifts</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="id12" />
+                <label htmlFor="id12">Other</label>
+              </div>
+            </div>
+            <div className="row">
+              <h4>Geography</h4>
+              <div className="col s12">
+                <input type="checkbox" id="Africa" />
+                <label htmlFor="Africa">Africa</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="America" />
+                <label htmlFor="America">America</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="Asia" />
+                <label htmlFor="Asia">Asia</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="Australia" />
+                <label htmlFor="Australia">Australia</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="Europe" />
+                <label htmlFor="Europe">Europe</label>
+              </div>
+            </div>
+            <div className="row">
+              <h4>Gender</h4>
+              <div className="col s12">
+                <input type="checkbox" id="Female" />
+                <label htmlFor="Female">Female</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="Male" />
+                <label htmlFor="Male">Male</label>
+              </div>
+            </div>
+            <div className="row">
+              <h4>Demographic</h4>
+              <div className="col s12">
+                <input type="checkbox" id="Children" />
+                <label htmlFor="Children">Children</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="Teens" />
+                <label htmlFor="Teens">Teens</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="Adults" />
+                <label htmlFor="Adults">Adults</label>
+              </div>
+              <div className="col s12">
+                <input type="checkbox" id="Seniors" />
+                <label htmlFor="Seniors">Seniors</label>
               </div>
           </div>
-          {/* <div className="col s12 text-center">
+            {/* <select ref="gender" value={this.state.gender} onChange={this.handleGenderChange}>
+              <option value="0" defaultValue="0" disabled>Gender (any)</option>
+              <option value="1">Female</option>
+              <option value="2">Male</option>
+              </select>
+              <select ref="demographic" value={this.state.demographic} onChange={this.handleDemographicChange} multiple>
+              <option value="0" defaultValue="0" disabled>Demographic</option>
+              <option value="1">Children</option>
+              <option value="2">Teens</option>
+              <option value="3">Adults</option>
+              <option value="4">Seniors</option>
+            </select> */}
+          </div>
+        </div>
+        {/* <div className="col s12 text-center">
               <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
                   Сохранить
               </button>
               <div className="modal-bottom-link">
                   <a href="#!" onClick={this.goNext}>Пропустить и перейти к следующему шагу</a>
               </div>
-          </div> */}
+        </div> */}
       </div>
     )
   }
