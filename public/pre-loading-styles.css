@@ -1,15 +1,9 @@
 /*http://tobiasahlin.com/spinkit/*/
+html,body,.loading,.spinner{background-color:#fcfcfc}
 html {
-  background-color: #f9f9f9;
   font-family: 'Roboto', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-}
-body {
-  background-color: #f9f9f9;
-}
-.loading {
-  background-color: #f9f9f9;
 }
 .spinner {
   margin: 100px auto;
@@ -17,8 +11,6 @@ body {
   height: 40px;
   position: relative;
   text-align: center;
-  background-color: #f9f9f9;
-
   -webkit-animation: sk-rotate 2.0s infinite linear;
   animation: sk-rotate 2.0s infinite linear;
 }

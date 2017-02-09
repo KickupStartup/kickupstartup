@@ -29,7 +29,7 @@ export default class ProblemTabContent extends Component {
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
           <h4>Problem worth solving</h4>
-          <p>Подсказать как нужно написать историю, чтобы был крючок эмпатии. Неплохо, чтобы было немного юмора, немного поучительного и собственного опыта, чтобы люди эмоционально отреагировали. <i className="fa fa-window-maximize"></i>.
+          <p>Подсказать как нужно написать историю, чтобы был крючок эмпатии. Неплохо, чтобы было немного юмора, немного поучительного и собственного опыта, чтобы люди эмоционально отреагировали.
           </p>
           {/* <ul className="controls right">
               <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
@@ -38,12 +38,12 @@ export default class ProblemTabContent extends Component {
           </ul> */}
         </div>
         {/* <IdeaName idea={this.props.idea} />
-        <IdeaProblem idea={this.props.idea} />
+          <IdeaProblem idea={this.props.idea} />
         <IdeaStory idea={this.props.idea} /> */}
         <LiveEditor
           onChange={this.handleProblemChange}
           value={this.props.idea.problem}
-          placeholder="Describe a problem worth solving..." />
+          placeholder="Describe a problem worth solving" />
       </div>
 
     )
