@@ -70,7 +70,7 @@ export default class IdeaEdit extends Component {
               <div className="col s6">
                 <button type="submit" className="waves-effect waves-light green btn right">
                   <span className="fa fa-check-circle"></span>
-                  <span>Review</span>
+                  <span>Preview</span>
                 </button>
               </div>
             </div>

@@ -53,8 +53,8 @@
     "manageAccountsHeader": "Управление учетными записями",
     "manageAccountsSubHeader": "Хотите сменить пользователя?",
     "placeholder": {
-      "firstName": "Ваше имя",
-      "lastName": "Ваша фамилия",
+      "firstName": "Имя",
+      "lastName": "Фамилия",
       "city": "Город проживания",
       "country": "Страна проживания",
       "headline": "Заголовок. 140 символов",
