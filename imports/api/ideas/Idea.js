@@ -1,5 +1,6 @@
 import Ideas from './ideas';
 import { Class, Enum } from 'meteor/jagi:astronomy';
+import { Mongo } from 'meteor/mongo';
 
 export const IdeaStatus = Enum.create({
   name: 'IdeaStatus',
@@ -35,6 +36,7 @@ export default Idea = Class.create({
   collection: Ideas,
   fields: {
     userId: String,
+    authors: { type: [String], optional: true },
     step: { type: FormStep, default: FormStep.NAME },
     status: { type: IdeaStatus, default: IdeaStatus.NEW },
     public: { type: Boolean, default: false },
@@ -52,6 +54,7 @@ export default Idea = Class.create({
   },
   indexes: {
     userId: { fields: { userId: 1 }},
+    authors: { fields: { authors: 1 }},
     status: { fields: { status: 1 }}
   },
   behaviors: {

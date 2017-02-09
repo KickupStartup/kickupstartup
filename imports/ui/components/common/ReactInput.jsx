@@ -7,10 +7,14 @@ export default class ReactInput extends Component {
       value: props.value || ''
     }
 
+    this.onChange = props.onChange;
+    this.onChange = _.debounce(this.onChange, 3000);
+
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
     this.setState({value: event.target.value});
+    this.onChange(event.target.value);
   }
   render() {
     return (

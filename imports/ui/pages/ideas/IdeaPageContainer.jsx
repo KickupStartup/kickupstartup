@@ -5,7 +5,7 @@ import Idea from '../../../api/ideas/Idea';
 import Comment from '../../../api/comments/Comment';
 
 export default IdeaPageContainer = createContainer(props => {
-  const ideaHandle = Meteor.subscribe("idea.withAuthorAndComments", props.params.id);
+  const ideaHandle = Meteor.subscribe("idea.single", props.params.id);
   const loading = !ideaHandle.ready();
   return {
     loading,

@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Class, Enum } from 'meteor/jagi:astronomy';
+import { Mongo } from 'meteor/mongo';
 import People from './people';
 
 const maritalStatus = Enum.create({
@@ -56,6 +57,7 @@ export default Person = Class.create({
   collection: People,
   fields: {
     userId: String,
+    bookmarkIdeas: { type: [String], optional: true },
     headline: { type: String, optional: true },
     aboutMe: { type: String, optional: true },
     firstName: { type: String, optional: true },
