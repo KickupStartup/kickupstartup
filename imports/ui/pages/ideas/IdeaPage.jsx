@@ -18,6 +18,12 @@ import Comment from '../../../api/comments/Comment';
 import { FormStep } from '../../../api/ideas/Idea';
 
 export default class IdeaPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { preview: false };
+
+    this.changeView = this.changeView.bind(this);
+  }
   componentDidMount() {
     $("#backButtonMenu").removeClass('hidden');
   }
@@ -29,6 +35,12 @@ export default class IdeaPage extends Component {
   }
   getCommentsCount(idea) {
     return Comment.find({ideaId: idea._id}).count();
+  }
+  changeView(event) {
+    event.preventDefault();
+    console.log(this.state.preview);
+
+    this.setState({ preview: !this.state.preview });
   }
   render() {
     const idea = this.props.idea;
@@ -42,9 +54,11 @@ export default class IdeaPage extends Component {
         // there is no such idea found in the database - show ideas instead
         browserHistory.push('/ideas');
       }
-      if (idea.userId === Meteor.userId() && idea.step !== FormStep.DONE) {
+      if (idea.userId === Meteor.userId() && !this.state.preview) {
         return (
-          <IdeaEdit idea={idea} author={this.getIdeaAuthor(idea.userId)}/>
+          <div>
+            <IdeaEdit idea={idea} author={this.getIdeaAuthor(idea.userId)}/>
+          </div>
         );
       } else {
         return (
@@ -58,6 +72,7 @@ export default class IdeaPage extends Component {
             <ListDivider border={true} />
             <Comments idea={idea} comments={this.props.comments} />
             <ListEnd/>
+            <button onClick={this.changeView}>Edit</button>
           </div>
         );
       }

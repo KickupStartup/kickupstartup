@@ -21,6 +21,23 @@ export default class TopBar extends Component {
       );
     }
   }
+  renderPersonalLinks() {
+    if (Meteor.userId()) {
+      return (
+        <ul className="fullpage_nav nav navbar-nav">
+          <li><Link to="/ideas/all" activeClassName="active"><T>navigation.ideas</T></Link></li>
+          <li><Link to="/ideas/bookmarked" activeClassName="active"><T>navigation.following</T></Link></li>
+          <li><Link to="/ideas/yours" activeClassName="active"><T>navigation.yours</T></Link></li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul className="fullpage_nav nav navbar-nav">
+          <li><Link to="/ideas/all" activeClassName="active"><T>navigation.ideas</T></Link></li>
+        </ul>
+      );
+    }
+  }
   render () {
     return (
       <div className="navbar navbar-fixed-top" role="navigation">
@@ -28,11 +45,7 @@ export default class TopBar extends Component {
         <div className="container">
           <div className="row">
             <div className="col s10">
-              <ul className="fullpage_nav nav navbar-nav">
-                <li><Link to="/ideas" activeClassName="active"><T>navigation.ideas</T></Link></li>
-                <li><Link to="/ideas/following" activeClassName="active"><T>navigation.following</T></Link></li>
-                <li><Link to="/ideas/own" activeClassName="active"><T>navigation.yours</T></Link></li>
-              </ul>
+              {this.renderPersonalLinks()}
             </div>
             {this.renderProfileLink()}
           </div>

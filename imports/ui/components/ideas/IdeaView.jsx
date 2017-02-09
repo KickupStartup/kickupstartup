@@ -3,8 +3,39 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import classNames from 'classnames';
+import { stateToHTML } from 'draft-js-export-html';
+import { createEditorState } from 'medium-draft';
 
-class IdeaView extends Component {
+export default class IdeaView extends Component {
+  constructor(props) {
+    super(props);
+
+    try {
+      this.state = {
+        problem: stateToHTML(createEditorState(JSON.parse(props.idea.problem)).getCurrentContent()),
+        story: stateToHTML(createEditorState(JSON.parse(props.idea.story)).getCurrentContent())
+      }
+    } catch (e) {
+      console.log("is JSON syntax error? ", e instanceof SyntaxError); // true
+      console.log("idea's problem or story not in a correct draft-js JSON format error: ", e);
+    }
+
+    this.state = {
+      problem: props.idea.problem,
+      story: props.idea.story
+    }
+
+    this.bookmark = this.bookmark.bind(this);
+  }
+  bookmark(event) {
+    Meteor.call("person.bookmark.idea", this.props.idea._id, function(error, result){
+      if(error){
+        console.log("error", error);
+      }
+      if(result){
+      }
+    });
+  }
   render () {
     return (
       <div className="white row-border clearfix">
@@ -13,18 +44,10 @@ class IdeaView extends Component {
         </div>
         <div className="modal-body">
           <h4>Проблема</h4>
-          <p>{this.props.idea.problem}</p>
+          <p>{this.state.problem}</p>
           <h4>История</h4>
-          <p>{this.props.idea.story}</p>
-          {/* <div className="col s12 text-center">
-            <button type="submit" className="waves-effect green waves-light btn-large btn-margin">
-              <i className="fa fa-thumbs-up fa-lg"></i>
-              Idea valid
-            </button>
-            <div className="modal-bottom-link">
-              <a href="#">Assumptions fail. Pivot</a>
-            </div>
-          </div> */}
+          <p>{this.state.story}</p>
+          <p><a href="#!" onClick={this.bookmark}>Добавить в закладки</a></p>
         </div>
       </div>
     )
@@ -35,5 +58,3 @@ IdeaView.propTypes = {
   idea: PropTypes.object.isRequired,
   author: PropTypes.object.isRequired
 }
-
-export default IdeaView;
