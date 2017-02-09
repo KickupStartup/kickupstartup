@@ -58,9 +58,6 @@ export default class IdeaPage extends Component {
         return (
           <div>
             <IdeaEdit idea={idea} author={this.getIdeaAuthor(idea.userId)}/>
-            <div className="container main">
-              <button onClick={this.changeView}>Preview</button>
-            </div>
           </div>
         );
       } else {

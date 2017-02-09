@@ -65,14 +65,14 @@ export default class IdeaEdit extends Component {
           <div className="container main">
             <div className="row">
               <div className="col s6">
-                <h3>Проверка идеи</h3>
-              </div>
-              <div className="col s6">
                 <ReactInput id="ideaName"
                   value={this.props.idea.name}
                   onChange={this.handleNameChange}
                   //label={i18n.__('ideas.header.title')}
                   placeholder="Your awesome idea title" />
+              </div>
+              <div className="col s6">
+                <button onClick={this.changeView}>Preview</button>
               </div>
             </div>
             <ul className="nav nav-tabs">
