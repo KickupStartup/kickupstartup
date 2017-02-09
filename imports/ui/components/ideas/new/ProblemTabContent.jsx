@@ -4,6 +4,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import classNames from 'classnames';
 
+import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 
 export default class ProblemTabContent extends Component {
@@ -29,10 +30,16 @@ export default class ProblemTabContent extends Component {
           <p>Подсказать как нужно написать историю, чтобы был крючок эмпатии. Неплохо, чтобы было немного юмора, немного поучительного и собственного опыта, чтобы люди эмоционально отреагировали.
           </p>
         </div>
-        <LiveEditor
-          onChange={this.handleProblemChange}
-          value={this.props.idea.problem}
-          placeholder="Describe a problem worth solving" />
+        <div className="white card row-border clearfix">
+          <div className="banner banner-edit banner-editor"></div>
+          <LiveEditor
+            onChange={this.handleProblemChange}
+            value={this.props.idea.problem}
+            placeholder="Describe a problem worth solving" />
+        </div>
+        <ListDivider />
+        <div className="col s6 left"><a href="#draft" className="prev">Prev</a></div>
+        <div className="col s6 right"><a href="#story" className="next">Next</a></div>
       </div>
 
     )

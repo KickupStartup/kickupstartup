@@ -60,7 +60,7 @@ export default class IdeaEdit extends Component {
         <div className="main-grey">
           <div className="container main">
             <div className="row">
-              <div className="col s6">
+              <div className="col s6 idea_title">
                 <ReactInput id="ideaName"
                   value={this.props.idea.name}
                   onChange={this.handleNameChange}
@@ -83,9 +83,7 @@ export default class IdeaEdit extends Component {
             </ul>
           </div>
         </div>
-        <div className="container main"></div>
-        <div className="container main"></div>
-        <div className="container main">
+        <div className="container main with-tabs">
           <DraftTabContent hidden={this.state.activeTab != 0 ? 'hidden' : ''} idea={idea} />
           <StoryTabContent hidden={this.state.activeTab != 1 ? 'hidden' : ''} idea={idea} />
           <ProblemTabContent hidden={this.state.activeTab != 2 ? 'hidden' : ''} idea={idea} />

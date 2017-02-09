@@ -4,6 +4,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import classNames from 'classnames';
 
+import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 
 export default class StoryTabContent extends Component {
@@ -33,10 +34,16 @@ export default class StoryTabContent extends Component {
               <li><a href="#!"><i className="fa fa-chevron-circle-right"></i></a></li>
           </ul> */}
         </div>
-        <LiveEditor
-          onChange={this.handleStoryChange}
-          value={this.props.idea.story}
-          placeholder="Write your story" />
+        <div className="white card row-border clearfix">
+          <div className="banner banner-edit banner-editor"></div>
+          <LiveEditor
+            onChange={this.handleStoryChange}
+            value={this.props.idea.story}
+            placeholder="Write your story" />
+        </div>
+        <ListDivider />
+        <div className="col s6 left"><a href="#draft" className="prev">Prev</a></div>
+        <div className="col s6 right"><a href="#story" className="next">Next</a></div>
       </div>
     )
   }

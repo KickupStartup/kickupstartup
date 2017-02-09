@@ -4,6 +4,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import classNames from 'classnames';
 
+import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 
 export default class DraftTabContent extends Component {
@@ -35,10 +36,14 @@ export default class DraftTabContent extends Component {
               <li><a href="#!"><i className="fa fa-chevron-circle-right"></i></a></li>
           </ul> */}
         </div>
-        <LiveEditor
-          onChange={this.handleDraftChange}
-          value={this.props.idea.draft}
-          placeholder="Write your idea" />
+        <div className="white card row-border clearfix">
+          <LiveEditor
+            onChange={this.handleDraftChange}
+            value={this.props.idea.draft}
+            placeholder="Write your idea" />
+        </div>
+        <ListDivider />
+        <div className="col s6 right"><a href="#story" className="next">Next</a></div>
       </div>
 
     )
