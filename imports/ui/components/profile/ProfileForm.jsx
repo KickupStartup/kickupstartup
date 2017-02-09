@@ -73,37 +73,35 @@ export default class ProfileForm extends Component {
       background: "url(/img/no-banner.jpg) center center no-repeat"
     };
     return (
-      <div className="white row-border">
+      <div className="white">
         <div className="content text-center clearfix">
           <form onSubmit={this.handleSubmit}>
-            <div className="banner banner-edit" style={bannerImage}></div>
-            <div className="avatar-photo editable"><a href="#"><Avatar name={this.getFullName()} textSizeRatio={1.9} round={true} size={104} /></a></div>
-            <div className="row">
-              <div className="col s4 offset-s2">
-                <input type="text" placeholder={i18n.__('profile.placeholder.firstName')} className="text-center" value={this.state.firstName} onChange={this.handleFirstNameChange} />
-              </div>
-              <div className="col s4">
-                <input type="text" placeholder={i18n.__('profile.placeholder.lastName')} className="text-center" value={this.state.lastName} onChange={this.handleLastNameChange} />
-              </div>
+            <div className="">
+              <div className="banner banner-edit" style={bannerImage}></div>
+              <div className="avatar-photo editable"><a href="#"><Avatar name={this.getFullName()} textSizeRatio={1.9} round={true} size={104} /></a></div>
             </div>
             <div className="row">
-              <div className="col s4 offset-s2">
-                <input type="text" placeholder={i18n.__('profile.placeholder.city')} className="text-center" value={this.state.city} onChange={this.handleCityChange} />
+            <div className="col s6">
+              <input type="text" placeholder={i18n.__('profile.placeholder.firstName')} className="text-center" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+            </div>
+            <div className="col s6">
+              <input type="text" placeholder={i18n.__('profile.placeholder.lastName')} className="text-center" value={this.state.lastName} onChange={this.handleLastNameChange} />
+            </div>
+            <div className="col s6">
+              <input type="text" placeholder={i18n.__('profile.placeholder.city')} className="text-center" value={this.state.city} onChange={this.handleCityChange} />
+            </div>
+            <div className="col s6">
+              <input type="text" placeholder={i18n.__('profile.placeholder.country')} className="text-center" value={this.state.country} onChange={this.handleCountryChange} />
+            </div>
+              <div className="col s12">
+                {/* length="140" */}
+                <input type="text" placeholder={i18n.__('profile.placeholder.headline')} value={this.state.headline} onChange={this.handleHeadLineChange}/>
+                {/*  length="1024" */}
+                <textarea placeholder={i18n.__('profile.placeholder.aboutMe')} className="materialize-textarea editable" value={this.state.aboutMe} onChange={this.handleAboutMeChange}></textarea>
+                {/* <div className="row">
+                  <button type="submit" className="waves-effect waves-light btn"><T>profile.saveButton</T></button>
+                </div> */}
               </div>
-              <div className="col s4">
-                <input type="text" placeholder={i18n.__('profile.placeholder.country')} className="text-center" value={this.state.country} onChange={this.handleCountryChange} />
-              </div>
-            </div>
-            <div className="row">
-              {/* length="140" */}
-              <input type="text" placeholder={i18n.__('profile.placeholder.headline')} value={this.state.headline} onChange={this.handleHeadLineChange}/>
-            </div>
-            <div className="row">
-              {/*  length="1024" */}
-              <textarea placeholder={i18n.__('profile.placeholder.aboutMe')} className="materialize-textarea editable" value={this.state.aboutMe} onChange={this.handleAboutMeChange}></textarea>
-            </div>
-            <div className="row">
-              <button type="submit" className="waves-effect waves-light btn"><T>profile.saveButton</T></button>
             </div>
           </form>
         </div>
