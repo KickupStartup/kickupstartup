@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Person from './Person';
+import People from './people';
 
 Meteor.methods({
   'profile.update':function(firstName, lastName, city, country, headline, aboutMe) {
@@ -43,9 +44,12 @@ Meteor.methods({
       throw new Meteor.Error('person.bookmark.idea.notfound',
         'Cannot find an idea by specified id.');
     }
+    //People.update({_id: this.userId }, { $addToSet: { bookmarkIdeas: ideaId }});
     const person = Person.findOne({userId: this.userId});
     if (person.bookmarkIdeas) {
-      person.bookmarkIdeas.push(ideaId);
+      if (person.bookmarkIdeas.indexOf(ideaId) == -1) {
+        person.bookmarkIdeas.push(ideaId);
+      }
     } else {
       person.bookmarkIdeas = [ideaId];
     }

@@ -50,7 +50,7 @@ export default class SideBar extends Component {
 
             <ul className="fullpage__nav sidebar-menu__ul nav">
                 <li><Link to="/" activeClassName="active">Home</Link></li>
-                <li><Link to="/ideas" activeClassName="active">Ideas</Link></li>
+                <li><Link to="/ideas/all" activeClassName="active">Ideas</Link></li>
                 { Meteor.userId() ? <li className="divider"></li> : '' }
                 { Meteor.userId() ? <li><Link to="/profile" activeClassName="active">Profile</Link></li> : '' }
                 { Meteor.userId() ? <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li> : '' }

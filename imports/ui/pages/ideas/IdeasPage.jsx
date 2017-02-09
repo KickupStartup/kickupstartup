@@ -9,7 +9,6 @@ import ListIdeaCard from '../../components/list/ListIdeaCard';
 import ListEnd from '../../components/list/ListEnd';
 import ListDivider from '../../components/list/ListDivider';
 import ListLoading from '../../components/list/ListLoading';
-import ListMyIdeasEmptyCard from '../../components/list/ListMyIdeasEmptyCard';
 
 import Person from '../../../api/people/Person';
 import Comment from '../../../api/comments/Comment';

@@ -44,7 +44,7 @@ export default class LandingPage extends Component {
                 <span><T>landing.button</T></span>
                 </Link>
                 <div>
-                  <Link to="/ideas"><T>landing.explore</T></Link>
+                  <Link to="/ideas/all"><T>landing.explore</T></Link>
                 </div>
               </div>
           </div>
