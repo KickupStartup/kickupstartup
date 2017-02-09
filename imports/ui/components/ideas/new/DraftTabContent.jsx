@@ -40,7 +40,7 @@ export default class DraftTabContent extends Component {
           <LiveEditor
             onChange={this.handleDraftChange}
             value={this.props.idea.draft}
-            placeholder="Write your idea" autofocus />
+            placeholder="Write your idea" />
         </div>
         <ListDivider />
         <div className="col s6 right"><a href="#story" className="next">Next</a></div>
