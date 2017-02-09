@@ -51,7 +51,7 @@ class App extends Component {
       <div>
         <div className="submenu">
           <TopBar profile={this.props.profile} />
-          { this.props.user ? '' : <div className="container main"><JoinUsForm /></div> }
+          { this.props.user ? '' : <div className="container main joinUsForm"><JoinUsForm /></div> }
           { this.props.children }
           <div className="fixed-action-btn">
             <a className="btn-floating btn-large waves-effect waves-light modal-trigger" href="#createidea" onClick={this.openCreateIdeaModal}>

@@ -81,18 +81,18 @@ export default class ProfileForm extends Component {
               <div className="avatar-photo editable"><a href="#"><Avatar name={this.getFullName()} textSizeRatio={1.9} round={true} size={104} /></a></div>
             </div>
             <div className="row">
-            <div className="col s6">
-              <input type="text" placeholder={i18n.__('profile.placeholder.firstName')} className="text-center" value={this.state.firstName} onChange={this.handleFirstNameChange} />
-            </div>
-            <div className="col s6">
-              <input type="text" placeholder={i18n.__('profile.placeholder.lastName')} className="text-center" value={this.state.lastName} onChange={this.handleLastNameChange} />
-            </div>
-            <div className="col s6">
-              <input type="text" placeholder={i18n.__('profile.placeholder.city')} className="text-center" value={this.state.city} onChange={this.handleCityChange} />
-            </div>
-            <div className="col s6">
-              <input type="text" placeholder={i18n.__('profile.placeholder.country')} className="text-center" value={this.state.country} onChange={this.handleCountryChange} />
-            </div>
+              <div className="col s6">
+                <input type="text" placeholder={i18n.__('profile.placeholder.firstName')} className="text-center" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+              </div>
+              <div className="col s6">
+                <input type="text" placeholder={i18n.__('profile.placeholder.lastName')} className="text-center" value={this.state.lastName} onChange={this.handleLastNameChange} />
+              </div>
+              <div className="col s6">
+                <input type="text" placeholder={i18n.__('profile.placeholder.city')} className="text-center" value={this.state.city} onChange={this.handleCityChange} />
+              </div>
+              <div className="col s6">
+                <input type="text" placeholder={i18n.__('profile.placeholder.country')} className="text-center" value={this.state.country} onChange={this.handleCountryChange} />
+              </div>
               <div className="col s12">
                 {/* length="140" */}
                 <input type="text" placeholder={i18n.__('profile.placeholder.headline')} value={this.state.headline} onChange={this.handleHeadLineChange}/>

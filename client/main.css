@@ -25,7 +25,7 @@ html.welcome{
   html.welcome body{min-height:100%;
     background:url(../img/bg-pattern.png),url(../img/welcome.jpg) no-repeat center center fixed;
   }
-
+.joinUsForm{margin-bottom:-92px}
 @media only screen and (min-width: 930px) {
 html.welcome body{min-height:100%;
   background: -webkit-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0));
@@ -538,7 +538,7 @@ dd {
   transition: all 0.2s ease-in-out}
 .back .fa{margin-right:8px}
     .submenu .back{background-color:#f9f9f9;padding-top:24px!important;position:fixed;top:70px;z-index:4}
-    .submenu .main{padding-top:86px}
+    .submenu .main{padding-top:95px}
     .submenu .with-tabs{padding-top:216px}
     .no-submenu .back{display:none}
     .no-submenu .main{padding-top:74px}
