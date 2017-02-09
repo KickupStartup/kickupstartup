@@ -55,7 +55,7 @@ class App extends Component {
       <div>
         <div className="submenu">
           <TopBar profile={this.props.profile} />
-          { this.props.user ? '' : <div className="container main"><JoinUsForm /></div> }
+          { this.props.user ? '' : <div className="container main joinUsForm"><JoinUsForm /></div> }
           { this.props.children }
           <div className="fixed-action-btn">
             <a className="btn-floating btn-large waves-effect waves-light modal-trigger" href="#createidea" onClick={this.openCreateIdeaModal}>
@@ -67,7 +67,7 @@ class App extends Component {
           <div className="modal-content">
             <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
             <h3>Создать</h3>
-            <div className="content modal-create modal-action modal-close" onClick={this.handleIdeaCreate}>
+            <div className="content modal-create modal-action modal-close modal-unauthorized" onClick={this.handleIdeaCreate}>
               <ul className="collection">
                 <li className="collection-item avatar">
                   <i className="fa fa-lightbulb-o circle"></i>
@@ -75,6 +75,7 @@ class App extends Component {
                   <p>
                     Для создания классного стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.
                   </p>
+                  <p>Please login via <a href="#!">Google</a> or <a href="#!">Twitter</a> to proceed.</p>
                 </li>
               </ul>
             </div>
