@@ -68,7 +68,10 @@ export default class IdeaEdit extends Component {
                   placeholder="Your awesome idea title" />
               </div>
               <div className="col s6">
-                <button onClick={this.changeView}>Preview</button>
+                <button type="submit" className="waves-effect waves-light green btn right">
+                  <span className="fa fa-check-circle"></span>
+                  <span>Review</span>
+                </button>
               </div>
             </div>
             <ul className="nav nav-tabs">

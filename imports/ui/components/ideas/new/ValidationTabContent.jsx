@@ -9,6 +9,7 @@ import IdeaCustomer from '../IdeaCustomer';
 import IdeaCreatePoll from '../IdeaCreatePoll';
 import IdeaInviteCollaborator from '../IdeaInviteCollaborator';
 import IdeaAskForReview from '../IdeaAskForReview';
+import ListDivider from '../../../components/list/ListDivider';
 
 export default class StoryTabContent extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ export default class StoryTabContent extends Component {
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
           <h4>Validation tab help</h4>
-          <p>Validation help. <i className="fa fa-window-maximize"></i>.
+          <p>Validation help.
           </p>
           {/* <ul className="controls right">
               <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
@@ -28,12 +29,23 @@ export default class StoryTabContent extends Component {
           </ul> */}
         </div>
         <IdeaCustomer idea={this.props.idea} />
+        <ListDivider border={true} />
         <IdeaCreatePoll idea={this.props.idea} />
+        <ListDivider border={true} />
         <IdeaAskForReview idea={this.props.idea} />
         {/* <LiveEditor
           onChange={this.handleStoryChange}
           value={this.props.idea.story}
-          placeholder="Write your story..." /> */}
+        placeholder="Write your story..." /> */}
+        <div className="col s12 text-center">
+          <button className="waves-effect waves-light green btn-large btn-margin">
+            <span className="fa fa-check-circle fa-lg"></span>
+            <span>Review</span>
+          </button>
+          <div className="modal-bottom-link">
+            <a href="#!">Back</a>
+          </div>
+        </div>
       </div>
     )
   }

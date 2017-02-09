@@ -26,8 +26,7 @@ export default class StoryTabContent extends Component {
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
           <h4>Story tab help</h4>
-          <p>Story help. <i className="fa fa-window-maximize"></i>.
-          </p>
+          <p>Story help.</p>
           {/* <ul className="controls right">
               <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
               <li><span>3 of 5</span></li>
@@ -37,7 +36,7 @@ export default class StoryTabContent extends Component {
         <LiveEditor
           onChange={this.handleStoryChange}
           value={this.props.idea.story}
-          placeholder="Write your story..." />
+          placeholder="Write your story" />
       </div>
     )
   }

@@ -26,7 +26,7 @@ export default class SolutionTabContent extends Component {
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
           <h4>Solution help</h4>
-          <p>Solution help. <i className="fa fa-window-maximize"></i>.
+          <p>Solution help.
           </p>
           {/* <ul className="controls right">
               <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
@@ -37,7 +37,7 @@ export default class SolutionTabContent extends Component {
         <LiveEditor
           onChange={this.handleSolutionChange}
           value={this.props.idea.solution}
-          placeholder="Write your solution to the problem..." />
+          placeholder="Write a problem-solution essay" />
       </div>
     )
   }
