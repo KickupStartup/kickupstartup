@@ -15,10 +15,6 @@ import ValidationTabContent from './new/ValidationTabContent';
 
 import ReactInput from '../common/ReactInput';
 
-import IdeaName from './IdeaName';
-import IdeaDraft from './IdeaDraft';
-import IdeaProblem from './IdeaProblem';
-import IdeaStory from './IdeaStory';
 import IdeaCustomer from './IdeaCustomer';
 import IdeaAskForReview from './IdeaAskForReview';
 import IdeaCreatePoll from './IdeaCreatePoll';
