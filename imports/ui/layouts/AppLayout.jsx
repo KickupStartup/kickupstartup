@@ -12,7 +12,6 @@ import Person from '../../api/people/Person';
 
 class App extends Component {
   openCreateIdeaModal() {
-    console.log("clicked");
     $('.modal').modal();
     $('#createidea').modal('open');
   }
@@ -24,12 +23,11 @@ class App extends Component {
         console.log("idea.new error ", error);
       }
       if(newIdea) {
-        $('#createidea').modal('close');
-        browserHistory.push('/ideas/' + newIdea._id);
+        browserHistory.push('/idea/' + newIdea._id);
       }
     });
   }
-  
+
   render() {
     if (this.props.loading) {
       return (
