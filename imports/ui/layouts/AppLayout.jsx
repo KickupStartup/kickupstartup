@@ -25,20 +25,19 @@ class App extends Component {
     this.handleIdeaCreate = this.handleIdeaCreate.bind(this);
   }
   componentDidUpdate() {
-    if (this.props.user) {
-      console.log("ideaModalShown - true");
-      if (this.props.location.query.new === null && !this.props.loading && !this.state.modalLoggedinShown) {
-        console.log("open modal");
-        this.setState({modalLoggedinShown: true});
-        this.openCreateIdeaModal();
+    if (this.props.location.query.new === null && !this.props.loading) {
+      if (this.props.user) {
+        if (!this.state.modalLoggedinShown) {
+          this.setState({modalLoggedinShown: true});
+          this.openCreateIdeaModal();
+        }
+      } else {
+        if (!this.state.modalUnauthorizedShown) {
+          this.setState({modalUnauthorizedShown: true});
+          this.openCreateIdeaModal();
+        }
       }
-    } else {
-      if (this.props.location.query.new === null && !this.props.loading && !this.state.modalUnauthorizedShown) {
-        console.log("open modal");
-        this.setState({modalUnauthorizedShown: true});
-        this.openCreateIdeaModal();
-      }
-    }  
+    }
   }
   openCreateIdeaModal() {
     $('.modal').modal();
