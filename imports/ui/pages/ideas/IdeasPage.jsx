@@ -42,6 +42,20 @@ export default class IdeasPage extends Component {
       return (
         <div className="container main">
           <div className="col s12">
+
+            {/* Temp START. Code just an example of an empty data page */}
+                <div className="card white row-border">
+                <div className="content">
+                  <h3>Nothing Here Yet</h3>
+                <p>Текст для каждой пустой страницы будет отдельным. Кнопка будет лишь для страницы Yours</p>
+                <div className="col s12 text-center">
+                  <button type="submit" className="waves-effect waves-light orange btn"><span class="fa fa-check-circle"></span>Create idea</button>
+                </div>
+              </div>
+            </div>
+            <br /> {/* br is just as an divider, dont include it */}
+            {/* Temp END */}
+
             <ReactCSSTransitionGroup
               transitionName="example"
               transitionAppear={true}
