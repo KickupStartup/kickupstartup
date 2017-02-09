@@ -11,6 +11,20 @@ const T = i18n.createComponent();
 import Person from '../../api/people/Person';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    // auto show idea create modal only once
+    this.state = {
+      ideaModalShown: false
+    }
+  }
+  componentDidUpdate() {
+    if (this.props.location.query.new === null && !this.props.loading && !this.state.ideaModalShown) {
+      this.setState({ideaModalShown: true});
+      this.openCreateIdeaModal();
+    }
+  }
   openCreateIdeaModal() {
     $('.modal').modal();
     $('#createidea').modal('open');
@@ -27,7 +41,6 @@ class App extends Component {
       }
     });
   }
-
   render() {
     if (this.props.loading) {
       return (
@@ -38,14 +51,6 @@ class App extends Component {
       <div>
         <div className="submenu">
           <TopBar profile={this.props.profile} />
-
-            {/* <div id="backButtonMenu" className="row hidden">
-              <div className="col s12 back clearfix">
-                <div className="row">
-                  <div className="col s12"><Link href="/#!" onClick={browserHistory.goBack}><i className="fa fa-arrow-circle-left"></i><T>layout.backButton</T></Link></div>
-                </div>
-              </div>
-            </div> */}
           { this.props.user ? '' : <div className="container main"><JoinUsForm /></div> }
           { this.props.children }
           <div className="fixed-action-btn">
@@ -54,25 +59,24 @@ class App extends Component {
             </a>
           </div>
         </div>
-
-          <div id="createidea" className="modal bottom-sheet">
-            <div className="modal-content">
-              <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
-              <h3>Create</h3>
-              <div className="content modal-create modal-action modal-close" onClick={this.handleIdeaCreate}>
-                <ul className="collection">
-                  <li className="collection-item avatar">
-                    <i className="fa fa-lightbulb-o circle"></i>
-                    <span className="title">Idea</span>
-                    <p>
-                      Для создания amazing стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.
-                    </p>
-                  </li>
-                </ul>
-              </div>
+        <div id="createidea" className="modal bottom-sheet">
+          <div className="modal-content">
+            <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
+            <h3>Создать</h3>
+            <div className="content modal-create modal-action modal-close" onClick={this.handleIdeaCreate}>
+              <ul className="collection">
+                <li className="collection-item avatar">
+                  <i className="fa fa-lightbulb-o circle"></i>
+                  <span className="title">Идею</span>
+                  <p>
+                    Для создания классного стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.
+                  </p>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
+      </div>
       );
     }
   }
