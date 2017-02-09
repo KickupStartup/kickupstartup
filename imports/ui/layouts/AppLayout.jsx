@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { browserHistory, Link } from 'react-router';
+import { Link } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
 import TopBar from '../components/navigation/TopBar.jsx';
 import JoinUsForm from '../components/common/JoinUsForm.jsx';
@@ -18,6 +18,8 @@ class App extends Component {
     this.state = {
       ideaModalShown: false
     }
+
+    this.handleIdeaCreate = this.handleIdeaCreate.bind(this);
   }
   componentDidUpdate() {
     if (this.props.location.query.new === null && !this.props.loading && !this.state.ideaModalShown) {
@@ -31,13 +33,15 @@ class App extends Component {
   }
   handleIdeaCreate(event) {
     event.preventDefault();
+    const router = this.props.router;
+
     // create new idea
     Meteor.call("idea.new", function(error, newIdea){
       if(error) {
         console.log("idea.new error ", error);
       }
       if(newIdea) {
-        browserHistory.push('/idea/' + newIdea._id);
+        router.push('/idea/' + newIdea._id);
       }
     });
   }
