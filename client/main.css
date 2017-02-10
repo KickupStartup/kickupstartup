@@ -3436,8 +3436,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .sidebar__btn .fa-lg{vertical-align:0}
 .banner{border:4px solid #fff;margin:-32px -40px;height:120px}
-.avatar-photo{clear:both;top:-35px;margin-bottom:18px;position:relative}
-  .avatar-photo img{border-radius:50%;border:4px solid #fff;display:block;margin:0 auto -40px;top:-40px;width:104px;height:104px}
+.avatar-photo{clear:both;top:-20px;position:relative}
+  .avatar-photo .sb-avatar{border-radius:50%;border:3px solid #fff;display:block;height:auto!important;width:auto!important;top:-4px;position:relative}
 .avatar-small{padding:10px!important}
   .avatar-small img{border-radius:50%;box-shadow:0 0 0 3px #f2f2f2;width:50px;height:50px}
 .marging-top{margin-top:0}
@@ -3498,7 +3498,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
           -ms-transition: background-color .5s linear, border .5s ease;
           transition: background-color .5s linear, border .5s ease}
 .card-reveal{}
-.editable{border-bottom:1px solid #f2f2f2;display:inline-block;padding:10px;margin:0 -4px}
+.editable{border-bottom:1px solid #f2f2f2;display:inline-block}
+.bookmark{color:#fff;font-size:1.5em;margin:-9px -18px!important;text-shadow:0 0 8px #000;z-index:8} /* z-index to get under the banner div & click */
 .avatar-photo.editable{border-bottom:none}
   .editable.avatar-photo:hover img{box-shadow:0 0 0 1px #ccc}
   .banner-edit{background:url(../img/edit-banner.png) no-repeat!important}
