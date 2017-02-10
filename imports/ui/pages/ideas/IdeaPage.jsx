@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { moment } from 'meteor/momentjs:moment';
-import { browserHistory } from 'react-router';
 
 import ListLoading from '../../components/list/ListLoading';
 import ListDivider from '../../components/list/ListDivider';
@@ -13,38 +12,21 @@ import IdeaEdit from '../../components/ideas/IdeaEdit';
 import IdeaPoll from '../../components/ideas/IdeaPoll';
 import Comments from '../../components/comments/Comments';
 
-import Person from '../../../api/people/Person';
-import Comment from '../../../api/comments/Comment';
 import { FormStep } from '../../../api/ideas/Idea';
 
 export default class IdeaPage extends Component {
   constructor(props) {
     super(props);
     this.state = { preview: false };
-
     this.changeView = this.changeView.bind(this);
-  }
-  componentDidMount() {
-    $("#backButtonMenu").removeClass('hidden');
-  }
-  componentWillUnmount() {
-    $("#backButtonMenu").addClass('hidden');
-  }
-  getIdeaAuthor(userId) {
-    return Person.findOne({userId: userId});
-  }
-  getCommentsCount(idea) {
-    return Comment.find({ideaId: idea._id}).count();
   }
   changeView(event) {
     event.preventDefault();
     console.log(this.state.preview);
-
     this.setState({ preview: !this.state.preview });
   }
   render() {
     const idea = this.props.idea;
-
     if (this.props.loading) {
       return (
         <ListLoading/>
@@ -52,12 +34,12 @@ export default class IdeaPage extends Component {
     } else {
       if (!idea) {
         // there is no such idea found in the database - show ideas instead
-        browserHistory.push('/ideas');
+        this.props.router.push('/ideas');
       }
-      if (idea.userId === Meteor.userId() && !this.state.preview) {
+      if (idea.userId === this.props.user._id && !this.state.preview) {
         return (
           <div>
-            <IdeaEdit idea={idea} author={this.getIdeaAuthor(idea.userId)}/>
+            <IdeaEdit idea={idea} author={this.props.author}/>
           </div>
         );
       } else {
@@ -71,11 +53,10 @@ export default class IdeaPage extends Component {
               </div>
             </div>
             <IdeaView
-              idea={this.props.idea}
+              idea={idea}
               profile={this.props.profile}
-              author={this.getIdeaAuthor(this.props.idea.userId)}
-              commentsCount={this.getCommentsCount(this.props.idea)}
-              lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
+              author={this.props.author}
+            />
             <ListDivider border={true} />
             <IdeaPoll idea={idea} />
             <ListDivider border={true} />
@@ -90,8 +71,9 @@ export default class IdeaPage extends Component {
 
 IdeaPage.propTypes = {
   loading: PropTypes.bool.isRequired,
-  profile: PropTypes.object.isRequired,
-  comments: PropTypes.array.isRequired,
   idea: PropTypes.object,
+  comments: PropTypes.array.isRequired,
+  author: PropTypes.object,
+  profile: PropTypes.object.isRequired,
   user: PropTypes.object
 }

@@ -27,10 +27,9 @@ export default class Comments extends Component {
         <ul className={this.getClasses()}>
           {this.props.comments.map((comment) => (
             <div key={comment._id}>
-            <ListCommentItem comment={comment} author={this.getAuthorName(comment.userId)} />
-          </div>
-          )
-          )}
+              <ListCommentItem comment={comment} author={this.getAuthorName(comment.userId)} />
+            </div>
+          ))}
         </ul>
       </div>
     );
@@ -40,7 +39,7 @@ export default class Comments extends Component {
     <div>
       <div className="white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Комментарии</h3>
+          <h3 className="modal-title"><T>comment.header</T> ({this.props.comments.length})</h3>
         </div>
         { Meteor.userId() ? <CommentForm idea={this.props.idea} /> : <StartComment /> }
         { this.renderComments() }

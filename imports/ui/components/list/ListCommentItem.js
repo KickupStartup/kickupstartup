@@ -8,11 +8,12 @@ import Avatar from 'react-avatar';
 
 export default class ListCommentItem extends Component {
   render () {
+    const fullName = this.props.author ? this.props.author.fullName : '';
     return (
       <li className="collection-item avatar">
         <span className="chat-date">{moment(this.props.comment.createdAt).fromNow()}</span>
-        <Avatar className="circle" name={this.props.author.fullName} round={true} size={48}></Avatar>
-        <span className="title">{this.props.author.fullName}</span>
+        <Avatar className="circle" name={fullName} round={true} size={48}></Avatar>
+        <span className="title">{fullName}</span>
         <p>{this.props.comment.message}</p>
       </li>
     )

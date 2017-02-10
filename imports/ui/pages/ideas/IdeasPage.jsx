@@ -29,6 +29,7 @@ export default class IdeasPage extends Component {
       <div key={idea._id}>
         <ListIdeaCard
           idea={idea}
+          profile={this.props.profile}
           author={this.getIdeaAuthor(idea.userId)}
           commentsCount={this.getCommentsCount(idea)}
           lastCommentTime={this.getLastCommentTime(idea)} />
@@ -48,7 +49,8 @@ export default class IdeasPage extends Component {
           // when buttonText is not set, button is not rendered
           <ListEmpty
             header={i18n.__('list.empty.bookmarked.header')}
-            text={i18n.__('list.empty.bookmarked.text')} />
+            text={i18n.__('list.empty.bookmarked.text')}
+            icon={true} />
         );
         break;
       case '/ideas/yours':
@@ -102,7 +104,6 @@ export default class IdeasPage extends Component {
 }
 
 IdeasPage.propTypes = {
-  ideas: PropTypes.array,
-  loading: PropTypes.bool,
-  user: PropTypes.object
+  ideas: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
 }

@@ -40,6 +40,12 @@
     "header": "Come up with an idea",
     "submit_button": "Submit"
   },
+  "bookmark": {
+    "title": {
+      "add": "Add bookmark",
+      "remove": "Remove bookmark"
+    }
+  },
   "list": {
     "empty": {
       "all": {
@@ -49,7 +55,7 @@
       },
       "bookmarked": {
         "header": "You do not have bookmarks yet",
-        "text": "In order to bookmark idea, please click this icon",
+        "text": "In order to bookmark idea, please click this icon ",
         "buttonText": ""
       },
       "yours": {
@@ -99,6 +105,7 @@
     }
   },
   "comment": {
+    "header": "Comments",
     "addHeader": "Leave feedback",
     "tweetCheckbox": "Tweet it",
     "submitButton": "Submit",
