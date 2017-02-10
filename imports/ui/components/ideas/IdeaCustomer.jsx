@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
-import classNames from 'classnames';
 
 export default class IdeaProblem extends Component {
   constructor(props) {

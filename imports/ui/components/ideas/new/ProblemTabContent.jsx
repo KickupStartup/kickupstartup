@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
-import classNames from 'classnames';
 
 import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';

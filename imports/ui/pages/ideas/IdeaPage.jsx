@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { moment } from 'meteor/momentjs:moment';
-import { browserHistory } from 'react-router';
 
 import ListLoading from '../../components/list/ListLoading';
 import ListDivider from '../../components/list/ListDivider';
@@ -24,12 +23,6 @@ export default class IdeaPage extends Component {
 
     this.changeView = this.changeView.bind(this);
   }
-  componentDidMount() {
-    $("#backButtonMenu").removeClass('hidden');
-  }
-  componentWillUnmount() {
-    $("#backButtonMenu").addClass('hidden');
-  }
   getIdeaAuthor(userId) {
     return Person.findOne({userId: userId});
   }
@@ -39,7 +32,6 @@ export default class IdeaPage extends Component {
   changeView(event) {
     event.preventDefault();
     console.log(this.state.preview);
-
     this.setState({ preview: !this.state.preview });
   }
   render() {
@@ -52,7 +44,7 @@ export default class IdeaPage extends Component {
     } else {
       if (!idea) {
         // there is no such idea found in the database - show ideas instead
-        browserHistory.push('/ideas');
+        this.props.router.push('/ideas');
       }
       if (idea.userId === Meteor.userId() && !this.state.preview) {
         return (
