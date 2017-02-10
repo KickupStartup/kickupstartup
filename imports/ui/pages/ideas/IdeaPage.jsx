@@ -55,6 +55,13 @@ export default class IdeaPage extends Component {
       } else {
         return (
           <div className="container main">
+            <div className="row">
+              <div className="col s12">
+                <button type="submit" onClick={this.changeView} className="waves-effect waves-light green btn right">
+                  <span className="fa fa-pencil"></span>Edit
+                </button>
+              </div>
+            </div>
             <IdeaView
               idea={this.props.idea}
               profile={this.props.profile}
@@ -66,7 +73,6 @@ export default class IdeaPage extends Component {
             <ListDivider border={true} />
             <Comments idea={idea} comments={this.props.comments} />
             <ListEnd/>
-            <button onClick={this.changeView}>Edit</button>
           </div>
         );
       }
