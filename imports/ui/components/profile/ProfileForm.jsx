@@ -70,14 +70,14 @@ export default class ProfileForm extends Component {
   }
   render () {
     var bannerImage = {
-      background: "url(/img/no-banner.jpg) center center no-repeat"
+      background: "url(/img/banner-avatar.jpg) center center no-repeat"
     };
     return (
       <div className="white">
         <div className="content text-center clearfix">
           <form onSubmit={this.handleSubmit}>
             <div className="">
-              <div className="banner banner-edit" style={bannerImage}></div>
+              <div className="banner" style={bannerImage}></div>
               <div className="avatar-photo editable"><a href="#"><Avatar name={this.getFullName()} textSizeRatio={1.9} round={true} size={104} /></a></div>
             </div>
             <div className="row">

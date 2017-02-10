@@ -21,7 +21,7 @@ export default class ListPersonCard extends Component {
     return (
       <div onClick={this.gotoPersonDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
-          <div className="banner" style={noImage}></div>
+          <div className="banner" style={customImage}></div>
           <div className="avatar-photo"><Avatar name={this.props.person.fullName} textSizeRatio={1.9} size={96} round={true}/></div>
           <ul className="stat"><li><h3>{this.props.person.fullName}</h3></li></ul>
           { this.props.person.location ? <ul className="stat"><li>{this.props.person.location.city}, {this.props.person.location.country}</li></ul> : '' }

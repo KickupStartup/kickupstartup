@@ -36,7 +36,7 @@ export default class ListIdeaCard extends Component {
   }
   render () {
     var customImage = {
-      background: "url(/img/banner-avatar.jpg) center center no-repeat"
+      background: "url(/img/banner-idea.jpg) center center no-repeat"
     };
     var noImage = {
       background: "url(/img/no-banner.png) center center no-repeat"
@@ -45,7 +45,7 @@ export default class ListIdeaCard extends Component {
     <div>
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
-          <div className="banner" style={noImage}></div>
+          <div className="banner" style={customImage}></div>
           <div className="avatar-photo"><Avatar name={this.props.author.fullName} textSizeRatio={1.9} round={true} size={96}/></div>
           <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
           <ul className="stat"><li>{this.renderNumberOfComments()} {this.renderNumberOfCommentsText()}</li>{this.renderLastCommentTime()}</ul>

@@ -31,7 +31,7 @@ Meteor.methods({
     }
     profile.save();
   },
-  'person.bookmark.idea':function(ideaId) {
+  'person.idea.bookmark.add':function(ideaId) {
     check(ideaId, String);
 
     if (!this.userId) {
@@ -54,5 +54,28 @@ Meteor.methods({
       person.bookmarkIdeas = [ideaId];
     }
     person.save();
+  },
+  'person.idea.bookmark.remove':function(ideaId) {
+    check(ideaId, String);
+
+    if (!this.userId) {
+      throw new Meteor.Error('person.bookmark.idea.unauthorized',
+        'Cannot bookmark an idea if unauthorized.');
+    }
+    // check if there is an idea in the database with ideaId specified
+    const idea = Idea.findOne({_id: ideaId});
+    if (!idea) {
+      throw new Meteor.Error('person.bookmark.idea.notfound',
+        'Cannot find an idea by specified id.');
+    }
+    //People.update({_id: this.userId }, { $addToSet: { bookmarkIdeas: ideaId }});
+    const person = Person.findOne({userId: this.userId});
+    if (person.bookmarkIdeas) {
+      let index = person.bookmarkIdeas.indexOf(ideaId);
+      if (index != -1) {
+        person.bookmarkIdeas.splice(index, 1);
+        person.save();
+      }
+    }
   }
 });

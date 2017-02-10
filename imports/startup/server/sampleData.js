@@ -39,13 +39,15 @@ Person.upsert({userId: uid}, {
 });
 
 // insert ideas for testing
-Idea.upsert({ name: "Idea 1", userId: uid}, {
-  name: "Idea 1",
-  draft: "Draft of an idea.",
+Idea.upsert({ name: "Kick up Startup", userId: uid}, {
+  name: "Kick up Startup",
+  draft: "{\"entityMap\":{},\"blocks\":[{\"key\":\"btct4\",\"text\":\"Motto: it all begins with a dream\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[{\"offset\":0,\"length\":5,\"style\":\"BOLD\"}],\"entityRanges\":[],\"data\":{}},{\"key\":\"aov4u\",\"text\":\"Description:\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[{\"offset\":0,\"length\":11,\"style\":\"BOLD\"}],\"entityRanges\":[],\"data\":{}},{\"key\":\"a9okf\",\"text\":\"Platform for creating successful startups, where you will find help and people interested in your business\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"cut3l\",\"text\":\"Problem:\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[{\"offset\":0,\"length\":7,\"style\":\"BOLD\"}],\"entityRanges\":[],\"data\":{}},{\"key\":\"6gb8\",\"text\":\"It's often difficult to understand who is your target market and ask them whether problem exists and worth solving.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"8oa7t\",\"text\":\"Personal Story:\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[{\"offset\":0,\"length\":14,\"style\":\"BOLD\"}],\"entityRanges\":[],\"data\":{}},{\"key\":\"d254\",\"text\":\"I personally failed with my previous startup due to the reason that the problem I thought exists was perfectly solved by other means and I was not able successfully to determine who is my target customer.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"7d8cb\",\"text\":\"Solution:\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[{\"offset\":0,\"length\":8,\"style\":\"BOLD\"}],\"entityRanges\":[],\"data\":{}},{\"key\":\"e9554\",\"text\":\"Create a platform where I can ask other people if my idea makes any sense and the problem I have identified really exists.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"n9i7\",\"text\":\"\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}]}",
+  solution: "{\"entityMap\":{},\"blocks\":[{\"key\":\"579hb\",\"text\":\"Create a platform where I can ask other people if my idea makes any sense and the problem I have identified really exists.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}]}",
+  problem: "{\"entityMap\":{},\"blocks\":[{\"key\":\"3vm7j\",\"text\":\"It's often difficult to understand who is your target market and ask them whether problem exists and worth solving.\",\"type\":\"todo\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}]}",
+  story: "{\"entityMap\":{},\"blocks\":[{\"key\":\"9dt6k\",\"text\":\"I personally failed with my previous startup due to the reason that the problem I thought exists was perfectly solved by other means and I was not able successfully to determine who is my target customer.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}]}",
   public: true,
   status: 1,
   categories: ["Toys", "Weapon"],
-  problem: "Problem 1 definition",
   customer: {
     market: 3,
     geographic: [1,3],
