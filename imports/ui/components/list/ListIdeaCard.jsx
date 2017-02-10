@@ -43,8 +43,8 @@ export default class ListIdeaCard extends Component {
     };
     return (
     <div>
-      <a href="#!"><i className="fa fa-bookmark fa-lg bookmark right" title="Bookmarked"></i></a>
-      <a href="#!"><i className="fa fa-bookmark-o fa-lg bookmark right" title="Bookmark"></i></a>
+      <a href="#!" className="bookmark active right"><i className="fa fa-bookmark fa-lg" title="Bookmarked"></i></a>
+      <a href="#!" className="bookmark right"><i className="fa fa-bookmark-o fa-lg" title="Bookmark"></i></a>
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
           <div className="banner" style={customImage}></div>

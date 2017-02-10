@@ -68,9 +68,9 @@ export default class IdeaEdit extends Component {
                   placeholder="Your awesome idea title" />
               </div>
               <div className="col s6">
+                <a href="#!" className="delete left" title="Delete"><span className="fa fa-trash fa-lg"></span></a>
                 <button type="submit" className="waves-effect waves-light green btn right">
-                  <span className="fa fa-check-circle"></span>
-                  <span>Preview</span>
+                  <span className="fa fa-check-circle"></span>Preview
                 </button>
               </div>
             </div>
