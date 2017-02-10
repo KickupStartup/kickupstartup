@@ -79,10 +79,8 @@ class App extends Component {
           <li className="collection-item avatar">
             <i className="fa fa-lightbulb-o circle"></i>
             <h3 className="title"><T>joinus.shortText</T></h3>
-            {/* <p><T>joinus.shortText</T></p> */}
             <T>joinus.signupRequest</T>
             <ThirdPartyLoginButtons/>
-            {/* <a href="#!">Google</a> или <a href="#!">Twitter</a> */}
           </li>
         </ul>
       </div>
@@ -125,7 +123,7 @@ App.propTypes = {
 };
 
 export default AppLayout = createContainer(props => {
-  const profileHandle = Meteor.subscribe("person.byuserid", Meteor.userId());
+  const profileHandle = Meteor.subscribe("profile");
   const loading = !profileHandle.ready();
   return {
     loading,

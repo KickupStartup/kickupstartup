@@ -6,7 +6,8 @@ import { browserHistory } from 'react-router';
 import Avatar from 'react-avatar';
 import { moment } from 'meteor/momentjs:moment';
 
-import ListDivider from '../../components/list/ListDivider';
+import BookmarkIdeaLink from '../ideas/BookmarkIdeaLink';
+import ListDivider from './ListDivider';
 
 export default class ListIdeaCard extends Component {
   constructor(props) {
@@ -41,14 +42,16 @@ export default class ListIdeaCard extends Component {
     var noImage = {
       background: "url(/img/no-banner.png) center center no-repeat"
     };
+    const author = this.props.author;
     return (
     <div>
-      <a href="#!" className="bookmark active right"><i className="fa fa-bookmark fa-lg" title="Bookmarked"></i></a>
-      <a href="#!" className="bookmark right"><i className="fa fa-bookmark-o fa-lg" title="Bookmark"></i></a>
+    	<BookmarkIdeaLink
+        bookmarks={this.props.profile.bookmarkIdeas}
+        ideaId={this.props.idea._id}/>
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
           <div className="banner" style={customImage}></div>
-          <div className="avatar-photo"><Avatar name={this.props.author.fullName} textSizeRatio={1.9} round={true}/></div>
+          <div className="avatar-photo"><Avatar name={author ? author.fullName : ''} textSizeRatio={1.9} round={true}/></div>
           <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
           <ul className="stat"><li>{this.renderNumberOfComments()} {this.renderNumberOfCommentsText()}</li>{this.renderLastCommentTime()}</ul>
         </div>
@@ -66,6 +69,7 @@ export default class ListIdeaCard extends Component {
 }
 
 ListIdeaCard.propTypes = {
-  idea: PropTypes.object,
+  idea: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired,
   author: PropTypes.object
 }
