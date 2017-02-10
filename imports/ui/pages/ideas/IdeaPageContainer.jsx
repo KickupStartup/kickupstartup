@@ -8,7 +8,7 @@ import Person from '../../../api/people/Person';
 
 export default IdeaPageContainer = createContainer(props => {
   const ideaHandle = Meteor.subscribe("idea.single", props.params.id);
-  const profileHandle = Meteor.subscribe("person.byuserid", Meteor.userId());
+  const profileHandle = Meteor.subscribe("profile");
   const loading = !ideaHandle.ready() && !profileHandle.ready();
   return {
     loading,
