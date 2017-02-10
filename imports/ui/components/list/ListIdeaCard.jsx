@@ -45,8 +45,10 @@ export default class ListIdeaCard extends Component {
     <div>
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
+          <a href="#!"><i className="fa fa-bookmark fa-lg bookmark right" title="Bookmarked"></i></a>
+          <a href="#!"><i className="fa fa-bookmark-o fa-lg bookmark right" title="Bookmark"></i></a>
           <div className="banner" style={customImage}></div>
-          <div className="avatar-photo"><Avatar name={this.props.author.fullName} textSizeRatio={1.9} round={true} size={96}/></div>
+          <div className="avatar-photo"><Avatar name={this.props.author.fullName} textSizeRatio={1.9} round={true}/></div>
           <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
           <ul className="stat"><li>{this.renderNumberOfComments()} {this.renderNumberOfCommentsText()}</li>{this.renderLastCommentTime()}</ul>
         </div>

@@ -102,7 +102,7 @@ class App extends Component {
           { this.props.children }
           <div className="fixed-action-btn">
             <a className="btn-floating btn-large waves-effect waves-light modal-trigger" href="#!" onClick={this.openCreateIdeaModal}>
-              <span className="fa fa-plus fa-lg"></span>
+              <span className="fa fa-lightbulb-o fa-lg"></span>
             </a>
           </div>
         </div>
