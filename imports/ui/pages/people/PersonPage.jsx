@@ -18,7 +18,9 @@ class PersonPage extends Component {
       );
     } else {
       return (
-        <ListPersonCard person={this.props.person}/>
+        <div className="container main">
+          <ListPersonCard person={this.props.person}/>
+        </div>
       );
     }
   }
