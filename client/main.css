@@ -26,6 +26,7 @@ html.welcome{
     background:url(../img/bg-pattern.png),url(../img/welcome.jpg) no-repeat center center fixed;
   }
 .joinUsForm{margin-bottom:-92px}
+.modal .modal-unauthorized .collection-item{cursor:default!important}
 @media only screen and (min-width: 930px) {
 html.welcome body{min-height:100%;
   background: -webkit-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0));
@@ -544,7 +545,7 @@ dd {
     .no-submenu .main{padding-top:74px}
 .idea_title .input-field,.idea_title input{margin:0;margin-top:-5px}
 .idea_title input{background-color:#fff;border:1px solid #ccc;margin:6px 0;padding:8px 12px;height:auto}
-.prev,.next{display:block;margin:4px 12px}
+.go-back,.go-next{display:block;margin:4px 12px}
 @media (min-width: 768px) {
     .page .main-padding{padding-top:22px}
     .page .main.inner{padding-top:140px}
@@ -3503,7 +3504,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   .banner-edit{background:url(../img/edit-banner.png) no-repeat!important}
   .banner-edit:hover{box-shadow:0 0 0 1px #ccc;cursor:pointer}
 .editable:focus{border-bottom:1px solid #0072dc;color:#111;outline:none}
-.banner-editor{margin-bottom:28px}
+.banner-editor{margin-bottom:34px}
 .editable_checkbox{margin:4px!important;position:relative;top:1px}
 .lock,.lock-info{background-color:#f9f9f9!important;border-color:#eee;color:rgba(0, 0, 0, 0.5);
   -webkit-transition:border-color .5s ease,color .5s ease;

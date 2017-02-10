@@ -21,7 +21,7 @@ class ProfilePage extends Component {
             <h3><T>profile.manageAccountsHeader</T></h3>
             <p><T>profile.manageAccountsSubHeader</T></p>
             <div className="col s12 text-center">
-              <button type="submit" className="activator waves-effect waves-light orange accent-3 btn" onClick={this.logout.bind(this)}>
+              <button type="submit" className="activator waves-effect waves-light orange btn" onClick={this.logout.bind(this)}>
                 <i className="fa fa-lock"></i>
                 <T>profile.logoutButton</T>
               </button>

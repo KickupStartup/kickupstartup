@@ -218,7 +218,7 @@ export default class IdeaProblem extends Component {
           </select> */}
         </div>
         {/* <div className="col s12 text-center">
-              <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
+              <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange btn btn-margin">
                   Сохранить
               </button>
               <div className="modal-bottom-link">
