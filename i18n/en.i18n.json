@@ -105,6 +105,7 @@
     }
   },
   "comment": {
+    "header": "Comments",
     "addHeader": "Leave feedback",
     "tweetCheckbox": "Tweet it",
     "submitButton": "Submit",

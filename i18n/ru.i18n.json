@@ -107,6 +107,7 @@
     }
   },
   "comment": {
+    "header": "Комментарии",
     "addHeader": "Оставить отзыв",
     "tweetCheckbox": "Твитнуть",
     "submitButton": "Отправить",

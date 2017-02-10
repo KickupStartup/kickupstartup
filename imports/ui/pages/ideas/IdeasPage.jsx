@@ -104,7 +104,6 @@ export default class IdeasPage extends Component {
 }
 
 IdeasPage.propTypes = {
-  ideas: PropTypes.array,
-  loading: PropTypes.bool,
-  user: PropTypes.object
+  ideas: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
 }

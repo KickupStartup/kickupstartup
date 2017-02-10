@@ -10,11 +10,14 @@ export default IdeaPageContainer = createContainer(props => {
   const ideaHandle = Meteor.subscribe("idea.single", props.params.id);
   const profileHandle = Meteor.subscribe("profile");
   const loading = !ideaHandle.ready() && !profileHandle.ready();
+  const idea = Idea.findOne({_id: props.params.id});
+  const author = !loading ? Person.findOne({userId: idea.userId}) : undefined;
+
   return {
     loading,
-    idea: Idea.findOne({_id: props.params.id}),
+    idea,
+    author,
     comments: Comment.find({ideaId: props.params.id}, {sort: {createdAt: -1}}).fetch(),
-    lastComment: Comment.find({ideaId: props.params.id}, {sort: {createdAt: -1}, limit: 1}).fetch(),
     profile: Person.findOne({userId: Meteor.userId()}),
     user: Meteor.user(),
   };

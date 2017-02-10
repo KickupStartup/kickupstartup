@@ -31,6 +31,7 @@ export default class IdeaView extends Component {
       <div className="white row-border clearfix">
         <div className="modal-header">
           <h3 className="modal-title">{this.props.idea.name}</h3>
+          <p>Автор: {this.props.author ? this.props.author.fullName : ''}</p>
           <BookmarkIdeaLink
             bookmarks={this.props.profile.bookmarkIdeas}
             ideaId={this.props.idea._id}/>
@@ -48,6 +49,6 @@ export default class IdeaView extends Component {
 
 IdeaView.propTypes = {
   idea: PropTypes.object.isRequired,
-  author: PropTypes.object.isRequired,
+  author: PropTypes.object,
   profile: PropTypes.object.isRequired,
 }
