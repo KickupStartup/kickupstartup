@@ -3501,6 +3501,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .editable{border-bottom:1px solid #f2f2f2;display:inline-block}
 .bookmark{color:#fff;font-size:1.5em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;z-index:2} /* z-index to get under the banner div & click */
   .bookmark.active{color:#ff9100}
+    .bookmark.active:hover{color:#fff}
 .avatar-photo.editable{border-bottom:none}
   .editable.avatar-photo:hover img{box-shadow:0 0 0 1px #ccc}
   .banner-edit{background:url(../img/edit-banner.png) no-repeat!important}
