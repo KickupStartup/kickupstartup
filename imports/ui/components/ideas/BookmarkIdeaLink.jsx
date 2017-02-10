@@ -40,10 +40,10 @@ export default class BookmarkIdeaLink extends Component {
   }
   iconClasses() {
     let classes = classNames(
-      'fa', 'fa-lg', 'bookmark', 'right', {
-        'fa-bookmark': this.state.bookmarked,
-        'fa-bookmark-o': !this.state.bookmarked
-      });
+      'fa', 'fa-lg', 'fa-bookmark', 'right'
+      // ,{'fa-bookmark': this.state.bookmarked,
+      //   'fa-bookmark-o': !this.state.bookmarked}
+    );
     return classes;
   }
   linkClasses() {
