@@ -6,7 +6,8 @@ import { browserHistory } from 'react-router';
 import Avatar from 'react-avatar';
 import { moment } from 'meteor/momentjs:moment';
 
-import ListDivider from '../../components/list/ListDivider';
+import BookmarkIdeaLink from '../ideas/BookmarkIdeaLink';
+import ListDivider from './ListDivider';
 
 export default class ListIdeaCard extends Component {
   constructor(props) {
@@ -41,14 +42,18 @@ export default class ListIdeaCard extends Component {
     var noImage = {
       background: "url(/img/no-banner.png) center center no-repeat"
     };
+    const author = this.props.author;
     return (
     <div>
-      <a href="#!"><i className="fa fa-bookmark fa-lg bookmark right" title="Bookmarked"></i></a>
-      <a href="#!"><i className="fa fa-bookmark-o fa-lg bookmark right" title="Bookmark"></i></a>
+      <BookmarkIdeaLink
+        userIdeas={this.props.profile.bookmarkIdeas}
+        ideaId={this.props.idea._id}/>
+      {/* <a href="#!"><i className="fa fa-bookmark fa-lg bookmark right" title="Bookmarked"></i></a>
+      <a href="#!"><i className="fa fa-bookmark-o fa-lg bookmark right" title="Bookmark"></i></a> */}
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
           <div className="banner" style={customImage}></div>
-          <div className="avatar-photo"><Avatar name={this.props.author.fullName} textSizeRatio={1.9} round={true}/></div>
+          <div className="avatar-photo"><Avatar name={author ? author.fullName : ''} textSizeRatio={1.9} round={true}/></div>
           <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
           <ul className="stat"><li>{this.renderNumberOfComments()} {this.renderNumberOfCommentsText()}</li>{this.renderLastCommentTime()}</ul>
         </div>
@@ -66,6 +71,7 @@ export default class ListIdeaCard extends Component {
 }
 
 ListIdeaCard.propTypes = {
-  idea: PropTypes.object,
+  idea: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired,
   author: PropTypes.object
 }

@@ -29,6 +29,7 @@ export default class IdeasPage extends Component {
       <div key={idea._id}>
         <ListIdeaCard
           idea={idea}
+          profile={this.props.profile}
           author={this.getIdeaAuthor(idea.userId)}
           commentsCount={this.getCommentsCount(idea)}
           lastCommentTime={this.getLastCommentTime(idea)} />
