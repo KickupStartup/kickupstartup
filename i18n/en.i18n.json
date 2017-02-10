@@ -7,7 +7,7 @@
   },
   "navigation": {
     "ideas": "Ideas",
-    "following": "Following",
+    "following": "Bookmarks",
     "yours": "Yours",
     "people": "People"
   },
@@ -41,6 +41,23 @@
     "submit_button": "Submit"
   },
   "list": {
+    "empty": {
+      "all": {
+        "header": "No ideas, really?",
+        "text": "You have to fix it quick!",
+        "buttonText": "Add your idea"
+      },
+      "bookmarked": {
+        "header": "You do not have bookmarks yet",
+        "text": "In order to bookmark idea, please click this icon",
+        "buttonText": ""
+      },
+      "yours": {
+        "header": "No ideas, really?",
+        "text": "You have to fix it quick!",
+        "buttonText": "Add your idea"
+      }
+    },
     "end": {
       "reached": "You have reached the end",
       "jump": "Jump to",
