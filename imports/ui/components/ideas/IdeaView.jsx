@@ -9,9 +9,10 @@ import { createEditorState } from 'medium-draft';
 export default class IdeaView extends Component {
   constructor(props) {
     super(props);
-
+    const bookmarked = this.isBookmarked();
     try {
       this.state = {
+        bookmarked,
         problem: stateToHTML(createEditorState(JSON.parse(props.idea.problem)).getCurrentContent()),
         story: stateToHTML(createEditorState(JSON.parse(props.idea.story)).getCurrentContent())
       }
@@ -21,14 +22,32 @@ export default class IdeaView extends Component {
     }
 
     this.state = {
+      bookmarked,
       problem: props.idea.problem,
       story: props.idea.story
     }
 
-    this.bookmark = this.bookmark.bind(this);
+    this.bookmarkAdd = this.bookmarkAdd.bind(this);
+    this.bookmarkRemove = this.bookmarkRemove.bind(this);
   }
-  bookmark(event) {
-    Meteor.call("person.bookmark.idea", this.props.idea._id, function(error, result){
+  componentDidUpdate() {
+    this.setState({bookmarked: this.isBookmarked()});
+  }
+  isBookmarked() {
+    const bookmarks = this.props.profile.bookmarkIdeas;
+    return bookmarks ? bookmarks.indexOf(this.props.idea._id) !== -1 : false;
+  }
+  bookmarkAdd(event) {
+    Meteor.call("person.idea.bookmark.add", this.props.idea._id, function(error, result){
+      if(error){
+        console.log("error", error);
+      }
+      if(result){
+      }
+    });
+  }
+  bookmarkRemove(event) {
+    Meteor.call("person.idea.bookmark.remove", this.props.idea._id, function(error, result){
       if(error){
         console.log("error", error);
       }
@@ -47,7 +66,10 @@ export default class IdeaView extends Component {
           <p>{this.state.problem}</p>
           <h4>История</h4>
           <p>{this.state.story}</p>
-          <p><a href="#!" onClick={this.bookmark}>Добавить в закладки</a></p>
+          <p>{this.state.bookmarked ?
+              <a href="#!" onClick={this.bookmarkRemove}>Удалить закладку</a> :
+              <a href="#!" onClick={this.bookmarkAdd}>Добавить в закладки</a>}
+          </p>
         </div>
       </div>
     )
