@@ -37,15 +37,10 @@ export default class StoryTabContent extends Component {
           onChange={this.handleStoryChange}
           value={this.props.idea.story}
         placeholder="Write your story..." /> */}
-        <div className="col s12 text-center">
-          <button className="waves-effect waves-light green btn-large btn-margin">
-            <span className="fa fa-check-circle fa-lg"></span>
-            <span>Review</span>
-          </button>
-          <div className="modal-bottom-link">
-            <a href="#!">Back</a>
-          </div>
-        </div>
+        <ListDivider />
+        <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
+        <div className="col s6 right"><a href="#story" className="go-next">Preview</a></div>
+        <ListDivider />
       </div>
     )
   }

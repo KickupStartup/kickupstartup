@@ -38,8 +38,9 @@ export default class ProblemTabContent extends Component {
             placeholder="Describe a problem worth solving" />
         </div>
         <ListDivider />
-        <div className="col s6 left"><a href="#draft" className="prev">Prev</a></div>
-        <div className="col s6 right"><a href="#story" className="next">Next</a></div>
+        <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
+        <div className="col s6 right"><a href="#story" className="go-next">Propose a Solution</a></div>
+        <ListDivider />
       </div>
 
     )

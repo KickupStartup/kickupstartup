@@ -34,7 +34,7 @@ export default class IdeaPoll extends Component {
                 </form>
                 <div className="panel-footer">
                   <div className="col s12 text-center">
-                    <button type="button" className="activator waves-effect waves-light btn orange accent-3 btn-margin">
+                    <button type="button" className="activator waves-effect waves-light orange btn btn-margin">
                       <i className="fa fa-thumbs-up"></i><T>idea.submit_button</T>
                     </button>
                               </div>
