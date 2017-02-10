@@ -3499,7 +3499,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
           transition: background-color .5s linear, border .5s ease}
 .card-reveal{}
 .editable{border-bottom:1px solid #f2f2f2;display:inline-block}
-.bookmark{color:#fff;font-size:1.5em;margin:-9px -18px!important;text-shadow:0 0 8px #000;z-index:8} /* z-index to get under the banner div & click */
+.bookmark{color:#fff;font-size:1.5em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;z-index:2} /* z-index to get under the banner div & click */
 .avatar-photo.editable{border-bottom:none}
   .editable.avatar-photo:hover img{box-shadow:0 0 0 1px #ccc}
   .banner-edit{background:url(../img/edit-banner.png) no-repeat!important}
