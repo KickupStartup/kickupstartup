@@ -30,14 +30,16 @@ export default class IdeaView extends Component {
     this.bookmarkAdd = this.bookmarkAdd.bind(this);
     this.bookmarkRemove = this.bookmarkRemove.bind(this);
   }
-  componentDidUpdate() {
-    this.setState({bookmarked: this.isBookmarked()});
-  }
+  // componentDidUpdate() {
+  //   this.setState({bookmarked: this.isBookmarked()});
+  // }
   isBookmarked() {
     const bookmarks = this.props.profile.bookmarkIdeas;
     return bookmarks ? bookmarks.indexOf(this.props.idea._id) !== -1 : false;
   }
   bookmarkAdd(event) {
+    event.preventDefault();
+    this.setState({bookmarked: true});
     Meteor.call("person.idea.bookmark.add", this.props.idea._id, function(error, result){
       if(error){
         console.log("error", error);
@@ -47,6 +49,8 @@ export default class IdeaView extends Component {
     });
   }
   bookmarkRemove(event) {
+    event.preventDefault();
+    this.setState({bookmarked: false});
     Meteor.call("person.idea.bookmark.remove", this.props.idea._id, function(error, result){
       if(error){
         console.log("error", error);
