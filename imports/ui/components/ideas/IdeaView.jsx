@@ -32,7 +32,7 @@ export default class IdeaView extends Component {
         <div className="modal-header">
           <h3 className="modal-title">{this.props.idea.name}</h3>
           <BookmarkIdeaLink
-            userIdeas={this.props.profile.bookmarkIdeas}
+            bookmarks={this.props.profile.bookmarkIdeas}
             ideaId={this.props.idea._id}/>
         </div>
         <div className="modal-body">

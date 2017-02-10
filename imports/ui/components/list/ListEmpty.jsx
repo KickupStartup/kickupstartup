@@ -19,12 +19,17 @@ export default class ListEmpty extends Component {
       </button>
     );
   }
+  renderIcon() {
+    return (
+      <i className="fa fa-bookmark fa-lg" title={i18n.__('bookmark.title.add')}></i>
+    );
+  }
   render () {
     return (
       <div className="card white row-border">
         <div className="content">
           <h3>{this.props.header}</h3>
-          <p>{this.props.text}</p>
+          <p>{this.props.text}{this.props.icon ? this.renderIcon() : ''}</p>
           <div className="col s12 text-center">
             {this.props.buttonText ? this.renderButton() : ''}
           </div>
