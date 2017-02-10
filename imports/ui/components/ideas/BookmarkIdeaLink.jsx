@@ -25,12 +25,13 @@ export default class BookmarkIdeaLink extends Component {
 
     if (this.state.bookmarked) {
       this.setState({bookmarked: false, title: i18n.__('bookmark.title.add')});
-
+      Materialize.toast(i18n.__('bookmark.title.removed'), 4000);
       Meteor.call("person.idea.bookmark.remove", this.props.ideaId, function(error, result){
         if(error){console.log("error", error);}
         if(result){}
       });
     } else {
+      Materialize.toast(i18n.__('bookmark.title.added'), 4000);
       this.setState({bookmarked: true, title: i18n.__('bookmark.title.remove')});
       Meteor.call("person.idea.bookmark.add", this.props.ideaId, function(error, result){
         if(error){console.log("error", error);}
