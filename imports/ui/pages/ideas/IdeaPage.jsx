@@ -63,7 +63,9 @@ export default class IdeaPage extends Component {
       } else {
         return (
           <div className="container main">
-            <IdeaView idea={this.props.idea}
+            <IdeaView
+              idea={this.props.idea}
+              profile={this.props.profile}
               author={this.getIdeaAuthor(this.props.idea.userId)}
               commentsCount={this.getCommentsCount(this.props.idea)}
               lastCommentTime={this.props.lastComment ? this.props.lastComment[0] : ''} />
@@ -82,6 +84,7 @@ export default class IdeaPage extends Component {
 
 IdeaPage.propTypes = {
   loading: PropTypes.bool.isRequired,
+  profile: PropTypes.object.isRequired,
   comments: PropTypes.array.isRequired,
   idea: PropTypes.object,
   user: PropTypes.object

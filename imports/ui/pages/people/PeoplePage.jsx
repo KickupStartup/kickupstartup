@@ -24,7 +24,7 @@ class PeoplePage extends Component {
       );
     } else {
       return (
-        <div className="row">
+        <div className="container main">
           <div className="col s12">
             <ReactCSSTransitionGroup
               transitionName="example"

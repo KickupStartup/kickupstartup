@@ -2,11 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
-import TopBar from '../components/navigation/TopBar.jsx';
-import JoinUsForm from '../components/common/JoinUsForm.jsx';
 
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
+
+import TopBar from '../components/navigation/TopBar';
+import JoinUsForm from '../components/common/JoinUsForm';
+import ThirdPartyLoginButtons from '../components/common/ThirdPartyLoginButtons';
 
 import Person from '../../api/people/Person';
 
@@ -16,15 +18,25 @@ class App extends Component {
 
     // auto show idea create modal only once
     this.state = {
-      ideaModalShown: false
+      modalLoggedinShown: false,
+      modalUnauthorizedShown: false
     }
 
     this.handleIdeaCreate = this.handleIdeaCreate.bind(this);
   }
   componentDidUpdate() {
-    if (this.props.location.query.new === null && !this.props.loading && !this.state.ideaModalShown) {
-      this.setState({ideaModalShown: true});
-      this.openCreateIdeaModal();
+    if (this.props.location.query.new === null && !this.props.loading) {
+      if (this.props.user) {
+        if (!this.state.modalLoggedinShown) {
+          this.setState({modalLoggedinShown: true});
+          this.openCreateIdeaModal();
+        }
+      } else {
+        if (!this.state.modalUnauthorizedShown) {
+          this.setState({modalUnauthorizedShown: true});
+          this.openCreateIdeaModal();
+        }
+      }
     }
   }
   openCreateIdeaModal() {
@@ -45,6 +57,37 @@ class App extends Component {
       }
     });
   }
+  renderCreateIdeaLink() {
+    return (
+      <div className="content modal-create modal-action modal-close" onClick={this.handleIdeaCreate}>
+        <ul className="collection">
+          <li className="collection-item avatar">
+            <i className="fa fa-lightbulb-o circle"></i>
+            <span className="title">Идею</span>
+            <p>
+              Для создания классного стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.
+            </p>
+          </li>
+        </ul>
+      </div>
+    );
+  }
+  renderLoginLink() {
+    return (
+      <div className="content modal-create modal-action modal-close modal-unauthorized">
+        <ul className="collection">
+          <li className="collection-item avatar">
+            <i className="fa fa-lightbulb-o circle"></i>
+            <h3 className="title"><T>joinus.shortText</T></h3>
+            {/* <p><T>joinus.shortText</T></p> */}
+            <T>joinus.signupRequest</T>
+            <ThirdPartyLoginButtons/>
+            {/* <a href="#!">Google</a> или <a href="#!">Twitter</a> */}
+          </li>
+        </ul>
+      </div>
+    );
+  }
   render() {
     if (this.props.loading) {
       return (
@@ -58,7 +101,7 @@ class App extends Component {
           { this.props.user ? '' : <div className="container main joinUsForm"><JoinUsForm /></div> }
           { this.props.children }
           <div className="fixed-action-btn">
-            <a className="btn-floating btn-large waves-effect waves-light modal-trigger" href="#createidea" onClick={this.openCreateIdeaModal}>
+            <a className="btn-floating btn-large waves-effect waves-light modal-trigger" href="#!" onClick={this.openCreateIdeaModal}>
               <span className="fa fa-plus fa-lg"></span>
             </a>
           </div>
@@ -66,19 +109,8 @@ class App extends Component {
         <div id="createidea" className="modal bottom-sheet">
           <div className="modal-content">
             <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
-            <h3>Создать</h3>
-            <div className="content modal-create modal-action modal-close modal-unauthorized" onClick={this.handleIdeaCreate}>
-              <ul className="collection">
-                <li className="collection-item avatar">
-                  <i className="fa fa-lightbulb-o circle"></i>
-                  <span className="title">Идею</span>
-                  <p>
-                    Для создания классного стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.
-                  </p>
-                  <p>Please login via <a href="#!">Google</a> or <a href="#!">Twitter</a> to proceed.</p>
-                </li>
-              </ul>
-            </div>
+            <h3>{this.props.user ? 'Добавить' : <T>joinus.header</T>}</h3>
+            {this.props.user ? this.renderCreateIdeaLink() : this.renderLoginLink()}
           </div>
         </div>
       </div>
