@@ -42,16 +42,16 @@ export default class IdeasPage extends Component {
       return (
         <div className="container main">
           <div className="col s12">
-            {/* <ReactCSSTransitionGroup
+            <ReactCSSTransitionGroup
               transitionName="example"
               transitionAppear={true}
               transitionAppearTimeout={500}
               transitionEnter={true}
               transitionEnterTimeout={500}
-              transitionLeave={true}
-              transitionLeaveTimeout={500}> */}
+              transitionLeave={false}
+              transitionLeaveTimeout={0}>
               {this.renderIdeas()}
-            {/* </ReactCSSTransitionGroup> */}
+            </ReactCSSTransitionGroup>
             <ListEnd/>
           </div>
         </div>
