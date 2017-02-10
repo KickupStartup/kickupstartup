@@ -9,6 +9,7 @@ import ListIdeaCard from '../../components/list/ListIdeaCard';
 import ListEnd from '../../components/list/ListEnd';
 import ListDivider from '../../components/list/ListDivider';
 import ListLoading from '../../components/list/ListLoading';
+import ListEmpty from '../../components/list/ListEmpty';
 
 import Person from '../../../api/people/Person';
 import Comment from '../../../api/comments/Comment';
@@ -26,12 +27,50 @@ export default class IdeasPage extends Component {
   renderIdeas() {
     return this.props.ideas.map((idea) => (
       <div key={idea._id}>
-        <ListIdeaCard idea={idea}
-                      author={this.getIdeaAuthor(idea.userId)}
-                      commentsCount={this.getCommentsCount(idea)}
-                      lastCommentTime={this.getLastCommentTime(idea)} />
+        <ListIdeaCard
+          idea={idea}
+          author={this.getIdeaAuthor(idea.userId)}
+          commentsCount={this.getCommentsCount(idea)}
+          lastCommentTime={this.getLastCommentTime(idea)} />
       </div>
     ));
+  }
+  handleEmptyButtonClick(event) {
+    event.preventDefault();
+    // show create idea modal
+    $('.modal').modal();
+    $('#createidea').modal('open');
+  }
+  renderEmptyIdeasList() {
+    switch(this.props.location.pathname) {
+      case '/ideas/bookmarked':
+        return (
+          // when buttonText is not set, button is not rendered
+          <ListEmpty
+            header={i18n.__('list.empty.bookmarked.header')}
+            text={i18n.__('list.empty.bookmarked.text')} />
+        );
+        break;
+      case '/ideas/yours':
+        return (
+          <ListEmpty
+            header={i18n.__('list.empty.yours.header')}
+            text={i18n.__('list.empty.yours.text')}
+            buttonText={i18n.__('list.empty.yours.buttonText')}
+            onButtonClick={this.handleEmptyButtonClick} />
+        );
+        break;
+      case '/ideas/all':
+      default:
+        return (
+          <ListEmpty
+            header={i18n.__('list.empty.all.header')}
+            text={i18n.__('list.empty.all.text')}
+            buttonText={i18n.__('list.empty.all.buttonText')}
+            onButtonClick={this.handleEmptyButtonClick} />
+        );
+        break;
+    }
   }
   render () {
     if (this.props.loading) {
@@ -42,18 +81,6 @@ export default class IdeasPage extends Component {
       return (
         <div className="container main">
           <div className="col s12">
-            {/* Temp START. Code just an example of an empty data page */}
-            {/*    <div className="card white row-border">
-                <div className="content">
-                  <h3>Nothing Here Yet</h3>
-                <p>Текст для каждой пустой страницы будет отдельным. Кнопка будет лишь для страницы Yours</p>
-                <div className="col s12 text-center">
-                  <button type="submit" className="waves-effect waves-light orange btn"><span class="fa fa-check-circle"></span>Create idea</button>
-                </div>
-              </div>
-            </div> <br />*/}
-            {/* br is just as an divider, dont include it */}
-            {/* Temp END */}
             {/* <ReactCSSTransitionGroup
               transitionName="example"
               transitionAppear={true}
@@ -62,9 +89,11 @@ export default class IdeasPage extends Component {
               transitionEnterTimeout={500}
               transitionLeave={false}
               transitionLeaveTimeout={0}> */}
-              {this.renderIdeas()}
+              { this.props.ideas.length == 0 ?
+                  this.renderEmptyIdeasList() :
+                  this.renderIdeas() }
             {/* </ReactCSSTransitionGroup> */}
-            <ListEnd/>
+            {this.props.ideas.length != 0 ? <ListEnd/> : ''}
           </div>
         </div>
       )
