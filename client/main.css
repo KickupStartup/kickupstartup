@@ -539,13 +539,14 @@ dd {
   transition: all 0.2s ease-in-out}
 .back .fa{margin-right:8px}
     .submenu .back{background-color:#f9f9f9;padding-top:24px!important;position:fixed;top:70px;z-index:4}
-    .submenu .main{padding-top:95px}
+    .submenu .main{padding-top:86px}
     .submenu .with-tabs{padding-top:216px}
     .no-submenu .back{display:none}
     .no-submenu .main{padding-top:74px}
 .idea_title .input-field,.idea_title input{margin:0;margin-top:-5px}
 .idea_title input{background-color:#fff;border:1px solid #ccc;margin:6px 0;padding:8px 12px;height:auto}
 .go-back,.go-next{display:block;margin:4px 12px}
+.delete{display:block;padding:10px 20px}
 @media (min-width: 768px) {
     .page .main-padding{padding-top:22px}
     .page .main.inner{padding-top:140px}
