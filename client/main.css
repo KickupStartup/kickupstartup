@@ -3500,9 +3500,16 @@ fieldset[disabled] .navbar-default .btn-link:focus {
           transition: background-color .5s linear, border .5s ease}
 .card-reveal{}
 .editable{border-bottom:1px solid #f2f2f2;display:inline-block}
-.bookmark{color:#fff;font-size:1.5em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;z-index:2} /* z-index to get under the banner div & click */
-  .bookmark.active{color:#ff9100}
-    .bookmark.active:hover{color:#fff}
+.bookmark{color:#ccc;opacity:.65;font-size:1.5em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;-moz-transition:all .5s linear, border .5s ease;
+-o-transition:all .5s linear, border .5s ease;
+-ms-transition:all .5s linear, border .5s ease;
+transition:all .5s linear, border .5s ease}
+  .bookmark:hover,.bookmark.active{color:#ff9100;opacity:1;-webkit-transition: background-color .5s linear, border .5s ease;
+        -moz-transition:all .5s linear, border .5s ease;
+        -o-transition:all .5s linear, border .5s ease;
+        -ms-transition:all .5s linear, border .5s ease;
+        transition:all .5s linear, border .5s ease}
+    .bookmark.active:hover{color:#ccc}
 .avatar-photo.editable{border-bottom:none}
   .editable.avatar-photo:hover img{box-shadow:0 0 0 1px #ccc}
   .banner-edit{background:url(../img/edit-banner.png) no-repeat!important}

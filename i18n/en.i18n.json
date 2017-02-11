@@ -43,7 +43,9 @@
   "bookmark": {
     "title": {
       "add": "Add bookmark",
-      "remove": "Remove bookmark"
+      "added": "Bookmark added",
+      "remove": "Remove bookmark",
+      "removed": "Bookmark removed"
     }
   },
   "list": {

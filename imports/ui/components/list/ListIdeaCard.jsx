@@ -17,6 +17,7 @@ export default class ListIdeaCard extends Component {
   gotoIdeaDetails(e) {
     e.preventDefault();
     browserHistory.push("/idea/" + this.props.idea._id);
+    window.scrollTo(0, 0);
   }
   renderLastCommentTime() {
     if (this.props.lastCommentTime) {
