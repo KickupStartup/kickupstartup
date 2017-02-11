@@ -48,9 +48,14 @@ export default class BookmarkIdeaLink extends Component {
   }
   render () {
     return (
-      <a href="#!" className={this.linkClasses()} onClick={this.handleClick}>
-        <i className="fa fa-lg fa-bookmark right" title={this.state.title}></i>
-      </a>
+      <div>
+        <a href="#!" className={this.linkClasses()} onClick={this.handleClick}>
+          <i className="fa fa-lg fa-bookmark right" title={this.state.title}></i>
+        </a>
+        <button type="submit" className="waves-effect waves-light orange btn right">
+          <span className="fa fa-bookmark"></span> bookmarked
+        </button>
+      </div>
     )
   }
 }

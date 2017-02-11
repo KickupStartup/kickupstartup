@@ -89,9 +89,9 @@ export default class IdeaEditSubmenu extends Component {
             <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
               <span className="fa fa-check-circle"></span> Редактировать
             </button> :
-            <button type="submit" className="waves-effect waves-light orange btn right">
-              <span className="fa fa-bookmark"></span> bookmarked
-            </button>
+            <BookmarkIdeaLink
+              bookmarks={this.props.profile.bookmarkIdeas}
+              ideaId={this.props.idea._id}/>
           }
         </div>
       </div>
