@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { Meteor } from 'meteor/meteor';
@@ -55,7 +55,7 @@ export default class IdeaEdit extends Component {
       }
       if(result){}
     });
-    browserHistory.push('/ideas/yours');
+    this.context.router.push('/ideas/yours');
   }
   tabActiveClass(active) {
     let classes = classNames({
@@ -103,6 +103,14 @@ export default class IdeaEdit extends Component {
       </div>
     )
   }
+}
+
+// you need to specify the context type so that it
+// is available within the component
+IdeaEdit.contextTypes = {
+  router: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired
+  })
 }
 
 IdeaEdit.propTypes = {

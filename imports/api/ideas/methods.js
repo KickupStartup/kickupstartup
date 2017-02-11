@@ -42,6 +42,7 @@ Meteor.methods({
       } else {
         const newIdea = new Idea({ userId: userId });
         newIdea.save();
+        return newIdea;
       }
     }
   },
