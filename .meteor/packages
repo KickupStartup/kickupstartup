@@ -44,7 +44,7 @@ rzymek:moment-locale-ru
 email@1.1.18
 meteorhacks:unblock
 check@1.2.4
-underscore
+underscore@1.0.10
 
 # tests
 practicalmeteor:mocha

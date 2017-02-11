@@ -28,8 +28,7 @@ class PersonPage extends Component {
 
 PersonPage.propTypes = {
   loading: PropTypes.bool,
-  person: PropTypes.object,
-  user: PropTypes.object
+  person: PropTypes.object
 }
 
 export default PersonPage;

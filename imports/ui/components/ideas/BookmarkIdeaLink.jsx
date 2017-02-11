@@ -39,14 +39,6 @@ export default class BookmarkIdeaLink extends Component {
       });
     }
   }
-  iconClasses() {
-    let classes = classNames(
-      'fa', 'fa-lg', 'fa-bookmark', 'right'
-      // ,{'fa-bookmark': this.state.bookmarked,
-      //   'fa-bookmark-o': !this.state.bookmarked}
-    );
-    return classes;
-  }
   linkClasses() {
     let classes = classNames(
       'bookmark', 'right', {
@@ -56,7 +48,9 @@ export default class BookmarkIdeaLink extends Component {
   }
   render () {
     return (
-      <a href="#!" className={this.linkClasses()} onClick={this.handleClick}><i className={this.iconClasses()} title={this.state.title}></i></a>
+      <a href="#!" className={this.linkClasses()} onClick={this.handleClick}>
+        <i className="fa fa-lg fa-bookmark right" title={this.state.title}></i>
+      </a>
     )
   }
 }

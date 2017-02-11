@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
-import { browserHistory } from 'react-router';
 import Avatar from 'react-avatar';
 import { moment } from 'meteor/momentjs:moment';
 
@@ -16,7 +15,7 @@ export default class ListIdeaCard extends Component {
   }
   gotoIdeaDetails(e) {
     e.preventDefault();
-    browserHistory.push("/idea/" + this.props.idea._id);
+    this.context.router.push('/idea/' + this.props.idea._id);
     window.scrollTo(0, 0);
   }
   renderLastCommentTime() {
@@ -67,6 +66,12 @@ export default class ListIdeaCard extends Component {
     </div>
     )
   }
+}
+
+ListIdeaCard.contextTypes = {
+  router: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired
+  })
 }
 
 ListIdeaCard.propTypes = {

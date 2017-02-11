@@ -12,12 +12,7 @@ class AppMvp extends Component {
 	}
 }
 
-AppMvp.propTypes = {
-  user: PropTypes.object,
-};
-
 export default MvpLayout = createContainer(props => {
   return {
-    user: Meteor.user(),
   };
 }, AppMvp);

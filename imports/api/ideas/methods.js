@@ -4,17 +4,17 @@ import Idea, { FormStep, IdeaStatus } from './Idea';
 
 const getValidatedIdea = function(userId, ideaId) {
   if (!userId) {
-    throw new Meteor.Error('idea.update.unauthorized',
-      'Cannot update the idea if unauthorized.');
+    throw new Meteor.Error('idea.unauthorized',
+      'Cannot perform any action with an idea if unauthorized.');
   } else {
     const idea = Idea.findOne({ userId: userId, _id: ideaId });
     if (!idea) {
-      throw new Meteor.Error('idea.update.notfound',
-        'There is no idea in our database that you want to update.');
+      throw new Meteor.Error('idea.notfound',
+        'There is no such an idea in our database.');
     } else {
       if (userId !== idea.userId) {
-        throw new Meteor.Error('idea.update.unauthorized',
-          'Cannot update the idea if you are not an author.');
+        throw new Meteor.Error('idea.unauthorized',
+          'Cannot perform any action with an idea if you are not an author.');
       } else {
         return idea;
       }
@@ -24,7 +24,9 @@ const getValidatedIdea = function(userId, ideaId) {
 
 Meteor.methods({
   'idea.new': function() {
-    if (!this.userId) {
+    const userId = this.userId;
+
+    if (!userId) {
       throw new Meteor.Error('idea.new.unauthorized',
         'Cannot create idea if unauthorized.');
     } else {
@@ -32,15 +34,15 @@ Meteor.methods({
       // which are not yet filled (neither draft nor idea name and problem)
       const idea = Idea.findOne({
         status: 0,
-        userId: this.userId,
-        name: { $exists: false },
-        draft: { $exists: false },
-        problem: { $exists: false }});
+        userId: userId,
+        name: { $exists: false }});
+
       if (idea) {
         return idea;
       } else {
-        const newIdea = new Idea({ userId: this.userId });
+        const newIdea = new Idea({ userId: userId });
         newIdea.save();
+        return newIdea;
       }
     }
   },
@@ -100,16 +102,6 @@ Meteor.methods({
     };
     idea.save();
   },
-  // 'idea.update.nextstep': function(ideaId, currentStep) {
-  //   check(ideaId, String);
-  //   check(currentStep, Number);
-  //
-  //   const idea = getValidatedIdea(this.userId, ideaId);
-  //   if (idea.step === currentStep) {
-  //     idea.step += 4;
-  //   }
-  //   idea.save();
-  // },
   'idea.publish': function(ideaId) {
     check(ideaId, String);
 
@@ -117,5 +109,10 @@ Meteor.methods({
     idea.public = true;
     idea.status = IdeaStatus.WAITING;
     idea.save();
+  },
+  'idea.remove': function(ideaId) {
+    check(ideaId, String);
+    const idea = getValidatedIdea(this.userId, ideaId);
+    idea.remove();
   }
 });

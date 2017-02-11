@@ -8,7 +8,6 @@ export default PeoplePageContainer = createContainer(props => {
   const loading = !handle.ready();
   return {
     loading,
-    people: Person.find({}, {sort: {createdAt: -1}}).fetch(),
-    user: Meteor.user(),
+    people: Person.find({}, {sort: {createdAt: -1}}).fetch()
   };
 }, PeoplePage);
