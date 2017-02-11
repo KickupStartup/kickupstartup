@@ -40,9 +40,6 @@ export default class IdeaPage extends Component {
       if (idea.userId === this.props.user._id && !this.state.preview) {
         return (
           <div>
-            <BookmarkIdeaLink
-              bookmarks={this.props.profile.bookmarkIdeas}
-              ideaId={this.props.idea._id}/>
             <IdeaEdit idea={idea} author={this.props.author}/>
           </div>
         );
