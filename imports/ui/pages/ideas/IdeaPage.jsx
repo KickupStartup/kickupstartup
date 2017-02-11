@@ -11,6 +11,7 @@ import BookmarkIdeaLink from '../../components/ideas/BookmarkIdeaLink';
 import IdeaView from '../../components/ideas/IdeaView';
 import IdeaEdit from '../../components/ideas/IdeaEdit';
 import IdeaPoll from '../../components/ideas/IdeaPoll';
+import IdeaNotFound from '../../components/ideas/IdeaNotFound';
 import Comments from '../../components/comments/Comments';
 
 import { FormStep } from '../../../api/ideas/Idea';
@@ -32,6 +33,11 @@ export default class IdeaPage extends Component {
         <ListLoading/>
       );
     } else {
+      if (!this.props.idea) {
+        return (
+          <IdeaNotFound />
+        );
+      }
       if (this.props.idea && this.props.idea.userId === Meteor.userId() && !this.state.preview) {
         return (
           <div>
