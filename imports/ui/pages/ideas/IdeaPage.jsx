@@ -27,20 +27,15 @@ export default class IdeaPage extends Component {
     this.setState({ preview: !this.state.preview });
   }
   render() {
-    const idea = this.props.idea;
     if (this.props.loading) {
       return (
         <ListLoading/>
       );
     } else {
-      if (!idea) {
-        // there is no such idea found in the database - show ideas instead
-        this.props.router.push('/ideas');
-      }
-      if (idea.userId === this.props.user._id && !this.state.preview) {
+      if (this.props.idea && this.props.idea.userId === Meteor.userId() && !this.state.preview) {
         return (
           <div>
-            <IdeaEdit idea={idea} author={this.props.author}/>
+            <IdeaEdit idea={this.props.idea}/>
           </div>
         );
       } else {
@@ -53,15 +48,11 @@ export default class IdeaPage extends Component {
                 </button>
               </div>
             </div>
-            <IdeaView
-              idea={idea}
-              profile={this.props.profile}
-              author={this.props.author}
-            />
+            <IdeaView idea={this.props.idea} author={this.props.author} profile={this.props.profile} />
             <ListDivider border={true} />
-            <IdeaPoll idea={idea} />
+            <IdeaPoll idea={this.props.idea} />
             <ListDivider border={true} />
-            <Comments idea={idea} comments={this.props.comments} />
+            <Comments idea={this.props.idea} comments={this.props.comments} />
             <ListEnd/>
           </div>
         );
@@ -73,8 +64,7 @@ export default class IdeaPage extends Component {
 IdeaPage.propTypes = {
   loading: PropTypes.bool.isRequired,
   idea: PropTypes.object,
-  comments: PropTypes.array.isRequired,
-  author: PropTypes.object,
-  profile: PropTypes.object.isRequired,
-  user: PropTypes.object
+  comments: PropTypes.array,
+  profile: PropTypes.object,
+  author: PropTypes.object
 }

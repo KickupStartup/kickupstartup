@@ -96,6 +96,5 @@ export default class IdeaEdit extends Component {
 }
 
 IdeaEdit.propTypes = {
-  idea: PropTypes.object.isRequired,
-  author: PropTypes.object.isRequired
+  idea: PropTypes.object.isRequired
 }

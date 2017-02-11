@@ -9,7 +9,6 @@ export default ProfilePageContainer = createContainer(props => {
   const loading = !profileHandle.ready();
   return {
     loading,
-    profile: Person.findOne({userId: Meteor.userId()}),
-    user: Meteor.user(),
+    profile: Person.findOne({userId: Meteor.userId()})
   };
 }, ProfilePage);

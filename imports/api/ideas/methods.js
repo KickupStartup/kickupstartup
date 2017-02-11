@@ -24,7 +24,9 @@ const getValidatedIdea = function(userId, ideaId) {
 
 Meteor.methods({
   'idea.new': function() {
-    if (!this.userId) {
+    const userId = this.userId;
+
+    if (!userId) {
       throw new Meteor.Error('idea.new.unauthorized',
         'Cannot create idea if unauthorized.');
     } else {
@@ -32,14 +34,13 @@ Meteor.methods({
       // which are not yet filled (neither draft nor idea name and problem)
       const idea = Idea.findOne({
         status: 0,
-        userId: this.userId,
-        name: { $exists: false },
-        draft: { $exists: false },
-        problem: { $exists: false }});
+        userId: userId,
+        name: { $exists: false }});
+
       if (idea) {
         return idea;
       } else {
-        const newIdea = new Idea({ userId: this.userId });
+        const newIdea = new Idea({ userId: userId });
         newIdea.save();
       }
     }
