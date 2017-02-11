@@ -26,7 +26,7 @@ class App extends Component {
   }
   componentDidUpdate() {
     if (this.props.location.query.new === null && !this.props.loading) {
-      if (this.props.user) {
+      if (Meteor.userId()) {
         if (!this.state.modalLoggedinShown) {
           this.setState({modalLoggedinShown: true});
           this.openCreateIdeaModal();
@@ -96,7 +96,7 @@ class App extends Component {
       <div>
         <div className="submenu">
           <TopBar profile={this.props.profile} />
-          { this.props.user ? '' : <div className="container main joinUsForm"><JoinUsForm /></div> }
+          { Meteor.userId() ? '' : <div className="container main joinUsForm"><JoinUsForm /></div> }
           { this.props.children }
           <div className="fixed-action-btn">
             <a className="btn-floating btn-large waves-effect waves-light modal-trigger" href="#!" onClick={this.openCreateIdeaModal}>
@@ -107,8 +107,8 @@ class App extends Component {
         <div id="createidea" className="modal bottom-sheet">
           <div className="modal-content">
             <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
-            <h3>{this.props.user ? 'Добавить' : <T>joinus.header</T>}</h3>
-            {this.props.user ? this.renderCreateIdeaLink() : this.renderLoginLink()}
+            <h3>{Meteor.userId() ? 'Добавить' : <T>joinus.header</T>}</h3>
+            {Meteor.userId() ? this.renderCreateIdeaLink() : this.renderLoginLink()}
           </div>
         </div>
       </div>
@@ -118,16 +118,16 @@ class App extends Component {
 }
 
 App.propTypes = {
-  user: PropTypes.object,
   profile: PropTypes.object
 };
 
 export default AppLayout = createContainer(props => {
   const profileHandle = Meteor.subscribe("profile");
+  const userId = Meteor.userId();
   const loading = !profileHandle.ready();
+  const profile = (!loading && userId) ? Person.findOne({userId: userId}) : undefined;
   return {
     loading,
-    user: Meteor.user(),
-    profile: Person.findOne({userId: Meteor.userId()})
+    profile,
   };
 }, App);
