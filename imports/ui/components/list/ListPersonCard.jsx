@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { browserHistory } from 'react-router';
 import Avatar from 'react-avatar';
 
 import i18n from 'meteor/universe:i18n';
@@ -9,7 +8,7 @@ const T = i18n.createComponent();
 export default class ListPersonCard extends Component {
   gotoPersonDetails(e) {
     e.preventDefault();
-    browserHistory.push("/people/" + this.props.person._id);
+    this.context.router.push('/people/' + this.props.person._id);
   }
   render () {
     var customImage = {
@@ -31,6 +30,12 @@ export default class ListPersonCard extends Component {
       </div>
     )
   }
+}
+
+ListPersonCard.contextTypes = {
+  router: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired
+  })
 }
 
 ListPersonCard.propTypes = {

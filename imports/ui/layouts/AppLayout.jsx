@@ -117,6 +117,12 @@ class App extends Component {
   }
 }
 
+App.contextTypes = {
+  router: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired
+  })
+}
+
 App.propTypes = {
   profile: PropTypes.object
 };
