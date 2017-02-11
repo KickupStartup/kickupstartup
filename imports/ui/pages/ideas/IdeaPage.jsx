@@ -7,6 +7,7 @@ import ListLoading from '../../components/list/ListLoading';
 import ListDivider from '../../components/list/ListDivider';
 import ListEnd from '../../components/list/ListEnd';
 
+import BookmarkIdeaLink from '../../components/ideas/BookmarkIdeaLink';
 import IdeaView from '../../components/ideas/IdeaView';
 import IdeaEdit from '../../components/ideas/IdeaEdit';
 import IdeaPoll from '../../components/ideas/IdeaPoll';

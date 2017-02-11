@@ -5,8 +5,6 @@ const T = i18n.createComponent();
 import { stateToHTML } from 'draft-js-export-html';
 import { createEditorState } from 'medium-draft';
 
-import BookmarkIdeaLink from './BookmarkIdeaLink';
-
 export default class IdeaView extends Component {
   constructor(props) {
     super(props);
@@ -32,9 +30,6 @@ export default class IdeaView extends Component {
         <div className="modal-header">
           <h3 className="modal-title">{this.props.idea.name}</h3>
           <p>Автор: {this.props.author ? this.props.author.fullName : ''}</p>
-          <BookmarkIdeaLink
-            bookmarks={this.props.profile.bookmarkIdeas}
-            ideaId={this.props.idea._id}/>
         </div>
         <div className="modal-body">
           <h4>Проблема</h4>
