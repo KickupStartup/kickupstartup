@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import { Meteor } from 'meteor/meteor';
@@ -28,6 +28,7 @@ export default class IdeaEdit extends Component {
       activeTab: 0
     }
     this.switchTab = this.switchTab.bind(this);
+    this.handleIdeaRemoveClick = this.handleIdeaRemoveClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
   }
   switchTab(event) {
@@ -39,13 +40,22 @@ export default class IdeaEdit extends Component {
     });
   }
   handleNameChange(name) {
-    const idea = this.props.idea;
-    Meteor.call("idea.update.name", idea._id, name, function(error, result) {
+    Meteor.call("idea.update.name", this.props.idea._id, name, function(error, result) {
       if(error) {
         console.log("error", error);
       }
       if(result) {}
     });
+  }
+  handleIdeaRemoveClick(event) {
+    event.preventDefault();
+    Meteor.call("idea.remove", this.props.idea._id, function(error, result){
+      if(error){
+        console.log("error", error);
+      }
+      if(result){}
+    });
+    browserHistory.push('/ideas/yours');
   }
   tabActiveClass(active) {
     let classes = classNames({
@@ -68,7 +78,7 @@ export default class IdeaEdit extends Component {
                   placeholder="Your awesome idea title" />
               </div>
               <div className="col s6">
-                <a href="#!" className="delete left" title="Delete"><span className="fa fa-trash fa-lg"></span></a>
+                <a href="#!" className="delete left" onClick={this.handleIdeaRemoveClick} title="Delete"><span className="fa fa-trash fa-lg"></span></a>
                 <button type="submit" className="waves-effect waves-light green btn right">
                   <span className="fa fa-check-circle"></span>Preview
                 </button>
