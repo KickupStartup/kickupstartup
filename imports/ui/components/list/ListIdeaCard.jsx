@@ -46,9 +46,9 @@ export default class ListIdeaCard extends Component {
     const author = this.props.author;
     return (
     <div>
-      <BookmarkIdeaLink
+      {this.props.author.userId !== Meteor.userId() ? <BookmarkIdeaLink
         bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
-        ideaId={this.props.idea._id}/>
+        ideaId={this.props.idea._id}/> : ''}
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
           <div className="banner" style={customImage}></div>

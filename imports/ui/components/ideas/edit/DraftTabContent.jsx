@@ -42,8 +42,8 @@ export default class DraftTabContent extends Component {
             placeholder="Write your idea" />
         </div>
         <ListDivider />
-        <div className="col s6 right"><a href="#story" className="go-next">I'm ready to write my story</a></div>
-        <ListDivider />
+        {/* <div className="col s6 right"><a href="#story" className="go-next">I'm ready to write my story</a></div>
+        <ListDivider /> */}
       </div>
     )
   }

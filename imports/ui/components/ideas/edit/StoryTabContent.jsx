@@ -41,9 +41,9 @@ export default class StoryTabContent extends Component {
             placeholder="Write your story" />
         </div>
         <ListDivider />
-        <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
+        {/* <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
         <div className="col s6 right"><a href="#story" className="go-next">Define a Problem</a></div>
-        <ListDivider />
+        <ListDivider /> */}
       </div>
     )
   }

@@ -42,9 +42,9 @@ export default class SolutionTabContent extends Component {
             placeholder="Write a problem-solution essay" />
         </div>
         <ListDivider />
-        <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
+        {/* <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
         <div className="col s6 right"><a href="#story" className="go-next">Choose your Audience</a></div>
-        <ListDivider />
+        <ListDivider /> */}
       </div>
     )
   }
