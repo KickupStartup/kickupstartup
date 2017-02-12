@@ -56,9 +56,8 @@ export default class CommentForm extends Component {
             <label htmlFor="filled-in-box"><T>comment.tweetCheckbox</T></label>
           </div> */}
           <div className="pull-right">
-            <button onClick={this.handleSubmit} type="submit" className="waves-effect waves-light orange btn">
-              <span className="fa fa-paper-plane"></span>
-              <span><T>comment.submitButton</T></span>
+            <button onClick={this.handleSubmit} type="submit" className="waves-effect waves-light orange-text btn-flat">
+              <span className="fa fa-paper-plane"></span> <T>comment.submitButton</T>
             </button>
           </div>
         </div>

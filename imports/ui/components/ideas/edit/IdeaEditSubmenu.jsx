@@ -62,19 +62,19 @@ export default class IdeaEditSubmenu extends Component {
   renderEditMenu() {
     return(
       <div className="row">
-        <div className="col s6 idea_title">
+        <div className="col s5 idea_title">
           <ReactInput id="ideaName"
             value={this.props.idea.name}
             onChange={this.handleNameChange}
             placeholder="Your awesome idea title" />
         </div>
-        <div className="col s6">
-          <a href="#!" className="delete left" onClick={this.handleIdeaRemoveClick} title="Delete">
-            <span className="fa fa-trash fa-lg"></span>
-          </a>
-          <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
+        <div className="col s7">
+          <a onClick={this.changeView} href="#1" className="waves-effect waves-light green-text btn-flat right">
             <span className="fa fa-check-circle"></span>Просмотр
-          </button>
+          </a>
+          <a href="#!" className="waves-effect waves-light red-text btn-flat right" onClick={this.handleIdeaRemoveClick} title="Delete">
+            <span className="fa fa-trash fa-lg"></span>Удалить
+          </a>
         </div>
       </div>
     );
@@ -91,24 +91,24 @@ export default class IdeaEditSubmenu extends Component {
   renderViewMenu() {
     return(
       <div className="row">
-        <div className="col s6 idea_title">
+        <div className="col s5 idea_title">
           <h3>{this.props.idea.name.length > 0 ? this.props.idea.name : "Untitled"}
-            {this.props.authored ?
-              <span>
-                <a href="#!" onClick={this.changeView} className="edit" title="Edit">
-                  <span className="fa fa-pencil fa-lg"></span>
-                </a></span> :
-              <BookmarkIdeaLink
-                bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
-                ideaId={this.props.idea._id}
-                view={true}/>
-            }</h3>
+            {this.props.authored ? '' : <BookmarkIdeaLink
+              bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
+              ideaId={this.props.idea._id}
+              view={true}/>}
+          </h3>
         </div>
-        <div className="col s6">
+        <div className="col s7">
           {this.props.authored ?
-          <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
+            <span>
+              <a href="#!" onClick={this.changeView} className="waves-effect waves-teal green-text btn-flat right">
+                <span className="fa fa-pencil"></span>Edit
+              </a></span> : '' }
+          {this.props.authored ?
+          <a onClick={this.changeView} href="#!" className="waves-effect waves-light orange btn right">
             <span className="fa fa-check-circle"></span>Ask for review
-          </button> : ''}
+          </a> : ''}
         </div>
       </div>
     );
