@@ -3503,7 +3503,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
           transition: background-color .5s linear, border .5s ease}
 .card-reveal{}
 .editable{border-bottom:1px solid #f2f2f2;display:inline-block}
-.bookmark{color:#ccc;opacity:.65;font-size:1.5em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;-moz-transition:all .5s linear, border .5s ease;
+.bookmark{color:#ccc;opacity:.65;font-size:2em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;-moz-transition:all .5s linear, border .5s ease;
 -o-transition:all .5s linear, border .5s ease;
 -ms-transition:all .5s linear, border .5s ease;
 transition:all .5s linear, border .5s ease}

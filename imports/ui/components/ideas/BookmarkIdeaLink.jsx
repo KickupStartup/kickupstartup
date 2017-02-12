@@ -40,8 +40,13 @@ export default class BookmarkIdeaLink extends Component {
     }
   }
   linkClasses() {
+
     let classes = classNames(
-      this.props.view ? ('bookmark edit' + (this.state.bookmarked ? ' active' : '')) : ('bookmark right' + (this.state.bookmarked ? ' active' : ''))
+        'bookmark', {
+        'active': this.state.bookmarked,
+        'edit': this.props.view,
+        'right': !this.props.view
+        });
     );
     return classes;
   }
