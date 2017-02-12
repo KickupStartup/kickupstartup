@@ -98,7 +98,8 @@
     "header": {
       "draft": "Everything that has ever been created was first created in someone’s mind.",
       "title": "Idea name",
-      "problem": "What problem do you want to solve?"
+      "story": "Story",
+      "problem": "Problem"
     },
     "comments": {
       "single": "comment",

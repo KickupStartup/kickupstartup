@@ -93,7 +93,6 @@ export default class IdeaEditSubmenu extends Component {
               bookmarks={this.props.profile.bookmarkIdeas}
               ideaId={this.props.idea._id}/>
           }
-
         </div>
       </div>
     );
