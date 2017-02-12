@@ -547,7 +547,9 @@ dd {
 .idea_title .input-field,.idea_title input{margin:0;margin-top:-5px}
 .idea_title input{background-color:#fff;border:1px solid #ccc;margin:6px 0;padding:8px 12px;height:auto}
 .go-back,.go-next{display:block;margin:4px 12px}
-.delete{display:block;padding:10px 20px}
+.edit{padding:10px 14px}
+  .bookmark.edit{padding:14px;font-size:1em;position:inherit;text-shadow:none} /* reset bookmark styles for tickets */
+.delete{padding:10px 20px}
 @media (min-width: 768px) {
     .page .main-padding{padding-top:22px}
     .page .main.inner{padding-top:140px}
@@ -3501,7 +3503,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
           transition: background-color .5s linear, border .5s ease}
 .card-reveal{}
 .editable{border-bottom:1px solid #f2f2f2;display:inline-block}
-.bookmark{color:#ccc;opacity:.65;font-size:1.5em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;-moz-transition:all .5s linear, border .5s ease;
+.bookmark{color:#ccc;opacity:.65;font-size:2em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;-moz-transition:all .5s linear, border .5s ease;
 -o-transition:all .5s linear, border .5s ease;
 -ms-transition:all .5s linear, border .5s ease;
 transition:all .5s linear, border .5s ease}
