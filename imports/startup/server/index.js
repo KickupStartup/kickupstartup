@@ -1,4 +1,4 @@
-import './mailService';
+import './accounts';
 import './serviceConfiguration';
 import './publications';
 
