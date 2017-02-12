@@ -68,12 +68,11 @@ export default class IdeaEditSubmenu extends Component {
             onChange={this.handleNameChange}
             placeholder="Your awesome idea title" />
         </div>
-        <div className="col s7">
-          <a onClick={this.changeView} href="#1" className="waves-effect waves-light green-text btn-flat right">
-            <span className="fa fa-check-circle"></span>Просмотр
-          </a>
+        <div className="col s6 offset-s1">
           <a href="#!" className="waves-effect waves-light red-text btn-flat right" onClick={this.handleIdeaRemoveClick} title="Delete">
-            <span className="fa fa-trash fa-lg"></span>Удалить
+            <span className="fa fa-remove fa-lg"></span></a>
+          <a onClick={this.changeView} href="#!" className="waves-effect waves-light green-text btn-flat left">
+            <span className="fa fa-eye fa-lg"></span>
           </a>
         </div>
       </div>
@@ -83,7 +82,10 @@ export default class IdeaEditSubmenu extends Component {
     return(
       <div className="row">
         <div className="col s12 idea_title">
-          <h3>{this.props.idea.name.length > 0 ? this.props.idea.name : "Untitled"}</h3>
+          <ReactInput id="ideaName"
+            value={this.props.idea.name}
+            readonly={true}
+            placeholder="Your awesome idea title" />
         </div>
       </div>
     );
@@ -92,23 +94,25 @@ export default class IdeaEditSubmenu extends Component {
     return(
       <div className="row">
         <div className="col s5 idea_title">
-          <h3>{this.props.idea.name.length > 0 ? this.props.idea.name : "Untitled"}
-            {this.props.authored ? '' : <BookmarkIdeaLink
-              bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
-              ideaId={this.props.idea._id}
-              view={true}/>}
-          </h3>
+          <ReactInput id="ideaName"
+            value={this.props.idea.name}
+            readonly={true}
+            placeholder="Your awesome idea title" />
+          {this.props.authored ? '' : <BookmarkIdeaLink
+            bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
+            ideaId={this.props.idea._id}
+            view={true}/>}
         </div>
-        <div className="col s7">
-          {this.props.authored ?
-            <span>
-              <a href="#!" onClick={this.changeView} className="waves-effect waves-teal green-text btn-flat right">
-                <span className="fa fa-pencil"></span>Edit
-              </a></span> : '' }
+        <div className="col s6 offset-s1">
           {this.props.authored ?
           <a onClick={this.changeView} href="#!" className="waves-effect waves-light orange btn right">
-            <span className="fa fa-check-circle"></span>Ask for review
+            Ask for review
           </a> : ''}
+            {this.props.authored ?
+              <span>
+                <a href="#!" onClick={this.changeView} className="waves-effect waves-teal green-text btn-flat left">
+                  <span className="fa fa-pencil"></span>
+                </a></span> : '' }
         </div>
       </div>
     );
