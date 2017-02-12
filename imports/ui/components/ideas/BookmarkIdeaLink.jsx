@@ -47,7 +47,6 @@ export default class BookmarkIdeaLink extends Component {
         'edit': this.props.view,
         'right': !this.props.view
         });
-    );
     return classes;
   }
   render () {
