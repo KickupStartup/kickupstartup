@@ -547,7 +547,9 @@ dd {
 .idea_title .input-field,.idea_title input{margin:0;margin-top:-5px}
 .idea_title input{background-color:#fff;border:1px solid #ccc;margin:6px 0;padding:8px 12px;height:auto}
 .go-back,.go-next{display:block;margin:4px 12px}
-.delete{display:block;padding:10px 20px}
+.edit{padding:10px 14px}
+  .bookmark.edit{padding:14px;font-size:1em;position:inherit;text-shadow:none} /* reset bookmark styles for tickets */
+.delete{padding:10px 20px}
 @media (min-width: 768px) {
     .page .main-padding{padding-top:22px}
     .page .main.inner{padding-top:140px}

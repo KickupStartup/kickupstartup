@@ -41,19 +41,18 @@ export default class BookmarkIdeaLink extends Component {
   }
   linkClasses() {
     let classes = classNames(
-      'bookmark', 'right', {
-        'active': this.state.bookmarked
-      });
+      this.props.view ? ('bookmark edit' + (this.state.bookmarked ? ' active' : '')) : ('bookmark right' + (this.state.bookmarked ? ' active' : ''))
+    );
     return classes;
   }
   render () {
     if (Meteor.userId()) {
       return (
-      <div>
+      <span>
         <a href="#!" className={this.linkClasses()} onClick={this.handleClick}>
-          <i className="fa fa-lg fa-bookmark right" title={this.state.title}></i>
+          <i className="fa fa-lg fa-bookmark" title={this.state.title}></i>
         </a>
-      </div>
+      </span>
       );
     } else {
       return (<div></div>);

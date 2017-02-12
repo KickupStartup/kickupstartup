@@ -82,17 +82,22 @@ export default class IdeaEditSubmenu extends Component {
     return(
       <div className="row">
         <div className="col s6 idea_title">
-          <h3>{this.props.idea.name}</h3>
+          <h3>{this.props.idea.name.length > 0 ? this.props.idea.name : "Untitled"}
+            {this.props.authored ?
+              <span>
+                <a href="#!" onClick={this.changeView} className="edit" title="Edit">
+                  <span className="fa fa-pencil fa-lg"></span>
+                </a></span> :
+              <BookmarkIdeaLink
+                bookmarks={this.props.profile.bookmarkIdeas}
+                ideaId={this.props.idea._id}
+                view={true}/>
+            }</h3>
         </div>
         <div className="col s6">
-          {this.props.authored ?
-            <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
-              <span className="fa fa-check-circle"></span>Редактировать
-            </button> :
-            <BookmarkIdeaLink
-              bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
-              ideaId={this.props.idea._id}/>
-          }
+          <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
+            <span className="fa fa-check-circle"></span>Ask for review
+          </button>
         </div>
       </div>
     );
