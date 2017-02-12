@@ -46,9 +46,9 @@ export default class ListIdeaCard extends Component {
     const author = this.props.author;
     return (
     <div>
-      {Meteor.userId() ? <BookmarkIdeaLink
+      <BookmarkIdeaLink
         bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
-        ideaId={this.props.idea._id}/> : ''}
+        ideaId={this.props.idea._id}/>
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
           <div className="banner" style={customImage}></div>
@@ -60,6 +60,7 @@ export default class ListIdeaCard extends Component {
           <p></p>
           <b><T>ideas.header.problem</T></b>
           <ReadOnlyEditor value={this.props.idea.problem} />
+          <br />
           <b><T>ideas.header.story</T></b>
           <ReadOnlyEditor value={this.props.idea.story} />
         </div>

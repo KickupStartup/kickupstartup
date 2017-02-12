@@ -61,7 +61,7 @@ class App extends Component {
     return (
       <div className="content modal-create modal-action modal-close" onClick={this.handleIdeaCreate}>
         <ul className="collection">
-          <li className="collection-item avatar">
+          <li className="collection-item avatar clearfix">
             <i className="fa fa-lightbulb-o circle"></i>
             <span className="title">Идею</span>
             <p>
@@ -76,7 +76,7 @@ class App extends Component {
     return (
       <div className="content modal-create modal-action modal-close modal-unauthorized">
         <ul className="collection">
-          <li className="collection-item avatar">
+          <li className="collection-item avatar clearfix">
             <i className="fa fa-lightbulb-o circle"></i>
             <h3 className="title"><T>joinus.shortText</T></h3>
             <T>joinus.signupRequest</T>

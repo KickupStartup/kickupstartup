@@ -73,7 +73,7 @@ export default class IdeaPage extends Component {
               <SolutionTabContent hidden={this.state.activeTab != 3 ? 'hidden' : ''} idea={this.props.idea} />
               <ValidationTabContent hidden={this.state.activeTab != 4 ? 'hidden' : ''} idea={this.props.idea}/>
             </div> :
-            <div className="container main">
+            <div className="container main without-tabs">
               <IdeaView idea={this.props.idea} author={this.props.author} profile={this.props.profile} />
               <ListDivider border={true} />
               <IdeaPoll idea={this.props.idea} />

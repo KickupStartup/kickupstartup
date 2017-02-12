@@ -541,6 +541,7 @@ dd {
     .submenu .back{background-color:#f9f9f9;padding-top:24px!important;position:fixed;top:70px;z-index:4}
     .submenu .main{padding-top:86px}
     .submenu .with-tabs{padding-top:216px}
+    .submenu .without-tabs{padding-top:160px}
     .no-submenu .back{display:none}
     .no-submenu .main{padding-top:74px}
 .idea_title .input-field,.idea_title input{margin:0;margin-top:-5px}
@@ -3991,6 +3992,10 @@ blockquote{border-left:none;color:#aaa;margin:0 0 12px}
   }
 }
 /* material update END */
+/* medium-draft update START */
+.modal-body .md-RichEditor-root{margin:4px 0}
+.modal-body .md-RichEditor-editor .public-DraftEditor-content{min-height:auto}
+/* material update END */
 .alert{padding:12px 24px 4px;margin:0 0 20px;border-radius:4px}
 .alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1}
 blockquote div{font-style:italic}
@@ -4065,6 +4070,4 @@ blockquote div{font-style:italic}
     z-index: 9;
 }
 
-.main-grey h3 {
-    margin: 8px 12px 24px;
-}
+.main-grey h3{margin:8px 12px}

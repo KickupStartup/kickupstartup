@@ -72,7 +72,7 @@ export default class IdeaEditSubmenu extends Component {
             <span className="fa fa-trash fa-lg"></span>
           </a>
           <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
-            <span className="fa fa-check-circle"></span> Просмотр
+            <span className="fa fa-check-circle"></span>Просмотр
           </button>
         </div>
       </div>
@@ -87,7 +87,7 @@ export default class IdeaEditSubmenu extends Component {
         <div className="col s6">
           {this.props.authored ?
             <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
-              <span className="fa fa-check-circle"></span> Редактировать
+              <span className="fa fa-check-circle"></span>Редактировать
             </button> :
             <BookmarkIdeaLink
               bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
