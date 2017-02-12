@@ -20,7 +20,7 @@ export default class ReactInput extends Component {
     return (
       <div className="input-field">
         <label htmlFor={this.props.id} className="active">{this.props.label}</label>
-        <input type="text"
+        <textarea type="text"
           id={this.props.id}
           className={this.props.className}
           value={this.state.value}

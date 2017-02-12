@@ -27,19 +27,19 @@ export default class StoryTabContent extends Component {
               <li><a href="#!"><i className="fa fa-chevron-circle-right"></i></a></li>
           </ul> */}
         </div>
-        <IdeaCustomer idea={this.props.idea} />
+        {/* <IdeaCustomer idea={this.props.idea} />
         <ListDivider border={true} />
         <IdeaCreatePoll idea={this.props.idea} />
-        <ListDivider border={true} />
+        <ListDivider border={true} /> */}
         <IdeaAskForReview idea={this.props.idea} />
         {/* <LiveEditor
           onChange={this.handleStoryChange}
           value={this.props.idea.story}
         placeholder="Write your story..." /> */}
         <ListDivider />
-        <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
+        {/* <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
         <div className="col s6 right"><a href="#story" className="go-next">Preview</a></div>
-        <ListDivider />
+        <ListDivider /> */}
       </div>
     )
   }

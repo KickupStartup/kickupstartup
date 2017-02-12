@@ -4,7 +4,9 @@ import { Meteor } from 'meteor/meteor';
 import Avatar from 'react-avatar';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
-import Person from '../../../api/people/Person';
+
+import ReactInput from '../common/ReactInput';
+import ReactTextArea from '../common/ReactTextArea';
 
 export default class ProfileForm extends Component {
   constructor(props) {
@@ -17,56 +19,14 @@ export default class ProfileForm extends Component {
       headline: props.profile.headline || '',
       aboutMe: props.profile.aboutMe || ''
     };
-
-    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
-    this.handleLastNameChange = this.handleLastNameChange.bind(this);
-    this.handleCityChange = this.handleCityChange.bind(this);
-    this.handleCountryChange = this.handleCountryChange.bind(this);
-    this.handleHeadLineChange = this.handleHeadLineChange.bind(this);
-    this.handleAboutMeChange = this.handleAboutMeChange.bind(this);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleFirstNameChange(event) {
-    this.setState({firstName: event.target.value});
-  }
-  handleLastNameChange(event) {
-    this.setState({lastName: event.target.value});
-  }
-  handleCityChange(event) {
-    this.setState({city: event.target.value});
-  }
-  handleCountryChange(event) {
-    this.setState({country: event.target.value});
-  }
-  handleHeadLineChange(event) {
-    this.setState({headline: event.target.value});
-  }
-  handleAboutMeChange(event) {
-    this.setState({aboutMe: event.target.value});
-  }
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log(this.state);
-
-    Meteor.call("profile.update",
-        this.state.firstName,
-        this.state.lastName,
-        this.state.city,
-        this.state.country,
-        this.state.headline,
-        this.state.aboutMe,
-      function(error, result) {
-        if(error){
-          console.log("error", error);
-        }
-        if(result){
-
-        }
-      });
-  }
-  getFullName() {
-    return this.state.firstName + ' ' + this.state.lastName;
+  handleFieldChange(fieldValue, fieldName) {
+    Meteor.call("profile.update." + fieldName, fieldValue, function(error, result){
+      if(error){
+        console.log("error", error);
+      }
+      if(result){}
+    });
   }
   render () {
     var bannerImage = {
@@ -75,32 +35,51 @@ export default class ProfileForm extends Component {
     return (
       <div className="white">
         <div className="content text-center clearfix">
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <div className="">
               <div className="banner" style={bannerImage}></div>
-              <div className="avatar-photo editable"><a href="#"><Avatar name={this.getFullName()} textSizeRatio={1.9} round={true} size={104} /></a></div>
+              <div className="avatar-photo editable"><a href="#"><Avatar name={this.props.profile.fullName} textSizeRatio={1.9} round={true} size={104} /></a></div>
             </div>
             <div className="row">
               <div className="col s6">
-                <input type="text" placeholder={i18n.__('profile.placeholder.firstName')} className="text-center" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+                <ReactInput id="firstName"
+                  className="text-center"
+                  value={this.state.firstName}
+                  onChange={this.handleFieldChange}
+                  placeholder={i18n.__('profile.placeholder.firstName')} />
               </div>
               <div className="col s6">
-                <input type="text" placeholder={i18n.__('profile.placeholder.lastName')} className="text-center" value={this.state.lastName} onChange={this.handleLastNameChange} />
+                <ReactInput id="lastName"
+                  className="text-center"
+                  value={this.state.lastName}
+                  onChange={this.handleFieldChange}
+                  placeholder={i18n.__('profile.placeholder.lastName')} />
               </div>
               <div className="col s6">
-                <input type="text" placeholder={i18n.__('profile.placeholder.city')} className="text-center" value={this.state.city} onChange={this.handleCityChange} />
+                <ReactInput id="city"
+                  className="text-center"
+                  value={this.state.city}
+                  onChange={this.handleFieldChange}
+                  placeholder={i18n.__('profile.placeholder.city')} />
               </div>
               <div className="col s6">
-                <input type="text" placeholder={i18n.__('profile.placeholder.country')} className="text-center" value={this.state.country} onChange={this.handleCountryChange} />
+                <ReactInput id="country"
+                  className="text-center"
+                  value={this.state.country}
+                  onChange={this.handleFieldChange}
+                  placeholder={i18n.__('profile.placeholder.country')} />
               </div>
               <div className="col s12">
-                {/* length="140" */}
-                <input type="text" placeholder={i18n.__('profile.placeholder.headline')} value={this.state.headline} onChange={this.handleHeadLineChange}/>
-                {/*  length="1024" */}
-                <textarea placeholder={i18n.__('profile.placeholder.aboutMe')} className="materialize-textarea editable" value={this.state.aboutMe} onChange={this.handleAboutMeChange}></textarea>
-                {/* <div className="row">
-                  <button type="submit" className="waves-effect waves-light btn"><T>profile.saveButton</T></button>
-                </div> */}
+                <ReactInput id="headline"
+                  className="text-center"
+                  value={this.state.headline}
+                  onChange={this.handleFieldChange}
+                  placeholder={i18n.__('profile.placeholder.headline')} />
+                <ReactTextArea id="aboutMe"
+                  className="materialize-textarea editable"
+                  value={this.state.aboutMe}
+                  onChange={this.handleFieldChange}
+                  placeholder={i18n.__('profile.placeholder.aboutMe')} />
               </div>
             </div>
           </form>
