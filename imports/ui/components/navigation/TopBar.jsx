@@ -1,38 +1,60 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
+import i18n from 'meteor/universe:i18n';
+const T = i18n.createComponent();
 import { Meteor } from 'meteor/meteor';
-import { FlowRouter } from 'meteor/kadira:flow-router-ssr';
-import classNames from 'classnames';
+import Avatar from 'react-avatar';
 
-export default class NavigationBar extends Component {
-  constructor(props) {
-    super(props);
+export default class TopBar extends Component {
+  getProfileName() {
+    return this.props.profile ? this.props.profile.fullName : '';
   }
-  classes(path) {
-    let menuClass = classNames(this.props.className, {
-        'active': ActiveRoute.path(path),
-    //include here some other classes that you may want to have for a component
-      });
-    return menuClass;
+  renderProfileLink() {
+    if (Meteor.userId()) {
+      return (
+        <div className="col s2">
+          <ul className="fullpage_nav nav navbar-nav right">
+            <li><Link to="/profile" activeClassName="active" className="avatar-small">
+            <Avatar name={this.getProfileName()} size={50} round={true} /></Link></li>
+          </ul>
+        </div>
+      );
+    }
+  }
+  renderPersonalLinks() {
+    if (Meteor.userId()) {
+      return (
+        <ul className="fullpage_nav nav navbar-nav">
+          <li><Link to="/ideas/all" activeClassName="active"><T>navigation.ideas</T></Link></li>
+          <li><Link to="/ideas/bookmarked" activeClassName="active"><T>navigation.following</T></Link></li>
+          <li><Link to="/ideas/yours" activeClassName="active"><T>navigation.yours</T></Link></li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul className="fullpage_nav nav navbar-nav">
+          <li><Link to="/ideas/all" activeClassName="active"><T>navigation.ideas</T></Link></li>
+        </ul>
+      );
+    }
   }
   render () {
     return (
-      <div className="navbar navbar-fixed-top">
+      <div className="navbar navbar-fixed-top" role="navigation">
+        <Link to="/" className="logo"></Link>
         <div className="container">
-            <div className="row">
-                <div className="col s10">
-                    <ul className="fullpage_nav nav navbar-nav">
-                        <li className={this.classes("/ideas")}><a href="/ideas">Ideas</a></li>
-                        <li className={this.classes("/people")}><a href="/people">People</a></li>
-                    </ul>
-                </div>
-                <div className="col s2">
-                    <ul className="fullpage_nav nav navbar-nav right">
-                        <li className={this.classes("/profile")}><a href="/profile" className="avatar-small"><img src="/img/avatar.jpg"/></a></li>
-                    </ul>
-                </div>
+          <div className="row">
+            <div className="col s10">
+              {this.renderPersonalLinks()}
             </div>
+            {this.renderProfileLink()}
+          </div>
         </div>
-    </div>
+      </div>
     )
   }
+}
+
+TopBar.propTypes = {
+  profile: PropTypes.object
 }

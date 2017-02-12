@@ -5,7 +5,8 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  background-color: #f9f9f9;
+  background-color: #fcfcfc;
+  overflow-y: scroll;
   font-family: 'Roboto', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -14,19 +15,26 @@ body {
   font-size: 15px;
   line-height: 1.42857143;
 }
-html.welcome{ 
+html.welcome{
   background:url(../img/welcome.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+  html.welcome body{min-height:100%;
+    background:url(../img/bg-pattern.png),url(../img/welcome.jpg) no-repeat center center fixed;
+  }
+.joinUsForm{margin-bottom:-92px}
+.modal .modal-unauthorized .collection-item{cursor:default!important}
+@media only screen and (min-width: 930px) {
 html.welcome body{min-height:100%;
-  background: -webkit-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0));
-  background: -o-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)));
-  background: -moz-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)));
-  background: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0));
-  background-image: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0)))}
+  background: -webkit-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0));
+  background: -o-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0)));
+  background: -moz-radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0)));
+  background: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0));
+  background-image: radial-gradient(circle, rgba(0,0,0,.6), rgba(0,0,0,.4), rgba(0,0,0,0), rgba(0,0,0,0)))}
+}
     .main .languages{margin:0 -12px}
         .main .languages a{color:#333;margin:12px}
             .main .languages a{color:#333}
@@ -113,12 +121,7 @@ html.welcome body{min-height:100%;
     border: 1px solid #ddd !important;
   }
 }
-.navbar-fixed-top {
-  border-bottom:1px solid #f2f2f2!important;
-  border-width: 0 0 1px;
-  top: 0;
-}
-  .navbar-fixed-top .row{margin:0}
+.navbar-fixed-top .row{margin:0}
 .navbar {
     position: relative;
     min-height: 70px;
@@ -127,7 +130,6 @@ html.welcome body{min-height:100%;
 .navbar-fixed-top,
 .navbar-fixed-bottom {
     background-color:#ff9100;
-  box-shadow: 1px 1px 1px #f2f2f2;
   position: fixed;
   right: 0;
   left: 0;
@@ -537,9 +539,14 @@ dd {
   transition: all 0.2s ease-in-out}
 .back .fa{margin-right:8px}
     .submenu .back{background-color:#f9f9f9;padding-top:24px!important;position:fixed;top:70px;z-index:4}
-    .submenu .main{padding-top:116px}
+    .submenu .main{padding-top:86px}
+    .submenu .with-tabs{padding-top:216px}
     .no-submenu .back{display:none}
     .no-submenu .main{padding-top:74px}
+.idea_title .input-field,.idea_title input{margin:0;margin-top:-5px}
+.idea_title input{background-color:#fff;border:1px solid #ccc;margin:6px 0;padding:8px 12px;height:auto}
+.go-back,.go-next{display:block;margin:4px 12px}
+.delete{display:block;padding:10px 20px}
 @media (min-width: 768px) {
     .page .main-padding{padding-top:22px}
     .page .main.inner{padding-top:140px}
@@ -2044,11 +2051,11 @@ button.close {
  {
   background: transparent;
 }
-.fullpage_nav > li.active > a:hover
+.fullpage_nav > li > a.active:hover
  {
   color: #fff;
 }
-.fullpage_nav > li.active > a {
+.fullpage_nav > li > a.active {
   color: #fff;
   background-color:#ffab40;
   outline: none;
@@ -2290,7 +2297,8 @@ body:not(.classic) .site-wrapper .container {
   margin: 0 auto 60px;
   text-align: center;
   text-transform: uppercase;
-  font-size: 28.8px;
+  font-size: 26px;
+    font-weight: 600;
 }
 .heading_lg {
   font-size: 36px;
@@ -2302,7 +2310,8 @@ body:not(.classic) .site-wrapper .container {
 @media (min-width: 768px) {
   .heading {
     margin-top: 0;
-    font-size: 36px;
+    font-size: 30px;
+    font-weight: 600;
   }
   .heading_lg {
     font-size: 54px;
@@ -2806,8 +2815,8 @@ fieldset[disabled] a.btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #555555;
-  background-color: #ffffff;
-  border: 1px solid #f2f2f2;
+  background-color: #fcfcfc;
+  border: 1px solid #eee;
   border-bottom-color: transparent;
   cursor: default;
 }
@@ -2940,12 +2949,6 @@ fieldset[disabled] a.btn {
     right: 0;
     left: 0;
   min-height: 70px;
-  border: 1px solid transparent;
-}
-@media (min-width: 768px) {
-  .navbar {
-    border-radius: 4px;
-  }
 }
 @media (min-width: 768px) {
   .navbar-header {
@@ -3028,7 +3031,6 @@ fieldset[disabled] a.btn {
 }
 .navbar-fixed-top {
   top: 0;
-  border-width: 0 0 1px;
   z-index: 10;
 }
 .navbar-fixed-top .active a{
@@ -3435,8 +3437,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .sidebar__btn .fa-lg{vertical-align:0}
 .banner{border:4px solid #fff;margin:-32px -40px;height:120px}
-.avatar-photo{clear:both;top:-40px;margin-bottom:18px;position:relative}
-  .avatar-photo img{border-radius:50%;border:4px solid #fff;display:block;margin:0 auto -40px;top:-40px;width:104px;height:104px}
+.avatar-photo{clear:both;top:-20px;position:relative}
+  .avatar-photo .sb-avatar{border-radius:50%;border:3px solid #fff;display:block;height:auto!important;width:auto!important;top:-4px;position:relative}
 .avatar-small{padding:10px!important}
   .avatar-small img{border-radius:50%;box-shadow:0 0 0 3px #f2f2f2;width:50px;height:50px}
 .marging-top{margin-top:0}
@@ -3469,9 +3471,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .card-nexus-info .content{padding:10px}
 .card-nexus-start{margin-top:24px}
     .card-nexus-start .card-nexus-info .content{margin-top:-24px}
+.card-nexus-the-end{margin-top:-24px}
 .card-nexus-the-end .card-nexus-info{height:24px}
     .card-nexus-the-end p a:hover{text-decoration:none}
-    .card-nexus-the-end .content{padding-bottom:24px}
 .card-nexus-info-icon{color:#eee;position:relative;right:51px;margin-right:-16px}
 .card-nexus-info .content{padding-left:32px}
 .card-footer{margin:24px -12px 0}
@@ -3497,12 +3499,23 @@ fieldset[disabled] .navbar-default .btn-link:focus {
           -ms-transition: background-color .5s linear, border .5s ease;
           transition: background-color .5s linear, border .5s ease}
 .card-reveal{}
-.editable{border-bottom:1px solid #f2f2f2}
-.editable{display:inline-block;padding:10px;margin:0 -4px}
+.editable{border-bottom:1px solid #f2f2f2;display:inline-block}
+.bookmark{color:#ccc;opacity:.65;font-size:1.5em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;-moz-transition:all .5s linear, border .5s ease;
+-o-transition:all .5s linear, border .5s ease;
+-ms-transition:all .5s linear, border .5s ease;
+transition:all .5s linear, border .5s ease}
+  .bookmark:hover,.bookmark.active{color:#ff9100;opacity:1;-webkit-transition: background-color .5s linear, border .5s ease;
+        -moz-transition:all .5s linear, border .5s ease;
+        -o-transition:all .5s linear, border .5s ease;
+        -ms-transition:all .5s linear, border .5s ease;
+        transition:all .5s linear, border .5s ease}
+    .bookmark.active:hover{color:#ccc}
+.avatar-photo.editable{border-bottom:none}
   .editable.avatar-photo:hover img{box-shadow:0 0 0 1px #ccc}
   .banner-edit{background:url(../img/edit-banner.png) no-repeat!important}
   .banner-edit:hover{box-shadow:0 0 0 1px #ccc;cursor:pointer}
 .editable:focus{border-bottom:1px solid #0072dc;color:#111;outline:none}
+.banner-editor{margin-bottom:34px}
 .editable_checkbox{margin:4px!important;position:relative;top:1px}
 .lock,.lock-info{background-color:#f9f9f9!important;border-color:#eee;color:rgba(0, 0, 0, 0.5);
   -webkit-transition:border-color .5s ease,color .5s ease;
@@ -3910,7 +3923,7 @@ a{color:#ff9100;
     a:hover{color:#ffab40;
     -webkit-transition: color .6s ease;
     -o-transition: color .6s ease;
-    transition: color .6s ease;}
+    transition: color .6s ease}
 .orange.accent-3:hover{background-color:#ffab40!important;color:#fff}
 .card{margin:0!important}
     .card .tips a{color:#555;float:right}
@@ -3935,15 +3948,20 @@ a{color:#ff9100;
     .modal-create .collection{margin:0}
 .modal h3{font-weight:normal}
 .modal .collection .collection-item:hover{background-color:#f9f9f9;cursor:pointer}
-.modal .collection .collection-item.avatar i.circle{background-color:#039be5}
-.btn i, .btn-large i, .btn-floating i, .btn-large i, .btn-flat i{line-height:.75em}
+.modal .collection .collection-item.avatar i.circle{background-color:#ff9100}
+.collection .collection-item.avatar .circle>div{line-height:49px!important}
+.btn-floating{background-color:#ff9100;-webkit-transition:none;-o-transition:none;transition:none} /* we need these transitions to avoid hover-out transition */
+  .btn-floating:hover,.btn-floating:focus,.btn:focus,.btn-large:focus{background-color:#ffab40}
+    .btn-floating .fa{margin:0!important}
+  .btn-floating:hover .fa{color:#fff}
+.btn i, .btn-large i, .btn-large i, .btn-flat i{line-height:.75em}
     .btn-large i{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
     .btn i{font-size:1em}
     .btn .fa,a .fa,.btn-large .fa{margin-right:8px}
 .switch label input[type=checkbox]:checked + .lever{background-color:#818181}
-.switch label input[type=checkbox]:checked + .lever:after{background-color:#F1F1F1}
+.switch label input[type=checkbox]:checked + .lever:after{background-color:#f1f1f1}
 .green:hover{background-color:#5eb762!important}
-[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {background-color: #ff9100;
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {background-color:#ff9100;
 }
 [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
     border: 2px solid #ff9100;
@@ -3965,7 +3983,16 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
 }
 .z-depth-1-half,.btn:hover,.btn-large:hover,.btn-floating:hover{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
 blockquote{border-left:none;color:#aaa;margin:0 0 12px}
+.dropdown-content li > a, .dropdown-content li > span{color:#ff9100;font-size:1em}
+.bottom-sheet{margin:0 auto!important}
+@media only screen and (min-width: 960px) {
+  .flow-text {
+      font-size: 1.4rem;
+  }
+}
 /* material update END */
+.alert{padding:12px 24px 4px;margin:0 0 20px;border-radius:4px}
+.alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1}
 blockquote div{font-style:italic}
 .tips-blue{color:#31708f;background-color:#d9edf7!important;border-color:#bce8f1}
 .search{margin:32px 0 -20px}
@@ -4015,3 +4042,29 @@ blockquote div{font-style:italic}
 .poll p{padding:4px}
 .user-poll-section .panel-body{margin:18px 0 0}
 .user-poll-section .progress{height:5px}
+@media (min-width: 768px) {
+  .logo {
+    position: fixed;
+  }
+  .main-grey .main {
+    padding-top: 90px;
+  }
+}
+.logo {
+    background: url(../img/logo.png) no-repeat center center;
+    height: 70px;
+    width: 70px;
+    z-index: 99;
+}
+
+.main-grey {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+
+.main-grey h3 {
+    margin: 8px 12px 24px;
+}

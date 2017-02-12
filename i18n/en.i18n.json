@@ -2,23 +2,120 @@
   "app": {
     "header": "Kick Up Startup"
   },
+  "layout": {
+    "backButton": "Back"
+  },
+  "navigation": {
+    "ideas": "Ideas",
+    "following": "Bookmarks",
+    "yours": "Yours",
+    "people": "People"
+  },
   "landing": {
     "description": "A community based Startup Foundry",
-    "motto": "To make the World a Better Place",
+    "motto": "It all begins with a dream",
     "name": {
       "begin": "Kick Up",
       "middle": "Your",
       "end": "Startup!"
     },
+    "quote": {
+      "text": "Great companies start because the founders want to change the world... not make a fast buck.",
+      "author": "Guy Kawasaki"
+    },
+    "explore": "Explore other's ideas",
     "button": "Validate Your Idea",
-    "text": "Платформа для успешного построения стартапов с использованием best practices. Пошаговое разбиение процесса создания и поддержка на каждом этапе. Поиск co-founders, разработчиков, пользователей и инвесторов.",
-    "text2": "Уже сейчас вы можете проверить свою идею и собирать early adopters!"
+    "aboutUs": "We are developing platform for creating successful startups, where you will find help and people interested in your business.",
+    "text2": "Although we are on our early stage, you can start validating your ideas first!"
   },
   "joinus": {
     "header": "Welcome aboard!",
-    "text": "Login or Sign up чтобы создать свой awesome стартап или присоединяйтесь к разработке уже существующих!"
+    "text": "Sign up or login to create your awesome startup or join developing others!"
+  },
+  "startComment": {
+    "header": "Start to comment!",
+    "text": "Please login to be able to comment."
   },
   "idea": {
-    "header": "Come up with an idea"
+    "header": "Come up with an idea",
+    "submit_button": "Submit"
+  },
+  "bookmark": {
+    "title": {
+      "add": "Add bookmark",
+      "added": "Bookmark added",
+      "remove": "Remove bookmark",
+      "removed": "Bookmark removed"
+    }
+  },
+  "list": {
+    "empty": {
+      "all": {
+        "header": "No ideas, really?",
+        "text": "You have to fix it quick!",
+        "buttonText": "Add your idea"
+      },
+      "bookmarked": {
+        "header": "You do not have bookmarks yet",
+        "text": "In order to bookmark idea, please click this icon ",
+        "buttonText": ""
+      },
+      "yours": {
+        "header": "No ideas, really?",
+        "text": "You have to fix it quick!",
+        "buttonText": "Add your idea"
+      }
+    },
+    "end": {
+      "reached": "You have reached the end",
+      "jump": "Jump to",
+      "link": "top of the page"
+    }
+  },
+  "profile": {
+    "saveButton": "Save Changes",
+    "logoutButton": "Logout",
+    "manageAccountsHeader": "Manage Accounts",
+    "manageAccountsSubHeader": "Would you like to change an account?",
+    "placeholder": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "city": "City",
+      "country": "Country",
+      "headline": "Headline. 140 characters",
+      "aboutMe": "Write briefly about yourself in 1024 characters"
+    }
+  },
+  "ideas": {
+    "tabs": {
+      "draft": "Draft",
+      "problem": "Problem",
+      "solution": "Solution",
+      "story": "Story",
+      "validation": "Validation",
+      "preview": "Preview"
+    },
+    "header": {
+      "draft": "Everything that has ever been created was first created in someone’s mind.",
+      "title": "Idea name",
+      "story": "Story",
+      "problem": "Problem"
+    },
+    "comments": {
+      "single": "comment",
+      "few": "comments",
+      "many": "comments"
+    }
+  },
+  "comment": {
+    "header": "Comments",
+    "addHeader": "Leave feedback",
+    "tweetCheckbox": "Tweet it",
+    "submitButton": "Submit",
+    "no": "no",
+    "placeholder": {
+      "title": "Title, hashtags or mentions. Max 72 characters",
+      "message": "Add a comment..."
+    }
   }
 }

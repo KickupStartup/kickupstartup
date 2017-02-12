@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { Link } from 'react-router';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-import JoinUsPanel from '../components/JoinUsPanel';
+import SwitchLocaleLinks from '../components/locale/SwitchLocaleLinks';
 
 export default class LandingPage extends Component {
   componentDidMount() {
@@ -14,14 +15,9 @@ export default class LandingPage extends Component {
   }
   render() {
     return (
-      <div className="row">
-
-<style>
-</style>
+      <div className="row flow-text">
         <div className="col s12">
-          <div className="languages">
-              <a href="#" className="active">English</a>&middot;<a href="#">Русский</a>
-          </div>
+          <SwitchLocaleLinks classNames="languages" linkClassNames="" />
           <p className="heading_pre">
               <T>landing.description</T>
           </p>
@@ -32,28 +28,24 @@ export default class LandingPage extends Component {
               <T>landing.motto</T>
           </h3>
           <div className="row">
-                        <blockquote className="col s12">
-                          <div>“Что вы должны сделать — так это создать великолепный продукт или сервис с целью изменить мир. Если вы сделаете это, вы можете стать легендой.”</div>
-                          <span className="right">Гай Кавассаки</span>
-                        </blockquote>
+              <blockquote className="col s12">
+                <h3 className="text-center">“<T>landing.quote.text</T>”</h3>
+                <span className="right"><T>landing.quote.author</T></span>
+              </blockquote>
               <div className="col s12 text-center">
-                <p>
-                    <T>landing.text</T>
-                </p>
-                <p>
-                    <T>landing.text2</T>
-                </p>
+                <p><T>landing.aboutUs</T></p>
+                <p><T>landing.text2</T></p>
               </div>
           </div>
           <div className="row">
               <div className="col s12 text-center">
-                  <a href="/ideas/create" className="waves-effect waves-light orange accent-3 btn-large btn-margin">
-                      <span className="fa fa-lightbulb-o fa-lg"></span>
-                      <span><T>landing.button</T></span>
-                  </a>
-                  <div data-target="modal-login">
-                      <a href="/ideas">Explore</a>
-                  </div>
+                <Link to="/ideas?new" className="waves-effect waves-light orange accent-3 btn-large btn-margin">
+                <span className="fa fa-lightbulb-o fa-lg"></span>
+                <span><T>landing.button</T></span>
+                </Link>
+                <div>
+                  <Link to="/ideas/all"><T>landing.explore</T></Link>
+                </div>
               </div>
           </div>
         </div>
