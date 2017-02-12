@@ -78,7 +78,7 @@ export default Person = Class.create({
     }
   },
   indexes: {
-    userId: {fields:{userId: 1}}
+    userId: {fields:{userId: 1}, options:{unique: true}}
   },
   behaviors: {
     timestamp: {}

@@ -19,6 +19,7 @@ export default class IdeaEditSubmenu extends Component {
     this.renderNavigationTabs = this.renderNavigationTabs.bind(this);
     this.renderEditMenu = this.renderEditMenu.bind(this);
     this.renderViewMenu = this.renderViewMenu.bind(this);
+    this.renderViewOnlyMenu = this.renderViewOnlyMenu.bind(this);
   }
   switchTab(event) {
     event.preventDefault();
@@ -78,6 +79,15 @@ export default class IdeaEditSubmenu extends Component {
       </div>
     );
   }
+  renderViewOnlyMenu() {
+    return(
+      <div className="row">
+        <div className="col s12 idea_title">
+          <h3>{this.props.idea.name.length > 0 ? this.props.idea.name : "Untitled"}</h3>
+        </div>
+      </div>
+    );
+  }
   renderViewMenu() {
     return(
       <div className="row">
@@ -89,15 +99,16 @@ export default class IdeaEditSubmenu extends Component {
                   <span className="fa fa-pencil fa-lg"></span>
                 </a></span> :
               <BookmarkIdeaLink
-                bookmarks={this.props.profile.bookmarkIdeas}
+                bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
                 ideaId={this.props.idea._id}
                 view={true}/>
             }</h3>
         </div>
         <div className="col s6">
+          {this.props.authored ?
           <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
             <span className="fa fa-check-circle"></span>Ask for review
-          </button>
+          </button> : ''}
         </div>
       </div>
     );
@@ -117,8 +128,8 @@ export default class IdeaEditSubmenu extends Component {
     return (
       <div className="main-grey">
         <div className="container main">
-          {this.props.edit ? this.renderEditMenu() : this.renderViewMenu()}
-          {this.props.edit ? this.renderNavigationTabs() : ''}
+          {(this.props.edit && Meteor.userId()) ? this.renderEditMenu() : (!Meteor.userId() ? this.renderViewOnlyMenu() : this.renderViewMenu())}
+          {(this.props.edit && Meteor.userId()) ? this.renderNavigationTabs() : ''}
         </div>
       </div>
     )
