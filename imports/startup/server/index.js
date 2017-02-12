@@ -1,4 +1,7 @@
 import './mailService';
 import './serviceConfiguration';
-import './sampleData';
 import './publications';
+
+if (process.env.NODE_ENV !== 'production') {
+  import './sampleData';
+}
