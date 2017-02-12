@@ -25,6 +25,8 @@ html.welcome{
   html.welcome body{min-height:100%;
     background:url(../img/bg-pattern.png),url(../img/welcome.jpg) no-repeat center center fixed;
   }
+.login-btn{margin:15px 0}
+  .login-btn .fa{display:inline;margin:0}
 .joinUsForm{margin-bottom:-92px}
 .modal .modal-unauthorized .collection-item{cursor:default!important}
 @media only screen and (min-width: 930px) {
@@ -2724,31 +2726,6 @@ fieldset[disabled] a.btn {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .nav {
   margin-bottom: 0;
   padding-left: 0;
@@ -3988,6 +3965,7 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
 blockquote{border-left:none;color:#aaa;margin:0 0 12px}
 .dropdown-content li > a, .dropdown-content li > span{color:#ff9100;font-size:1em}
 .bottom-sheet{margin:0 auto!important}
+.btn,.btn-large,.btn-flat{padding:.05rem 2rem}
 @media only screen and (min-width: 960px) {
   .flow-text {
       font-size: 1.4rem;
