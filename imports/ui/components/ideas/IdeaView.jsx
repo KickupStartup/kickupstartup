@@ -2,27 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
-import { stateToHTML } from 'draft-js-export-html';
-import { createEditorState } from 'medium-draft';
+import ReadOnlyEditor from '../common/ReadOnlyEditor';
 
 export default class IdeaView extends Component {
   constructor(props) {
     super(props);
-
-    try {
-      this.state = {
-        problem: stateToHTML(createEditorState(JSON.parse(props.idea.problem)).getCurrentContent()),
-        story: stateToHTML(createEditorState(JSON.parse(props.idea.story)).getCurrentContent())
-      }
-    } catch (e) {
-      console.log("is JSON syntax error? ", e instanceof SyntaxError); // true
-      console.log("idea's problem or story not in a correct draft-js JSON format error: ", e);
-    }
-
-    this.state = {
-      problem: props.idea.problem,
-      story: props.idea.story
-    }
   }
   render () {
     return (
@@ -32,10 +16,11 @@ export default class IdeaView extends Component {
           <p>Автор: {this.props.author.fullName}</p>
         </div>
         <div className="modal-body">
-          <h4>Проблема</h4>
-          <p>{this.state.problem}</p>
-          <h4>История</h4>
-          <p>{this.state.story}</p>
+          <p></p>
+          <b><T>ideas.header.problem</T></b>
+          <ReadOnlyEditor value={this.props.idea.problem} />
+          <b><T>ideas.header.story</T></b>
+          <ReadOnlyEditor value={this.props.idea.story} />
         </div>
       </div>
     )

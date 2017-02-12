@@ -5,6 +5,7 @@ const T = i18n.createComponent();
 import Avatar from 'react-avatar';
 import { moment } from 'meteor/momentjs:moment';
 
+import ReadOnlyEditor from '../common/ReadOnlyEditor';
 import BookmarkIdeaLink from '../ideas/BookmarkIdeaLink';
 import ListDivider from './ListDivider';
 
@@ -45,9 +46,9 @@ export default class ListIdeaCard extends Component {
     const author = this.props.author;
     return (
     <div>
-    	<BookmarkIdeaLink
-        bookmarks={this.props.profile.bookmarkIdeas}
-        ideaId={this.props.idea._id}/>
+      {Meteor.userId() ? <BookmarkIdeaLink
+        bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
+        ideaId={this.props.idea._id}/> : ''}
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
           <div className="banner" style={customImage}></div>
@@ -56,10 +57,11 @@ export default class ListIdeaCard extends Component {
           <ul className="stat"><li>{this.renderNumberOfComments()} {this.renderNumberOfCommentsText()}</li>{this.renderLastCommentTime()}</ul>
         </div>
         <div className="modal-body">
-          <b><T>ideas.header.draft</T></b>
-          <p>{this.props.idea.draft}</p>
+          <p></p>
           <b><T>ideas.header.problem</T></b>
-          <p>{this.props.idea.problem}</p>
+          <ReadOnlyEditor value={this.props.idea.problem} />
+          <b><T>ideas.header.story</T></b>
+          <ReadOnlyEditor value={this.props.idea.story} />
         </div>
       </div>
       <ListDivider border={true}/>
@@ -76,6 +78,6 @@ ListIdeaCard.contextTypes = {
 
 ListIdeaCard.propTypes = {
   idea: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired,
+  profile: PropTypes.object,
   author: PropTypes.object
 }
