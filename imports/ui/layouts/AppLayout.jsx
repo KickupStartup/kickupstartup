@@ -96,7 +96,7 @@ class App extends Component {
       <div>
         <div className="submenu">
           <TopBar profile={this.props.profile} />
-          { Meteor.userId() ? '' : <div className="container main joinUsForm"><JoinUsForm /></div> }
+          {/* { Meteor.userId() ? '' : <div className="container main joinUsForm"><JoinUsForm /></div> } */}
           { this.props.children }
           <div className="fixed-action-btn">
             <a className="btn-floating btn-large waves-effect waves-light modal-trigger" href="#!" onClick={this.openCreateIdeaModal}>
