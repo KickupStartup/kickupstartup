@@ -3992,6 +3992,10 @@ blockquote{border-left:none;color:#aaa;margin:0 0 12px}
   }
 }
 /* material update END */
+/* medium-draft update START */
+.modal-body .md-RichEditor-root{margin:4px 0}
+.modal-body .md-RichEditor-editor .public-DraftEditor-content{min-height:auto}
+/* material update END */
 .alert{padding:12px 24px 4px;margin:0 0 20px;border-radius:4px}
 .alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1}
 blockquote div{font-style:italic}
