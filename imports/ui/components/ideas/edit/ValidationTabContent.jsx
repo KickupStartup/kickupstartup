@@ -37,9 +37,9 @@ export default class StoryTabContent extends Component {
           value={this.props.idea.story}
         placeholder="Write your story..." /> */}
         <ListDivider />
-        <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
+        {/* <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
         <div className="col s6 right"><a href="#story" className="go-next">Preview</a></div>
-        <ListDivider />
+        <ListDivider /> */}
       </div>
     )
   }
