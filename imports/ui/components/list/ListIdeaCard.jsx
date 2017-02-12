@@ -47,7 +47,7 @@ export default class ListIdeaCard extends Component {
     return (
     <div>
       {Meteor.userId() ? <BookmarkIdeaLink
-        bookmarks={this.props.profile.bookmarkIdeas}
+        bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
         ideaId={this.props.idea._id}/> : ''}
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">

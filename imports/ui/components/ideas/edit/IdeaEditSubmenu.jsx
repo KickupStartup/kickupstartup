@@ -90,7 +90,7 @@ export default class IdeaEditSubmenu extends Component {
               <span className="fa fa-check-circle"></span> Редактировать
             </button> :
             <BookmarkIdeaLink
-              bookmarks={this.props.profile.bookmarkIdeas}
+              bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
               ideaId={this.props.idea._id}/>
           }
         </div>
