@@ -83,6 +83,16 @@
   },
   "ideas": {
     "underDevelopment": "Under development",
+    "publish": {
+      "header": {
+        "open": "Idea is public.",
+        "close": "Idea is private."
+      },
+      "button": {
+        "open": "Close public access to this idea",
+        "close": "Open public access to this idea"
+      }
+    },
     "tabs": {
       "draft": "Draft",
       "problem": "Problem",
