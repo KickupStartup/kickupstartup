@@ -12,7 +12,7 @@ const getValidatedIdea = function(userId, ideaId) {
       throw new Meteor.Error('idea.notfound',
         'There is no such an idea in our database.');
     } else {
-      if (userId !== idea.userId) {
+      if (!idea.isAuthor(userId)) {
         throw new Meteor.Error('idea.unauthorized',
           'Cannot perform any action with an idea if you are not an author.');
       } else {

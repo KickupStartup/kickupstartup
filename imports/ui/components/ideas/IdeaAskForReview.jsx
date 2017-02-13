@@ -13,9 +13,7 @@ export default class IdeaAskForReview extends Component {
       if(error){
         console.log("error", error);
       }
-      if(result){
-
-      }
+      if(result){}
     });
   }
   render () {

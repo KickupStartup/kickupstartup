@@ -48,14 +48,14 @@ export default class IdeaPage extends Component {
         );
       }
       const isEdit = this.props.idea
-                      && this.props.idea.userId === Meteor.userId()
+                      && this.props.idea.isAuthor(Meteor.userId())
                       && !this.state.preview;
       return (
         <div>
           <IdeaEditSubmenu
             edit={isEdit}
             profile={this.props.profile}
-            authored={this.props.idea.userId === Meteor.userId()}
+            authored={this.props.idea.isAuthor(Meteor.userId())}
             idea={this.props.idea}
             onViewChanged={this.handleViewChange}
             onTabChanged={this.handleTabChange} />

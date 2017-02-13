@@ -68,7 +68,7 @@ Meteor.methods({
     const idea = getValidatedIdea(this.userId, ideaId);
     const comment = getValidatedComment(this.userId, commentId, false);
 
-    if (idea.userId === this.userId || comment.userId === this.userId) {
+    if (idea.isAuthor(this.userId) || comment.userId === this.userId) {
       comment.remove();
     } else {
       throw new Meteor.Error('comment.remove.unauthorized',

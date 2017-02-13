@@ -59,5 +59,17 @@ export default Idea = Class.create({
   },
   behaviors: {
     timestamp: {}
+  },
+  helpers: {
+    isAuthor(userId) {
+      var authors = this.authors || [];
+      authors.push(this.userId);
+      return (authors.indexOf(userId) >= 0);
+    },
+    getAuthors() {
+      var authors = this.authors || [];
+      authors.push(this.userId);
+      return authors;
+    }
   }
 });
