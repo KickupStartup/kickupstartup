@@ -3,10 +3,13 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
+import UnderDevelopmentIcon from '../common/UnderDevelopmentIcon';
+
 export default class IdeaPoll extends Component {
   render () {
     return (
       <div className="card white row-border clearfix" id="poll">
+        <UnderDevelopmentIcon />
         <div className="modal-header">
           <h3 className="modal-title">Опрос</h3>
         </div>
@@ -33,14 +36,14 @@ export default class IdeaPoll extends Component {
                 </form>
                 <div className="panel-footer">
                   <div className="col s12 text-center">
-                    <button type="button" className="activator waves-effect waves-light orange btn btn-margin">
+                    <button type="button" className="activator waves-effect waves-light orange-text btn-flat btn-margin">
                       <i className="fa fa-thumbs-up"></i><T>idea.submit_button</T>
                     </button>
-                              </div>
-                          </div>
-                      </div>
                   </div>
+                </div>
               </div>
+            </div>
+          </div>
           </div>
           <div className="card-reveal">
               <h3 className="modal-title">Результаты</h3>

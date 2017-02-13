@@ -3,6 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
+import UnderDevelopmentIcon from '../common/UnderDevelopmentIcon';
+
 export default class IdeaComposeSurveyQuestions extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +34,7 @@ export default class IdeaComposeSurveyQuestions extends Component {
   render () {
     return (
       <div className="card white row-border clearfix">
-        <span className="orange-text right">В разработке <i className="fa fa-wrench"></i></span>
+        <UnderDevelopmentIcon/>
         <div className="modal-header">
           <h3 className="modal-title">Вопросы для читателей</h3>
         </div>
