@@ -25,15 +25,9 @@ export default class DraftTabContent extends Component {
     return (
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
-          <h4>Tip: Черновой вариант</h4>
+          <h4>Черновой вариант</h4>
           <p>Начните с описания идеи в свободной форме. Обязательно пригласите друзей, которые помогут вам с кристализацией идеи. В результате вы получите информацию необходимую для заполнения
-            следующих блоков.{/*  Для удобства редактирования рекомендуем использовать FullScreen Mode <i className="fa fa-window-maximize"></i>. */}
-          </p>
-          {/* <ul className="controls right">
-              <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
-              <li><span>3 of 5</span></li>
-              <li><a href="#!"><i className="fa fa-chevron-circle-right"></i></a></li>
-          </ul> */}
+            следующих блоков.</p>
         </div>
         <div className="white card row-border clearfix">
           <LiveEditor
@@ -42,8 +36,6 @@ export default class DraftTabContent extends Component {
             placeholder="Write your idea" />
         </div>
         <ListDivider />
-        {/* <div className="col s6 right"><a href="#story" className="go-next">I'm ready to write my story</a></div>
-        <ListDivider /> */}
       </div>
     )
   }
