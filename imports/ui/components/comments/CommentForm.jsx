@@ -43,7 +43,6 @@ export default class CommentForm extends Component {
         <div className="form-group clearfix">
           <div className="input-field">
             <textarea className="materialize-textarea"
-              name="comment-text"
               value={this.state.message}
               onChange={this.handleMessageChange}
               placeholder={i18n.__('comment.placeholder.message')}>
