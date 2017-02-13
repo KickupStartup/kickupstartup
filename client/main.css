@@ -3930,14 +3930,20 @@ a{color:#ff9100;
 .modal .collection .collection-item:hover{background-color:#f9f9f9;cursor:pointer}
 .modal .collection .collection-item.avatar i.circle{background-color:#ff9100}
 .collection .collection-item.avatar .circle>div{line-height:49px!important}
+.z-depth-1-half,.btn:hover,.btn-large:hover,.btn-floating:hover{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
 .btn-floating{background-color:#ff9100;-webkit-transition:none;-o-transition:none;transition:none} /* we need these transitions to avoid hover-out transition */
   .btn-floating:hover,.btn-floating:focus,.btn:focus,.btn-large:focus{background-color:#ffab40}
     .btn-floating .fa{margin:0!important}
   .btn-floating:hover .fa{color:#fff}
 .btn i, .btn-large i, .btn-large i, .btn-flat i{line-height:.75em}
-    .btn-large i{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
-    .btn i{font-size:1em}
-    .btn .fa,a .fa,.btn-large .fa{margin-right:8px}
+  .btn-flat{color:#ff9100;padding:0}
+    .btn-flat:hover{color:#ffab40}
+  .btn-flat,.btn-flat:hover,.btn-flat:active{background-color:transparent;box-shadow:none}
+  .btn-large i{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
+  .btn i{font-size:1em}
+  .btn .fa,a .fa,.btn-large .fa{margin-right:8px}
+.switch{font-size:1.5rem} /* for proper position */
+.switch label{font-size:1rem}
 .switch label input[type=checkbox]:checked + .lever{background-color:#818181}
 .switch label input[type=checkbox]:checked + .lever:after{background-color:#f1f1f1}
 .green:hover{background-color:#5eb762!important}
@@ -3961,11 +3967,10 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
     background-color: #ff9100;
     z-index: 0;
 }
-.z-depth-1-half,.btn:hover,.btn-large:hover,.btn-floating:hover{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
 blockquote{border-left:none;color:#aaa;margin:0 0 12px}
 .dropdown-content li > a, .dropdown-content li > span{color:#ff9100;font-size:1em}
 .bottom-sheet{margin:0 auto!important}
-.btn,.btn-large,.btn-flat{padding:.05rem 2rem}
+.login-btn{padding:.05rem 2rem}
 @media only screen and (min-width: 960px) {
   .flow-text {
       font-size: 1.4rem;
@@ -4051,3 +4056,11 @@ blockquote div{font-style:italic}
 }
 
 .main-grey h3{margin:8px 12px}
+
+@media (max-width: 640px) {
+  .navbar,.main-grey{position:relative}
+  .submenu .main{padding-top:12px}
+  .container{padding:0 8px}
+  .main .white{padding:16px 20px 10px}
+  .md-RichEditor-root{margin:0}
+}
