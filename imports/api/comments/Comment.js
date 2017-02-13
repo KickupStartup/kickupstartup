@@ -16,6 +16,11 @@ const Comment = Class.create({
   },
   behaviors: {
     timestamp: {}
+  },
+  helpers: {
+    isAuthor(userId) {
+      return this.userId === userId;
+    }
   }
 });
 

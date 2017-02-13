@@ -28,9 +28,9 @@ const getValidatedComment = function(userId, commentId, checkAuthor) {
       throw new Meteor.Error('comment.notfound',
         'There is no such a comment in our database. id:'+commentId);
     } else {
-      if (checkAuthor && comment.userId !== userId) {
+      if (!comment.isAuthor(userId)) {
         throw new Meteor.Error('comment.update.unauthorized',
-          'Cannot update comment if you are not an author.');
+          'Cannot update or remove a comment if you are not an author.');
       } else {
         return comment;
       }
@@ -55,24 +55,15 @@ Meteor.methods({
   'comment.update': function(commentId, message) {
     check(commentId, String);
     check(message, String);
-    const comment = getValidatedComment(this.userId, commentId, true);
+    const comment = getValidatedComment(this.userId, commentId);
     comment.message = message;
     comment.save();
   },
   // comment can be removed by author of the idea where it is leaved
   // or by comment's author
-  'comment.remove': function(ideaId, commentId, message) {
-    check(ideaId, String);
+  'comment.remove': function(commentId) {
     check(commentId, String);
-    check(message, String);
-    const idea = getValidatedIdea(this.userId, ideaId);
-    const comment = getValidatedComment(this.userId, commentId, false);
-
-    if (idea.isAuthor(this.userId) || comment.userId === this.userId) {
-      comment.remove();
-    } else {
-      throw new Meteor.Error('comment.remove.unauthorized',
-        'Cannot remove comment if you are not an author of it or author of the idea where it is leaved.');
-    }
+    const comment = getValidatedComment(this.userId, commentId);
+    comment.remove();
   }
 });
