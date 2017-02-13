@@ -27,7 +27,9 @@ export default class Comments extends Component {
         <ul className={this.getClasses()}>
           {this.props.comments.map((comment) => (
             <div key={comment._id}>
-              <ListCommentItem comment={comment} author={this.getAuthorName(comment.userId)} />
+              <ListCommentItem
+                comment={comment}
+                author={this.getAuthorName(comment.userId)} />
             </div>
           ))}
         </ul>
