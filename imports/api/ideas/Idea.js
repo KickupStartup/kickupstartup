@@ -70,6 +70,9 @@ export default Idea = Class.create({
       var authors = this.authors || [];
       authors.push(this.userId);
       return authors;
+    },
+    isPublic() {
+      return this.status > 0 && this.public;
     }
   }
 });

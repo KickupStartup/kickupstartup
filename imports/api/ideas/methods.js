@@ -104,10 +104,16 @@ Meteor.methods({
   },
   'idea.publish': function(ideaId) {
     check(ideaId, String);
-
     const idea = getValidatedIdea(this.userId, ideaId);
     idea.public = true;
     idea.status = IdeaStatus.WAITING;
+    idea.save();
+  },
+  'idea.unpublish': function(ideaId) {
+    check(ideaId, String);
+    const idea = getValidatedIdea(this.userId, ideaId);
+    idea.public = false;
+    idea.status = IdeaStatus.NEW;
     idea.save();
   },
   'idea.remove': function(ideaId) {
