@@ -62,13 +62,13 @@ export default class IdeaEditSubmenu extends Component {
   renderEditMenu() {
     return(
       <div className="row">
-        <div className="col s6 idea_title">
+        <div className="col s12 m6 idea_title">
           <ReactInput id="ideaName"
             value={this.props.idea.name}
             onChange={this.handleNameChange}
             placeholder="Your awesome idea title" />
         </div>
-        <div className="col s6">
+        <div className="col s12 m6">
           <a href="#!" className="delete left" onClick={this.handleIdeaRemoveClick} title="Delete">
             <span className="fa fa-trash fa-lg"></span>
           </a>
@@ -83,7 +83,7 @@ export default class IdeaEditSubmenu extends Component {
     return(
       <div className="row">
         <div className="col s12 idea_title">
-          <h3>{this.props.idea.name.length > 0 ? this.props.idea.name : "Untitled"}</h3>
+          <h3>{this.props.idea.name ? this.props.idea.name : "Untitled"}</h3>
         </div>
       </div>
     );
@@ -92,7 +92,7 @@ export default class IdeaEditSubmenu extends Component {
     return(
       <div className="row">
         <div className="col s6 idea_title">
-          <h3>{this.props.idea.name.length > 0 ? this.props.idea.name : "Untitled"}
+          <h3>{this.props.idea.name ? this.props.idea.name : "Untitled"}
             {this.props.authored ?
               <span>
                 <a href="#!" onClick={this.changeView} className="edit" title="Edit">
@@ -106,9 +106,9 @@ export default class IdeaEditSubmenu extends Component {
         </div>
         <div className="col s6">
           {this.props.authored ?
-          <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
-            <span className="fa fa-check-circle"></span>Ask for review
-          </button> : ''}
+            <div className="switch right">
+              <label>Unpublished<input type="checkbox" onClick={this.changeView} /><span className="lever"></span>Published</label>
+            </div> : ''}
         </div>
       </div>
     );
