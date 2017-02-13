@@ -10,7 +10,7 @@ export default class SolutionTabContent extends Component {
   constructor(props) {
     super(props);
     this.handleSolutionChange = this.handleSolutionChange.bind(this);
-    this.handleSolutionChange = _.debounce(this.handleSolutionChange, 3000);
+    this.handleSolutionChange = _.debounce(this.handleSolutionChange, 2000);
   }
   handleSolutionChange(solution) {
     const idea = this.props.idea;
