@@ -3444,6 +3444,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     padding: 4px 8px;
 }
 .fa-lock{margin-right:8px}
+.fa-sm{font-size:1.2rem}
 .card-nexus{margin:0}
 .card-nexus-no-border{height:20px}
 .card-nexus-border{border-left:1px solid #f2f2f2;height:24px}
@@ -3985,7 +3986,7 @@ blockquote{border-left:none;color:#aaa;margin:0 0 12px}
 /* material update END */
 /* medium-draft update START */
 .modal-body .md-RichEditor-root{margin:4px 0}
-.card .md-RichEditor-root{margin:-15px -15px 0 -15px}
+.card .md-RichEditor-root{margin:0}
 .pointer .md-RichEditor-root .md-block{cursor:pointer} /* override cursor */
 .modal-body .md-RichEditor-editor .public-DraftEditor-content{min-height:auto}
 /* material update END */
