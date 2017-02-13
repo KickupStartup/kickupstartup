@@ -6,27 +6,39 @@ const T = i18n.createComponent();
 export default class IdeaInviteCollaborator extends Component {
   render () {
     return (
-      <div className="card-reveal">
-        <button type="button" className="card-title close">&times;</button>
-        <h3 className="modal-title">Invite friends to edit</h3>
-        <div className="modal-body">
-          <div className="form-group form clearfix">
-            <div className="input-field">
-              <label htmlFor="emails">Emails</label>
-              <input type="text" className="validate" placeholder="Please separate the recipients email by using commas" />
-            </div>
-            <div className="input-field">
-              <label htmlFor="Message">Message</label>
-              <textarea className="materialize-textarea validate"
-                defaultValue="Hello!&#10;Мне нужна помощь с написанием идеи нового стартапа.&#10;Спасибо!">
-              </textarea>
-            </div>
+      <div className="white row-border clearfix">
+        <div className="col s12">
+          <div className="input-field col s12">
+            <span className="prefix"><i className="fa fa-user-circle fa-lg"></i></span>
+            <input type="text" id="autocomplete-input" className="autocomplete" />
+            <label htmlFor="autocomplete-input">Add Collaborator</label>
           </div>
-          <div className="col s12 text-center">
-            <button type="submit" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
-              <i className="fa fa-envelope"></i>Send
-            </button>
+          <div className="chip">
+            <img src="../img/banner-avatar.jpg" alt="Piter Black" />
+            Piter Black <a href="#!" className="default"><i className="fa fa-remove fa-lg"></i></a>
           </div>
+          <div className="chip">
+            <img src="../img/no-photo.png" alt="Victor S." />
+            Victor S. <a href="#!" className="default"><i className="fa fa-remove fa-lg"></i></a>
+          </div>
+          {/* <ul className="collection collaborators">
+              <li className="collection-item avatar">
+              <a href="#!" className="default right"><i className="fa fa-remove fa-lg"></i></a>
+              <img src="../img/banner-avatar.jpg" alt="" className="circle" />
+              <span className="title">Piter Black</span>
+              <p>
+                About user
+              </p>
+            </li>
+            <li className="collection-item avatar">
+              <a href="#!" className="default right"><i className="fa fa-remove fa-lg"></i></a>
+              <img src="../img/no-photo.png" alt="" className="circle" />
+              <span className="title">Victor S.</span>
+              <p>
+                About user
+              </p>
+            </li>
+          </ul> */}
         </div>
       </div>
     )
