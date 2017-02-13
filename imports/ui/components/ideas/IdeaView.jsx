@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
-import ReadOnlyEditor from '../common/ReadOnlyEditor';
 
+import ReadOnlyEditor from '../common/ReadOnlyEditor';
 import ListDivider from '../../components/list/ListDivider';
 
 export default class IdeaView extends Component {
@@ -15,7 +15,7 @@ export default class IdeaView extends Component {
       <div className="white row-border clearfix">
         <div className="modal-header">
           <h3 className="modal-title">{this.props.idea.name ? this.props.idea.name : "Untitled"}</h3>
-          <p>Автор: {this.props.author.fullName}</p>
+          <p><T>ideas.header.authors</T>: {this.props.author.fullName}</p>
         </div>
         <div className="modal-body">
           <b><T>ideas.header.story</T></b>

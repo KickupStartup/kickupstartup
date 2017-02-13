@@ -2,9 +2,6 @@
   "app": {
     "header": "Kick Up Startup"
   },
-  "layout": {
-    "backButton": "Back"
-  },
   "navigation": {
     "ideas": "Ideas",
     "following": "Bookmarks",
@@ -31,22 +28,6 @@
   "joinus": {
     "header": "Welcome aboard!",
     "text": "Sign up or login to create your awesome startup or join developing others!"
-  },
-  "startComment": {
-    "header": "Start to comment!",
-    "text": "Please login to be able to comment."
-  },
-  "idea": {
-    "header": "Come up with an idea",
-    "submit_button": "Submit"
-  },
-  "bookmark": {
-    "title": {
-      "add": "Add bookmark",
-      "added": "Bookmark added",
-      "remove": "Remove bookmark",
-      "removed": "Bookmark removed"
-    }
   },
   "list": {
     "empty": {
@@ -99,12 +80,27 @@
       "draft": "Everything that has ever been created was first created in someone’s mind.",
       "title": "Idea name",
       "story": "Story",
-      "problem": "Problem"
+      "problem": "Problem",
+      "authors": "Authors"
+    },
+    "survey": {
+      "header": "Poll",
+      "question": "Question",
+      "results": "Results",
+      "button": "Submit"
     },
     "comments": {
       "single": "comment",
       "few": "comments",
       "many": "comments"
+    }
+  },
+  "bookmark": {
+    "title": {
+      "add": "Add bookmark",
+      "added": "Bookmark added",
+      "remove": "Remove bookmark",
+      "removed": "Bookmark removed"
     }
   },
   "comment": {
@@ -116,6 +112,10 @@
     "placeholder": {
       "title": "Title, hashtags or mentions. Max 72 characters",
       "message": "Add a comment..."
+    },
+    "login": {
+      "header": "Start to comment!",
+      "text": "Please login to be able to comment."
     }
   }
 }
