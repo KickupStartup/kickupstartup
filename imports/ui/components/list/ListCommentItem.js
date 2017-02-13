@@ -13,7 +13,7 @@ export default class ListCommentItem extends Component {
       <li className="collection-item avatar">
         <span className="chat-date">{moment(this.props.comment.createdAt).fromNow()}</span>
         <Avatar className="circle" name={fullName} round={true} size={48}></Avatar>
-        <span className="title">{fullName}</span>
+        <span className="title">{fullName}</span><span> &middot; <a href="#!">Edit</a> &middot; <a href="#!">Delete</a></span>
         <p>{this.props.comment.message}</p>
       </li>
     )
