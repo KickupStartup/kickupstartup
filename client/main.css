@@ -3938,7 +3938,7 @@ a{color:#ff9100;
 .btn i, .btn-large i, .btn-large i, .btn-flat i{line-height:.75em}
   .btn-flat{color:#ff9100;padding:0}
     .btn-flat:hover{color:#ffab40}
-  .btn-flat,.btn-flat:hover,.btn-flat:active{background-color:transparent;box-shadow:none}
+  .btn-flat,.btn-flat:hover,.btn-flat:active,.btn-flat:focus,.btn-flat[disabled]{background-color:transparent!important;box-shadow:none}
   .btn-large i{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
   .btn i{font-size:1em}
   .btn .fa,a .fa,.btn-large .fa{margin-right:8px}
