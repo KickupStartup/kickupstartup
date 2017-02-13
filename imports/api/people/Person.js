@@ -57,6 +57,7 @@ export default Person = Class.create({
   collection: People,
   fields: {
     userId: String,
+    username: { type: String, optional: true },
     bookmarkIdeas: { type: [String], optional: true },
     headline: { type: String, optional: true },
     aboutMe: { type: String, optional: true },
@@ -78,7 +79,8 @@ export default Person = Class.create({
     }
   },
   indexes: {
-    userId: {fields:{userId: 1}, options:{unique: true}}
+    userId: {fields:{userId: 1}, options:{unique: true}},
+    username: {fields:{username: 1}, options: {unique: true, sparse: true}}
   },
   behaviors: {
     timestamp: {}

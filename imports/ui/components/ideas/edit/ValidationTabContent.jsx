@@ -18,9 +18,9 @@ export default class StoryTabContent extends Component {
     return (
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
-          <h4>Validation tab help</h4>
-          <p>Validation help.
-          </p>
+          <h4>Время проверить свои предположения.</h4>
+          <p>После того, как Вы откроете доступ, любой человек в интернете сможет просмотреть Вашу идею, а зарегистрированные пользователи смогут оставить свой отзыв.</p>
+          <p>В любой момент Вы сможете закрыть общий доступ к своей идее.</p>
           {/* <ul className="controls right">
               <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
               <li><span>3 of 5</span></li>

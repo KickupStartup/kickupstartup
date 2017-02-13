@@ -10,7 +10,7 @@ export default class DraftTabContent extends Component {
   constructor(props) {
     super(props);
     this.handleDraftChange = this.handleDraftChange.bind(this);
-    this.handleDraftChange = _.debounce(this.handleDraftChange, 3000);
+    this.handleDraftChange = _.debounce(this.handleDraftChange, 2000);
   }
   handleDraftChange(draft) {
     const idea = this.props.idea;

@@ -10,7 +10,7 @@ export default class ProblemTabContent extends Component {
   constructor(props) {
     super(props);
     this.handleProblemChange = this.handleProblemChange.bind(this);
-    this.handleProblemChange = _.debounce(this.handleProblemChange, 3000);
+    this.handleProblemChange = _.debounce(this.handleProblemChange, 2000);
   }
   handleProblemChange(problem) {
     const idea = this.props.idea;
