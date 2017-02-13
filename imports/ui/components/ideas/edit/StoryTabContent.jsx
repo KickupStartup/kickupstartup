@@ -25,13 +25,9 @@ export default class StoryTabContent extends Component {
     return (
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
-          <h4>Story tab help</h4>
-          <p>Story help.</p>
-          {/* <ul className="controls right">
-              <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
-              <li><span>3 of 5</span></li>
-              <li><a href="#!"><i className="fa fa-chevron-circle-right"></i></a></li>
-          </ul> */}
+          <h4>Расскажите историю</h4>
+          {/* <p>“Хорошая история куда важнее, чем сухая статистика пресс-релиза, голословная самореклама или скучная самодовольная презентация.”</p> */}
+          <p>История должна быть личной, иллюстративной и укреплять веру в Вас и то, что Вы делаете.</p>
         </div>
         <div className="white card row-border clearfix">
           <div className="banner banner-edit banner-editor"></div>
