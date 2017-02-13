@@ -14,7 +14,7 @@ export default class IdeaInviteCollaborator extends Component {
           <div className="input-field col s12">
             <span className="prefix"><i className="fa fa-user-circle fa-lg"></i></span>
             <input type="text" id="autocomplete-input" className="autocomplete" />
-            <label htmlFor="autocomplete-input">Add Collaborator</label>
+            <label htmlFor="autocomplete-input"><T>ideas.collaborator.header</T></label>
           </div>
           <div className="chip">
             <img src="../img/banner-avatar.jpg" alt="Piter Black" />

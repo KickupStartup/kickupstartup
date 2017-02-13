@@ -2,6 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { browserHistory, Link } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 
+import i18n from 'meteor/universe:i18n';
+const T = i18n.createComponent();
+
 export default class NotFoundPage extends Component {
   render() {
     return (
@@ -11,11 +14,12 @@ export default class NotFoundPage extends Component {
             <div className="white row-border">
               <div className="content text-center clearfix">
                 <h3>404</h3>
-                <h4>Page Not Found</h4>
+                <h4><T>app.notFoundPage.header</T></h4>
                 <p>
-                  The page you are looking for doesn't exist or an other error occurred.
-                  <br/>
-                  <a href="#!" onClick={browserHistory.goBack}>Go back</a>, or head over to <Link to="/">main page</Link> to choose a new direction.
+                  {/* <T>app.notFoundPage.text</T> */}
+                  {/* <br/> */}
+                  <a href="#!" onClick={browserHistory.goBack}><T>app.notFoundPage.link.back</T></a> <T>app.notFoundPage.link.headOver</T> <Link to="/"><T>app.notFoundPage.link.mainPage</T></Link>. 
+                  {/* <T>app.notFoundPage.link.direction</T>. */}
                 </p>
               </div>
             </div>

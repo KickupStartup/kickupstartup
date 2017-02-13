@@ -1,6 +1,16 @@
 {
   "app": {
-    "header": "Kick Up Startup"
+    "header": "Kick Up Startup",
+    "notFoundPage": {
+      "header": "Page Not Found",
+      "text": "The page you are looking for doesn't exist or an other error occurred.",
+      "link": {
+        "back": "Go back",
+        "headOver": "or head over to",
+        "mainPage": "main page",
+        "direction": "to choose a new direction"
+      }
+    }
   },
   "navigation": {
     "ideas": "Ideas",
@@ -27,6 +37,7 @@
     "text2": "Although we are on our early stage, you can start validating your ideas first!"
   },
   "joinus": {
+    "addHeader": "Create",
     "header": "Welcome aboard!",
     "text": "Sign up or login to create your awesome startup or join developing others!",
     "shortText": "Validate idea",
@@ -88,6 +99,10 @@
       "authors": "Authors"
     },
     "survey": {
+      "create": {
+        "header": "Questions to your prospective customers",
+        "text": "Here you will be able to ask questions and learn more about your prospective customers."
+      },
       "header": "Poll",
       "question": "Question",
       "results": "Results",
@@ -98,12 +113,23 @@
       "few": "comments",
       "many": "comments"
     },
+    "new": {
+      "header": "Idea",
+      "text": "By making sure there’s real demand for what you’re planning to do, you can find out about any problems and fix them before you’ve wasted too much time, effort and money."
+    },
+    "collaborator": {
+      "header": "Add collaborator (co-author)"
+    },
     "view": {
       "placeholder": {
         "title": "No name",
         "story": "No story",
         "problem": "No problem"
       }
+    },
+    "notFound": {
+      "header": "Idea does not exist or you do not have permissions to view it.",
+      "text": "Sorry, but we did not find the idea you are looking for."
     }
   },
   "bookmark": {

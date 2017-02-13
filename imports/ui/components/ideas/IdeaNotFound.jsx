@@ -9,8 +9,8 @@ export default class IdeaNotFound extends Component {
       <div className="container main">
         <div className="card white row-border">
           <div className="content">
-            <h3>Идеи не существует или у Вас нет прав доступа.</h3>
-            <p>Извините, но мы не нашли идею, которую Вы искали.</p>
+            <h3><T>ideas.notFound.header</T></h3>
+            <p><T>ideas.notFound.text</T></p>
           </div>
         </div>
       </div>
