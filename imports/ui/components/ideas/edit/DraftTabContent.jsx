@@ -25,9 +25,9 @@ export default class DraftTabContent extends Component {
     return (
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
-          <h4>Tip: Dapibus nec</h4>
+          <h4>Tip: Черновой вариант</h4>
           <p>Начните с описания идеи в свободной форме. Обязательно пригласите друзей, которые помогут вам с кристализацией идеи. В результате вы получите информацию необходимую для заполнения
-            следующих блоков. Для удобства редактирования рекомендуем использовать FullScreen Mode <i className="fa fa-window-maximize"></i>.
+            следующих блоков.{/*  Для удобства редактирования рекомендуем использовать FullScreen Mode <i className="fa fa-window-maximize"></i>. */}
           </p>
           {/* <ul className="controls right">
               <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>

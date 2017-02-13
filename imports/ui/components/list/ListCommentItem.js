@@ -44,13 +44,12 @@ export default class ListCommentItem extends Component {
   }
   renderEditRemoveLinks() {
     return (
-      <span>
+      <span className="comment-control">
+        <a onClick={this.remove} href="#!" title="Удалить"><i className="fa fa-trash"></i></a>
         &middot;
         {!this.state.edit ?
-          <a onClick={this.startEdit} href="#!" title="Редактировать">Редактировать</a> :
-          <a onClick={this.confirmEdit} href="#!" title="Сохранить изменения">Сохранить</a>}
-        &middot;
-        <a onClick={this.remove} href="#!" title="Удалить">Удалить</a>
+          <a onClick={this.startEdit} href="#!" title="Редактировать"><i className="fa fa-pencil"></i></a> :
+          <a onClick={this.confirmEdit} href="#!" title="Сохранить изменения"><i className="fa fa-check-square"></i></a>}
       </span>
     );
   }

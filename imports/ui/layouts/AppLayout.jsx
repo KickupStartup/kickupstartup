@@ -106,7 +106,7 @@ class App extends Component {
         </div>
         <div id="createidea" className="modal bottom-sheet">
           <div className="modal-content">
-            <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
+            <a href="#!" className="modal-action modal-close default right"><i className="fa fa-remove fa-lg"></i></a>
             <h3>{Meteor.userId() ? 'Добавить' : <T>joinus.header</T>}</h3>
             {Meteor.userId() ? this.renderCreateIdeaLink() : this.renderLoginLink()}
           </div>
