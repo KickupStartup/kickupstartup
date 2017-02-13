@@ -25,15 +25,14 @@ export default class DraftTabContent extends Component {
     return (
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
-          <h4>Черновой вариант</h4>
-          <p>Начните с описания идеи в свободной форме. Обязательно пригласите друзей, которые помогут вам с кристализацией идеи. В результате вы получите информацию необходимую для заполнения
-            следующих блоков.</p>
+          <h4><T>ideas.tabs.draft.alert.header</T></h4>
+          <p><T>ideas.tabs.draft.alert.text</T></p>
         </div>
         <div className="white card row-border clearfix">
           <LiveEditor
             onChange={this.handleDraftChange}
             value={this.props.idea.draft}
-            placeholder="Write your idea" />
+            placeholder={i18n.__('ideas.tabs.draft.placeholder')} />
         </div>
         <ListDivider />
       </div>

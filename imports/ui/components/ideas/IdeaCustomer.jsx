@@ -84,7 +84,7 @@ export default class IdeaProblem extends Component {
     return (
       <div className="card white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Чью проблему Вы хотите решить?</h3>
+          <h3 className="modal-title"><T>ideas.customers.header</T></h3>
         </div>
         <div className="modal-body">
           {/* <div className="input-field">
@@ -104,7 +104,7 @@ export default class IdeaProblem extends Component {
                 <option value="12">Other</option>
               </select>
           </div> */}
-          <h4>Choose Your Target Market</h4>
+          <h4><T>ideas.customers.sections.market</T></h4>
           <div className="col s12">
             <input type="checkbox" id="id1" />
             <label htmlFor="id1">Arts, Entertainment and Hobbies</label>
@@ -154,7 +154,7 @@ export default class IdeaProblem extends Component {
             <label htmlFor="id12">Other</label>
           </div>
           <br />
-          <h4>Geography</h4>
+          <h4><T>ideas.customers.sections.geography</T></h4>
           <div className="col s12">
             <input type="checkbox" id="Africa" />
             <label htmlFor="Africa">Africa</label>
@@ -176,7 +176,7 @@ export default class IdeaProblem extends Component {
             <label htmlFor="Europe">Europe</label>
           </div>
           <br />
-          <h4>Gender</h4>
+          <h4><T>ideas.customers.sections.gender</T></h4>
           <div className="col s12">
             <input type="checkbox" id="Female" />
             <label htmlFor="Female">Female</label>
@@ -186,7 +186,7 @@ export default class IdeaProblem extends Component {
             <label htmlFor="Male">Male</label>
           </div>
           <br />
-          <h4>Demographic</h4>
+          <h4><T>ideas.customers.sections.demographic</T></h4>
           <div className="col s12">
             <input type="checkbox" id="Children" />
             <label htmlFor="Children">Children</label>
