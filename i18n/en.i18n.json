@@ -181,6 +181,14 @@
         "problem": "No problem"
       }
     },
+    "edit": {
+      "title": {
+        "placeholder": "Your awesome idea title"
+      },
+      "preview": "Preview",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
     "notFound": {
       "header": "Idea does not exist or you do not have permissions to view it.",
       "text": "Sorry, but we did not find the idea you are looking for."
