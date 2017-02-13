@@ -29,14 +29,13 @@ export default class IdeaAskForReview extends Component {
     return (
       <div className="white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Время проверить свои предположения</h3>
+          <h3 className="modal-title">Общий доступ к идее закрыт.</h3>
         </div>
         <div className="modal-body">
-          <p>После того, как Вы нажмете кнопку, остальные члены сообщества смогут оставить отзыв об идее.</p>
           <div className="col s12 text-center">
             <a onClick={this.publishIdea} href="#!" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
               <span className="fa fa-eye"></span>
-              <span>Опубликовать идею</span>
+              <span>Открыть идею для всех</span>
             </a>
           </div>
         </div>
@@ -46,14 +45,13 @@ export default class IdeaAskForReview extends Component {
     return (
       <div className="white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Ваша идея общедоступна</h3>
+          <h3 className="modal-title">Идея общедоступна.</h3>
         </div>
         <div className="modal-body">
-          <p>Вы можете снять публикацию, чтобы внести необходимые изменения.</p>
           <div className="col s12 text-center">
             <a onClick={this.unpublishIdea} href="#!" className="activator waves-effect waves-light orange accent-3 btn btn-margin">
               <span className="fa fa-eye-slash"></span>
-              <span>Снять публикацию</span>
+              <span>Закрыть доступ для всех</span>
             </a>
           </div>
         </div>
