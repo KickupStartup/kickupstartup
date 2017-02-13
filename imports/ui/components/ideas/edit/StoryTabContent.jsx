@@ -10,7 +10,7 @@ export default class StoryTabContent extends Component {
   constructor(props) {
     super(props);
     this.handleStoryChange = this.handleStoryChange.bind(this);
-    this.handleStoryChange = _.debounce(this.handleStoryChange, 3000);
+    this.handleStoryChange = _.debounce(this.handleStoryChange, 2000);
   }
   handleStoryChange(story) {
     const idea = this.props.idea;
