@@ -28,7 +28,7 @@ export default class TopBar extends Component {
         <div className="col s2">
           <ul className="fullpage_nav nav navbar-nav right">
             <li>
-              <button onClick={this.openLoginModal} className="waves-effect waves-light green btn login-btn"><i className="fa fa-user-circle"></i>Войти</button>
+              <button onClick={this.openLoginModal} className="waves-effect waves-light green btn login-btn"><i className="fa fa-user-circle"></i><T>navigation.login</T></button>
             </li>
           </ul>
         </div>

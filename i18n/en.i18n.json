@@ -6,7 +6,8 @@
     "ideas": "Ideas",
     "following": "Bookmarks",
     "yours": "Yours",
-    "people": "People"
+    "people": "People",
+    "login": "Login"
   },
   "landing": {
     "description": "A community based Startup Foundry",
@@ -27,7 +28,9 @@
   },
   "joinus": {
     "header": "Welcome aboard!",
-    "text": "Sign up or login to create your awesome startup or join developing others!"
+    "text": "Sign up or login to create your awesome startup or join developing others!",
+    "shortText": "Validate idea",
+    "signupRequest": "In order to validate your idea, please, login with: "
   },
   "list": {
     "empty": {
@@ -68,6 +71,7 @@
     }
   },
   "ideas": {
+    "underDevelopment": "Under development",
     "tabs": {
       "draft": "Draft",
       "problem": "Problem",
@@ -93,6 +97,13 @@
       "single": "comment",
       "few": "comments",
       "many": "comments"
+    },
+    "view": {
+      "placeholder": {
+        "title": "No name",
+        "story": "No story",
+        "problem": "No problem"
+      }
     }
   },
   "bookmark": {
@@ -109,6 +120,9 @@
     "tweetCheckbox": "Tweet it",
     "submitButton": "Submit",
     "no": "no",
+    "remove": "Remove",
+    "edit": "Edit",
+    "saveChanges": "Save changes",
     "placeholder": {
       "title": "Title, hashtags or mentions. Max 72 characters",
       "message": "Add a comment..."

@@ -6,7 +6,6 @@ const T = i18n.createComponent();
 export default class ListEmpty extends Component {
   constructor(props) {
     super(props);
-
     this.handleButtonClick = this.handleButtonClick.bind(this);
   }
   handleButtonClick(event) {

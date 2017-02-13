@@ -26,7 +26,8 @@ export default class ReadOnlyEditor extends React.Component {
        editorState={this.state.editorState}
        onChange={()=>{}}
        blockButtons={[]}
-       inlineButtons={[]} placeholder="no text specified" />
+       inlineButtons={[]}
+       placeholder={this.props.placeholder} />
     );
   }
 }

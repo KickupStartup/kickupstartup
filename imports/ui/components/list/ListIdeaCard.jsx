@@ -46,7 +46,7 @@ export default class ListIdeaCard extends Component {
     const author = this.props.author;
     return (
     <div>
-      {this.props.author.userId !== Meteor.userId() ? <BookmarkIdeaLink
+      {this.props.idea.isAuthor(Meteor.userId()) ? <BookmarkIdeaLink
         bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
         ideaId={this.props.idea._id}/> : ''}
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
@@ -57,12 +57,11 @@ export default class ListIdeaCard extends Component {
           <ul className="stat"><li>{this.renderNumberOfComments()} {this.renderNumberOfCommentsText()}</li>{this.renderLastCommentTime()}</ul>
         </div>
         <div className="modal-body">
-          <p></p>
-          <b><T>ideas.header.problem</T></b>
-          <ReadOnlyEditor value={this.props.idea.problem} />
-          <br />
           <b><T>ideas.header.story</T></b>
-          <ReadOnlyEditor value={this.props.idea.story} />
+          <ReadOnlyEditor value={this.props.idea.story} placeholder={i18n.__('ideas.view.placeholder.story')} />
+          <br />
+          <b><T>ideas.header.problem</T></b>
+          <ReadOnlyEditor value={this.props.idea.problem} placeholder={i18n.__('ideas.view.placeholder.problem')} />
         </div>
       </div>
       <ListDivider border={true}/>
