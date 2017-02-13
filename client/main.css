@@ -3943,7 +3943,7 @@ a{color:#ff9100;
   .btn i{font-size:1em}
   .btn .fa,a .fa,.btn-large .fa{margin-right:8px}
 .switch{font-size:1.5rem} /* for proper position */
-.switch label{font-size:1rem}
+.switch label{font-size:1rem;margin:0 8px}
 .switch label input[type=checkbox]:checked + .lever{background-color:#818181}
 .switch label input[type=checkbox]:checked + .lever:after{background-color:#f1f1f1}
 .green:hover{background-color:#5eb762!important}

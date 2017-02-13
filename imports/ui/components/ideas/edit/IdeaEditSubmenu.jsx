@@ -107,7 +107,7 @@ export default class IdeaEditSubmenu extends Component {
         <div className="col s6">
           {this.props.authored ?
             <div className="switch right">
-              <label>Unpublish<input type="checkbox" onClick={this.changeView} /><span className="lever"></span>Publish</label>
+              <label>Unpublished<input type="checkbox" onClick={this.changeView} /><span className="lever"></span>Published</label>
             </div> : ''}
         </div>
       </div>
