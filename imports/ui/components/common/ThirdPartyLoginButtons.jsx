@@ -27,7 +27,7 @@ export default class ThirdPartyLoginButtons extends Component {
   }
   render () {
     return (
-      <div className="card-footer clearfix pull-right">
+      <div className="card-footer clearfix right">
         <a href="#!" onClick={this.loginWithGoogle.bind(this)} className="ticket-btn">
           <i className="fa fa-google-plus fa-lg" title="Google+"></i>Google+
         </a>
