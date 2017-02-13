@@ -21,17 +21,15 @@ export default class StoryTabContent extends Component {
           <h4>Время проверить свои предположения.</h4>
           <p>После того, как Вы откроете доступ, любой человек в интернете сможет просмотреть Вашу идею, а зарегистрированные пользователи смогут оставить свой отзыв.</p>
           <p>В любой момент Вы сможете закрыть общий доступ к своей идее.</p>
-          {/* <ul className="controls right">
-              <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
-              <li><span>3 of 5</span></li>
-              <li><a href="#!"><i className="fa fa-chevron-circle-right"></i></a></li>
-          </ul> */}
         </div>
         {/* <IdeaCustomer idea={this.props.idea} />
         <ListDivider border={true} />
         <IdeaCreatePoll idea={this.props.idea} />
         <ListDivider border={true} /> */}
         <IdeaAskForReview idea={this.props.idea} />
+        <ListDivider border={true} />
+        <IdeaCreatePoll idea={this.props.idea} />
+        {/* <ListDivider border={true} /> */}
         {/* <LiveEditor
           onChange={this.handleStoryChange}
           value={this.props.idea.story}

@@ -32,12 +32,12 @@ export default class IdeaComposeSurveyQuestions extends Component {
   render () {
     return (
       <div className="card white row-border clearfix">
-        <i className="fa fa-lock card-top-icon right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
+        <span className="orange-text right">В разработке <i className="fa fa-wrench"></i></span>
         <div className="modal-header">
           <h3 className="modal-title">Вопросы для читателей</h3>
         </div>
         <div className="modal-body">
-          <p>Что бы Вы хотели узнать о Ваших потенциальных клиентах или о том, что они думают о Вашей идее?</p>
+          <p>Здесь у Вас будет возможность задать вопросы и больше узнать о Ваших потенциальных клиентах.</p>
         </div>
       </div>
     )
