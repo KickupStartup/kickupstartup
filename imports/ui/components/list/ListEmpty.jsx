@@ -14,7 +14,7 @@ export default class ListEmpty extends Component {
   renderButton() {
     return (
       <button type="submit" onClick={this.handleButtonClick} className="waves-effect waves-light orange btn">
-        <span className="fa fa-check-circle"></span>{this.props.buttonText}
+        <span className="fa fa-lightbulb-o"></span>{this.props.buttonText}
       </button>
     );
   }
