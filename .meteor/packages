@@ -41,6 +41,7 @@ meteorhacks:inject-initial
 check@1.2.4
 audit-argument-checks
 force-ssl
+browser-policy
 
 # app common
 universe:i18n
