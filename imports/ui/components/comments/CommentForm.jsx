@@ -25,21 +25,11 @@ export default class CommentForm extends Component {
     if(error) {
       console.log("error", error);
     }
-    if(result) {
-      console.log(result);
-    }
+    if(result) {}
   }
   render () {
     return (
       <form role="form">
-        {/* <div className="form-horizontal">
-          <div className="form-group clearfix">
-            <div className="input-field">
-              <input type="text" placeholder={i18n.__('comment.placeholder.title')}/>
-              <span className="character-counter counter"></span>
-            </div>
-          </div>
-        </div> */}
         <div className="form-group clearfix">
           <div className="input-field">
             <textarea className="materialize-textarea"
@@ -51,10 +41,6 @@ export default class CommentForm extends Component {
           </div>
         </div>
         <div className="form-group clearfix">
-          {/* <div className="tweet pull-left">
-            <input type="checkbox" className="filled-in orange"/>
-            <label htmlFor="filled-in-box"><T>comment.tweetCheckbox</T></label>
-          </div> */}
           <div className="right">
             <button onClick={this.handleSubmit} disabled={!this.state.message} type="submit" className="waves-effect waves-light btn btn-flat">
               <span className="fa fa-paper-plane"></span>

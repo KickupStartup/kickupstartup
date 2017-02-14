@@ -9,7 +9,9 @@ import ListEnd from '../../components/list/ListEnd';
 
 import BookmarkIdeaLink from '../../components/ideas/BookmarkIdeaLink';
 import IdeaView from '../../components/ideas/IdeaView';
+import IdeaInviteCollaborator from '../../components/ideas/IdeaInviteCollaborator';
 import IdeaPoll from '../../components/ideas/IdeaPoll';
+import IdeaAskForReview from '../../components/ideas/IdeaAskForReview';
 import IdeaNotFound from '../../components/ideas/IdeaNotFound';
 import Comments from '../../components/comments/Comments';
 
@@ -69,11 +71,15 @@ export default class IdeaPage extends Component {
             </div> :
             <div className="container main without-tabs">
               <IdeaView idea={this.props.idea} author={this.props.author} profile={this.props.profile} />
-              {this.props.idea.status > 0 ? <ListDivider border={true} /> : '' }
-              {/* <IdeaPoll idea={this.props.idea} />
-              <ListDivider border={true} /> */}
-              {this.props.idea.status > 0 ? <Comments idea={this.props.idea} comments={this.props.comments} /> : ''}
-              {this.props.idea.status > 0 ? <ListEnd/> : ''}
+              <ListDivider border={true}/>
+              <IdeaInviteCollaborator idea={this.props.idea} />
+              <ListDivider border={true} />
+              <IdeaAskForReview idea={this.props.idea} />
+              <ListDivider border={true} />
+              <IdeaPoll idea={this.props.idea} />
+              <ListDivider border={true} />
+              <Comments idea={this.props.idea} comments={this.props.comments} />
+              <ListEnd/>
             </div>
           }
         </div>

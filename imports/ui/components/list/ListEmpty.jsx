@@ -6,7 +6,6 @@ const T = i18n.createComponent();
 export default class ListEmpty extends Component {
   constructor(props) {
     super(props);
-
     this.handleButtonClick = this.handleButtonClick.bind(this);
   }
   handleButtonClick(event) {
@@ -15,7 +14,7 @@ export default class ListEmpty extends Component {
   renderButton() {
     return (
       <button type="submit" onClick={this.handleButtonClick} className="waves-effect waves-light orange btn">
-        <span className="fa fa-check-circle"></span>{this.props.buttonText}
+        <span className="fa fa-lightbulb-o"></span>{this.props.buttonText}
       </button>
     );
   }

@@ -25,21 +25,17 @@ export default class StoryTabContent extends Component {
     return (
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
-          <h4>Расскажите историю</h4>
-          {/* <p>“Хорошая история куда важнее, чем сухая статистика пресс-релиза, голословная самореклама или скучная самодовольная презентация.”</p> */}
-          <p>История должна быть личной, иллюстративной и укреплять веру в Вас и то, что Вы делаете.</p>
+          <h4><T>ideas.tabs.story.alert.header</T></h4>
+          <p><T>ideas.tabs.story.alert.text</T></p>
         </div>
         <div className="white card row-border clearfix">
           <div className="banner banner-edit banner-editor"></div>
           <LiveEditor
             onChange={this.handleStoryChange}
             value={this.props.idea.story}
-            placeholder="Write your story" />
+            placeholder={i18n.__('ideas.tabs.story.placeholder')} />
         </div>
         <ListDivider />
-        {/* <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
-        <div className="col s6 right"><a href="#story" className="go-next">Define a Problem</a></div>
-        <ListDivider /> */}
       </div>
     )
   }

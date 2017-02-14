@@ -21,12 +21,13 @@ export default class ReadOnlyEditor extends React.Component {
   render() {
     return (
       <Editor
-        sideButtons={[]}
-        editorEnabled={false}
-        editorState={this.state.editorState}
-        onChange={()=>{}}
-        blockButtons={[]}
-        inlineButtons={[]} placeholder="No text yet." />
+       sideButtons={[]}
+       editorEnabled={false}
+       editorState={this.state.editorState}
+       onChange={()=>{}}
+       blockButtons={[]}
+       inlineButtons={[]}
+       placeholder={this.props.placeholder} />
     );
   }
 }

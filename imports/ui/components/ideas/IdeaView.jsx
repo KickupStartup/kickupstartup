@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
+
 import ReadOnlyEditor from '../common/ReadOnlyEditor';
+import ListDivider from '../../components/list/ListDivider';
 
 export default class IdeaView extends Component {
   constructor(props) {
@@ -11,19 +13,15 @@ export default class IdeaView extends Component {
   render () {
     return (
       <div className="white row-border clearfix">
-        <div className="content text-center clearfix">
-          добавить баннер с аватаром
-        </div>
         <div className="modal-header">
-          <h3 className="modal-title">{this.props.idea.name ? this.props.idea.name : "Untitled"}</h3>
-          <p>Автор: {this.props.author.fullName}</p>
+          <h3 className="modal-title">{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}</h3>
+          <p><T>ideas.header.authors</T>: {this.props.author.fullName}</p>
         </div>
         <div className="modal-body">
-          <b><T>ideas.header.problem</T></b>
-          <ReadOnlyEditor value={this.props.idea.problem} />
-          <br />
           <b><T>ideas.header.story</T></b>
-          <ReadOnlyEditor value={this.props.idea.story} />
+          <ReadOnlyEditor value={this.props.idea.story} placeholder={i18n.__('ideas.view.placeholder.story')} />
+          <b><T>ideas.header.problem</T></b>
+          <ReadOnlyEditor value={this.props.idea.problem} placeholder={i18n.__('ideas.view.placeholder.problem')} />
         </div>
       </div>
     )

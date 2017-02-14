@@ -1,15 +1,23 @@
 {
   "app": {
-    "header": "Kick Up Startup"
-  },
-  "layout": {
-    "backButton": "Back"
+    "header": "Kick Up Startup",
+    "notFoundPage": {
+      "header": "Page Not Found",
+      "text": "The page you are looking for doesn't exist or an other error occurred.",
+      "link": {
+        "back": "Go back",
+        "headOver": "or head over to",
+        "mainPage": "main page",
+        "direction": "to choose a new direction"
+      }
+    }
   },
   "navigation": {
     "ideas": "Ideas",
     "following": "Bookmarks",
     "yours": "Yours",
-    "people": "People"
+    "people": "People",
+    "login": "Login"
   },
   "landing": {
     "description": "A community based Startup Foundry",
@@ -29,24 +37,11 @@
     "text2": "Although we are on our early stage, you can start validating your ideas first!"
   },
   "joinus": {
+    "addHeader": "Create",
     "header": "Welcome aboard!",
-    "text": "Sign up or login to create your awesome startup or join developing others!"
-  },
-  "startComment": {
-    "header": "Start to comment!",
-    "text": "Please login to be able to comment."
-  },
-  "idea": {
-    "header": "Come up with an idea",
-    "submit_button": "Submit"
-  },
-  "bookmark": {
-    "title": {
-      "add": "Add bookmark",
-      "added": "Bookmark added",
-      "remove": "Remove bookmark",
-      "removed": "Bookmark removed"
-    }
+    "text": "Sign up or login to create your awesome startup or join developing others!",
+    "shortText": "Validate idea",
+    "signupRequest": "In order to validate your idea, please, login with: "
   },
   "list": {
     "empty": {
@@ -57,7 +52,7 @@
       },
       "bookmarked": {
         "header": "You do not have bookmarks yet",
-        "text": "In order to bookmark idea, please click this icon ",
+        "text": "In order to bookmark an idea, please click this icon ",
         "buttonText": ""
       },
       "yours": {
@@ -87,24 +82,132 @@
     }
   },
   "ideas": {
+    "underDevelopment": "Under development",
+    "publish": {
+      "header": {
+        "open": "Idea is public.",
+        "close": "Idea is private."
+      },
+      "text": {
+        "open": "В любой момент Вы сможете закрыть общий доступ к своей идее.",
+        "close": "После того, как Вы откроете доступ, любой человек в интернете сможет просмотреть Вашу идею, а зарегистрированные пользователи смогут оставить свой отзыв."
+      },
+      "button": {
+        "open": "Close public access to this idea",
+        "close": "Open public access to this idea"
+      }
+    },
+    "customers": {
+      "header": "Who is your customer?",
+      "sections": {
+        "market": "Choose Your Target Market",
+        "gender": "Gender",
+        "demographic": "Demographic",
+        "geographic": "Geography"
+      }
+    },
     "tabs": {
-      "draft": "Draft",
-      "problem": "Problem",
-      "solution": "Solution",
-      "story": "Story",
-      "validation": "Validation",
+      "draft": {
+        "name": "Draft",
+        "placeholder": "Write your idea",
+        "alert": {
+          "header": "Черновой вариант",
+          "text": "Начните с описания идеи в свободной форме. Обязательно пригласите друзей, которые помогут вам с кристализацией идеи. В результате вы получите информацию необходимую для заполнения следующих блоков."
+        }
+      },
+      "story": {
+        "name": "Story",
+        "placeholder": "Write your story",
+        "alert": {
+          "header": "Расскажите историю",
+          "text": "История должна быть личной, иллюстративной и укреплять веру в Вас и то, что Вы делаете."
+        }
+      },
+      "problem": {
+        "name": "Problem",
+        "placeholder": "Describe a problem worth solving",
+        "alert": {
+          "header": "Problem worth solving",
+          "text": "“Расскажите, какие потребности вы готовы удовлетворить. Читатели должны поверить в то, что ваш продукт может им помочь. Не забывайте: вы должны предлагать решение реально существующей проблемы, а не придумывать проблему, под которую подошло бы ваше решение. Если цель вашего продукта — не удовлетворить потребность, но позволить человеку делать то, чего он раньше не мог, нарисуйте картину «дивного нового мира», в котором вот-вот начнут жить ваши покупатели.” Гай Кавасаки. “Стартап по Кавасаки. Проверенные методы начала любого дела.”"
+        }
+      },
+      "solution": {
+        "name": "Solution",
+        "placeholder": "Write a problem-solution essay",
+        "alert": {
+          "header": "Суть предложения",
+          "text": "“Объясните в деталях, как именно собираетесь удовлетворять насущную потребность, опишите свою главную цель. Аудитория должна четко понимать, что именно вы продаете и как это работает.” Гай Кавасаки. “Стартап по Кавасаки. Проверенные методы начала любого дела.”"
+        }
+      },
+      "validation": {
+        "name": "Validation",
+        "alert": {
+          "header": "Время проверить свои предположения. (в разработке)",
+          "text": "Чтобы собирать отзывы уже на ранней стадии написания идеи:",
+          "text1": "1. Пригласите Ваших друзей и знакомых в качестве соавторов идеи.",
+          "text2": "2. Попросите оставить отзывы (комментарии) у знакомых, не делая их при этом соавторами и не открывая общий доступ к идее для всех.",
+          "text3": "В активной фазе проверки предположений напишите вопросы, которые хотели бы задать потенциальным клиентам и:",
+          "text4": "1. Откройте общий доступ к идее (опубликовать в общем списке идей). Идея будет доступна для всех пользователей интернета по ссылке.",
+          "text5": "2. Укажите целевой рынок для Вашего продукта или сервиса и запросите отзывы у зарегистрированных на ресурсе людей, подходящих под описание (соответствующие интересы, возраст, место жительства, индустрия). Этот способ самый действенный из всех."
+        }
+      },
       "preview": "Preview"
     },
     "header": {
       "draft": "Everything that has ever been created was first created in someone’s mind.",
       "title": "Idea name",
       "story": "Story",
-      "problem": "Problem"
+      "problem": "Problem",
+      "authors": "Authors"
+    },
+    "survey": {
+      "create": {
+        "header": "Questions to your prospective customers",
+        "text": "Here you will be able to ask questions and learn more about your prospective customers."
+      },
+      "header": "Poll",
+      "question": "Question",
+      "results": "Results",
+      "button": "Submit"
     },
     "comments": {
       "single": "comment",
       "few": "comments",
       "many": "comments"
+    },
+    "new": {
+      "header": "Idea",
+      "text": "By making sure there’s real demand for what you’re planning to do, you can find out about any problems and fix them before you’ve wasted too much time, effort and money."
+    },
+    "collaborator": {
+      "header": "Add collaborator (co-author)"
+    },
+    "view": {
+      "placeholder": {
+        "title": "No name",
+        "story": "No story",
+        "problem": "No problem"
+      }
+    },
+    "edit": {
+      "title": {
+        "placeholder": "Your awesome idea title"
+      },
+      "preview": "Preview",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "notFound": {
+      "header": "Idea does not exist or you do not have permissions to view it.",
+      "text": "Sorry, but we did not find the idea you are looking for."
+    }
+  },
+  "bookmark": {
+    "title": {
+      "add": "Add bookmark",
+      "added": "Bookmark added",
+      "remove": "Remove bookmark",
+      "removed": "Bookmark removed"
     }
   },
   "comment": {
@@ -113,9 +216,16 @@
     "tweetCheckbox": "Tweet it",
     "submitButton": "Submit",
     "no": "no",
+    "remove": "Remove",
+    "edit": "Edit",
+    "saveChanges": "Save changes",
     "placeholder": {
       "title": "Title, hashtags or mentions. Max 72 characters",
       "message": "Add a comment..."
+    },
+    "login": {
+      "header": "Start to comment!",
+      "text": "Please login to be able to comment."
     }
   }
 }
