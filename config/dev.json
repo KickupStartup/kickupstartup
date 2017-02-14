@@ -6,10 +6,6 @@
       "Amplitude": {"apiKey": "a8d93ee9287ef5ede13d4d6dd1b3a368"}
     }
   },
-  "PrerenderIO": {
-    "serviceUrl": "http://localhost:3000/",
-    "token": "N372vzwLWB8Duz43k1Fe"
-  },
   "github": {
     "clientId": "6526ce11ed931b6125e8",
     "secret": "8268cd0aacea96d9a13adc4b5912c24d376b38ee",
