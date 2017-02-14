@@ -29,15 +29,6 @@ export default class DraftTabContent extends Component {
           <h4><T>ideas.tabs.draft.alert.header</T></h4>
           <p><T>ideas.tabs.draft.alert.text</T></p>
         </div>
-        <div className="chip">
-          <img src="../img/banner-avatar.jpg" alt="Piter Black" />
-          Piter Black <a href="#!" className="default"><i className="fa fa-remove fa-lg"></i></a>
-        </div>
-        <div className="chip">
-          <img src="../img/no-photo.png" alt="Victor S." />
-          Victor S. <a href="#!" className="default"><i className="fa fa-remove fa-lg"></i></a>
-        </div>
-        <ListDivider border={true}/>
         <div className="white card row-border clearfix">
           <i className="fa fa-lock fa-sm card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
           <h3>Наброски</h3>
