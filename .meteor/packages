@@ -45,6 +45,7 @@ email@1.1.18
 meteorhacks:unblock
 check@1.2.4
 underscore@1.0.10
+force-ssl
 
 # tests
 practicalmeteor:mocha
