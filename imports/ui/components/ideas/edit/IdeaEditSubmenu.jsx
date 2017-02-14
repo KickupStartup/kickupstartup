@@ -75,7 +75,7 @@ export default class IdeaEditSubmenu extends Component {
             <span className="fa fa-trash fa-lg"></span>
           </a>
           <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
-            <span className="fa fa-check-circle"></span><T>ideas.edit.preview</T>
+            <span className="fa fa-eye"></span><T>ideas.edit.preview</T>
           </button>
         </div>
       </div>
