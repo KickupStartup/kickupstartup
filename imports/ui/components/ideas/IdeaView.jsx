@@ -20,8 +20,12 @@ export default class IdeaView extends Component {
         <div className="modal-body">
           <b><T>ideas.header.story</T></b>
           <ReadOnlyEditor value={this.props.idea.story} placeholder={i18n.__('ideas.view.placeholder.story')} />
+          <br />
           <b><T>ideas.header.problem</T></b>
           <ReadOnlyEditor value={this.props.idea.problem} placeholder={i18n.__('ideas.view.placeholder.problem')} />
+          <br />
+          <b><T>ideas.header.solution</T></b>
+          <ReadOnlyEditor value={this.props.idea.solution} placeholder={i18n.__('ideas.view.placeholder.solution')} />
         </div>
       </div>
     )
