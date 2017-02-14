@@ -50,6 +50,7 @@ rzymek:moment-locale-ru
 email@1.1.18
 meteorhacks:unblock
 underscore@1.0.10
+okgrow:analytics
 
 # tests
 practicalmeteor:mocha
