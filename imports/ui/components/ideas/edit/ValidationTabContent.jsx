@@ -22,11 +22,12 @@ export default class StoryTabContent extends Component {
           <p><T>ideas.tabs.validation.alert.text</T></p>
           <p><T>ideas.tabs.validation.alert.text2</T></p>
         </div>
-        {/* <IdeaCustomer idea={this.props.idea} /> */}
         <IdeaAskForReview idea={this.props.idea} />
         <ListDivider border={true} />
         <IdeaCreatePoll idea={this.props.idea} />
         <ListDivider />
+        <IdeaCustomer idea={this.props.idea} />
+        <ListDivider border={true} />
       </div>
     )
   }

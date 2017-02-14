@@ -4,6 +4,8 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
+import UnderDevelopmentIcon from '../common/UnderDevelopmentIcon';
+
 export default class IdeaProblem extends Component {
   constructor(props) {
     super(props);
@@ -83,6 +85,7 @@ export default class IdeaProblem extends Component {
     $('select').material_select();
     return (
       <div className="card white row-border clearfix">
+        <UnderDevelopmentIcon/>
         <div className="modal-header">
           <h3 className="modal-title"><T>ideas.customers.header</T></h3>
         </div>
@@ -154,7 +157,7 @@ export default class IdeaProblem extends Component {
             <label htmlFor="id12">Other</label>
           </div>
           <br />
-          <h4><T>ideas.customers.sections.geography</T></h4>
+          <h4><T>ideas.customers.sections.geographic</T></h4>
           <div className="col s12">
             <input type="checkbox" id="Africa" />
             <label htmlFor="Africa">Africa</label>
