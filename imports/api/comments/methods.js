@@ -59,8 +59,7 @@ Meteor.methods({
     comment.message = message;
     comment.save();
   },
-  // comment can be removed by author of the idea where it is leaved
-  // or by comment's author
+  // comment can be removed by comment's author
   'comment.remove': function(commentId) {
     check(commentId, String);
     const comment = getValidatedComment(this.userId, commentId);

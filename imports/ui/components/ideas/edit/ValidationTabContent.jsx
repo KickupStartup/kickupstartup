@@ -18,28 +18,20 @@ export default class StoryTabContent extends Component {
     return (
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
-          <h4>Время проверить свои предположения.</h4>
-          <p>После того, как Вы откроете доступ, любой человек в интернете сможет просмотреть Вашу идею, а зарегистрированные пользователи смогут оставить свой отзыв.</p>
-          <p>В любой момент Вы сможете закрыть общий доступ к своей идее.</p>
-          {/* <ul className="controls right">
-              <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
-              <li><span>3 of 5</span></li>
-              <li><a href="#!"><i className="fa fa-chevron-circle-right"></i></a></li>
-          </ul> */}
+          <h4><T>ideas.tabs.validation.alert.header</T></h4>
+          <p><T>ideas.tabs.validation.alert.text</T></p>
+          <p><T>ideas.tabs.validation.alert.text1</T></p>
+          <p><T>ideas.tabs.validation.alert.text2</T></p>
+          <p><T>ideas.tabs.validation.alert.text3</T></p>
+          <p><T>ideas.tabs.validation.alert.text4</T></p>
+          <p><T>ideas.tabs.validation.alert.text5</T></p>
         </div>
-        {/* <IdeaCustomer idea={this.props.idea} />
+        <IdeaAskForReview idea={this.props.idea} />
         <ListDivider border={true} />
         <IdeaCreatePoll idea={this.props.idea} />
-        <ListDivider border={true} /> */}
-        <IdeaAskForReview idea={this.props.idea} />
-        {/* <LiveEditor
-          onChange={this.handleStoryChange}
-          value={this.props.idea.story}
-        placeholder="Write your story..." /> */}
         <ListDivider />
-        {/* <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
-        <div className="col s6 right"><a href="#story" className="go-next">Preview</a></div>
-        <ListDivider /> */}
+        <IdeaCustomer idea={this.props.idea} />
+        <ListDivider border={true} />
       </div>
     )
   }

@@ -38,7 +38,9 @@ export default class ProfileForm extends Component {
           <form>
             <div className="">
               <div className="banner" style={bannerImage}></div>
-              <div className="avatar-photo editable"><a href="#"><Avatar name={this.props.profile.fullName} textSizeRatio={1.9} round={true} size={104} /></a></div>
+              <div className="avatar-photo editable">
+                <a href="#"><Avatar name={this.props.profile.fullName} textSizeRatio={1.9} round={true} size={104} /></a>
+              </div>
             </div>
             <div className="row">
               <div className="col s6">

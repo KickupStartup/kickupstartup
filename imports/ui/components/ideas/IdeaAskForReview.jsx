@@ -29,13 +29,14 @@ export default class IdeaAskForReview extends Component {
     return (
       <div className="white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Общий доступ к идее закрыт.</h3>
+          <h3 className="modal-title"><T>ideas.publish.header.close</T></h3>
         </div>
         <div className="modal-body">
-          <div className="col s12 text-center">
-            <a onClick={this.publishIdea} href="#!" className="activator waves-effect waves-light orange btn btn-margin">
+          <p><T>ideas.publish.text.close</T></p>
+          <div className="col s12 right">
+            <a onClick={this.publishIdea} href="#!" className="activator waves-effect waves-light orange-text btn-flat btn-margin">
               <span className="fa fa-eye"></span>
-              <span>Открыть идею для всех</span>
+              <span><T>ideas.publish.button.close</T></span>
             </a>
           </div>
         </div>
@@ -45,13 +46,14 @@ export default class IdeaAskForReview extends Component {
     return (
       <div className="white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Идея общедоступна.</h3>
+          <h3 className="modal-title"><T>ideas.publish.header.open</T></h3>
         </div>
         <div className="modal-body">
-          <div className="col s12 text-center">
-            <a onClick={this.unpublishIdea} href="#!" className="activator waves-effect waves-light orange btn btn-margin">
+          <p><T>ideas.publish.text.open</T></p>
+          <div className="col s12 right">
+            <a onClick={this.unpublishIdea} href="#!" className="activator waves-effect waves-light orange-text btn-flat btn-margin">
               <span className="fa fa-eye-slash"></span>
-              <span>Закрыть доступ для всех</span>
+              <span><T>ideas.publish.button.open</T></span>
             </a>
           </div>
         </div>
