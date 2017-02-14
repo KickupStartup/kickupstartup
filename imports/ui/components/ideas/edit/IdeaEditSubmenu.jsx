@@ -7,6 +7,7 @@ const T = i18n.createComponent();
 
 import ReactInput from '../../common/ReactInput';
 import BookmarkIdeaLink from '../BookmarkIdeaLink';
+import UnderDevelopmentIcon from '../../common/UnderDevelopmentIcon';
 
 export default class IdeaEditSubmenu extends Component {
   constructor(props) {
@@ -122,7 +123,7 @@ export default class IdeaEditSubmenu extends Component {
         <li className={this.tabActiveClass(1)}><a href="#story" data-tabindex="1" onClick={this.switchTab}><T>ideas.tabs.story.name</T></a></li>
         <li className={this.tabActiveClass(2)}><a href="#problem" data-tabindex="2" onClick={this.switchTab}><T>ideas.tabs.problem.name</T></a></li>
         <li className={this.tabActiveClass(3)}><a href="#solution" data-tabindex="3" onClick={this.switchTab}><T>ideas.tabs.solution.name</T></a></li>
-        <li className={this.tabActiveClass(4)}><a href="#validation" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation.name</T></a></li>
+        <li className={this.tabActiveClass(4)}><a href="#validation" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation.name</T> <UnderDevelopmentIcon iconOnly={true}/></a></li>
       </ul>
     );
   }

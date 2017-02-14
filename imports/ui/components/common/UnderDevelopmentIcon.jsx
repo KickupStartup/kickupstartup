@@ -6,7 +6,7 @@ const T = i18n.createComponent();
 export default class UnderDevelopmentIcon extends Component {
   render () {
     return (
-      <span className="orange-text right"><T>ideas.underDevelopment</T> <i className="fa fa-wrench"></i></span>
+      <span className="orange-text right">{!this.props.iconOnly ? <T>ideas.underDevelopment</T> : ''} <i className="fa fa-wrench"></i></span>
     )
   }
 }
