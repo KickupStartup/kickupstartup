@@ -37,15 +37,18 @@ slam310:smooth-scroll
 settinghead:auto-nprogress
 meteorhacks:inject-initial
 
+# security
+check@1.2.4
+audit-argument-checks
+force-ssl
+
 # app common
 universe:i18n
 momentjs:moment
 rzymek:moment-locale-ru
 email@1.1.18
 meteorhacks:unblock
-check@1.2.4
 underscore@1.0.10
-force-ssl
 
 # tests
 practicalmeteor:mocha
