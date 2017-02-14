@@ -1,5 +1,6 @@
 import './accounts';
 import './browserPolicy';
+import './prerenderio';
 import './serviceConfiguration';
 import './publications';
 
