@@ -1,10 +1,13 @@
 import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
+
 import Idea from '../Idea';
 import Person from '../../people/Person';
 import Comment from '../../comments/Comment';
 
 if (Meteor.isServer) {
   Meteor.publishComposite('idea.single', function(ideaId) {
+    check(ideaId, String);
     const userId = this.userId;
     return {
       find: function() {

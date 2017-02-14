@@ -1,4 +1,5 @@
 import './accounts';
+import './browserPolicy';
 import './serviceConfiguration';
 import './publications';
 
