@@ -33,8 +33,8 @@ export default class IdeaAskForReview extends Component {
         </div>
         <div className="modal-body">
           <p><T>ideas.publish.text.close</T></p>
-          <div className="col s12 text-center">
-            <a onClick={this.publishIdea} href="#!" className="activator waves-effect waves-light orange btn btn-margin">
+          <div className="col s12 right">
+            <a onClick={this.publishIdea} href="#!" className="activator waves-effect waves-light orange-text btn-flat btn-margin">
               <span className="fa fa-eye"></span>
               <span><T>ideas.publish.button.close</T></span>
             </a>
@@ -50,8 +50,8 @@ export default class IdeaAskForReview extends Component {
         </div>
         <div className="modal-body">
           <p><T>ideas.publish.text.open</T></p>
-          <div className="col s12 text-center">
-            <a onClick={this.unpublishIdea} href="#!" className="activator waves-effect waves-light orange btn btn-margin">
+          <div className="col s12 right">
+            <a onClick={this.unpublishIdea} href="#!" className="activator waves-effect waves-light orange-text btn-flat btn-margin">
               <span className="fa fa-eye-slash"></span>
               <span><T>ideas.publish.button.open</T></span>
             </a>
