@@ -5,6 +5,7 @@ const T = i18n.createComponent();
 
 import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
+import IdeaInviteCollaborator from '../../../components/ideas/IdeaInviteCollaborator';
 
 export default class DraftTabContent extends Component {
   constructor(props) {
@@ -34,6 +35,8 @@ export default class DraftTabContent extends Component {
             value={this.props.idea.draft}
             placeholder={i18n.__('ideas.tabs.draft.placeholder')} />
         </div>
+        <ListDivider border={true} />
+        <IdeaInviteCollaborator idea={this.props.idea} />
         <ListDivider />
       </div>
     )
