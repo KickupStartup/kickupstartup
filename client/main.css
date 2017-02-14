@@ -548,6 +548,8 @@ dd {
     .no-submenu .main{padding-top:74px}
 .idea_title .input-field,.idea_title input{margin:0;margin-top:-5px}
 .idea_title input{background-color:#fff;border:1px solid #ccc;margin:6px 0;padding:8px 12px;height:auto}
+.published{padding-left:8px}
+  .published label{padding-left:24px}
 .go-back,.go-next{display:block;margin:4px 12px}
 .edit{padding:10px 14px}
   .bookmark.edit{padding:14px;font-size:1em;position:inherit;text-shadow:none} /* reset bookmark styles for tickets */
@@ -4002,6 +4004,12 @@ blockquote div{font-style:italic}
 /*.collaborators{border:1px solid #fff;margin:20px -15px 0}
   .collaborators .collection-item{border:none}*/
 .chip img{border:2px solid #fff}
+.dropdown-content{top:128px!important;width:auto!important}
+  .dropdown-content li > a{color:#4CAF50}
+.btn-group .part-left,.btn-group .part-right{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
+.btn-group .part-left{border-top-right-radius:0;border-bottom-right-radius:0}
+.btn-group .part-right{border-top-left-radius:0;border-bottom-left-radius:0;padding:0 12px}
+  .btn-group .part-right .fa{margin:0}
 
 .progress {
     height: 20px;

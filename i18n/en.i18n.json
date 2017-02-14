@@ -85,8 +85,8 @@
     "underDevelopment": "Under development",
     "publish": {
       "header": {
-        "open": "Idea is public.",
-        "close": "Idea is private."
+        "publish": "Publish",
+        "unpublish": "Unpublish"
       },
       "text": {
         "open": "В любой момент Вы сможете закрыть общий доступ к своей идее.",

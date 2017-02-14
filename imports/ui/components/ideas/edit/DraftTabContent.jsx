@@ -29,6 +29,8 @@ export default class DraftTabContent extends Component {
           <h4><T>ideas.tabs.draft.alert.header</T></h4>
           <p><T>ideas.tabs.draft.alert.text</T></p>
         </div>
+        <IdeaInviteCollaborator idea={this.props.idea} />
+        <ListDivider border={true} />
         <div className="white card row-border clearfix">
           <i className="fa fa-lock fa-sm card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
           <h3>Наброски</h3>
@@ -37,9 +39,6 @@ export default class DraftTabContent extends Component {
             value={this.props.idea.draft}
             placeholder={i18n.__('ideas.tabs.draft.placeholder')} />
         </div>
-        <ListDivider border={true} />
-        <IdeaInviteCollaborator idea={this.props.idea} />
-        <ListDivider />
       </div>
     )
   }

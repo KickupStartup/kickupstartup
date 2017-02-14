@@ -8,11 +8,12 @@ Meteor.startup(() => {
   // initialize smooth scroll library
   smoothScroll.init();
   $('body').addClass('page');
-  $(".loading").remove();
+  $('.loading').remove();
 
   $(document).ready(function() {
     $('select').material_select();
   });
+
 
   render(renderRoutes(), document.getElementById('react-root'));
 });
