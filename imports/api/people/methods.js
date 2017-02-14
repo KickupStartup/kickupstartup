@@ -3,32 +3,56 @@ import { check } from 'meteor/check';
 import Person from './Person';
 import People from './people';
 
+const getValidatedProfile = function(userId) {
+  if (!userId) {
+    throw new Meteor.Error('profile.update.unauthorized',
+      'Cannot update profile if unauthorized.');
+  }
+  const profile = Person.findOne({userId: userId});
+  if (!profile) {
+    throw new Meteor.Error('profile.notfound',
+      'Cannot find profile for authenticated user.');
+  }
+  return profile;
+}
+
 Meteor.methods({
-  'profile.update':function(firstName, lastName, city, country, headline, aboutMe) {
+  'profile.update.firstName':function(firstName) {
     check(firstName, String);
+    const profile = getValidatedProfile(this.userId);
+    profile.firstName = firstName;
+    profile.save();
+  },
+  'profile.update.lastName':function(lastName) {
     check(lastName, String);
+    const profile = getValidatedProfile(this.userId);
+    profile.lastName = lastName;
+    profile.save();
+  },
+  'profile.update.city':function(city) {
     check(city, String);
+    const profile = getValidatedProfile(this.userId);
+    profile.location = profile.location || {};
+    profile.location.city = city;
+    profile.save();
+  },
+  'profile.update.country':function(country) {
     check(country, String);
+    const profile = getValidatedProfile(this.userId);
+    profile.location = profile.location || {};
+    profile.location.country = country;
+    profile.save();
+  },
+  'profile.update.headline':function(headline) {
     check(headline, String);
+    const profile = getValidatedProfile(this.userId);
+    profile.headline = headline;
+    profile.save();
+  },
+  'profile.update.aboutMe':function(aboutMe) {
     check(aboutMe, String);
-
-    if (!this.userId) {
-      throw new Meteor.Error('profile.update.unauthorized',
-        'Cannot update profile if unauthorized.');
-    }
-    const profile = Person.findOne({userId: this.userId});
-
-    profile.set({
-      firstName,
-      lastName,
-      headline,
-      aboutMe
-    });
-
-    profile.location = {
-      city,
-      country
-    }
+    const profile = getValidatedProfile(this.userId);
+    profile.aboutMe = aboutMe;
     profile.save();
   },
   'person.idea.bookmark.add':function(ideaId) {

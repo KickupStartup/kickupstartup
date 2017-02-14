@@ -10,7 +10,7 @@ export default class StoryTabContent extends Component {
   constructor(props) {
     super(props);
     this.handleStoryChange = this.handleStoryChange.bind(this);
-    this.handleStoryChange = _.debounce(this.handleStoryChange, 3000);
+    this.handleStoryChange = _.debounce(this.handleStoryChange, 2000);
   }
   handleStoryChange(story) {
     const idea = this.props.idea;
@@ -25,24 +25,16 @@ export default class StoryTabContent extends Component {
     return (
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
-          <h4>Story tab help</h4>
-          <p>Story help.</p>
-          {/* <ul className="controls right">
-              <li><a href="#!"><i className="fa fa-chevron-circle-left"></i></a></li>
-              <li><span>3 of 5</span></li>
-              <li><a href="#!"><i className="fa fa-chevron-circle-right"></i></a></li>
-          </ul> */}
+          <h4><T>ideas.tabs.story.alert.header</T></h4>
+          <p><T>ideas.tabs.story.alert.text</T></p>
         </div>
         <div className="white card row-border clearfix">
           <div className="banner banner-edit banner-editor"></div>
           <LiveEditor
             onChange={this.handleStoryChange}
             value={this.props.idea.story}
-            placeholder="Write your story" />
+            placeholder={i18n.__('ideas.tabs.story.placeholder')} />
         </div>
-        <ListDivider />
-        <div className="col s6 left"><a href="#draft" className="go-back">Back</a></div>
-        <div className="col s6 right"><a href="#story" className="go-next">Define a Problem</a></div>
         <ListDivider />
       </div>
     )

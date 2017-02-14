@@ -25,13 +25,13 @@ export default class BookmarkIdeaLink extends Component {
 
     if (this.state.bookmarked) {
       this.setState({bookmarked: false, title: i18n.__('bookmark.title.add')});
-      Materialize.toast(i18n.__('bookmark.title.removed'), 4000);
+      Materialize.toast(i18n.__('bookmark.title.removed'), 2000);
       Meteor.call("person.idea.bookmark.remove", this.props.ideaId, function(error, result){
         if(error){console.log("error", error);}
         if(result){}
       });
     } else {
-      Materialize.toast(i18n.__('bookmark.title.added'), 4000);
+      Materialize.toast(i18n.__('bookmark.title.added'), 2000);
       this.setState({bookmarked: true, title: i18n.__('bookmark.title.remove')});
       Meteor.call("person.idea.bookmark.add", this.props.ideaId, function(error, result){
         if(error){console.log("error", error);}
@@ -40,18 +40,23 @@ export default class BookmarkIdeaLink extends Component {
     }
   }
   linkClasses() {
+
     let classes = classNames(
-      'bookmark', 'right', {
-        'active': this.state.bookmarked
-      });
+        'bookmark', {
+        'active': this.state.bookmarked,
+        'edit': this.props.view,
+        'right': !this.props.view
+        });
     return classes;
   }
   render () {
     if (Meteor.userId()) {
       return (
+      <span>
         <a href="#!" className={this.linkClasses()} onClick={this.handleClick}>
-          <i className="fa fa-lg fa-bookmark right" title={this.state.title}></i>
+          <i className="fa fa-lg fa-bookmark" title={this.state.title}></i>
         </a>
+      </span>
       );
     } else {
       return (<div></div>);

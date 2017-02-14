@@ -9,13 +9,27 @@ export default class TopBar extends Component {
   getProfileName() {
     return this.props.profile ? this.props.profile.fullName : '';
   }
+  openLoginModal() {
+    $('.modal').modal();
+    $('#createidea').modal('open');
+  }
   renderProfileLink() {
     if (Meteor.userId()) {
       return (
         <div className="col s2">
           <ul className="fullpage_nav nav navbar-nav right">
             <li><Link to="/profile" activeClassName="active" className="avatar-small">
-            <Avatar name={this.getProfileName()} size={50} round={true} /></Link></li>
+              <Avatar name={this.getProfileName()} size={50} round={true} /></Link></li>
+          </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div className="col s2">
+          <ul className="fullpage_nav nav navbar-nav right">
+            <li>
+              <button onClick={this.openLoginModal} className="waves-effect waves-light green btn login-btn"><i className="fa fa-user-circle"></i><T>navigation.login</T></button>
+            </li>
           </ul>
         </div>
       );

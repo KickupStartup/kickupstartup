@@ -61,12 +61,10 @@ class App extends Component {
     return (
       <div className="content modal-create modal-action modal-close" onClick={this.handleIdeaCreate}>
         <ul className="collection">
-          <li className="collection-item avatar">
+          <li className="collection-item avatar clearfix">
             <i className="fa fa-lightbulb-o circle"></i>
-            <span className="title">Идею</span>
-            <p>
-              Для создания классного стартапа необходима проверенная идея, иначе вы рискуете разработать не востребованный рынком продукт или сервис.
-            </p>
+            <span className="title"><T>ideas.new.header</T></span>
+            <p><T>ideas.new.text</T></p>
           </li>
         </ul>
       </div>
@@ -76,7 +74,7 @@ class App extends Component {
     return (
       <div className="content modal-create modal-action modal-close modal-unauthorized">
         <ul className="collection">
-          <li className="collection-item avatar">
+          <li className="collection-item avatar clearfix">
             <i className="fa fa-lightbulb-o circle"></i>
             <h3 className="title"><T>joinus.shortText</T></h3>
             <T>joinus.signupRequest</T>
@@ -96,7 +94,6 @@ class App extends Component {
       <div>
         <div className="submenu">
           <TopBar profile={this.props.profile} />
-          { Meteor.userId() ? '' : <div className="container main joinUsForm"><JoinUsForm /></div> }
           { this.props.children }
           <div className="fixed-action-btn">
             <a className="btn-floating btn-large waves-effect waves-light modal-trigger" href="#!" onClick={this.openCreateIdeaModal}>
@@ -106,8 +103,8 @@ class App extends Component {
         </div>
         <div id="createidea" className="modal bottom-sheet">
           <div className="modal-content">
-            <a href="#!" className="modal-action modal-close default pull-right"><i className="fa fa-remove fa-lg"></i></a>
-            <h3>{Meteor.userId() ? 'Добавить' : <T>joinus.header</T>}</h3>
+            <a href="#!" className="modal-action modal-close default right"><i className="fa fa-remove fa-lg"></i></a>
+            <h3>{Meteor.userId() ? <T>joinus.addHeader</T> : <T>joinus.header</T>}</h3>
             {Meteor.userId() ? this.renderCreateIdeaLink() : this.renderLoginLink()}
           </div>
         </div>

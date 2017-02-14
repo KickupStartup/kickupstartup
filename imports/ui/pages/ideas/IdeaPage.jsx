@@ -9,7 +9,9 @@ import ListEnd from '../../components/list/ListEnd';
 
 import BookmarkIdeaLink from '../../components/ideas/BookmarkIdeaLink';
 import IdeaView from '../../components/ideas/IdeaView';
+import IdeaInviteCollaborator from '../../components/ideas/IdeaInviteCollaborator';
 import IdeaPoll from '../../components/ideas/IdeaPoll';
+import IdeaAskForReview from '../../components/ideas/IdeaAskForReview';
 import IdeaNotFound from '../../components/ideas/IdeaNotFound';
 import Comments from '../../components/comments/Comments';
 
@@ -27,7 +29,6 @@ export default class IdeaPage extends Component {
   constructor(props) {
     super(props);
     this.state = { preview: false, activeTab: 0 };
-    this.renderSubmenu = this.renderSubmenu.bind(this);
     this.handleTabChange = this.handleTabChange.bind(this);
     this.handleViewChange = this.handleViewChange.bind(this);
   }
@@ -36,17 +37,6 @@ export default class IdeaPage extends Component {
   }
   handleTabChange(activeTab) {
     this.setState({activeTab: activeTab});
-  }
-  renderSubmenu(isEdit) {
-    return (
-      <IdeaEditSubmenu
-        edit={isEdit}
-        profile={this.props.profile}
-        authored={this.props.idea.userId === Meteor.userId()}
-        idea={this.props.idea}
-        onViewChanged={this.handleViewChange}
-        onTabChanged={this.handleTabChange} />
-    );
   }
   render() {
     if (this.props.loading) {
@@ -60,11 +50,17 @@ export default class IdeaPage extends Component {
         );
       }
       const isEdit = this.props.idea
-                      && this.props.idea.userId === Meteor.userId()
+                      && this.props.idea.isAuthor(Meteor.userId())
                       && !this.state.preview;
       return (
         <div>
-          {this.renderSubmenu(isEdit)}
+          <IdeaEditSubmenu
+            edit={isEdit}
+            profile={this.props.profile}
+            authored={this.props.idea.isAuthor(Meteor.userId())}
+            idea={this.props.idea}
+            onViewChanged={this.handleViewChange}
+            onTabChanged={this.handleTabChange} />
           {isEdit ?
             <div className="container main with-tabs">
               <DraftTabContent hidden={this.state.activeTab != 0 ? 'hidden' : ''} idea={this.props.idea} />
@@ -73,8 +69,12 @@ export default class IdeaPage extends Component {
               <SolutionTabContent hidden={this.state.activeTab != 3 ? 'hidden' : ''} idea={this.props.idea} />
               <ValidationTabContent hidden={this.state.activeTab != 4 ? 'hidden' : ''} idea={this.props.idea}/>
             </div> :
-            <div className="container main">
+            <div className="container main without-tabs">
               <IdeaView idea={this.props.idea} author={this.props.author} profile={this.props.profile} />
+              <ListDivider border={true}/>
+              <IdeaInviteCollaborator idea={this.props.idea} />
+              <ListDivider border={true} />
+              <IdeaAskForReview idea={this.props.idea} />
               <ListDivider border={true} />
               <IdeaPoll idea={this.props.idea} />
               <ListDivider border={true} />

@@ -6,23 +6,9 @@ const T = i18n.createComponent();
 import ListDivider from '../../components/list/ListDivider';
 
 export default class StartComment extends Component {
-  signUpWithPassword(e) {
-    e.preventDefault();
-  }
-  loginWithPassword(e) {
-    e.preventDefault();
-  }
-  loginWithGithub(e) {
-    e.preventDefault();
-    Meteor.loginWithGithub({}, this.afterLogin);
-  }
   loginWithTwitter(e) {
     e.preventDefault();
     Meteor.loginWithTwitter({}, this.afterLogin);
-  }
-  loginWithLinkedIn(e) {
-    e.preventDefault();
-    Meteor.loginWithLinkedIn({}, this.afterLogin);
   }
   loginWithGoogle(e) {
     e.preventDefault();
@@ -31,8 +17,8 @@ export default class StartComment extends Component {
   render () {
     return (
       <div>
-        <h3><T>startComment.header</T></h3>
-        <p><T>startComment.text</T></p>
+        <h3><T>comment.login.header</T></h3>
+        <p><T>comment.login.text</T></p>
         <div className="s12 card-footer text-right">
           <a href="#!" onClick={this.loginWithGoogle.bind(this)} className="ticket-btn">
             <i className="fa fa-google-plus fa-lg" title="Google+"></i>Google+

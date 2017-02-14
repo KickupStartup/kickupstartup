@@ -12,7 +12,7 @@ const getValidatedIdea = function(userId, ideaId) {
       throw new Meteor.Error('idea.notfound',
         'There is no such an idea in our database.');
     } else {
-      if (userId !== idea.userId) {
+      if (!idea.isAuthor(userId)) {
         throw new Meteor.Error('idea.unauthorized',
           'Cannot perform any action with an idea if you are not an author.');
       } else {
@@ -104,10 +104,16 @@ Meteor.methods({
   },
   'idea.publish': function(ideaId) {
     check(ideaId, String);
-
     const idea = getValidatedIdea(this.userId, ideaId);
     idea.public = true;
     idea.status = IdeaStatus.WAITING;
+    idea.save();
+  },
+  'idea.unpublish': function(ideaId) {
+    check(ideaId, String);
+    const idea = getValidatedIdea(this.userId, ideaId);
+    idea.public = false;
+    idea.status = IdeaStatus.NEW;
     idea.save();
   },
   'idea.remove': function(ideaId) {

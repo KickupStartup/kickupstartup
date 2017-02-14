@@ -1,10 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classNames from 'classnames';
+
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
+
 import ReactInput from '../../common/ReactInput';
 import BookmarkIdeaLink from '../BookmarkIdeaLink';
+import UnderDevelopmentIcon from '../../common/UnderDevelopmentIcon';
 
 export default class IdeaEditSubmenu extends Component {
   constructor(props) {
@@ -19,6 +22,7 @@ export default class IdeaEditSubmenu extends Component {
     this.renderNavigationTabs = this.renderNavigationTabs.bind(this);
     this.renderEditMenu = this.renderEditMenu.bind(this);
     this.renderViewMenu = this.renderViewMenu.bind(this);
+    this.renderViewOnlyMenu = this.renderViewOnlyMenu.bind(this);
   }
   switchTab(event) {
     event.preventDefault();
@@ -61,19 +65,28 @@ export default class IdeaEditSubmenu extends Component {
   renderEditMenu() {
     return(
       <div className="row">
-        <div className="col s6 idea_title">
+        <div className="col s12 m6 idea_title">
           <ReactInput id="ideaName"
             value={this.props.idea.name}
             onChange={this.handleNameChange}
-            placeholder="Your awesome idea title" />
+            placeholder={i18n.__('ideas.edit.title.placeholder')} />
         </div>
-        <div className="col s6">
-          <a href="#!" className="delete left" onClick={this.handleIdeaRemoveClick} title="Delete">
+        <div className="col s12 m6">
+          <a href="#!" className="delete left" onClick={this.handleIdeaRemoveClick} title={i18n.__('ideas.edit.delete')}>
             <span className="fa fa-trash fa-lg"></span>
           </a>
           <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
-            <span className="fa fa-check-circle"></span> Просмотр
+            <span className="fa fa-eye"></span><T>ideas.edit.preview</T>
           </button>
+        </div>
+      </div>
+    );
+  }
+  renderViewOnlyMenu() {
+    return(
+      <div className="row">
+        <div className="col s12 idea_title">
+          <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}</h3>
         </div>
       </div>
     );
@@ -81,18 +94,24 @@ export default class IdeaEditSubmenu extends Component {
   renderViewMenu() {
     return(
       <div className="row">
-        <div className="col s6 idea_title">
-          <h3>{this.props.idea.name}</h3>
+        <div className="col s12 m6 idea_title">
+          <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}
+            {this.props.authored ?
+              '' :
+              <BookmarkIdeaLink
+                bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
+                ideaId={this.props.idea._id}
+                view={true}/>
+            }</h3>
         </div>
-        <div className="col s6">
+        <div className="col s12 m6">
           {this.props.authored ?
-            <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
-              <span className="fa fa-check-circle"></span> Редактировать
-            </button> :
-            <BookmarkIdeaLink
-              bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
-              ideaId={this.props.idea._id}/>
-          }
+              <button type="submit" onClick={this.changeView} className="waves-effect waves-light green btn right">
+                <span className="fa fa-pencil"></span><T>ideas.edit.edit</T>
+              </button> : ''}
+             {/* <div className="switch right">
+               <label>Unpublished<input type="checkbox" onClick={this.changeView} /><span className="lever"></span>Published</label>
+             </div> */}
         </div>
       </div>
     );
@@ -100,11 +119,11 @@ export default class IdeaEditSubmenu extends Component {
   renderNavigationTabs() {
     return (
       <ul className="nav nav-tabs">
-        <li className={this.tabActiveClass(0)}><a href="#draft" data-tabindex="0" onClick={this.switchTab}><T>ideas.tabs.draft</T></a></li>
-        <li className={this.tabActiveClass(1)}><a href="#story" data-tabindex="1" onClick={this.switchTab}><T>ideas.tabs.story</T></a></li>
-        <li className={this.tabActiveClass(2)}><a href="#problem" data-tabindex="2" onClick={this.switchTab}><T>ideas.tabs.problem</T></a></li>
-        <li className={this.tabActiveClass(3)}><a href="#solution" data-tabindex="3" onClick={this.switchTab}><T>ideas.tabs.solution</T></a></li>
-        <li className={this.tabActiveClass(4)}><a href="#validation" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation</T></a></li>
+        <li className={this.tabActiveClass(0)}><a href="#draft" data-tabindex="0" onClick={this.switchTab}><T>ideas.tabs.draft.name</T></a></li>
+        <li className={this.tabActiveClass(1)}><a href="#story" data-tabindex="1" onClick={this.switchTab}><T>ideas.tabs.story.name</T></a></li>
+        <li className={this.tabActiveClass(2)}><a href="#problem" data-tabindex="2" onClick={this.switchTab}><T>ideas.tabs.problem.name</T></a></li>
+        <li className={this.tabActiveClass(3)}><a href="#solution" data-tabindex="3" onClick={this.switchTab}><T>ideas.tabs.solution.name</T></a></li>
+        <li className={this.tabActiveClass(4)}><a href="#validation" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation.name</T> <UnderDevelopmentIcon iconOnly={true}/></a></li>
       </ul>
     );
   }
@@ -112,8 +131,8 @@ export default class IdeaEditSubmenu extends Component {
     return (
       <div className="main-grey">
         <div className="container main">
-          {this.props.edit ? this.renderEditMenu() : this.renderViewMenu()}
-          {this.props.edit ? this.renderNavigationTabs() : ''}
+          {(this.props.edit && Meteor.userId()) ? this.renderEditMenu() : (!Meteor.userId() ? this.renderViewOnlyMenu() : this.renderViewMenu())}
+          {(this.props.edit && Meteor.userId()) ? this.renderNavigationTabs() : ''}
         </div>
       </div>
     )
