@@ -158,6 +158,7 @@
       "title": "Idea name",
       "story": "Story",
       "problem": "Problem",
+      "solution": "Solution",
       "authors": "Authors"
     },
     "survey": {
@@ -186,7 +187,8 @@
       "placeholder": {
         "title": "No name",
         "story": "No story",
-        "problem": "No problem"
+        "problem": "No problem",
+        "solution": "No solution"
       }
     },
     "edit": {

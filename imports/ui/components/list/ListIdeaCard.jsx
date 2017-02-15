@@ -62,6 +62,9 @@ export default class ListIdeaCard extends Component {
           <br />
           <b><T>ideas.header.problem</T></b>
           <ReadOnlyEditor value={this.props.idea.problem} placeholder={i18n.__('ideas.view.placeholder.problem')} />
+          <br />
+          <b><T>ideas.header.solution</T></b>
+          <ReadOnlyEditor value={this.props.idea.solution} placeholder={i18n.__('ideas.view.placeholder.solution')} />
         </div>
       </div>
       <ListDivider border={true}/>
