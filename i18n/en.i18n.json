@@ -83,10 +83,11 @@
   },
   "ideas": {
     "underDevelopment": "Under development",
+    "locked": "Not publicly visible",
     "publish": {
       "header": {
-        "open": "Idea is public.",
-        "close": "Idea is private."
+        "publish": "Publish",
+        "unpublish": "Unpublish"
       },
       "text": {
         "open": "В любой момент Вы сможете закрыть общий доступ к своей идее.",
@@ -140,7 +141,7 @@
         }
       },
       "validation": {
-        "name": "Validation",
+        "name": "Audience",
         "alert": {
           "header": "Время проверить свои предположения. (в разработке)",
           "text": "Чтобы собирать отзывы уже на ранней стадии написания идеи:",
