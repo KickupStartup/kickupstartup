@@ -32,6 +32,7 @@ export default class DraftTabContent extends Component {
         <IdeaInviteCollaborator idea={this.props.idea} />
         <ListDivider border={true} />
         <div className="white card row-border clearfix">
+          <div className="banner banner-edit banner-editor"></div>
           <i className="fa fa-lock fa-sm card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
           <h3>Наброски</h3>
           <LiveEditor
@@ -39,6 +40,16 @@ export default class DraftTabContent extends Component {
             value={this.props.idea.draft}
             placeholder={i18n.__('ideas.tabs.draft.placeholder')} />
         </div>
+        <ListDivider border={true} />
+        <div className="white card row-border clearfix">
+          <h3>What next?</h3>
+          <p>Если вы завершили создание набросков, вы готовы перейти к написанию истории.</p>
+          <div className="modal-bottom-link clearfix">
+            <a href="#" className="left">Back</a>
+            <a href="#" className="right">Ready to tell a story</a>
+          </div>
+        </div>
+        <ListDivider />
       </div>
     )
   }

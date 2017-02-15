@@ -12,18 +12,21 @@ export default class IdeaView extends Component {
   }
   render () {
     return (
-      <div className="white row-border clearfix">
-        <div className="modal-header">
-          <h3 className="modal-title">{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}</h3>
-          <p><T>ideas.header.authors</T>: {this.props.author.fullName}</p>
+        <div className="white row-border clearfix">
+          <div className="banner banner-edit banner-editor"></div>
+          <div className="modal-header">
+            <h3 className="modal-title">{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}</h3>
+            <p><T>ideas.header.authors</T>: {this.props.author.fullName}</p>
+          </div>
+          <div className="modal-body">
+            <b><T>ideas.header.story</T></b>
+            <ReadOnlyEditor value={this.props.idea.story} placeholder={i18n.__('ideas.view.placeholder.story')} />
+            <br />
+            <b><T>ideas.header.problem</T></b>
+            <ReadOnlyEditor value={this.props.idea.problem} placeholder={i18n.__('ideas.view.placeholder.problem')} />
+            <br />
+          </div>
         </div>
-        <div className="modal-body">
-          <b><T>ideas.header.story</T></b>
-          <ReadOnlyEditor value={this.props.idea.story} placeholder={i18n.__('ideas.view.placeholder.story')} />
-          <b><T>ideas.header.problem</T></b>
-          <ReadOnlyEditor value={this.props.idea.problem} placeholder={i18n.__('ideas.view.placeholder.problem')} />
-        </div>
-      </div>
     )
   }
 }

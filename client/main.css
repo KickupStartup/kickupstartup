@@ -3889,7 +3889,7 @@ sup.badge{display:inline-block;min-width:10px;padding:3px 7px;font-size:10px;fon
 .fixed-action-btn .fa{margin:0;line-height:26px}
 .btn-margin{margin:24px 0 12px}
 .content-no-header{margin-top:20px}
-.modal-bottom-link{margin:12px 4px}
+.modal-bottom-link{margin:12px -8px 0}
 .modal-bottom-link a{padding:8px}
     .modal-bottom-link a:hover{text-decoration:none}
 .content-form{margin:20px 12px 12px}

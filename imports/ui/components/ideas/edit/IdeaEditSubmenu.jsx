@@ -74,12 +74,11 @@ export default class IdeaEditSubmenu extends Component {
         <div className="col s12 m6">
           <div className="right">
             <div className="btn-group">
-              <button className="dropdown-button waves-effect waves-light green part-left btn" data-activates="dropdown" onClick={this.changeView}><T>ideas.edit.preview</T></button>
+              <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={this.changeView}><T>ideas.edit.preview</T></button>
               <button className="dropdown-button waves-effect waves-light green part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
               <span className="caret"></span>
               <span className="sr-only">Toggle Dropdown</span>
               <ul id="dropdown" className="dropdown-content">
-              <li><a href="#!">Edit</a></li>
                 <li><a href="#!">Add collaborators</a></li>
                 <li className="divider"></li>
                 <li><a href="#!" onClick={this.handleIdeaRemoveClick} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
@@ -112,22 +111,32 @@ export default class IdeaEditSubmenu extends Component {
         <div className="col s12 m6 idea_title">
           <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}
             {this.props.authored ?
-              <a href="#!" onClick={this.changeView} className="edit" title={i18n.__('ideas.edit.edit')}><i className="fa fa-pencil"></i></a> :
-              <BookmarkIdeaLink
-                bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
-                ideaId={this.props.idea._id}
-                view={true}/>
+              '' :
+                <BookmarkIdeaLink
+                  bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
+                  ideaId={this.props.idea._id}
+                  view={true}/>
             }</h3>
         </div>
         <div className="col s12 m6">
-          {this.props.authored ?
-            <button type="submit" className="waves-effect waves-light green btn right">
-              <span className="fa fa-cloud-upload"></span><T>ideas.publish.header.publish</T>
-            </button> :
-            <button type="submit" className="waves-effect waves-light green btn right">
-              <span className="fa fa-archive"></span><T>ideas.publish.header.unpublish</T>
-            </button>
-          }
+          <div className="right">
+            <div className="btn-group">
+              {this.props.authored ?
+                <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={this.publishIdea}><T>ideas.publish.header.publish</T></button>
+                :
+                <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={this.unpublishIdea}><T>ideas.publish.header.unpublish</T></button>
+              }
+              <button className="dropdown-button waves-effect waves-light green part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
+              <span className="caret"></span>
+              <span className="sr-only">Toggle Dropdown</span>
+              <ul id="dropdown" className="dropdown-content">
+                <li><a href="#!" onClick={this.changeView} className="edit" title={i18n.__('ideas.edit.edit')}><T>ideas.edit.edit</T></a></li>
+                <li><a href="#!">Add collaborators</a></li>
+                <li className="divider"></li>
+                <li><a href="#!" onClick={this.handleIdeaRemoveClick} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -139,7 +148,7 @@ export default class IdeaEditSubmenu extends Component {
         <li className={this.tabActiveClass(1)}><a href="#story" data-tabindex="1" onClick={this.switchTab}><T>ideas.tabs.story.name</T></a></li>
         <li className={this.tabActiveClass(2)}><a href="#problem" data-tabindex="2" onClick={this.switchTab}><T>ideas.tabs.problem.name</T></a></li>
         <li className={this.tabActiveClass(3)}><a href="#solution" data-tabindex="3" onClick={this.switchTab}><T>ideas.tabs.solution.name</T></a></li>
-        <li className={this.tabActiveClass(4)}><a href="#validation" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation.name</T> <UnderDevelopmentIcon iconOnly={true}/></a></li>
+        <li className={this.tabActiveClass(4)}><a href="#validation" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation.name</T></a></li>
       </ul>
     );
   }
