@@ -40,7 +40,6 @@ export default class BookmarkIdeaLink extends Component {
     }
   }
   linkClasses() {
-
     let classes = classNames(
         'bookmark', {
         'active': this.state.bookmarked,

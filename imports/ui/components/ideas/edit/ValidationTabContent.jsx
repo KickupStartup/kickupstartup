@@ -17,7 +17,7 @@ export default class StoryTabContent extends Component {
   render () {
     return (
       <div className={this.props.hidden}>
-        <div className="alert alert-info clearfix" role="alert">
+        {/* <div className="alert alert-info clearfix" role="alert">
           <h4><T>ideas.tabs.validation.alert.header</T></h4>
           <p><T>ideas.tabs.validation.alert.text</T></p>
           <p><T>ideas.tabs.validation.alert.text1</T></p>
@@ -25,11 +25,11 @@ export default class StoryTabContent extends Component {
           <p><T>ideas.tabs.validation.alert.text3</T></p>
           <p><T>ideas.tabs.validation.alert.text4</T></p>
           <p><T>ideas.tabs.validation.alert.text5</T></p>
-        </div>
-        <IdeaAskForReview idea={this.props.idea} />
-        <ListDivider border={true} />
-        <IdeaCreatePoll idea={this.props.idea} />
-        <ListDivider />
+          </div>
+          <IdeaAskForReview idea={this.props.idea} />
+          <ListDivider border={true} />
+          <IdeaCreatePoll idea={this.props.idea} />
+        <ListDivider />*/}
         <IdeaCustomer idea={this.props.idea} />
         <ListDivider border={true} />
       </div>

@@ -85,148 +85,110 @@ export default class IdeaProblem extends Component {
     $('select').material_select();
     return (
       <div className="card white row-border clearfix">
-        <UnderDevelopmentIcon/>
         <div className="modal-header">
           <h3 className="modal-title"><T>ideas.customers.header</T></h3>
         </div>
         <div className="modal-body">
-          {/* <div className="input-field">
-              <select ref="market" value={this.state.market} onChange={this.handleMarketChange}>
-                <option value="0" defaultValue="0" disabled>Choose Your Target Market</option>
-                <option value="1">Arts, Entertainment and Hobbies</option>
-                <option value="2">Finance and Business</option>
-                <option value="3">Clothing, Accessories and Shoes</option>
-                <option value="4">Food and Health</option>
-                <option value="5">General Consumer</option>
-                <option value="6">Science and Education</option>
-                <option value="7">Nonprofit</option>
-                <option value="8">Pets and Animals</option>
-                <option value="9">Travel and Sports</option>
-                <option value="10">Technology</option>
-                <option value="11">Home, Family and Gifts</option>
-                <option value="12">Other</option>
-              </select>
-          </div> */}
           <h4><T>ideas.customers.sections.market</T></h4>
           <div className="col s12">
-            <input type="checkbox" id="id1" />
+            <input type="checkbox" className="filled-in" id="id1" />
             <label htmlFor="id1">Arts, Entertainment and Hobbies</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id2" />
+            <input type="checkbox" className="filled-in" id="id2" />
             <label htmlFor="id2">Clothing, Accessories and Shoes</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id3" />
+            <input type="checkbox" className="filled-in" id="id3" />
             <label htmlFor="id3">Finance and Business</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id4" />
+            <input type="checkbox" className="filled-in" id="id4" />
             <label htmlFor="id4">Food and Health</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id5" />
+            <input type="checkbox" className="filled-in" id="id5" />
             <label htmlFor="id5">General Consumer</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id6" />
+            <input type="checkbox" className="filled-in" id="id6" />
             <label htmlFor="id6">Home, Family and Gifts</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id7" />
+            <input type="checkbox" className="filled-in" id="id7" />
             <label htmlFor="id7">Nonprofit</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id8" />
+            <input type="checkbox" className="filled-in" id="id8" />
             <label htmlFor="id8">Pets and Animals</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id9" />
+            <input type="checkbox" className="filled-in" id="id9" />
             <label htmlFor="id9">Science and Education</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id10" />
+            <input type="checkbox" className="filled-in" id="id10" />
             <label htmlFor="id10">Technology</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id11" />
+            <input type="checkbox" className="filled-in" id="id11" />
             <label htmlFor="id11">Travel and Sports</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="id12" />
+            <input type="checkbox" className="filled-in" id="id12" />
             <label htmlFor="id12">Other</label>
           </div>
           <br />
           <h4><T>ideas.customers.sections.geographic</T></h4>
           <div className="col s12">
-            <input type="checkbox" id="Africa" />
+            <input type="checkbox" className="filled-in" id="Africa" />
             <label htmlFor="Africa">Africa</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="America" />
+            <input type="checkbox" className="filled-in" id="America" />
             <label htmlFor="America">America</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="Asia" />
+            <input type="checkbox" className="filled-in" id="Asia" />
             <label htmlFor="Asia">Asia</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="Australia" />
+            <input type="checkbox" className="filled-in" id="Australia" />
             <label htmlFor="Australia">Australia</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="Europe" />
+            <input type="checkbox" className="filled-in" id="Europe" />
             <label htmlFor="Europe">Europe</label>
           </div>
           <br />
           <h4><T>ideas.customers.sections.gender</T></h4>
           <div className="col s12">
-            <input type="checkbox" id="Female" />
+            <input type="checkbox" className="filled-in" id="Female" />
             <label htmlFor="Female">Female</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="Male" />
+            <input type="checkbox" className="filled-in" id="Male" />
             <label htmlFor="Male">Male</label>
           </div>
           <br />
           <h4><T>ideas.customers.sections.demographic</T></h4>
           <div className="col s12">
-            <input type="checkbox" id="Children" />
+            <input type="checkbox" className="filled-in" id="Children" />
             <label htmlFor="Children">Children</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="Teens" />
+            <input type="checkbox" className="filled-in" id="Teens" />
             <label htmlFor="Teens">Teens</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="Adults" />
+            <input type="checkbox" className="filled-in" id="Adults" />
             <label htmlFor="Adults">Adults</label>
           </div>
           <div className="col s12">
-            <input type="checkbox" id="Seniors" />
+            <input type="checkbox" className="filled-in" id="Seniors" />
             <label htmlFor="Seniors">Seniors</label>
           </div>
-          {/* <select ref="gender" value={this.state.gender} onChange={this.handleGenderChange}>
-              <option value="0" defaultValue="0" disabled>Gender (any)</option>
-              <option value="1">Female</option>
-              <option value="2">Male</option>
-              </select>
-              <select ref="demographic" value={this.state.demographic} onChange={this.handleDemographicChange} multiple>
-              <option value="0" defaultValue="0" disabled>Demographic</option>
-              <option value="1">Children</option>
-              <option value="2">Teens</option>
-              <option value="3">Adults</option>
-              <option value="4">Seniors</option>
-          </select> */}
         </div>
-        {/* <div className="col s12 text-center">
-              <button onClick={this.saveAndGoNext} type="submit" className="activator waves-effect waves-light orange btn btn-margin">
-                  Сохранить
-              </button>
-              <div className="modal-bottom-link">
-                  <a href="#!" onClick={this.goNext}>Пропустить и перейти к следующему шагу</a>
-              </div>
-        </div> */}
       </div>
     )
   }
