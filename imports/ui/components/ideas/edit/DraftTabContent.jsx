@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
+import Banner from '../../../components/common/Banner';
 import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 import IdeaInviteCollaborator from '../../../components/ideas/IdeaInviteCollaborator';
@@ -32,9 +33,9 @@ export default class DraftTabContent extends Component {
         <IdeaInviteCollaborator idea={this.props.idea} />
         <ListDivider border={true} />
         <div className="white card row-border clearfix">
-          <div className="banner banner-edit banner-editor"></div>
+          <Banner />
           <i className="fa fa-lock fa-sm card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
-          <h3>Наброски</h3>
+          <h3><T>ideas.tabs.draft.name</T></h3>
           <LiveEditor
             onChange={this.handleDraftChange}
             value={this.props.idea.draft}
