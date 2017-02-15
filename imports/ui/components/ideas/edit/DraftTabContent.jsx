@@ -34,7 +34,7 @@ export default class DraftTabContent extends Component {
         <ListDivider border={true} />
         <div className="white card row-border clearfix">
           <Banner />
-          <i className="fa fa-lock fa-sm card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip="Not publicly visible"></i>
+          <i className="fa fa-lock fa-sm card-top-icon pull-right tooltipped" data-position="left" data-delay="50" data-tooltip={i18n.__('ideas.locked')}></i>
           <h3><T>ideas.tabs.draft.name</T></h3>
           <LiveEditor
             onChange={this.handleDraftChange}

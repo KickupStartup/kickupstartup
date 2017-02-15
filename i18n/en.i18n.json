@@ -83,6 +83,7 @@
   },
   "ideas": {
     "underDevelopment": "Under development",
+    "locked": "Not publicly visible",
     "publish": {
       "header": {
         "publish": "Publish",
