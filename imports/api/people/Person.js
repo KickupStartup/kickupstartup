@@ -57,6 +57,7 @@ export default Person = Class.create({
   collection: People,
   fields: {
     userId: String,
+    ideas: { type: [String], optional: true },
     username: { type: String, optional: true },
     bookmarkIdeas: { type: [String], optional: true },
     headline: { type: String, optional: true },

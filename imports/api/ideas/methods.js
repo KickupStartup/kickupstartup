@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+
 import Idea, { FormStep, IdeaStatus } from './Idea';
+import Person from '../people/Person';
 
 const getValidatedIdea = function(userId, ideaId) {
   if (!userId) {
@@ -108,6 +110,7 @@ Meteor.methods({
     idea.public = true;
     idea.status = IdeaStatus.WAITING;
     idea.save();
+    return;
   },
   'idea.unpublish': function(ideaId) {
     check(ideaId, String);
@@ -115,10 +118,56 @@ Meteor.methods({
     idea.public = false;
     idea.status = IdeaStatus.NEW;
     idea.save();
+    return;
   },
   'idea.remove': function(ideaId) {
     check(ideaId, String);
     const idea = getValidatedIdea(this.userId, ideaId);
     idea.remove();
+    return;
+  },
+  'idea.author.add': function(ideaId, authorId) {
+    check(ideaId, String);
+    check(authorId, String);
+
+    const idea = getValidatedIdea(this.userId, ideaId);
+    const author = Person.findOne({_id: authorId});
+    if (!author) {
+      throw new Meteor.Error('idea.author.notfound',
+        'There is no such a person in the database.');
+    } else {
+      // save to idea's authors
+      idea.authors = idea.authors || [];
+      idea.authors.push(authorId);
+      // save to author's ideas
+      author.ideas = author.ideas || [];
+      author.ideas.push(ideaId);
+      return;
+    }
+  },
+  'idea.author.remove': function(ideaId, authorId) {
+    check(ideaId, String);
+    check(authorId, String);
+
+    const idea = getValidatedIdea(this.userId, ideaId);
+    const author = Person.findOne({_id: authorId});
+    if (!author) {
+      throw new Meteor.Error('idea.author.notfound',
+        'There is no such a person in the database.');
+    } else {
+      // remove from idea's authors
+      if (idea.authors) {
+        if (idea.authors.indexOf(authorId) >= 0) {
+          idea.authors.splice(idea.authors.indexOf(authorId), 1);
+        }
+      }
+      // remove from person's ideas
+      if (author.ideas) {
+        if (author.ideas.indexOf(ideaId) >= 0) {
+          author.ideas.splice(author.ideas.indexOf(ideaId), 1);
+        }
+      }
+      return;
+    }
   }
 });
