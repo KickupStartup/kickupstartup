@@ -74,8 +74,8 @@ export default class IdeaPage extends Component {
               <ListDivider border={true}/>
               {/* <IdeaAskForReview idea={this.props.idea} />
               <ListDivider border={true} /> */}
-              <IdeaPoll idea={this.props.idea} />
-              <ListDivider border={true} />
+              {/* <IdeaPoll idea={this.props.idea} />
+              <ListDivider border={true} /> */}
               <Comments idea={this.props.idea} comments={this.props.comments} />
               <ListEnd/>
             </div>
