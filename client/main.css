@@ -135,7 +135,7 @@ html.welcome body{min-height:100%;
   position: fixed;
   right: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 4030;
 }
 .navbar-brand {
   color:#555555;
@@ -542,8 +542,8 @@ dd {
 .back .fa{margin-right:8px}
     .submenu .back{background-color:#f9f9f9;padding-top:24px!important;position:fixed;top:70px;z-index:4}
     .submenu .main{padding-top:86px}
-    .submenu .with-tabs{padding-top:216px}
-    .submenu .without-tabs{padding-top:160px}
+    .submenu .with-tabs{padding-top:210px}
+    .submenu .without-tabs{padding-top:156px}
     .no-submenu .back{display:none}
     .no-submenu .main{padding-top:74px}
 .idea_title .input-field,.idea_title input{margin:0;margin-top:-5px}
@@ -554,6 +554,8 @@ dd {
 .edit{padding:10px 14px}
   .bookmark.edit{padding:14px;font-size:1em;position:inherit;text-shadow:none} /* reset bookmark styles for tickets */
 .delete{padding:10px 20px}
+.modal-btn{margin-left:8px!important}
+  .modal-btn .fa{position:relative;top:-1px}
 @media (min-width: 768px) {
     .page .main-padding{padding-top:22px}
     .page .main.inner{padding-top:140px}
@@ -3013,7 +3015,6 @@ fieldset[disabled] a.btn {
 }
 .navbar-fixed-top {
   top: 0;
-  z-index: 10;
 }
 .navbar-fixed-top .active a{
   color: #fff;
@@ -3421,6 +3422,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .banner{border:4px solid #fff;margin:-32px -40px;height:120px}
 .avatar-photo{clear:both;top:-20px;position:relative}
   .avatar-photo .sb-avatar{border-radius:50%;border:3px solid #fff;display:block;height:auto!important;width:auto!important;top:-4px;position:relative}
+.small{top:4px}
+  .small .circle{margin:0 4px}
 .avatar-small{padding:10px!important}
   .avatar-small img{border-radius:50%;box-shadow:0 0 0 3px #f2f2f2;width:50px;height:50px}
 .marging-top{margin-top:0}
@@ -3483,10 +3486,15 @@ fieldset[disabled] .navbar-default .btn-link:focus {
           transition: background-color .5s linear, border .5s ease}
 .card-reveal{}
 .editable{border-bottom:1px solid #f2f2f2;display:inline-block}
-.bookmark{color:#ccc;opacity:.65;font-size:2em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;-moz-transition:all .5s linear, border .5s ease;
+.bookmark{color:#ccc;opacity:.8;font-size:2em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;-moz-transition:all .5s linear, border .5s ease;
 -o-transition:all .5s linear, border .5s ease;
 -ms-transition:all .5s linear, border .5s ease;
 transition:all .5s linear, border .5s ease}
+span.badge{display:inline-block;color:#000;font-size:.9rem;float:initial;margin:0;padding:0;right:-31px;top:-10px;position:relative;text-align:center;min-width:32px;-moz-transition:all .5s linear, border .5s ease;
+-o-transition:all .5s linear, border .5s ease;
+-ms-transition:all .5s linear, border .5s ease;
+transition:all .5s linear, border .5s ease}
+  .active span.badge{color:#fff}
   .bookmark:hover,.bookmark.active{color:#ff9100;opacity:1;-webkit-transition: background-color .5s linear, border .5s ease;
         -moz-transition:all .5s linear, border .5s ease;
         -o-transition:all .5s linear, border .5s ease;
@@ -3496,7 +3504,7 @@ transition:all .5s linear, border .5s ease}
 .avatar-photo.editable{border-bottom:none}
   .editable.avatar-photo:hover img{box-shadow:0 0 0 1px #ccc}
   .banner-edit{background:url(../img/edit-banner.png) no-repeat!important}
-  .banner-edit:hover{box-shadow:0 0 0 1px #ccc;cursor:pointer}
+  /*.banner-edit:hover{box-shadow:0 0 0 1px #ccc;cursor:pointer}*/
 .editable:focus{border-bottom:1px solid #0072dc;color:#111;outline:none}
 .banner-editor{background:url(../img/banner-idea.jpg) no-repeat!important;margin-bottom:34px}
 .editable_checkbox{margin:4px!important;position:relative;top:1px}
@@ -3973,7 +3981,6 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
     z-index: 0;
 }
 blockquote{border-left:none;color:#aaa;margin:0 0 12px}
-.dropdown-content li > a, .dropdown-content li > span{color:#ff9100;font-size:1em}
 .bottom-sheet{margin:0 auto!important}
 .login-btn{padding:.05rem 2rem}
 @media only screen and (min-width: 960px) {
@@ -4005,7 +4012,8 @@ blockquote div{font-style:italic}
   .collaborators .collection-item{border:none}*/
 .chip img{border:2px solid #fff}
 .dropdown-content{top:128px!important;width:auto!important}
-  .dropdown-content li > a{color:#4CAF50}
+  .dropdown-content li > a{color:#ff9100}
+  .dropdown-content.dropdown-green li > a{color:#4CAF50;font-size:1em}
 .btn-group .part-left,.btn-group .part-right{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
 .btn-group .part-left{border-top-right-radius:0;border-bottom-right-radius:0}
 .btn-group .part-right{border-top-left-radius:0;border-bottom-left-radius:0;padding:0 12px}
@@ -4070,9 +4078,9 @@ blockquote div{font-style:italic}
 .main-grey {
     background-color: #f9f9f9;
     border-bottom: 1px solid #eee;
-    position: fixed;
     width: 100%;
-    z-index: 9;
+    position:fixed;
+    z-index:3000;
 }
 
 .main-grey h3{margin:8px 12px}
