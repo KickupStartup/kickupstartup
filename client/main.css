@@ -135,7 +135,7 @@ html.welcome body{min-height:100%;
   position: fixed;
   right: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 4030;
 }
 .navbar-brand {
   color:#555555;
@@ -542,8 +542,8 @@ dd {
 .back .fa{margin-right:8px}
     .submenu .back{background-color:#f9f9f9;padding-top:24px!important;position:fixed;top:70px;z-index:4}
     .submenu .main{padding-top:86px}
-    .submenu .with-tabs{padding-top:20px}
-    .submenu .without-tabs{padding-top:160px}
+    .submenu .with-tabs{padding-top:210px}
+    .submenu .without-tabs{padding-top:156px}
     .no-submenu .back{display:none}
     .no-submenu .main{padding-top:74px}
 .idea_title .input-field,.idea_title input{margin:0;margin-top:-5px}
@@ -554,6 +554,8 @@ dd {
 .edit{padding:10px 14px}
   .bookmark.edit{padding:14px;font-size:1em;position:inherit;text-shadow:none} /* reset bookmark styles for tickets */
 .delete{padding:10px 20px}
+.modal-btn{margin-left:8px!important}
+  .modal-btn .fa{position:relative;top:-1px}
 @media (min-width: 768px) {
     .page .main-padding{padding-top:22px}
     .page .main.inner{padding-top:140px}
@@ -3013,7 +3015,6 @@ fieldset[disabled] a.btn {
 }
 .navbar-fixed-top {
   top: 0;
-  z-index: 10;
 }
 .navbar-fixed-top .active a{
   color: #fff;
@@ -4078,7 +4079,8 @@ blockquote div{font-style:italic}
     background-color: #f9f9f9;
     border-bottom: 1px solid #eee;
     width: 100%;
-    z-index: 9;
+    position:fixed;
+    z-index:3000;
 }
 
 .main-grey h3{margin:8px 12px}

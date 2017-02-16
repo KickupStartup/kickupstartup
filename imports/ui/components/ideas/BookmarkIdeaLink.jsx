@@ -53,7 +53,7 @@ export default class BookmarkIdeaLink extends Component {
       return (
       <span>
         <a href="#!" className={this.linkClasses()} onClick={this.handleClick}>
-          <span className="badge">12</span><i className="fa fa-lg fa-bookmark" title={this.state.title}></i>
+          <i className="fa fa-lg fa-bookmark" title={this.state.title}></i>
         </a>
       </span>
       );
