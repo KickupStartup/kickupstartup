@@ -23,7 +23,7 @@ export default class IdeaAuthorButtonGroup extends Component {
     }); /* initialize */
     $('.dropdown-button').dropdown('open');
   }
-  publishIdea() {
+  publishIdea(event) {
     Meteor.call("idea.publish", this.props.idea._id, function(error, result){
       if(error){
         console.log("error", error);
@@ -31,7 +31,7 @@ export default class IdeaAuthorButtonGroup extends Component {
       if(result){}
     });
   }
-  unpublishIdea() {
+  unpublishIdea(event) {
     Meteor.call("idea.unpublish", this.props.idea._id, function(error, result){
       if(error){
         console.log("error", error);

@@ -7,7 +7,6 @@ import ListLoading from '../../components/list/ListLoading';
 import ListDivider from '../../components/list/ListDivider';
 import ListEnd from '../../components/list/ListEnd';
 
-import BookmarkIdeaLink from '../../components/ideas/BookmarkIdeaLink';
 import IdeaView from '../../components/ideas/IdeaView';
 import IdeaPoll from '../../components/ideas/IdeaPoll';
 import IdeaAskForReview from '../../components/ideas/IdeaAskForReview';
@@ -27,7 +26,7 @@ import { FormStep } from '../../../api/ideas/Idea';
 export default class IdeaPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { preview: false, activeTab: 0 };
+    this.state = { preview: false, activeTab: 0, initialized: false };
     this.handleTabChange = this.handleTabChange.bind(this);
     this.handleViewChange = this.handleViewChange.bind(this);
   }
@@ -36,6 +35,11 @@ export default class IdeaPage extends Component {
   }
   handleTabChange(activeTab) {
     this.setState({activeTab: activeTab});
+  }
+  componentDidUpdate() {
+    if (!this.props.loading && !this.state.initialized) {
+      this.setState({preview: this.props.idea.isPublic(), initialized: true});
+    }
   }
   render() {
     if (this.props.loading) {
@@ -48,6 +52,7 @@ export default class IdeaPage extends Component {
           <IdeaNotFound />
         );
       }
+
       const isEdit = this.props.idea
                       && this.props.idea.isAuthor(Meteor.userId())
                       && !this.state.preview;
