@@ -7,6 +7,7 @@ const T = i18n.createComponent();
 
 import ReactInput from '../../common/ReactInput';
 import BookmarkIdeaLink from '../BookmarkIdeaLink';
+import IdeaAuthorButtonGroup from './IdeaAuthorButtonGroup';
 import UnderDevelopmentIcon from '../../common/UnderDevelopmentIcon';
 
 export default class IdeaEditSubmenu extends Component {
@@ -17,12 +18,8 @@ export default class IdeaEditSubmenu extends Component {
     }
     this.switchTab = this.switchTab.bind(this);
     this.changeView = this.changeView.bind(this);
-    this.handleIdeaRemoveClick = this.handleIdeaRemoveClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.renderNavigationTabs = this.renderNavigationTabs.bind(this);
-    this.renderEditMenu = this.renderEditMenu.bind(this);
-    this.renderViewMenu = this.renderViewMenu.bind(this);
-    this.renderViewOnlyMenu = this.renderViewOnlyMenu.bind(this);
   }
   switchTab(event) {
     event.preventDefault();
@@ -46,100 +43,11 @@ export default class IdeaEditSubmenu extends Component {
       if(result) {}
     });
   }
-  handleIdeaRemoveClick(event) {
-    event.preventDefault();
-    Meteor.call("idea.remove", this.props.idea._id, function(error, result){
-      if(error){
-        console.log("error", error);
-      }
-      if(result){}
-    });
-    this.context.router.push('/ideas/yours');
-  }
   tabActiveClass(active) {
     let classes = classNames({
       'active': this.state.activeTab == active,
     });
     return classes;
-  }
-  renderEditMenu() {
-    return(
-      <div className="row">
-        <div className="col s12 m6 idea_title">
-          <ReactInput id="ideaName"
-            value={this.props.idea.name}
-            onChange={this.handleNameChange}
-            placeholder={i18n.__('ideas.edit.title.placeholder')} />
-        </div>
-        <div className="col s12 m6">
-          <div className="right">
-            <div className="btn-group">
-              <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={this.changeView}><T>ideas.edit.preview</T></button>
-              <button className="dropdown-button waves-effect waves-light green part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
-              <span className="caret"></span>
-              <span className="sr-only">Toggle Dropdown</span>
-              <ul id="dropdown" className="dropdown-content">
-                <li><a href="#!">Add collaborators</a></li>
-                <li className="divider"></li>
-                <li><a href="#!" onClick={this.handleIdeaRemoveClick} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-  renderViewOnlyMenu() {
-    return(
-      <div className="row">
-        <div className="col s12 idea_title">
-          <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}</h3>
-        </div>
-      </div>
-    );
-  }
-  clickDropdown(event){
-    event.preventDefault();
-    $('.dropdown-button').dropdown({
-      alignment: 'right'
-    }); /* initialize */
-    $('.dropdown-button').dropdown('open');
-  }
-  renderViewMenu() {
-    return(
-      <div className="row">
-        <div className="col s12 m6 idea_title">
-          <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}
-            {this.props.authored ?
-              '' :
-                <BookmarkIdeaLink
-                  bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
-                  ideaId={this.props.idea._id}
-                  view={true}/>
-            }</h3>
-        </div>
-        <div className="col s12 m6">
-          <div className="right">
-            <div className="btn-group">
-              {this.props.authored ?
-                <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={this.publishIdea}><T>ideas.publish.header.publish</T></button>
-                :
-                <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={this.unpublishIdea}><T>ideas.publish.header.unpublish</T></button>
-              }
-              <button className="dropdown-button waves-effect waves-light green part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
-              <span className="caret"></span>
-              <span className="sr-only">Toggle Dropdown</span>
-              <ul id="dropdown" className="dropdown-content">
-                <li><a href="#!" onClick={this.changeView} className="edit" title={i18n.__('ideas.edit.edit')}><T>ideas.edit.edit</T></a></li>
-                <li><a href="#!">Add collaborators</a></li>
-                <li className="divider"></li>
-                <li><a href="#!" onClick={this.handleIdeaRemoveClick} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
   }
   renderNavigationTabs() {
     return (
@@ -153,10 +61,30 @@ export default class IdeaEditSubmenu extends Component {
     );
   }
   render () {
+    const userId = Meteor.userId();
     return (
       <div className="main-grey">
         <div className="container main">
-          {(this.props.edit && Meteor.userId()) ? this.renderEditMenu() : (!Meteor.userId() ? this.renderViewOnlyMenu() : this.renderViewMenu())}
+          <div className="row">
+            <div className="col s12 m6 idea_title">
+              {(this.props.edit && userId) ?
+                <ReactInput id="ideaName"
+                  value={this.props.idea.name}
+                  onChange={this.handleNameChange}
+                  placeholder={i18n.__('ideas.edit.title.placeholder')} /> :
+                  <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}
+                    {this.props.authored ? '' :
+                      <BookmarkIdeaLink
+                        bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
+                        ideaId={this.props.idea._id}
+                        view={true}/>}
+                  </h3>}
+            </div>
+            {this.props.authored && userId ?
+            <div className="col s12 m6">
+              <IdeaAuthorButtonGroup edit={this.props.edit} idea={this.props.idea} onViewChanged={this.changeView} />
+            </div> : ''}
+          </div>
           {(this.props.edit && Meteor.userId()) ? this.renderNavigationTabs() : ''}
         </div>
       </div>

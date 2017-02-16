@@ -14,10 +14,22 @@ Accounts.onCreateUser(function(options, user){
   });
 
   let mail = {};
-  let text = user.services.google || user.services.twitter || user.services.github || user.services.linkedin || 'не смогли определить сервис при помощи которого зарегистрировался пользователь';
+  const errorMessage = 'не смогли определить сервис при помощи которого зарегистрировался пользователь';
+  let text = user.services.google ||
+            user.services.twitter ||
+            user.services.github ||
+            user.services.linkedin ||
+            errorMessage;
 
+  if (text !== errorMessage) {
+    text = JSON.stringify(text, {indent: true});
+  }
   mail.text = text.toString();
-  mail.to = 'info@kickupstartup.com';
+  mail.to = ['vh@kickupstartup.com',
+    'aa@kickupstartup.com',
+    'v.hatalski@gmail.com',
+    'a.a@tutanota.com'
+  ];
   mail.subject = 'зарегистрировался новый пользователь';
 
   Meteor.call("sendEmail", mail, function(error, result){
