@@ -19,22 +19,22 @@ export default class LandingPage extends Component {
         <div className="col s12">
           <SwitchLocaleLinks classNames="languages" linkClassNames="" />
           <p className="heading_pre">
-              <T>landing.description</T>
+            <T>landing.description</T>
           </p>
           <h1 className="heading">
-              <T>landing.name.begin</T> <span className="text-primary"><T>landing.name.middle</T></span> <T>landing.name.end</T>
+            <T>landing.name.begin</T> <span className="text-primary"><T>landing.name.middle</T></span> <T>landing.name.end</T>
           </h1>
           <h3 className="heading_sub">
-              <T>landing.motto</T>
+            <T>landing.motto</T>
           </h3>
           <div className="row">
-              <blockquote className="col s12">
-                <h3 className="text-center">“<T>landing.quote.text</T>”</h3>
-                <span className="right"><T>landing.quote.author</T></span>
-              </blockquote>
-              <div className="col s12 text-center">
-                <p><T>landing.aboutUs</T></p>
-                <p><T>landing.text2</T></p>
+            <blockquote className="col s12">
+              <h3 className="text-center">“<T>landing.quote.text</T>”</h3>
+              <span className="right"><T>landing.quote.author</T></span>
+            </blockquote>
+            <div className="col s12 text-center">
+              <p><T>landing.aboutUs</T></p>
+              <p><T>landing.text2</T></p>
               </div>
           </div>
           <div className="row">

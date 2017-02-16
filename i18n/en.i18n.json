@@ -198,6 +198,7 @@
       },
       "preview": "Preview",
       "edit": "Edit",
+      "collaborators": "Add collaborators",
       "delete": "Delete"
     },
     "notFound": {
