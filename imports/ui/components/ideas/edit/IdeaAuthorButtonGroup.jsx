@@ -7,6 +7,7 @@ import Banner from '../../../components/common/Banner';
 import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 import IdeaInviteCollaborator from '../../../components/ideas/IdeaInviteCollaborator';
+import MaterialModal from '../../../components/common/MaterialModal';
 
 export default class IdeaAuthorButtonGroup extends Component {
   constructor(props) {
@@ -107,21 +108,12 @@ export default class IdeaAuthorButtonGroup extends Component {
             }
               </div>
         }
-        <div id="removeIdea" className="modal bottom-sheet">
-          <div className="modal-content">
-            <a href="#!" className="modal-action modal-close default right"><i className="fa fa-remove fa-lg"></i></a>
-            <h3><T>ideas.remove.header</T></h3>
-            <div className="content modal-create modal-action modal-close" onClick={this.handleIdeaRemoveClick}>
-              <ul className="collection">
-                <li className="collection-item avatar clearfix">
-                  <i className="fa fa-lightbulb-o circle"></i>
-                  <span className="title"><T>ideas.remove.header</T></span>
-                  <p><T>ideas.remove.text</T></p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <MaterialModal
+          onClick={this.handleIdeaRemoveClick}
+          id="removeIdea"
+          header={i18n.__('ideas.remove.header')}
+          linkHeader={i18n.__('ideas.remove.header')}
+          linkText={i18n.__('ideas.remove.text')} />
         <div id="addCoauthor" className="modal bottom-sheet">
           <div className="modal-content">
             <a href="#!" className="modal-action modal-close default right"><i className="fa fa-remove fa-lg"></i></a>
