@@ -3484,6 +3484,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
           -o-transition: background-color .5s linear, border .5s ease;
           -ms-transition: background-color .5s linear, border .5s ease;
           transition: background-color .5s linear, border .5s ease}
+.pointer.sb-avatar:hover{border:3px solid #ff9100}
 .card-reveal{}
 .editable{border-bottom:1px solid #f2f2f2;display:inline-block}
 .bookmark{color:#ccc;opacity:.8;font-size:2em;line-height:0;height:0;position:relative;right:8px;top:16px;text-shadow:0 0 8px #000;-moz-transition:all .5s linear, border .5s ease;
@@ -4001,6 +4002,8 @@ blockquote{border-left:none;color:#aaa;margin:0 0 12px}
 /* material update END */
 .alert{padding:12px 24px 4px;margin:0 0 20px;border-radius:4px}
 .alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1}
+  .alert-info a{color:#245269;font-weight:bold}
+    .alert-info a:hover{text-decoration:underline}
 blockquote div{font-style:italic}
 .tips-blue{color:#31708f;background-color:#d9edf7!important;border-color:#bce8f1}
 .search{margin:32px 0 -20px}
