@@ -4002,6 +4002,8 @@ blockquote{border-left:none;color:#aaa;margin:0 0 12px}
 /* material update END */
 .alert{padding:12px 24px 4px;margin:0 0 20px;border-radius:4px}
 .alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1}
+  .alert-info a{color:#245269;font-weight:bold}
+    .alert-info a:hover{text-decoration:underline}
 blockquote div{font-style:italic}
 .tips-blue{color:#31708f;background-color:#d9edf7!important;border-color:#bce8f1}
 .search{margin:32px 0 -20px}
