@@ -67,12 +67,12 @@ export default class IdeaAuthorButtonGroup extends Component {
       <div className="right">
         {(this.props.edit && Meteor.userId()) ?
           <div className="btn-group">
-            <button className="dropdown-button waves-effect waves-light orange part-left btn" onClick={this.changeView}><T>ideas.edit.preview</T></button>
-            <button className="dropdown-button waves-effect waves-light orange part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
+            <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={(this.publishIdea && this.changeView)}><T>ideas.publish.header.publish</T></button>
+            <button className="dropdown-button waves-effect waves-light green part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
             <span className="caret"></span>
             <span className="sr-only">Toggle Dropdown</span>
-            <ul id="dropdown" className="dropdown-content">
-              <li><a href="#!" onClick={this.openAddCoauthorModal}>Add collaborators</a></li>
+            <ul id="dropdown" className="dropdown-content dropdown-green">
+              <li><a href="#!" onClick={this.openAddCoauthorModal}><T>ideas.edit.collaborators</T></a></li>
               <li className="divider"></li>
               <li><a href="#!" onClick={this.openRemoveIdeaModal} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
             </ul>
@@ -80,19 +80,21 @@ export default class IdeaAuthorButtonGroup extends Component {
           <div className="btn-group">
             {!this.props.idea.isPublic() ?
               <span>
+                {Materialize.toast(i18n.__('ideas.publish.status.unpublish'), 2000)}
                 <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={this.publishIdea}><T>ideas.publish.header.publish</T></button>
                 <button className="dropdown-button waves-effect waves-light green part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
                 <span className="caret"></span>
                 <span className="sr-only">Toggle Dropdown</span>
                 <ul id="dropdown" className="dropdown-content dropdown-green">
                   <li><a href="#!" onClick={this.changeView} className="edit" title={i18n.__('ideas.edit.edit')}><T>ideas.edit.edit</T></a></li>
-                  <li><a href="#!" onClick={this.openAddCoauthorModal}>Add collaborators</a></li>
+                  <li><a href="#!" onClick={this.openAddCoauthorModal}><T>ideas.edit.collaborators</T></a></li>
                   <li className="divider"></li>
                   <li><a href="#!" onClick={this.openRemoveIdeaModal} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
                 </ul>
               </span>
               :
               <span>
+                {Materialize.toast(i18n.__('ideas.publish.status.publish'), 2000)}
                 <button className="dropdown-button waves-effect waves-light orange part-left btn" onClick={this.unpublishIdea}><T>ideas.publish.header.unpublish</T></button>
                 <button className="dropdown-button waves-effect waves-light orange part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
                 <span className="caret"></span>
@@ -105,7 +107,7 @@ export default class IdeaAuthorButtonGroup extends Component {
                 </ul>
               </span>
             }
-              </div>
+          </div>
         }
         <div id="removeIdea" className="modal bottom-sheet">
           <div className="modal-content">

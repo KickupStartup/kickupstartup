@@ -28,7 +28,7 @@ export default class DraftTabContent extends Component {
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
           <h4><T>ideas.tabs.draft.alert.header</T></h4>
-          <p><T>ideas.tabs.draft.alert.text</T></p>
+          <p><T>ideas.tabs.draft.alert.text1</T><a href="#!"><T>ideas.tabs.draft.alert.text2</T></a><T>ideas.tabs.draft.alert.text3</T></p>
         </div>
         {/* <IdeaInviteCollaborator idea={this.props.idea} />
         <ListDivider border={true} /> */}
