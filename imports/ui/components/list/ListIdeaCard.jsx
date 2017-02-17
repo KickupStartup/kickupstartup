@@ -52,7 +52,7 @@ export default class ListIdeaCard extends Component {
       <div onClick={this.gotoIdeaDetails.bind(this)} className="white row-border pointer clearfix">
         <div className="content text-center clearfix">
           <div className="banner" style={customImage}></div>
-          <div className="avatar-photo"><Avatar name={author ? author.fullName : ''} textSizeRatio={1.9} round={true}/></div>
+          <div className="avatar-photo"><Avatar className="sb-avatar circle pointer" name={author ? author.fullName : ''} textSizeRatio={1.9} round={true}/></div>
           <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
           <ul className="stat"><li>{this.renderNumberOfComments()} {this.renderNumberOfCommentsText()}</li>{this.renderLastCommentTime()}</ul>
         </div>
