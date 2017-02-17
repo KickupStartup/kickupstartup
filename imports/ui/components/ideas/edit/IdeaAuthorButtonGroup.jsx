@@ -72,6 +72,7 @@ export default class IdeaAuthorButtonGroup extends Component {
             <span className="caret"></span>
             <span className="sr-only">Toggle Dropdown</span>
             <ul id="dropdown" className="dropdown-content dropdown-green">
+              <li><a href="#!" onClick={this.changeView}><T>ideas.edit.preview</T></a></li>
               <li><a href="#!" onClick={this.openAddCoauthorModal}><T>ideas.edit.collaborators</T></a></li>
               <li className="divider"></li>
               <li><a href="#!" onClick={this.openRemoveIdeaModal} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
