@@ -79,20 +79,33 @@ export default class IdeaAuthorButtonGroup extends Component {
           </div> :
           <div className="btn-group">
             {!this.props.idea.isPublic() ?
-              <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={this.publishIdea}><T>ideas.publish.header.publish</T></button>
+              <span>
+                <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={this.publishIdea}><T>ideas.publish.header.publish</T></button>
+                <button className="dropdown-button waves-effect waves-light green part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
+                <span className="caret"></span>
+                <span className="sr-only">Toggle Dropdown</span>
+                <ul id="dropdown" className="dropdown-content dropdown-green">
+                  <li><a href="#!" onClick={this.changeView} className="edit" title={i18n.__('ideas.edit.edit')}><T>ideas.edit.edit</T></a></li>
+                  <li><a href="#!" onClick={this.openAddCoauthorModal}>Add collaborators</a></li>
+                  <li className="divider"></li>
+                  <li><a href="#!" onClick={this.openRemoveIdeaModal} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
+                </ul>
+              </span>
               :
-              <button className="dropdown-button waves-effect waves-light part-left btn" onClick={this.unpublishIdea}><T>ideas.publish.header.unpublish</T></button>
+              <span>
+                <button className="dropdown-button waves-effect waves-light orange part-left btn" onClick={this.unpublishIdea}><T>ideas.publish.header.unpublish</T></button>
+                <button className="dropdown-button waves-effect waves-light orange part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
+                <span className="caret"></span>
+                <span className="sr-only">Toggle Dropdown</span>
+                <ul id="dropdown" className="dropdown-content">
+                  <li><a href="#!" onClick={this.changeView} className="edit" title={i18n.__('ideas.edit.edit')}><T>ideas.edit.edit</T></a></li>
+                  <li><a href="#!" onClick={this.openAddCoauthorModal}>Add collaborators</a></li>
+                  <li className="divider"></li>
+                  <li><a href="#!" onClick={this.openRemoveIdeaModal} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
+                </ul>
+              </span>
             }
-            <button className="dropdown-button waves-effect waves-light green part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
-            <span className="caret"></span>
-            <span className="sr-only">Toggle Dropdown</span>
-            <ul id="dropdown" className="dropdown-content dropdown-green">
-              <li><a href="#!" onClick={this.changeView} className="edit" title={i18n.__('ideas.edit.edit')}><T>ideas.edit.edit</T></a></li>
-              <li><a href="#!" onClick={this.openAddCoauthorModal}>Add collaborators</a></li>
-              <li className="divider"></li>
-              <li><a href="#!" onClick={this.openRemoveIdeaModal} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
-            </ul>
-          </div>
+              </div>
         }
         <div id="removeIdea" className="modal bottom-sheet">
           <div className="modal-content">
