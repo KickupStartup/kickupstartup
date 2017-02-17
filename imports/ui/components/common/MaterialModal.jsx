@@ -6,6 +6,9 @@ const T = i18n.createComponent();
 export default class IdeaAuthorButtonGroup extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {iconClasses: props.iconClasses || "fa fa-lightbulb-o circle"};
+
     this.handleModalActionClick = this.handleModalActionClick.bind(this);
   }
   handleModalActionClick(event) {
@@ -21,7 +24,7 @@ export default class IdeaAuthorButtonGroup extends Component {
           <div className="content modal-create modal-action modal-close" onClick={this.handleModalActionClick}>
             <ul className="collection">
               <li className="collection-item avatar clearfix">
-                <i className="fa fa-lightbulb-o circle"></i>
+                <i className={this.state.iconClasses}></i>
                 <span className="title">{this.props.linkHeader}</span>
                 <p>{this.props.linkText}</p>
               </li>

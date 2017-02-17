@@ -29,7 +29,9 @@ export default class IdeaAuthorButtonGroup extends Component {
       if(error){
         console.log("error", error);
       }
-      if(result){}
+      if(result){
+        Materialize.toast(i18n.__('ideas.publish.status.unpublish'), 2000);
+      }
     });
   }
   unpublishIdea(event) {
@@ -37,7 +39,9 @@ export default class IdeaAuthorButtonGroup extends Component {
       if(error){
         console.log("error", error);
       }
-      if(result){}
+      if(result){
+        Materialize.toast(i18n.__('ideas.publish.status.publish'), 2000);
+      }
     });
   }
   handleIdeaRemoveClick(event) {
@@ -66,70 +70,59 @@ export default class IdeaAuthorButtonGroup extends Component {
   render () {
     return (
       <div className="right">
-        {(this.props.edit && Meteor.userId()) ?
-          <div className="btn-group">
-            <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={(this.publishIdea && this.changeView)}><T>ideas.publish.header.publish</T></button>
-            <button className="dropdown-button waves-effect waves-light green part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
-            <span className="caret"></span>
-            <span className="sr-only">Toggle Dropdown</span>
-            <ul id="dropdown" className="dropdown-content dropdown-green">
-              <li><a href="#!" onClick={this.changeView}><T>ideas.edit.preview</T></a></li>
-              <li><a href="#!" onClick={this.openAddCoauthorModal}><T>ideas.edit.collaborators</T></a></li>
-              <li className="divider"></li>
-              <li><a href="#!" onClick={this.openRemoveIdeaModal} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
-            </ul>
-          </div> :
-          <div className="btn-group">
-            {!this.props.idea.isPublic() ?
-              <span>
-                {Materialize.toast(i18n.__('ideas.publish.status.unpublish'), 2000)}
-                <button className="dropdown-button waves-effect waves-light green part-left btn" onClick={this.publishIdea}><T>ideas.publish.header.publish</T></button>
-                <button className="dropdown-button waves-effect waves-light green part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
-                <span className="caret"></span>
-                <span className="sr-only">Toggle Dropdown</span>
-                <ul id="dropdown" className="dropdown-content dropdown-green">
-                  <li><a href="#!" onClick={this.changeView} className="edit" title={i18n.__('ideas.edit.edit')}><T>ideas.edit.edit</T></a></li>
-                  <li><a href="#!" onClick={this.openAddCoauthorModal}><T>ideas.edit.collaborators</T></a></li>
-                  <li className="divider"></li>
-                  <li><a href="#!" onClick={this.openRemoveIdeaModal} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
-                </ul>
-              </span>
-              :
-              <span>
-                {Materialize.toast(i18n.__('ideas.publish.status.publish'), 2000)}
-                <button className="dropdown-button waves-effect waves-light orange part-left btn" onClick={this.unpublishIdea}><T>ideas.publish.header.unpublish</T></button>
-                <button className="dropdown-button waves-effect waves-light orange part-right btn" data-activates="dropdown" onClick={this.clickDropdown}><i className="fa fa-caret-down"></i></button>
-                <span className="caret"></span>
-                <span className="sr-only">Toggle Dropdown</span>
-                <ul id="dropdown" className="dropdown-content">
-                  <li><a href="#!" onClick={this.changeView} className="edit" title={i18n.__('ideas.edit.edit')}><T>ideas.edit.edit</T></a></li>
-                  <li><a href="#!" onClick={this.openAddCoauthorModal}>Add collaborators</a></li>
-                  <li className="divider"></li>
-                  <li><a href="#!" onClick={this.openRemoveIdeaModal} title={i18n.__('ideas.edit.delete')}><T>ideas.edit.delete</T></a></li>
-                </ul>
-              </span>
-            }
-          </div>
-        }
+        <div className="btn-group">
+          {!this.props.idea.isPublic() ?
+            <button onClick={this.publishIdea} className="dropdown-button waves-effect waves-light orange part-left btn">
+              <T>ideas.publish.header.publish</T>
+            </button> :
+            <button onClick={this.unpublishIdea} className="dropdown-button waves-effect waves-light green part-left btn">
+              <T>ideas.publish.header.unpublish</T>
+            </button>}
+          <button onClick={this.clickDropdown} data-activates="authorButtonDropdown" className="dropdown-button waves-effect waves-light green part-right btn">
+            <i className="fa fa-caret-down"></i>
+          </button>
+          <span className="caret"></span>
+          <span className="sr-only">Toggle Dropdown</span>
+          <ul id="authorButtonDropdown" className="dropdown-content dropdown-green">
+            <li>
+              <a href="#!" onClick={this.changeView}>
+              {(this.props.edit && Meteor.userId()) ? <T>ideas.edit.preview</T> : <T>ideas.edit.edit</T>}
+              </a>
+            </li>
+            <li><a href="#!" onClick={this.openAddCoauthorModal}><T>ideas.edit.collaborators</T></a></li>
+            <li className="divider"></li>
+            <li><a href="#!" onClick={this.openRemoveIdeaModal}><T>ideas.edit.delete</T></a></li>
+          </ul>
+        </div>
         <MaterialModal
           onClick={this.handleIdeaRemoveClick}
           id="removeIdea"
+          iconClasses="fa fa-times circle"
           header={i18n.__('ideas.remove.header')}
           linkHeader={i18n.__('ideas.remove.header')}
           linkText={i18n.__('ideas.remove.text')} />
         <div id="addCoauthor" className="modal bottom-sheet">
           <div className="modal-content">
             <a href="#!" className="modal-action modal-close default right"><i className="fa fa-remove fa-lg"></i></a>
-            <h3><T>ideas.coauthor.header</T></h3>
-            <div className="content modal-create modal-action modal-close" onClick={this.handleIdeaRemoveClick}>
-              <ul className="collection">
-                <li className="collection-item avatar clearfix">
-                  <i className="fa fa-lightbulb-o circle"></i>
-                  <span className="title"><T>ideas.coauthor.header</T></span>
-                  <p><T>ideas.coauthor.text</T></p>
-                </li>
-              </ul>
+            <h3><T>ideas.collaborator.header</T></h3>
+            <div className="col s12">
+              <div className="input-field col s12">
+                <span className="prefix"><i className="fa fa-user-circle fa-lg"></i></span>
+                <input type="text" id="autocomplete-input" className="autocomplete"/>
+                {/* <label htmlFor="autocomplete-input"><T>ideas.collaborator.header</T></label> */}
+              </div>
+              <div className="chip">
+                <img src="../img/banner-avatar.jpg" alt="Piter Black" />
+                Piter Black <a href="#!" className="default"><i className="fa fa-remove fa-lg"></i></a>
+              </div>
+              <div className="chip">
+                <img src="../img/no-photo.png" alt="Victor S." />
+                Victor S. <a href="#!" className="default"><i className="fa fa-remove fa-lg"></i></a>
+              </div>
             </div>
+          </div>
+          <div className="modal-footer">
+            <a href="#!" className=" modal-action modal-close waves-effect waves-green btn-flat">Сохранить</a>
           </div>
         </div>
       </div>
