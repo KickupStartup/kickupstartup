@@ -37,7 +37,7 @@ export default class DraftTabContent extends Component {
         {/* <IdeaInviteCollaborator idea={this.props.idea} />
         <ListDivider border={true} /> */}
         <div className="white card row-border clearfix">
-          <Banner />
+          <Banner author={this.props.author} />
           <h3><T>ideas.tabs.draft.name</T> &middot; <T>ideas.locked</T></h3>
           <LiveEditor
             onChange={this.handleDraftChange}

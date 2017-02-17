@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
+import Banner from '../../../components/common/Banner';
 import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 
@@ -29,7 +30,7 @@ export default class StoryTabContent extends Component {
           <p><T>ideas.tabs.story.alert.text</T></p>
         </div>
         <div className="white card row-border clearfix">
-          <div className="banner banner-edit banner-editor"></div>
+          <Banner />
           <LiveEditor
             onChange={this.handleStoryChange}
             value={this.props.idea.story}
