@@ -4,6 +4,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
 import Banner from '../../../components/common/Banner';
+import PeopleAutosuggest from '../../../components/common/PeopleAutosuggest';
 import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 import IdeaInviteCollaborator from '../../../components/ideas/IdeaInviteCollaborator';
@@ -109,19 +110,7 @@ export default class IdeaAuthorButtonGroup extends Component {
             <a href="#!" className="modal-action modal-close default right"><i className="fa fa-remove fa-lg"></i></a>
             <h3><T>ideas.collaborator.header</T></h3>
             <div className="col s12">
-              <div className="input-field col s12">
-                <span className="prefix"><i className="fa fa-user-circle fa-lg"></i></span>
-                <input type="text" id="autocomplete-input" className="autocomplete"/>
-                {/* <label htmlFor="autocomplete-input"><T>ideas.collaborator.header</T></label> */}
-              </div>
-              <div className="chip">
-                <img src="../img/banner-avatar.jpg" alt="Piter Black" />
-                Piter Black <a href="#!" className="default"><i className="fa fa-remove fa-lg"></i></a>
-              </div>
-              <div className="chip">
-                <img src="../img/no-photo.png" alt="Victor S." />
-                Victor S. <a href="#!" className="default"><i className="fa fa-remove fa-lg"></i></a>
-              </div>
+              <PeopleAutosuggest />
             </div>
           </div>
           <div className="modal-footer">
