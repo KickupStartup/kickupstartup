@@ -3929,7 +3929,7 @@ a{color:#ff9100;
 /*.modal,.modal.modal-fixed-footer{height:90%;top:5%!important}*/
 .modal .content{padding:0}
 .modal .table-of-contents{position:fixed}
-.modal img{width:100%}
+/* .modal img{width:100%} */
 .modal textarea{height:auto}
 .modal .white{padding:24px 24px 12px}
 .modal .modal-footer{padding:18px 12px;text-align:right}

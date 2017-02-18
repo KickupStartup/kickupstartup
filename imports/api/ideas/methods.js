@@ -110,7 +110,7 @@ Meteor.methods({
     idea.public = true;
     idea.status = IdeaStatus.WAITING;
     idea.save();
-    return;
+    return idea;
   },
   'idea.unpublish': function(ideaId) {
     check(ideaId, String);
@@ -118,7 +118,7 @@ Meteor.methods({
     idea.public = false;
     idea.status = IdeaStatus.NEW;
     idea.save();
-    return;
+    return idea;
   },
   'idea.remove': function(ideaId) {
     check(ideaId, String);
