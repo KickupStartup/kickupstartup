@@ -29,12 +29,14 @@ export default class StoryTabContent extends Component {
           <h4><T>ideas.tabs.story.alert.header</T></h4>
           <p><T>ideas.tabs.story.alert.text</T></p>
         </div>
-        <div className="white card row-border clearfix">
-          <Banner />
-          <LiveEditor
-            onChange={this.handleStoryChange}
-            value={this.props.idea.story}
-            placeholder={i18n.__('ideas.tabs.story.placeholder')} />
+        <div className="card row-border clearfix">
+          <Banner author={this.props.author} />
+          <div className="white-card">
+            <LiveEditor
+              onChange={this.handleStoryChange}
+              value={this.props.idea.story}
+              placeholder={i18n.__('ideas.tabs.story.placeholder')} />
+          </div>
         </div>
         <ListDivider />
       </div>
