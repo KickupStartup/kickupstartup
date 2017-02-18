@@ -8,7 +8,6 @@ export default class Banner extends Component {
   }
   render() {
     const fullName = this.props.author ? this.props.author.fullName : '';
-    const test = this.props.idea ? this.props.idea : '';
     return (
         <div className="content text-center clearfix">
           <div className="banner" style={{background:'url(/img/banner-idea.jpg) center center no-repeat'}}></div>
