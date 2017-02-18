@@ -2079,6 +2079,9 @@ html {
 .main .white{background-color:#fff;padding:32px 40px 20px}
 .main .white h4{font-weight:normal}
 .main .white.cover{padding:10px}
+.main .white-card{padding:0 40px 28px}
+.main .white-card .content{padding:0}
+.main .white-card textarea{margin:0}
 .main .content{padding-bottom: 40px}
   .page .content{padding-bottom:10px}
   .page .content .btn{margin:12px 0 0}
@@ -3419,13 +3422,14 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   .navbar-fixed-top .nav > li{display: inline-block}
 }
 .sidebar__btn .fa-lg{vertical-align:0}
-.banner{border:4px solid #fff;margin:-32px -40px;height:120px}
+.banner{border:4px solid #fff;height:120px}
 .avatar-photo{clear:both;top:-20px;position:relative}
   .avatar-photo .sb-avatar{border-radius:50%;border:3px solid #fff;display:block;height:auto!important;width:auto!important;top:-4px;position:relative}
 .small{top:4px}
   .small .circle{margin:0 4px}
 .avatar-small{padding:10px!important}
   .avatar-small img{border-radius:50%;box-shadow:0 0 0 3px #f2f2f2;width:50px;height:50px}
+  .avatar-small .sb-avatar{box-shadow:0 0 0 3px #f2f2f2}
 .marging-top{margin-top:0}
 .stat {
     list-style: none;
