@@ -99,7 +99,7 @@ export default class IdeaAuthorButtonGroup extends Component {
           id="removeIdea"
           iconClasses="fa fa-times circle"
           header={i18n.__('ideas.remove.header')}
-          linkHeader={i18n.__('ideas.remove.header')}
+          linkHeader=""
           linkText={i18n.__('ideas.remove.text')} />
         <div id="addCoauthor" className="modal bottom-sheet">
           <div className="modal-content">
