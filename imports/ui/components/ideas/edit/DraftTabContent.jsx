@@ -36,13 +36,15 @@ export default class DraftTabContent extends Component {
         </div>
         {/* <IdeaInviteCollaborator idea={this.props.idea} />
         <ListDivider border={true} /> */}
-        <div className="white card row-border clearfix">
+        <div className="card row-border clearfix">
           <Banner author={this.props.author} />
-          <h3><T>ideas.tabs.draft.name</T> &middot; <T>ideas.locked</T></h3>
-          <LiveEditor
-            onChange={this.handleDraftChange}
-            value={this.props.idea.draft}
-            placeholder={i18n.__('ideas.tabs.draft.placeholder')} />
+          <div className="white-card">
+            <h3><T>ideas.tabs.draft.name</T> &middot; <T>ideas.locked</T></h3>
+            <LiveEditor
+              onChange={this.handleDraftChange}
+              value={this.props.idea.draft}
+              placeholder={i18n.__('ideas.tabs.draft.placeholder')} />
+          </div>
         </div>
         <ListDivider border={true} />
         <div className="white card row-border clearfix">
