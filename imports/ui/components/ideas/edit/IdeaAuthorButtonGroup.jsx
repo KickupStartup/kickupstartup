@@ -30,10 +30,12 @@ export default class IdeaAuthorButtonGroup extends Component {
         console.log("error", error);
       }
       if(result){
-        Materialize.toast(i18n.__('ideas.publish.status.unpublish'), 2000);
+        Materialize.toast(i18n.__('ideas.publish.status.publish'), 2000);
       }
     });
-    this.props.edit ? this.props.onViewChanged(event) : '';
+    if (this.props.edit) {
+      this.props.onViewChanged(event);
+    }
   }
   unpublishIdea(event) {
     Meteor.call("idea.unpublish", this.props.idea._id, function(error, result){
@@ -41,7 +43,7 @@ export default class IdeaAuthorButtonGroup extends Component {
         console.log("error", error);
       }
       if(result){
-        Materialize.toast(i18n.__('ideas.publish.status.publish'), 2000);
+        Materialize.toast(i18n.__('ideas.publish.status.unpublish'), 2000);
       }
     });
   }
