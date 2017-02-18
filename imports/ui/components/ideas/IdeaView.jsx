@@ -10,6 +10,30 @@ import ListDivider from '../../components/list/ListDivider';
 export default class IdeaView extends Component {
   constructor(props) {
     super(props);
+    this.requestAccess = this.requestAccess.bind(this);
+    this.requestRemoval = this.requestRemoval.bind(this);
+  }
+  requestAccess() {
+    Meteor.call("idea.author.add", this.props.idea._id, Meteor.userId(),
+      function(error, result){
+        if(error){
+          console.log("error", error);
+        }
+        if(result){
+          console.log("result", result);
+        }
+    });
+  }
+  requestRemoval() {
+    Meteor.call("idea.author.remove", this.props.idea._id, Meteor.userId(),
+      function(error, result){
+        if(error){
+          console.log("error", error);
+        }
+        if(result){
+          console.log("result", result);
+        }
+    });
   }
   render () {
     return (
@@ -21,6 +45,9 @@ export default class IdeaView extends Component {
             <h3 className="modal-title">{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}</h3>
           </div>
           <div className="modal-body">
+            {!this.props.idea.isAuthor(Meteor.userId()) ?
+              <a href="#!" onClick={this.requestAccess}>Хочу помочь в развитии идеи</a> :
+              <a href="#!" onClick={this.requestRemoval}>Удалиться из соавторов идеи</a>}
             <ul className="stat"><li><h3><T>ideas.header.story</T></h3></li></ul>
             <ReadOnlyEditor value={this.props.idea.story} placeholder={i18n.__('ideas.view.placeholder.story')} />
             <br />
