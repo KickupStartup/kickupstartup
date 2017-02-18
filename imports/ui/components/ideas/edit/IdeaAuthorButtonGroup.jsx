@@ -33,6 +33,7 @@ export default class IdeaAuthorButtonGroup extends Component {
         Materialize.toast(i18n.__('ideas.publish.status.unpublish'), 2000);
       }
     });
+    this.props.edit ? this.props.onViewChanged(event) : '';
   }
   unpublishIdea(event) {
     Meteor.call("idea.unpublish", this.props.idea._id, function(error, result){
@@ -72,7 +73,7 @@ export default class IdeaAuthorButtonGroup extends Component {
       <div className="right">
         <div className="btn-group">
           {!this.props.idea.isPublic() ?
-            <button onClick={this.publishIdea} className="dropdown-button waves-effect waves-light orange part-left btn">
+            <button onClick={this.publishIdea} className="dropdown-button waves-effect waves-light green part-left btn">
               <T>ideas.publish.header.publish</T>
             </button> :
             <button onClick={this.unpublishIdea} className="dropdown-button waves-effect waves-light green part-left btn">

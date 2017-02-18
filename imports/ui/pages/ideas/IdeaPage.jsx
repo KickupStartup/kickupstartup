@@ -67,7 +67,7 @@ export default class IdeaPage extends Component {
             onTabChanged={this.handleTabChange} />
           {isEdit ?
             <div className="container main with-tabs">
-              <DraftTabContent hidden={this.state.activeTab != 0 ? 'hidden' : ''} idea={this.props.idea} />
+              <DraftTabContent hidden={this.state.activeTab != 0 ? 'hidden' : ''} idea={this.props.idea} author={this.props.author} />
               <StoryTabContent hidden={this.state.activeTab != 1 ? 'hidden' : ''} idea={this.props.idea} />
               <ProblemTabContent hidden={this.state.activeTab != 2 ? 'hidden' : ''} idea={this.props.idea} />
               <SolutionTabContent hidden={this.state.activeTab != 3 ? 'hidden' : ''} idea={this.props.idea} />
