@@ -81,6 +81,7 @@ export default Person = Class.create({
   },
   indexes: {
     userId: {fields:{userId: 1}, options:{unique: true}},
+    suggest: {fields: {firstName: "text", lastName: "text"}},
     username: {fields:{username: 1}, options: {unique: true, sparse: true}}
   },
   behaviors: {
