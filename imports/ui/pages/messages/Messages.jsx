@@ -5,7 +5,7 @@ const T = i18n.createComponent();
 
 import ListDivider from '../../components/list/ListDivider';
 
-export default class NotificationsPage extends Component {
+export default class Messages extends Component {
   render() {
     return (
       <div className="container main">
@@ -14,9 +14,8 @@ export default class NotificationsPage extends Component {
             <div className="white row-border">
               <div className="content clearfix">
                 <h3>Notifications</h3>
-                <p>
-                  Notofications List
-                </p>
+                <input type="checkbox" className="filled-in" id="idNotifications" />
+                <label htmlFor="idNotifications">Enable email notifications</label>
               </div>
             </div>
           </div>
