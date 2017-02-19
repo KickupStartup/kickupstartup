@@ -4,7 +4,6 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
 import Banner from '../../../components/common/Banner';
-import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 import IdeaInviteCollaborator from '../../../components/ideas/IdeaInviteCollaborator';
 
@@ -46,16 +45,6 @@ export default class DraftTabContent extends Component {
               placeholder={i18n.__('ideas.tabs.draft.placeholder')} />
           </div>
         </div>
-        <ListDivider border={true} />
-        <div className="white card row-border clearfix">
-          <h3>What next?</h3>
-          <p>Если вы завершили создание набросков, вы готовы перейти к написанию истории.</p>
-          <div className="modal-bottom-link clearfix">
-            <a href="#" className="left">Back</a>
-            <a href="#" className="right">Ready to tell a story</a>
-          </div>
-        </div>
-        <ListDivider />
       </div>
     )
   }

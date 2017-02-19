@@ -8,7 +8,6 @@ import IdeaCustomer from '../IdeaCustomer';
 import IdeaCreatePoll from '../IdeaCreatePoll';
 import IdeaInviteCollaborator from '../IdeaInviteCollaborator';
 import IdeaAskForReview from '../IdeaAskForReview';
-import ListDivider from '../../../components/list/ListDivider';
 
 export default class StoryTabContent extends Component {
   constructor(props) {
@@ -31,7 +30,6 @@ export default class StoryTabContent extends Component {
           <IdeaCreatePoll idea={this.props.idea} />
         <ListDivider />*/}
         <IdeaCustomer idea={this.props.idea} />
-        <ListDivider border={true} />
       </div>
     )
   }

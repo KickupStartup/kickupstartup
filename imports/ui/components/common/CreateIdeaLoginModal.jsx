@@ -54,12 +54,20 @@ export default class CreateIdeaLoginModal extends Component {
   }
   renderCreateIdeaLink() {
     return (
-      <div className="content modal-create modal-action modal-close" onClick={this.handleIdeaCreate}>
+      <div className="content modal-create modal-action">
         <ul className="collection">
           <li className="collection-item avatar clearfix">
             <i className="fa fa-lightbulb-o circle"></i>
-            <span className="title"><T>ideas.new.header</T></span>
+            <h3 className="title"><T>ideas.new.header</T></h3>
             <p><T>ideas.new.text</T></p>
+            <div className="card-footer clearfix right">
+              <a href="#!" className="modal-link">
+                <i className="fa fa-remove fa-lg" onClick={this.handleIdeaRemoveClick} title="Cancel"></i>Cancel
+              </a>
+              <a href="#!" onClick={this.handleIdeaCreate} className="waves-effect waves-light orange btn modal-btn">
+                <i className="fa fa-check-circle fa-lg" title="Create"></i>Create
+              </a>
+            </div>
           </li>
         </ul>
       </div>
@@ -67,7 +75,7 @@ export default class CreateIdeaLoginModal extends Component {
   }
   renderLoginLink() {
     return (
-      <div className="content modal-create modal-action modal-close modal-unauthorized">
+      <div className="content modal-create modal-action modal-unauthorized">
         <ul className="collection">
           <li className="collection-item avatar clearfix">
             <i className="fa fa-lightbulb-o circle"></i>
@@ -91,7 +99,7 @@ export default class CreateIdeaLoginModal extends Component {
         </div>
         <div id="createidea" className="modal bottom-sheet">
           <div className="modal-content">
-            <a href="#!" className="modal-action modal-close default right"><i className="fa fa-remove fa-lg"></i></a>
+            <a href="#!" className="modal-action default right"><i className="fa fa-remove fa-lg"></i></a>
             <h3>{Meteor.userId() ? <T>joinus.addHeader</T> : <T>joinus.header</T>}</h3>
             {Meteor.userId() ? this.renderCreateIdeaLink() : this.renderLoginLink()}
           </div>

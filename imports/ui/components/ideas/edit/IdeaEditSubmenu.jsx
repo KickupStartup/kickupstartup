@@ -72,18 +72,22 @@ export default class IdeaEditSubmenu extends Component {
                   value={this.props.idea.name}
                   onChange={this.handleNameChange}
                   placeholder={i18n.__('ideas.edit.title.placeholder')} /> :
-                  <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}
-                    {this.props.authored ? '' :
-                      <BookmarkIdeaLink
-                        bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
-                        ideaId={this.props.idea._id}
-                        view={true}/>}
-                  </h3>}
+                <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}
+                  {this.props.authored ? '' :
+                    <BookmarkIdeaLink
+                      bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
+                      ideaId={this.props.idea._id}
+                      view={true}/>}
+                </h3>}
             </div>
             {this.props.authored && userId ?
-            <div className="col s12 m6">
-              <IdeaAuthorButtonGroup edit={this.props.edit} idea={this.props.idea} onViewChanged={this.changeView} />
-            </div> : ''}
+              <div className="col s12 m6">
+                <IdeaAuthorButtonGroup edit={this.props.edit} idea={this.props.idea} onViewChanged={this.changeView} />
+              </div> :
+              <button onClick="" className="dropdown-button waves-effect waves-light green btn right">
+                <T>ideas.publish.button.join</T>
+              </button>
+            }
           </div>
           {(this.props.edit && Meteor.userId()) ? this.renderNavigationTabs() : ''}
         </div>

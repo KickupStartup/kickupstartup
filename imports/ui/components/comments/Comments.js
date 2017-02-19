@@ -8,7 +8,6 @@ const T = i18n.createComponent();
 import StartComment from '../../components/comments/StartComment';
 import CommentForm from '../comments/CommentForm';
 import ListCommentItem from '../list/ListCommentItem';
-import ListDivider from '../../components/list/ListDivider';
 import Person from '../../../api/people/Person';
 
 export default class Comments extends Component {
@@ -46,7 +45,6 @@ export default class Comments extends Component {
         { Meteor.userId() ? <CommentForm idea={this.props.idea} /> : <StartComment /> }
         { this.renderComments() }
       </div>
-      <ListDivider border={true}/>
     </div>
     )
   }

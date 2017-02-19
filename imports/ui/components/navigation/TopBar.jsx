@@ -17,7 +17,7 @@ export default class TopBar extends Component {
     if (Meteor.userId()) {
       return (
           <ul className="fullpage_nav nav navbar-nav right">
-            <li><a href="#" className="avatar-small"><img src="../../img/no-notifications.png" /></a></li>
+            <li><Link to="/notifications" className="avatar-small" activeClassName="active"><img src="../../img/no-notifications.png" /></Link></li>
             <li><Link to="/profile" activeClassName="active" className="avatar-small">
               <Avatar name={this.getProfileName()} size={50} round={true} /></Link>
             </li>

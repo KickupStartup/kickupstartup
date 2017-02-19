@@ -576,7 +576,7 @@ dd {
   margin-left: -15px;
   margin-right: -15px;
 }
-.row-border{border:1px solid #f2f2f2}
+.row-border{border:1px solid #f2f2f2;background-color:#fff}
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col s12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
@@ -3897,6 +3897,7 @@ sup.badge{display:inline-block;min-width:10px;padding:3px 7px;font-size:10px;fon
 .modal-bottom-link{margin:12px -8px 0}
 .modal-bottom-link a{padding:8px}
     .modal-bottom-link a:hover{text-decoration:none}
+.modal-link{margin:0 12px;position:relative;top:6px}
 .content-form{margin:20px 12px 12px}
 .default{color:#555}
 .rate{padding-left:30px!important}
@@ -3937,7 +3938,6 @@ a{color:#ff9100;
 .modal-create{padding:0!important}
     .modal-create .collection{margin:0}
 .modal h3{font-weight:normal}
-.modal .collection .collection-item:hover{background-color:#f9f9f9;cursor:pointer}
 .modal .collection .collection-item.avatar i.circle{background-color:#ff9100}
 .collection .collection-item.avatar .circle>div{line-height:49px!important}
 .z-depth-1-half,.btn:hover,.btn-large:hover,.btn-floating:hover{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
