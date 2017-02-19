@@ -90,7 +90,7 @@ export default class IdeaAuthorButtonGroup extends Component {
           <ul id="authorButtonDropdown" className="dropdown-content dropdown-green">
             <li>
               <a href="#!" onClick={this.changeView}>
-              {(this.props.edit && Meteor.userId()) ? <T>ideas.edit.preview</T> : <T>ideas.edit.edit</T>}
+                {(this.props.edit && Meteor.userId()) ? <T>ideas.edit.preview</T> : <T>ideas.edit.edit</T>}
               </a>
             </li>
             <li><a href="#!" onClick={this.openAddCoauthorModal}><T>ideas.edit.collaborators</T></a></li>
@@ -107,14 +107,14 @@ export default class IdeaAuthorButtonGroup extends Component {
           linkText={i18n.__('ideas.remove.text')} />
         <div id="addCoauthor" className="modal bottom-sheet">
           <div className="modal-content">
-            <a href="#!" className="modal-action modal-close default right"><i className="fa fa-remove fa-lg"></i></a>
+            <a href="#!" className="modal-action default right"><i className="fa fa-remove fa-lg"></i></a>
             <h3><T>ideas.collaborator.header</T></h3>
             <div className="col s12">
               <PeopleAutosuggest />
             </div>
           </div>
           <div className="modal-footer">
-            <a href="#!" className=" modal-action modal-close waves-effect waves-green btn-flat">Сохранить</a>
+            <a href="#!" className=" modal-action waves-effect waves-green btn-flat">Сохранить</a>
           </div>
         </div>
       </div>

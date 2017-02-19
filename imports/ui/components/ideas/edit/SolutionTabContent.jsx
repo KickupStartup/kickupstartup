@@ -4,7 +4,6 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
 import Banner from '../../../components/common/Banner';
-import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 
 export default class SolutionTabContent extends Component {
@@ -38,7 +37,6 @@ export default class SolutionTabContent extends Component {
               placeholder={i18n.__('ideas.tabs.solution.placeholder')} />
           </div>
         </div>
-        <ListDivider />
       </div>
     )
   }

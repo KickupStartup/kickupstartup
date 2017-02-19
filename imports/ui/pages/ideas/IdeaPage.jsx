@@ -20,6 +20,7 @@ import ProblemTabContent from '../../components/ideas/edit/ProblemTabContent';
 import SolutionTabContent from '../../components/ideas/edit/SolutionTabContent';
 import StoryTabContent from '../../components/ideas/edit/StoryTabContent';
 import ValidationTabContent from '../../components/ideas/edit/ValidationTabContent';
+import WhatNext from '../../components/ideas/edit/WhatNext';
 
 import { FormStep } from '../../../api/ideas/Idea';
 
@@ -72,6 +73,9 @@ export default class IdeaPage extends Component {
               <ProblemTabContent hidden={this.state.activeTab != 2 ? 'hidden' : ''} idea={this.props.idea} />
               <SolutionTabContent hidden={this.state.activeTab != 3 ? 'hidden' : ''} idea={this.props.idea} />
               <ValidationTabContent hidden={this.state.activeTab != 4 ? 'hidden' : ''} idea={this.props.idea}/>
+              <ListDivider border={true} />
+              <WhatNext />
+              <ListDivider border={true} />
               <ListEnd/>
             </div> :
             <div className="container main without-tabs">
@@ -82,6 +86,7 @@ export default class IdeaPage extends Component {
                 <IdeaPoll idea={this.props.idea} />
               <ListDivider border={true} /> */}
               <Comments idea={this.props.idea} comments={this.props.comments} />
+              <ListDivider border={true} />
               <ListEnd/>
             </div>
           }

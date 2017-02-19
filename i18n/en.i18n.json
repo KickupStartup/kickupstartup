@@ -99,7 +99,8 @@
       },
       "button": {
         "open": "Close public access to this idea",
-        "close": "Open public access to this idea"
+        "close": "Open public access to this idea",
+        "join": "Join"
       }
     },
     "customers": {
