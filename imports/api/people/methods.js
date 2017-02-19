@@ -101,5 +101,9 @@ Meteor.methods({
         person.save();
       }
     }
+  },
+  'people.suggestions':function(keyword) {
+    check(keyword, String);
+    return People.find({$text: { $search: keyword }}, {limit: 5}).fetch();
   }
 });
