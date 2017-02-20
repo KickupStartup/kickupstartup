@@ -81,6 +81,12 @@
       "aboutMe": "Write briefly about yourself in 1024 characters"
     }
   },
+  "editor": {
+    "state": {
+      "saving": "saving",
+      "saved": "saved"
+    }
+  },
   "ideas": {
     "underDevelopment": "Under development",
     "locked": "Not publicly visible",
