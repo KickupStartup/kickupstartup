@@ -13,6 +13,7 @@ export default Message = Class.create({
   fields: {
     senderId: String,
     recipientId: String,
+    surveyId: { type: String, optional: true },
     message: String,
     replyToMessageId: {type: String, optional: true},
     type: { type: MessageType, default: 0 }

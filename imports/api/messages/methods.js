@@ -42,7 +42,18 @@ Meteor.methods({
   'message.idea.feedback.ask': function(ideaId) {
 
   },
-  'message.idea.feedback.provide': function() {
+  'message.idea.feedback.provide': function(ideaId, feedback) {
+
+  },
+  'message.idea.notification.new': function(templateId, ideaId, authorId) {
+    // this is a system event
+    // recipient should be subscribed to new ideas
+    // idea author should know how much users were notified
+  },
+  'message.idea.notification.commented': function(templateId, ideaId, authorId) {
+
+  },
+  'message.idea.notification.mentioned': function(templateId, ideaId, authorId) {
 
   }
 });
