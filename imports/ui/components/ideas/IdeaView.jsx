@@ -5,7 +5,6 @@ const T = i18n.createComponent();
 import Avatar from 'react-avatar';
 
 import ReadOnlyEditor from '../common/ReadOnlyEditor';
-import ListDivider from '../../components/list/ListDivider';
 
 export default class IdeaView extends Component {
   constructor(props) {

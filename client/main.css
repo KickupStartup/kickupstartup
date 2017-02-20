@@ -131,11 +131,11 @@ html.welcome body{min-height:100%;
 }
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-    background-color:#ff9100;
+  background-color:#ff9100;
   position: fixed;
   right: 0;
   left: 0;
-  z-index: 4030;
+  z-index: 31;
 }
 .navbar-brand {
   color:#555555;
@@ -4079,7 +4079,7 @@ blockquote div{font-style:italic}
     border-bottom: 1px solid #eee;
     width: 100%;
     position:fixed;
-    z-index:3000;
+    z-index:30;
 }
 
 .main-grey h3{margin:8px 12px}
