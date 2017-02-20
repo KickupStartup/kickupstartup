@@ -1,3 +1,6 @@
+/* EXPERIMENTAL */
+// TODO: use METHODS instead to retrieve autosuggestions
+
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
@@ -6,21 +9,19 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
 import ReactInput from './ReactInput';
-
 let suggestPeopleArgument = new ReactiveVar("");
 
 class PeopleAutosuggest extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.getSuggestions = _.debounce(this.getSuggestions, 300);
   }
   componentDidUpdate() {
     let data = this.prepareForAutosuggest(this.props.suggestedPeople);
-    console.log(data);
-
     $('input.autocomplete').autocomplete({
       data: data,
-      limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+      limit: 20
     });
   }
   prepareForAutosuggest(array) {
@@ -30,7 +31,18 @@ class PeopleAutosuggest extends Component {
     });
     return obj;
   }
+  getSuggestions(keyword) {
+    Meteor.call("people.suggestions", keyword, function(error, result){
+      if(error){
+        console.log("error", error);
+      }
+      if(result){
+        console.log("result", result);
+      }
+    });
+  }
   handleChange(value) {
+    this.getSuggestions(value);
     this.props.suggestPeopleArgument.set(value);
   }
   renderAuthors() {
@@ -59,8 +71,6 @@ class PeopleAutosuggest extends Component {
 }
 
 export default PeopleAutosuggestContainer = createContainer(props => {
-  console.log(suggestPeopleArgument.get());
-
   const suggestPeopleHandle = Meteor.subscribe("people.searchByName", suggestPeopleArgument.get());
   const searching = !suggestPeopleHandle.ready();
   return {
