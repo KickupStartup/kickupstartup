@@ -4,7 +4,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
 import Banner from '../../../components/common/Banner';
-import PeopleAutosuggest from '../../../components/common/PeopleAutosuggest';
+//import PeopleAutosuggest from '../../../components/common/PeopleAutosuggest';
 import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 import IdeaInviteCollaborator from '../../../components/ideas/IdeaInviteCollaborator';
@@ -105,7 +105,7 @@ export default class IdeaAuthorButtonGroup extends Component {
           header={i18n.__('ideas.remove.header')}
           linkHeader=""
           linkText={i18n.__('ideas.remove.text')} />
-        <div id="addCoauthor" className="modal bottom-sheet">
+        {/* <div id="addCoauthor" className="modal bottom-sheet">
           <div className="modal-content">
             <a href="#!" className="modal-action modal-close default right"><i className="fa fa-remove fa-lg"></i></a>
             <h3><T>ideas.collaborator.header</T></h3>
@@ -116,7 +116,7 @@ export default class IdeaAuthorButtonGroup extends Component {
           <div className="modal-footer">
             <a href="#!" className=" modal-action waves-effect waves-green btn-flat">Сохранить</a>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }

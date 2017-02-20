@@ -70,6 +70,7 @@ Meteor.methods({
     const idea = getValidatedOwnIdea(this.userId, ideaId);
     idea.name = name;
     idea.save();
+    return idea;
   },
   'idea.update.draft': function(ideaId, draft) {
     check(ideaId, String);
@@ -78,6 +79,7 @@ Meteor.methods({
     const idea = getValidatedOwnIdea(this.userId, ideaId);
     idea.draft = draft;
     idea.save();
+    return idea;
   },
   'idea.update.problem': function(ideaId, problem) {
     check(ideaId, String);
@@ -86,6 +88,7 @@ Meteor.methods({
     const idea = getValidatedOwnIdea(this.userId, ideaId);
     idea.problem = problem;
     idea.save();
+    return idea;
   },
   'idea.update.solution': function(ideaId, solution) {
     check(ideaId, String);
@@ -94,6 +97,7 @@ Meteor.methods({
     const idea = getValidatedOwnIdea(this.userId, ideaId);
     idea.solution = solution;
     idea.save();
+    return idea;
   },
   'idea.update.story': function(ideaId, story) {
     check(ideaId, String);
@@ -102,6 +106,7 @@ Meteor.methods({
     const idea = getValidatedOwnIdea(this.userId, ideaId);
     idea.story = story;
     idea.save();
+    return idea;
   },
   'idea.update.customer': function(ideaId, market, geographic, demographic, gender) {
     check(ideaId, String);
@@ -118,6 +123,7 @@ Meteor.methods({
       demographic: demographic
     };
     idea.save();
+    return idea;
   },
   'idea.publish': function(ideaId) {
     check(ideaId, String);
@@ -151,7 +157,7 @@ Meteor.methods({
       throw new Meteor.Error('idea.author.notfound',
         'There is no such a person in the database.');
     } else {
-      // idea's owner can add coauthors, 
+      // idea's owner can add coauthors,
       // but if there is an approval from owner
       // for current user he can add himself as coauthor
       // if (idea.userId !== this.userId) {

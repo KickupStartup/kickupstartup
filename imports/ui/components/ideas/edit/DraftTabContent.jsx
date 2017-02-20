@@ -10,16 +10,22 @@ import IdeaInviteCollaborator from '../../../components/ideas/IdeaInviteCollabor
 export default class DraftTabContent extends Component {
   constructor(props) {
     super(props);
+    this.state = { savingState: 'hidden' };
     this.handleDraftChange = this.handleDraftChange.bind(this);
     this.handleDraftChange = _.debounce(this.handleDraftChange, 2000);
   }
   handleDraftChange(draft) {
     const idea = this.props.idea;
+    let self = this;
+    this.setState({savingState: 'saving'});
     Meteor.call("idea.update.draft", idea._id, draft, function(error, result) {
       if(error) {
         console.log("error", error);
       }
-      if(result) {}
+      if(result) {
+        self.setState({savingState: 'saved'});
+        Meteor.setTimeout(() => {self.setState({savingState: 'hidden'});}, 600);
+      }
     });
   }
   openAddCoauthorModal() {
@@ -33,12 +39,11 @@ export default class DraftTabContent extends Component {
           <h4><T>ideas.tabs.draft.alert.header</T></h4>
           <p><T>ideas.tabs.draft.alert.text1</T><a href="#!" onClick={this.openAddCoauthorModal}><T>ideas.tabs.draft.alert.text2</T></a><T>ideas.tabs.draft.alert.text3</T></p>
         </div>
-        {/* <IdeaInviteCollaborator idea={this.props.idea} />
-        <ListDivider border={true} /> */}
         <div className="card row-border clearfix">
           <Banner author={this.props.author} />
           <div className="white-card">
             <h3><T>ideas.tabs.draft.name</T> &middot; <T>ideas.locked</T></h3>
+            <div className={this.state.savingState}>{this.state.savingState}</div>
             <LiveEditor
               onChange={this.handleDraftChange}
               value={this.props.idea.draft}
