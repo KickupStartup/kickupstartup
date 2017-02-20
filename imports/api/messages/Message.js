@@ -19,7 +19,7 @@ export default Message = Class.create({
     type: { type: MessageType, default: 0 }
   },
   indexes: {
-    authorId: { fields: { authorId: 1 }},
+    senderId: { fields: { authorId: 1 }},
     recipientId: { fields: { recipientId: 1 }}
   },
   behaviors: {
