@@ -107,7 +107,7 @@ export default class IdeaAuthorButtonGroup extends Component {
           linkText={i18n.__('ideas.remove.text')} />
         <div id="addCoauthor" className="modal bottom-sheet">
           <div className="modal-content">
-            <a href="#!" className="modal-action default right"><i className="fa fa-remove fa-lg"></i></a>
+            <a href="#!" className="modal-action modal-close default right"><i className="fa fa-remove fa-lg"></i></a>
             <h3><T>ideas.collaborator.header</T></h3>
             <div className="col s12">
               <PeopleAutosuggest />

@@ -37,7 +37,7 @@ class PeopleAutosuggest extends Component {
     return this.props.suggestedPeople.map((person) => (
       <div key={person._id} className="chip">
         <img src="../img/no-photo.png" alt="Victor S." />
-        {person.fullName} <a href="#!" className="default"><i className="fa fa-remove fa-lg"></i></a>
+        {person.fullName} <a href="#!" className="modal-action modal-close default"><i className="fa fa-remove fa-lg"></i></a>
       </div>
     ));
   }
