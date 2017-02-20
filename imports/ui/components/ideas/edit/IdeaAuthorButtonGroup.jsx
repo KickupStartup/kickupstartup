@@ -3,8 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-import Banner from '../../../components/common/Banner';
-//import PeopleAutosuggest from '../../../components/common/PeopleAutosuggest';
 import ListDivider from '../../../components/list/ListDivider';
 import LiveEditor from '../../common/LiveEditor';
 import IdeaInviteCollaborator from '../../../components/ideas/IdeaInviteCollaborator';

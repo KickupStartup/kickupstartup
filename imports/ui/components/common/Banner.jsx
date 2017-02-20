@@ -1,14 +1,15 @@
 import React, { Component, PropTypes } from 'react';
+import { createContainer } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import Avatar from 'react-avatar';
 
-export default class Banner extends Component {
+class Banner extends Component {
   constructor(props) {
     super(props);
   }
   renderAuthors() {
     return this.props.authors.map((author) => (
-      <a key={author} href="#!"><Avatar className="sb-avatar circle pointer" name={author} round={true} size={48} /></a>
+      <a key={author._id} href="#!"><Avatar className="sb-avatar circle pointer" name={author.fullName} round={true} size={48} /></a>
     ));
   }
   render() {
@@ -26,3 +27,16 @@ export default class Banner extends Component {
     }
   }
 }
+
+Banner.propTypes = {
+  authorsIds: PropTypes.array
+};
+
+export default BannerContainer = createContainer(props => {
+  const peopleHandle = Meteor.subscribe("people.byids");
+  const loading = !peopleHandle.ready();
+  return {
+    loading,
+    authors: Person.find({ userId: { $in: props.authorsIds } }).fetch(),
+  };
+}, Banner);

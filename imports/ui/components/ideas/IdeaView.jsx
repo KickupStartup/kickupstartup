@@ -65,5 +65,4 @@ export default class IdeaView extends Component {
 IdeaView.propTypes = {
   idea: PropTypes.object,
   profile: PropTypes.object,
-  author: PropTypes.object
 }

@@ -45,7 +45,7 @@ export default class IdeaEditor extends Component {
   render () {
     return (
       <div className="card row-border clearfix">
-        <Banner authors={this.props.idea.getAuthors()} />
+        <Banner authorsIds={this.props.idea.getAuthors()} />
         <div className="white-card">
           {this.props.header ? <h3>{this.props.header}</h3> : ''}
           <span className="grey-text">{this.state.savingState}</span>
