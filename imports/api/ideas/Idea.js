@@ -37,6 +37,7 @@ export default Idea = Class.create({
   fields: {
     userId: String,
     authors: { type: [String], optional: true },
+    surveyId: { type: String, optional: true },
     step: { type: FormStep, default: FormStep.NAME },
     status: { type: IdeaStatus, default: IdeaStatus.NEW },
     public: { type: Boolean, default: false },
