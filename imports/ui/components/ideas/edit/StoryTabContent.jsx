@@ -3,24 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-import Banner from '../../../components/common/Banner';
-import LiveEditor from '../../common/LiveEditor';
+import IdeaEditor from './IdeaEditor';
 
 export default class StoryTabContent extends Component {
-  constructor(props) {
-    super(props);
-    this.handleStoryChange = this.handleStoryChange.bind(this);
-    this.handleStoryChange = _.debounce(this.handleStoryChange, 2000);
-  }
-  handleStoryChange(story) {
-    const idea = this.props.idea;
-    Meteor.call("idea.update.story", idea._id, story, function(error, result) {
-      if(error) {
-        console.log("error", error);
-      }
-      if(result) {}
-    });
-  }
   render () {
     return (
       <div className={this.props.hidden}>
@@ -28,15 +13,7 @@ export default class StoryTabContent extends Component {
           <h4><T>ideas.tabs.story.alert.header</T></h4>
           <p><T>ideas.tabs.story.alert.text</T></p>
         </div>
-        <div className="card row-border clearfix">
-          <Banner author={this.props.author} />
-          <div className="white-card">
-            <LiveEditor
-              onChange={this.handleStoryChange}
-              value={this.props.idea.story}
-              placeholder={i18n.__('ideas.tabs.story.placeholder')} />
-          </div>
-        </div>
+        <IdeaEditor fieldName="story" idea={this.props.idea} />
       </div>
     )
   }

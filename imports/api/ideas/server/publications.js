@@ -24,14 +24,10 @@ if (Meteor.isServer) {
       },
       children: [{
         find: function(idea) {
-          // Find idea author.
+          // Find idea authors.
           // Limit fields to first, last and full names.
-          // Even though we only want to return
-          // one record here, we use "find" instead of "findOne"
-          // since this function should return a cursor.
           return Person.find(
-            { userId: idea.userId },
-            { limit: 1 }
+            { userId: { $in: idea.getAuthors() } }
           );
         }
       }, {
@@ -61,14 +57,10 @@ if (Meteor.isServer) {
       },
       children: [{
         find: function(idea) {
-          // Find idea author.
+          // Find idea authors.
           // Limit fields to first, last and full names.
-          // Even though we only want to return
-          // one record here, we use "find" instead of "findOne"
-          // since this function should return a cursor.
           return Person.find(
-            { userId: idea.userId },
-            { limit: 1 }
+            { userId: { $in: idea.getAuthors() } }
           );
         }
       }, {
@@ -108,8 +100,7 @@ if (Meteor.isServer) {
         }, {
           find: function(idea) {
             return Person.find(
-              { userId: idea.userId },
-              { limit: 1 }
+              { userId: { $in: idea.getAuthors() } }
             );
           }
         }],
@@ -125,7 +116,7 @@ if (Meteor.isServer) {
     return {
       find: function() {
         return Idea.find(
-          { $or: [ {authors: { $in: [userId]}}, {userId: userId}] }
+          { $or: [ {authors: {$all: [userId]} }, {userId: userId}] }
         );
       },
       children: [{
@@ -134,10 +125,9 @@ if (Meteor.isServer) {
         }
       }, {
         find: function(idea) {
-          // Find idea author.
+          // Find idea authors.
           return Person.find(
-            { userId: idea.userId },
-            { limit: 1 }
+            { userId: { $in: idea.getAuthors() } }
           );
         }
       }],

@@ -68,7 +68,7 @@ export default class IdeaPage extends Component {
             onTabChanged={this.handleTabChange} />
           {isEdit ?
             <div className="container main with-tabs">
-              <DraftTabContent hidden={this.state.activeTab != 0 ? 'hidden' : ''} idea={this.props.idea} author={this.props.author} />
+              <DraftTabContent hidden={this.state.activeTab != 0 ? 'hidden' : ''} idea={this.props.idea} />
               <StoryTabContent hidden={this.state.activeTab != 1 ? 'hidden' : ''} idea={this.props.idea} />
               <ProblemTabContent hidden={this.state.activeTab != 2 ? 'hidden' : ''} idea={this.props.idea} />
               <SolutionTabContent hidden={this.state.activeTab != 3 ? 'hidden' : ''} idea={this.props.idea} />
@@ -79,12 +79,8 @@ export default class IdeaPage extends Component {
               <ListEnd/>
             </div> :
             <div className="container main without-tabs">
-              <IdeaView idea={this.props.idea} author={this.props.author} profile={this.props.profile} />
+              <IdeaView idea={this.props.idea} profile={this.props.profile} />
               <ListDivider border={true}/>
-              {/* <IdeaAskForReview idea={this.props.idea} />
-                <ListDivider border={true} />
-                <IdeaPoll idea={this.props.idea} />
-              <ListDivider border={true} /> */}
               <Comments idea={this.props.idea} comments={this.props.comments} />
               <ListDivider border={true} />
               <ListEnd/>
@@ -101,5 +97,4 @@ IdeaPage.propTypes = {
   idea: PropTypes.object,
   comments: PropTypes.array,
   profile: PropTypes.object,
-  author: PropTypes.object
 }

@@ -67,6 +67,9 @@ export default Idea = Class.create({
       authors.push(this.userId);
       return (authors.indexOf(userId) >= 0);
     },
+    isOwner(userId) {
+      return userId === this.userId;
+    },
     getAuthors() {
       var authors = this.authors || [];
       authors.push(this.userId);

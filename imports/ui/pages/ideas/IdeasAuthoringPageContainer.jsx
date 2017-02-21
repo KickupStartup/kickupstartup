@@ -5,7 +5,7 @@ import Idea from '../../../api/ideas/Idea';
 import Person from '../../../api/people/Person';
 
 export default IdeasAuthoringPageContainer = createContainer(props => {
-  const profileHandle = Meteor.subscribe("profile");
+  const profileHandle = Meteor.subscribe('profile');
   const ideasHandle = Meteor.subscribe('ideas.yours');
   const loading = !ideasHandle.ready() || !profileHandle.ready();
   return {

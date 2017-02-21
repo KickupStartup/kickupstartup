@@ -17,7 +17,6 @@ export default class LiveEditor extends React.Component {
       this.state = {editorState: createEditorState()};
     }
 
-    //this.props.onChange = _.debounce(this.props.onChange, 1000);
     this.onChange = (editorState) => {
       this.setState({editorState});
       const content = convertToRaw(this.state.editorState.getCurrentContent());
@@ -25,13 +24,20 @@ export default class LiveEditor extends React.Component {
       this.props.onChange(contentString);
     }
   }
+  componentDidMount() {
+    if (this.props.id) {
+      this.refs[this.props.id].focus();
+    }
+  }
   render() {
     return (
       <Editor
-       sideButtons={[]}
-       editorState={this.state.editorState}
-       onChange={this.onChange}
-       placeholder={this.props.placeholder} />
+        id={this.props.id}
+        ref={this.props.id}
+        sideButtons={[]}
+        editorState={this.state.editorState}
+        onChange={this.onChange}
+        placeholder={this.props.placeholder} />
     );
   }
 }

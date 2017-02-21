@@ -25,4 +25,8 @@ if (Meteor.isServer) {
       return;
     }
   });
+  Meteor.publish("people.byids", function(ids) {
+    check(ids, Array);
+    return People.find({ userId: { $in: ids } });
+  });
 }
