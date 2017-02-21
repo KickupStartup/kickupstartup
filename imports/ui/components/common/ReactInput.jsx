@@ -19,13 +19,26 @@ export default class ReactInput extends Component {
   render() {
     return (
       <div className="input-field">
-        <label htmlFor={this.props.id} className="active">{this.props.label}</label>
-        <input type="text"
+        <div className="form-group">
+          <div className="input-group">
+            <label htmlFor={this.props.id} className="idea-name active">{this.props.label}</label>
+            <input type="text"
+              id={this.props.id}
+              className={"form-control " + this.props.className}
+              value={this.state.value}
+              onChange={this.handleChange}
+              placeholder={this.props.placeholder} />
+            <div className="input-group-addon saving">Saved</div>
+          </div>
+        </div>
+        {/* <a href="#!" className="link-share right">Share</a>
+          <label htmlFor={this.props.id} className="idea-name active">{this.props.label}</label>
+          <input type="text"
           id={this.props.id}
           className={this.props.className}
           value={this.state.value}
           onChange={this.handleChange}
-          placeholder={this.props.placeholder} />
+        placeholder={this.props.placeholder} /> */}
       </div>
     );
   }

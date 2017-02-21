@@ -47,8 +47,8 @@ export default class IdeaEditor extends Component {
       <div className="card row-border clearfix">
         <Banner authorsIds={this.props.idea.getAuthors()} />
         <div className="white-card">
+          <span className="saving right">{this.state.savingState}</span>
           {this.props.header ? <h3>{this.props.header}</h3> : ''}
-          <span className="grey-text">{this.state.savingState}</span>
           <LiveEditor id={this.state.editorId}
             onChange={this.handleChange}
             value={this.props.idea[this.props.fieldName]}
