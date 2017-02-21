@@ -92,7 +92,7 @@ export default class IdeaAuthorButtonGroup extends Component {
   render () {
     if (this.props.idea.isAuthor(Meteor.userId())) {
       return (
-        <div className="right">
+        <div className="btn-controls">
           <div className="btn-group">
             {!this.props.idea.isPublic() ?
               <button onClick={this.publishIdea} className="dropdown-button waves-effect waves-light green part-left btn">
