@@ -11,11 +11,9 @@ export default IdeaPageContainer = createContainer(props => {
   const profileHandle = Meteor.subscribe("profile");
   const loading = !ideaHandle.ready() || !profileHandle.ready();
   const idea = Idea.findOne({_id: props.params.id});
-  const author = !loading && !!idea ? Person.findOne({userId: idea.userId}) : { fullName: ''};
   return {
     loading,
     idea,
-    author,
     comments: Comment.find({ideaId: props.params.id}, {sort: {createdAt: -1}}).fetch(),
     profile: Person.findOne({userId: Meteor.userId()}),
   };

@@ -5,6 +5,7 @@ const T = i18n.createComponent();
 import Avatar from 'react-avatar';
 import { moment } from 'meteor/momentjs:moment';
 
+import Banner from '../common/Banner';
 import ReadOnlyEditor from '../common/ReadOnlyEditor';
 import BookmarkIdeaLink from '../ideas/BookmarkIdeaLink';
 import ListDivider from './ListDivider';
@@ -50,10 +51,9 @@ export default class ListIdeaCard extends Component {
           bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
           ideaId={this.props.idea._id}/> : ''}
         <div className="row-border pointer clearfix">
-          <div className="banner" style={customImage}></div>
+          <Banner idea={this.props.idea} authorsIds={this.props.idea.getAuthors()} />
           <div onClick={this.gotoIdeaDetails.bind(this)} className="white-card">
             <div className="content text-center clearfix">
-              <div className="avatar-photo"><Avatar className="sb-avatar circle pointer" name={author ? author.fullName : ''} textSizeRatio={1.9} round={true}/></div>
               <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
               <ul className="stat"><li>{this.renderNumberOfComments()} {this.renderNumberOfCommentsText()}</li>{this.renderLastCommentTime()}</ul>
             </div>

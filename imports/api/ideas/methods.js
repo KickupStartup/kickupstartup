@@ -9,7 +9,7 @@ const getValidatedOwnIdea = function(userId, ideaId) {
     throw new Meteor.Error('idea.unauthorized',
       'Cannot perform any action with an idea if unauthorized.');
   } else {
-    const idea = Idea.findOne({ userId: userId, _id: ideaId });
+    const idea = Idea.findOne({ _id: ideaId });
     if (!idea) {
       throw new Meteor.Error('idea.notfound',
         'There is no such an idea in our database.');

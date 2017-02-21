@@ -80,16 +80,9 @@ export default class IdeaEditSubmenu extends Component {
                       view={true}/>}
                 </h3>}
             </div>
-            {this.props.authored && userId ?
-              <div className="col s12 m6">
-                <IdeaAuthorButtonGroup edit={this.props.edit} idea={this.props.idea} onViewChanged={this.changeView} />
-              </div> :
-              <div className="col s12 m6">
-                <button onClick="" className="dropdown-button waves-effect waves-light green btn right">
-                  <T>ideas.publish.button.join</T>
-                </button>
-              </div>
-            }
+            <div className="col s12 m6">
+              <IdeaAuthorButtonGroup edit={this.props.edit} idea={this.props.idea} onViewChanged={this.changeView} />
+            </div>
           </div>
           {(this.props.edit && Meteor.userId()) ? this.renderNavigationTabs() : ''}
         </div>
