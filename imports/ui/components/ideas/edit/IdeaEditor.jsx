@@ -37,8 +37,8 @@ export default class IdeaEditor extends Component {
         console.log("error", error);
       }
       if(savedIdea) {
-        self.setState({latestValue: savedIdea[self.props.fieldName]});
-        Meteor.setTimeout(() => {self.setState({savingState: savedText});}, savingStateTimeout);
+        self.setState({latestValue: savedIdea[self.props.fieldName], savingState: savedText});
+        //Meteor.setTimeout(() => {self.setState({savingState: savedText});}, savingStateTimeout);
       }
     });
   }

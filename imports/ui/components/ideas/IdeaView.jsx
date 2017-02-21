@@ -4,6 +4,7 @@ import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 import Avatar from 'react-avatar';
 
+import Banner from '../common/Banner';
 import ReadOnlyEditor from '../common/ReadOnlyEditor';
 
 export default class IdeaView extends Component {
@@ -37,10 +38,9 @@ export default class IdeaView extends Component {
   render () {
     return (
       <div className="row-border clearfix">
-        <div className="banner banner-edit banner-editor"></div>
+        <Banner idea={this.props.idea} authorsIds={this.props.idea.getAuthors()} />
         <div className="white-card">
           <div className="content text-center clearfix">
-            <div className="avatar-photo"><Avatar className="sb-avatar circle pointer" textSizeRatio={1.9} round={true}/></div>
             <h3 className="modal-title">{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}</h3>
           </div>
           <div className="modal-body">

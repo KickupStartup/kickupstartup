@@ -81,10 +81,6 @@ export default class IdeaPage extends Component {
             <div className="container main without-tabs">
               <IdeaView idea={this.props.idea} profile={this.props.profile} />
               <ListDivider border={true}/>
-              {/* <IdeaAskForReview idea={this.props.idea} />
-                <ListDivider border={true} />
-                <IdeaPoll idea={this.props.idea} />
-              <ListDivider border={true} /> */}
               <Comments idea={this.props.idea} comments={this.props.comments} />
               <ListDivider border={true} />
               <ListEnd/>
@@ -101,5 +97,4 @@ IdeaPage.propTypes = {
   idea: PropTypes.object,
   comments: PropTypes.array,
   profile: PropTypes.object,
-  //authors: PropTypes.array
 }
