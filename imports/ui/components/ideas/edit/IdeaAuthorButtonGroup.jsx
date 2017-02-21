@@ -112,7 +112,7 @@ export default class IdeaAuthorButtonGroup extends Component {
                   {(this.props.edit && Meteor.userId()) ? <T>ideas.edit.preview</T> : <T>ideas.edit.edit</T>}
                 </a>
               </li>
-              <li><a href="#!" onClick={this.requestRemoval}><T>ideas.edit.collaborators</T></a></li>
+              {!this.props.idea.isOwner(Meteor.userId()) ? <li><a href="#!" onClick={this.requestRemoval}><T>ideas.edit.collaborators</T></a></li> : ''}
               <li className="divider"></li>
               <li><a href="#!" onClick={this.openRemoveIdeaModal}><T>ideas.edit.delete</T></a></li>
             </ul>

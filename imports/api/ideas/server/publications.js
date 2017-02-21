@@ -116,7 +116,7 @@ if (Meteor.isServer) {
     return {
       find: function() {
         return Idea.find(
-          { $or: [ {authors: { $in: [userId]}}, {userId: userId}] }
+          { $or: [ {authors: {$all: [userId]} }, {userId: userId}] }
         );
       },
       children: [{
