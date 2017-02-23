@@ -57,9 +57,8 @@ export default Person = Class.create({
   collection: People,
   fields: {
     userId: String,
-    ideas: { type: [String], optional: true },
     email: { type: String, optional: true },
-    username: { type: String, optional: true },
+    ideas: { type: [String], optional: true },
     bookmarkIdeas: { type: [String], optional: true },
     headline: { type: String, optional: true },
     aboutMe: { type: String, optional: true },
@@ -84,7 +83,7 @@ export default Person = Class.create({
   indexes: {
     userId: {fields:{userId: 1}, options:{unique: true}},
     suggest: {fields: {firstName: "text", lastName: "text"}},
-    username: {fields:{username: 1}, options: {unique: true, sparse: true}}
+    email: {fields:{email: 1}, options: {unique: true, sparse: true}}
   },
   behaviors: {
     timestamp: {}
