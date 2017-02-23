@@ -7,7 +7,7 @@ const getValidatedEmailSettings = function(userId) {
     throw new Meteor.Error('email.settings.update.unauthorized',
       'Cannot perform any action with an idea if unauthorized.');
   } else {
-    return EmailNotification.findOne({ userId: this.userId }) || new EmailNotification({ userId: this.userId });
+    return EmailNotification.findOne({ userId: userId }) || new EmailNotification({ userId: userId });
   }
 }
 

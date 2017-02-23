@@ -5,3 +5,4 @@ import '../../api/people/methods';
 import '../../api/comments/methods';
 import '../../api/ideas/methods';
 import '../../api/email/methods';
+import '../../api/emailNotificationSettings/methods';

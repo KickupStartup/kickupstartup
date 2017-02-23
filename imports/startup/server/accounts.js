@@ -1,7 +1,9 @@
 import { Email } from 'meteor/email';
 import { check } from 'meteor/check';
 import { Accounts } from 'meteor/accounts-base';
+
 import Person from '../../api/people/Person';
+import EmailNotification from '../../api/emailNotificationSettings/EmailNotification';
 
 Accounts.onCreateUser(function(options, user){
   if (options) {
@@ -10,6 +12,10 @@ Accounts.onCreateUser(function(options, user){
 
   // create person record
   Person.upsert({userId: user._id}, {
+    userId: user._id
+  });
+
+  EmailNotification.upsert({userId: user._id}, {
     userId: user._id
   });
 

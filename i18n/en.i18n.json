@@ -79,6 +79,15 @@
       "country": "Country",
       "headline": "Headline. 140 characters",
       "aboutMe": "Write briefly about yourself in 1024 characters"
+    },
+    "emailSettings": {
+      "ideaCreated": "Notify on new ideas",
+      "ideaCommented": "Notify on new comments in my ideas",
+      "iAmMentioned": "Notify when I am directly mentioned",
+      "coauthorInvited": "Notify when I am invited as coauthor",
+      "coauthorReplied": "Notify when reply received on coauthor invitation",
+      "feedbackReceived": "Notify when feedback received",
+      "feedbackRequested": "Notify when feedback requested"
     }
   },
   "editor": {
