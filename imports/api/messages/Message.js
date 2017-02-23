@@ -4,7 +4,7 @@ import Messages from './messages';
 
 export const MessageType = Enum.create({
   name: 'MessageType',
-  identifiers: {NOTIFICATION: 0, INVITATION: 1, REQUEST: 2, RESPONSE: 3, PERSONAL: 4}
+  identifiers: {SYSTEM: 0, AUTHOR_INVITATION: 1, AUTHOR_INVITATION_REPLY: 2, FEEDBACK_REQUEST: 3, FEEDBACK_RESPONSE: 4, PERSONAL: 5}
 });
 
 export default Message = Class.create({
@@ -13,10 +13,10 @@ export default Message = Class.create({
   fields: {
     senderId: String,
     recipientId: String,
+    text: String,
     surveyId: { type: String, optional: true },
-    message: String,
     replyToMessageId: {type: String, optional: true},
-    type: { type: MessageType, default: 0 }
+    type: { type: MessageType, default: MessageType.SYSTEM }
   },
   indexes: {
     senderId: { fields: { authorId: 1 }},
