@@ -3,7 +3,7 @@ import { Class, Enum } from 'meteor/jagi:astronomy';
 import { Mongo } from 'meteor/mongo';
 import People from './people';
 
-const maritalStatus = Enum.create({
+const MaritalStatus = Enum.create({
   name: 'MaritalStatus',
   identifiers: ['NOTSPECIFIED', 'SINGLE', 'MARRIED']
 });
@@ -11,7 +11,7 @@ const maritalStatus = Enum.create({
 const Info = Class.create({
   name: 'Info',
   fields: {
-    maritalStatus: { type: maritalStatus, default: 0 },
+    maritalStatus: { type: MaritalStatus, default: 0 },
     children: { type: Number, optional: true },
     birthDate: { type: Date, optional: true },
     age: { type: Number, transient: true }
@@ -58,6 +58,7 @@ export default Person = Class.create({
   fields: {
     userId: String,
     ideas: { type: [String], optional: true },
+    email: { type: String, optional: true },
     username: { type: String, optional: true },
     bookmarkIdeas: { type: [String], optional: true },
     headline: { type: String, optional: true },
@@ -69,7 +70,8 @@ export default Person = Class.create({
     location: { type: Location, optional: true },
     interests: { type: Interests, optional: true },
     experience: { type: Experience, optional: true },
-    languages: { type: [String], optional: true }
+    languages: { type: [String], optional: true },
+    systemLanguage: { type: String, default: 'ru' }
   },
   events: {
     afterInit(e) {
