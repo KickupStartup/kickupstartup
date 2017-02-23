@@ -29,6 +29,7 @@ export default class CreateIdeaLoginModal extends Component {
         console.log("idea.new error ", error);
       }
       if(newIdea) {
+        $('#createidea').modal('close');
         router.push('/idea/' + newIdea._id);
       }
     });
@@ -48,9 +49,14 @@ export default class CreateIdeaLoginModal extends Component {
       }
     }
   }
-  openCreateIdeaModal() {
+  openCreateIdeaModal(event) {
+    event.preventDefault();
     $('.modal').modal();
     $('#createidea').modal('open');
+  }
+  closeCreateIdeaModal(event) {
+    event.preventDefault();
+    $('#createidea').modal('close');
   }
   renderCreateIdeaLink() {
     return (
@@ -61,7 +67,7 @@ export default class CreateIdeaLoginModal extends Component {
             <h3 className="title"><T>ideas.new.header</T></h3>
             <p><T>ideas.new.text</T></p>
             <div className="card-footer clearfix right">
-              <a href="#!" className="modal-action modal-close modal-link">
+              <a href="#!" onClick={this.closeCreateIdeaModal} className="modal-action modal-close modal-link">
                 <i className="fa fa-remove fa-lg" title="Cancel"></i>Cancel
               </a>
               <a href="#!" onClick={this.handleIdeaCreate} className="waves-effect waves-light orange btn modal-btn">
