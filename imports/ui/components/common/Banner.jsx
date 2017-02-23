@@ -33,7 +33,7 @@ Banner.propTypes = {
 };
 
 export default BannerContainer = createContainer(props => {
-  const authorsHandle = Meteor.subscribe("people.byids");
+  const authorsHandle = Meteor.subscribe("people.byids", props.authorsIds);
   const loading = !authorsHandle.ready();
   return {
     loading,
