@@ -50,12 +50,10 @@ export default class CreateIdeaLoginModal extends Component {
     }
   }
   openCreateIdeaModal(event) {
-    event.preventDefault();
     $('.modal').modal();
     $('#createidea').modal('open');
   }
   closeCreateIdeaModal(event) {
-    event.preventDefault();
     $('#createidea').modal('close');
   }
   renderCreateIdeaLink() {

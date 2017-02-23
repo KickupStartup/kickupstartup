@@ -1,8 +1,21 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Message, { MessageType } from './Message';
+import Person from '../people/Person';
 
 Meteor.methods({
+  'message.welcome': function(recipientId) {
+    check(recipientId, String);
+    const systemUser = Person.findOne({email: 'system@kickupstartup.com'});
+    const messageInstance = new Message({
+      type: MessageType.SYSTEM,
+      recipientId: recipientId,
+      senderId: systemUser._id,
+      text: 'WELCOME DEAR USER'
+    });
+    messageInstance.save();
+    return messageInstance;
+  },
   'message.idea.invitation.send': function(ideaId, recipientId, replyToMessageId, senderId, message) {
     check(ideaId, String);
     check(recipientId, String);

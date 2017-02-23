@@ -1,5 +1,6 @@
 import { Email } from 'meteor/email';
 import { check } from 'meteor/check';
+import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
 import Person from '../../api/people/Person';
@@ -17,6 +18,15 @@ Accounts.onCreateUser(function(options, user){
 
   EmailNotification.upsert({userId: user._id}, {
     userId: user._id
+  });
+
+  Meteor.call("message.welcome", user._id, function(error, result){
+    if(error){
+      console.log("error adding welcome message", error);
+    }
+    if(result){
+
+    }
   });
 
   let mail = {};
