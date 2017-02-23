@@ -1,6 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import { Class, Enum } from 'meteor/jagi:astronomy';
-import Messages from './Messages';
+import Messages from './messages';
 
 export const MessageType = Enum.create({
   name: 'MessageType',
