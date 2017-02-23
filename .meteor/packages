@@ -26,7 +26,7 @@ jagi:astronomy-softremove-behavior
 jagi:astronomy
 
 # ui
-stylus@2.513.9
+#stylus@2.513.9
 fourseven:scss
 materialize:materialize@=0.98.0
 fortawesome:fontawesome
