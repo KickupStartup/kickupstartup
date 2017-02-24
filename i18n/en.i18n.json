@@ -115,6 +115,7 @@
       "button": {
         "open": "Close public access to this idea",
         "close": "Open public access to this idea",
+        "access": "Allow collaboration",
         "join": "Join"
       }
     },

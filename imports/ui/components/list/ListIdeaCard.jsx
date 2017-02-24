@@ -50,9 +50,9 @@ export default class ListIdeaCard extends Component {
         {!this.props.idea.isAuthor(Meteor.userId()) ? <BookmarkIdeaLink
           bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
           ideaId={this.props.idea._id}/> : ''}
-        <div className="row-border pointer clearfix">
+        <div className="row-border pointer clearfix" onClick={this.gotoIdeaDetails.bind(this)}>
           <Banner idea={this.props.idea} authorsIds={this.props.idea.getAuthors()} />
-          <div onClick={this.gotoIdeaDetails.bind(this)} className="white-card">
+          <div className="white-card">
             <div className="content text-center clearfix">
               <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>
               <ul className="stat"><li>{this.renderNumberOfComments()} {this.renderNumberOfCommentsText()}</li>{this.renderLastCommentTime()}</ul>
