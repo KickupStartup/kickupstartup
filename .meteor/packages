@@ -39,6 +39,7 @@ meteorhacks:inject-initial
 
 # security
 check@1.2.4
+froatsnook:valid-email
 audit-argument-checks@1.0.7
 force-ssl@1.0.13
 browser-policy@1.1.0

@@ -58,6 +58,7 @@ export default Person = Class.create({
   fields: {
     userId: String,
     email: { type: String, optional: true },
+    notificationEnabled: { type: Boolean, default: false },
     ideas: { type: [String], optional: true },
     bookmarkIdeas: { type: [String], optional: true },
     headline: { type: String, optional: true },

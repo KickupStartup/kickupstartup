@@ -20,16 +20,23 @@ export default class MessagesCollection extends Component {
   }
   render () {
     return (
-      <ul className={this.getClasses()}>
-        {this.props.messages.length === 0 ? <span>У Вас пока нет сообщений</span> : ''}
-        {this.props.messages.map((message) => (
-          <div key={message._id}>
-            <MessageItem
-              message={message}
-              author={this.getAuthorName(message.userId)} />
-          </div>
-        ))}
-      </ul>
+      <div className="white card row-border clearfix">
+        <div className="modal-header">
+          <h3 className="modal-title">Сообщения</h3>
+        </div>
+        <div className="modal-body">
+          <ul className={this.getClasses()}>
+            {this.props.messages.length === 0 ? <span>У Вас пока нет сообщений</span> : ''}
+            {this.props.messages.map((message) => (
+              <div key={message._id}>
+                <MessageItem
+                  message={message}
+                  author={this.getAuthorName(message.userId)} />
+              </div>
+            ))}
+          </ul>
+        </div>
+      </div>
     )
   }
 }
