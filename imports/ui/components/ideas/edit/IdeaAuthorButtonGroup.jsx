@@ -108,13 +108,19 @@ export default class IdeaAuthorButtonGroup extends Component {
             <span className="sr-only">Toggle Dropdown</span>
             <ul id="authorButtonDropdown" className="dropdown-content dropdown-green">
               <li>
-                <a href="#!" onClick={this.changeView}>
+                <span>
+                  <input type="checkbox" className="filled-in" id="allow-collaboration" />
+                  <label htmlFor="allow-collaboration"><T>ideas.publish.button.access</T></label>
+                </span>
+              </li>
+              <li>
+                <a href="#!" className="right" onClick={this.changeView}>
                   {(this.props.edit && Meteor.userId()) ? <T>ideas.edit.preview</T> : <T>ideas.edit.edit</T>}
                 </a>
               </li>
               {!this.props.idea.isOwner(Meteor.userId()) ? <li><a href="#!" onClick={this.requestRemoval}><T>ideas.edit.collaborators</T></a></li> : ''}
               <li className="divider"></li>
-              <li><a href="#!" onClick={this.openRemoveIdeaModal}><T>ideas.edit.delete</T></a></li>
+              <li><a href="#!" className="right" onClick={this.openRemoveIdeaModal}><T>ideas.edit.delete</T></a></li>
             </ul>
           </div>
           <MaterialModal id="removeIdea" linkHeader="" iconClasses="fa fa-times circle"
