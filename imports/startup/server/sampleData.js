@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { moment } from 'meteor/momentjs:moment';
 import Idea from '../../api/ideas/Idea';
 import Person from '../../api/people/Person';
+import EmailNotification from '../../api/emailNotificationSettings/EmailNotification';
 import Comment from '../../api/comments/Comment';
 
 // create test user and his personal account
@@ -37,6 +38,7 @@ Person.upsert({userId: uid}, {
   },
   userId: uid
 });
+EmailNotification.upsert({userId: uid}, {userId: uid});
 
 // insert ideas for testing
 Idea.upsert({ name: "Idea 1", userId: uid}, {
@@ -107,6 +109,8 @@ Person.upsert({userId: user1._id}, {
   },
   userId: user1._id
 });
+EmailNotification.upsert({userId: user1._id}, {userId: user1._id});
+
 Meteor.users.upsert({ email: "test2@kickupstartup.com"}, {
   username: "test 2",
   email: "test2@kickupstartup.com",
@@ -129,6 +133,7 @@ Person.upsert({userId: user2._id}, {
     sports: ["Хоккей"]
   },
 });
+EmailNotification.upsert({userId: user2._id}, {userId: user2._id});
 Meteor.users.upsert({ email: "test3@kickupstartup.com"}, {
   username: "test 3",
   email: "test3@kickupstartup.com",
@@ -144,6 +149,7 @@ Person.upsert({userId: user3._id}, {
     city: "Holywood"
   }
 });
+EmailNotification.upsert({userId: user3._id}, {userId: user3._id});
 Meteor.users.upsert({ email: "test4@kickupstartup.com"}, {
   username: "test 4",
   email: "test4@kickupstartup.com",
@@ -154,7 +160,7 @@ Person.upsert({userId: user4._id}, {
   userId: user4._id,
   headline: "Никому ничего не скажу."
 });
-
+EmailNotification.upsert({userId: user4._id}, {userId: user4._id});
 // insert comments for testing
 const idea = Idea.findOne({userId: uid, name: "Idea 1"});
 
