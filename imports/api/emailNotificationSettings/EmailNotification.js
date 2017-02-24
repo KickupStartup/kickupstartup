@@ -8,7 +8,7 @@ export default EmailNotification = Class.create({
   fields: {
     userId: String,
     userSignedUp: { type: Boolean, default: false },
-    ideaCreated: { type: Boolean, default: false },
+    ideaCreated: { type: Boolean, default: true },
     ideaCommented: { type: Boolean, default: true },
     iAmMentioned: { type: Boolean, default: true },
     coauthorInvited: { type: Boolean, default: true },
