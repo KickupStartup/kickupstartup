@@ -8,6 +8,7 @@ import LiveEditor from '../../components/common/LiveEditor';
 import ListLoading from '../../components/list/ListLoading';
 import ListDivider from '../../components/list/ListDivider';
 import ProfileForm from '../../components/profile/ProfileForm';
+import EmailNotificationSettingsForm from '../../components/profile/EmailNotificationSettingsForm';
 
 export default class ProfilePage extends Component {
   renderManageAccountPanel() {
@@ -62,6 +63,10 @@ export default class ProfilePage extends Component {
                     <ListDivider />
                     <div className="col s12">
                       <ProfileForm profile={this.props.profile} />
+                    </div>
+                    <ListDivider />
+                    <div className="col s12">
+                      <EmailNotificationSettingsForm settings={this.props.emailSettings || {ideaCreated: true}} />
                     </div>
                   </div>
                 </div>

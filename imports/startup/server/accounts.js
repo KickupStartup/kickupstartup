@@ -1,7 +1,10 @@
 import { Email } from 'meteor/email';
 import { check } from 'meteor/check';
+import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
+
 import Person from '../../api/people/Person';
+import EmailNotification from '../../api/emailNotificationSettings/EmailNotification';
 
 Accounts.onCreateUser(function(options, user){
   if (options) {
@@ -11,6 +14,19 @@ Accounts.onCreateUser(function(options, user){
   // create person record
   Person.upsert({userId: user._id}, {
     userId: user._id
+  });
+
+  EmailNotification.upsert({userId: user._id}, {
+    userId: user._id
+  });
+
+  Meteor.call("message.welcome", user._id, function(error, result){
+    if(error){
+      console.log("error adding welcome message", error);
+    }
+    if(result){
+
+    }
   });
 
   let mail = {};

@@ -1,7 +1,10 @@
 import '../../api/ideas/server/publications';
 import '../../api/people/server/publications';
 import '../../api/comments/server/publications';
+import '../../api/messages/server/publications';
 import '../../api/people/methods';
 import '../../api/comments/methods';
+import '../../api/messages/methods';
 import '../../api/ideas/methods';
 import '../../api/email/methods';
+import '../../api/emailNotificationSettings/methods';

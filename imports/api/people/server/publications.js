@@ -1,12 +1,16 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 
+import EmailNotification from '../../emailNotificationSettings/EmailNotification';
 import Person from '../Person';
 import People from '../people';
 
 if (Meteor.isServer) {
   Meteor.publish("profile", function() {
     return Person.find({ userId: this.userId });
+  });
+  Meteor.publish("profile.email.settings", function() {
+    return EmailNotification.find({ userId: this.userId });
   });
   Meteor.publish("person.byid", function(id) {
     check(id, String);
@@ -27,6 +31,10 @@ if (Meteor.isServer) {
   });
   Meteor.publish("people.byids", function(ids) {
     check(ids, Array);
-    return People.find({ userId: { $in: ids } });
+    if (ids) {
+      return People.find({ userId: { $in: ids } });
+    } else {
+      return;
+    }
   });
 }
