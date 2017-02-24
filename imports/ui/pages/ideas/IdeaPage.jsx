@@ -78,7 +78,7 @@ export default class IdeaPage extends Component {
               <ListDivider border={true} />
               <ListEnd/>
             </div> :
-            <div className="container main without-tabs">
+            <div className="container main with-tabs">
               <IdeaView idea={this.props.idea} profile={this.props.profile} />
               <ListDivider border={true}/>
               <Comments idea={this.props.idea} comments={this.props.comments} />

@@ -84,7 +84,15 @@ export default class IdeaEditSubmenu extends Component {
               <IdeaAuthorButtonGroup edit={this.props.edit} idea={this.props.idea} onViewChanged={this.changeView} />
             </div>
           </div>
-          {(this.props.edit && Meteor.userId()) ? this.renderNavigationTabs() : ''}
+          {(this.props.edit && Meteor.userId()) ? this.renderNavigationTabs()
+            :
+              <div className="row">
+                <div className="col s12 text-right">
+                  <input type="checkbox" className="filled-in" id="allow-collaboration" />
+                  <label htmlFor="allow-collaboration"><T>ideas.publish.button.access</T></label>
+                </div>
+              </div>
+          }
         </div>
       </div>
     )
