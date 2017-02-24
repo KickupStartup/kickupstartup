@@ -108,6 +108,12 @@ export default class IdeaAuthorButtonGroup extends Component {
             <span className="sr-only">Toggle Dropdown</span>
             <ul id="authorButtonDropdown" className="dropdown-content dropdown-green">
               <li>
+                <span>
+                  <input type="checkbox" className="filled-in" id="allow-collaboration" />
+                  <label htmlFor="allow-collaboration"><T>ideas.publish.button.access</T></label>
+                </span>
+              </li>
+              <li>
                 <a href="#!" className="right" onClick={this.changeView}>
                   {(this.props.edit && Meteor.userId()) ? <T>ideas.edit.preview</T> : <T>ideas.edit.edit</T>}
                 </a>
