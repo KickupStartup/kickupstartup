@@ -7,19 +7,35 @@ class Banner extends Component {
   constructor(props) {
     super(props);
   }
-  clickDropdown(event){
+  inviteAsCoauthor(author, event) {
     event.preventDefault();
-    $('.profile').dropdown({
+    console.log(author);
+  }
+  removeCoauthor(author, event) {
+    event.preventDefault();
+    console.log(author);
+  }
+  clickDropdown(linkId, event){
+    event.preventDefault();
+    const linkSelector = '#' + linkId;
+    $(linkSelector).dropdown({
       alignment: 'right'
     }); /* initialize */
-    $('.profile').dropdown('open');
+    $(linkSelector).dropdown('open');
   }
   renderAuthors() {
     return this.props.authors.map((author) => (
-      <span>
-        <a key={author._id} onClick={this.clickDropdown} data-activates="authorDropdown" className="profile" href="#!"><Avatar className="sb-avatar circle pointer" name={author.fullName} round={true} size={48} /></a>
-        <div id="authorDropdown" className="dropdown-content dropdown-author dropdown-green">
-          User text info
+      <span key={author._id}>
+        <a id={author._id} onClick={(event) => this.clickDropdown(author._id, event)} data-activates={'m'+author._id} className="profile" href="#!">
+          <Avatar className="sb-avatar circle pointer" name={author.fullName} round={true} size={48} />
+        </a>
+        <div id={'m'+author._id} className="dropdown-content dropdown-author dropdown-green">
+          <Avatar className="sb-avatar circle pointer" name={author.fullName} round={true} size={48} />
+          <p>{author.fullName}</p>
+          <p>{author.fullLocation}</p>
+          <p>{author.headline}</p>
+          <button onClick={(event) => this.inviteAsCoauthor(author, event)} className="waves-effect waves-light orange btn modal-btn">Invite</button>
+          <button onClick={(event) => this.removeCoauthor(author, event)} className="waves-effect waves-light orange btn modal-btn">Remove</button>
         </div>
       </span>
     ));
