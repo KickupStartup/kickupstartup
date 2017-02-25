@@ -3436,6 +3436,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .marging-top{margin-top:0}
 .stat{border-radius:4px;list-style:none;margin:0 0 8px}
   .stat h3{margin:0}
+  .stat h3 .unpublished{font-weight:bold;text-transform:uppercase}
   .stat>li{display:inline-block}
   .stat>li+li::before{padding:0 10px;content:"\00b7"}
 .fa{margin:1px} /* search icon fix */
@@ -3490,6 +3491,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 -o-transition:all .5s linear, border .5s ease;
 -ms-transition:all .5s linear, border .5s ease;
 transition:all .5s linear, border .5s ease}
+.label-badge{background-color:#ff9100;color:#fff;font-size:0.76rem;padding:4px 6px;text-transform:uppercase;position:relative;top:12px;right:12px}
 span.badge{display:inline-block;color:#000;font-size:.9rem;float:initial;margin:0;padding:0;right:-31px;top:-10px;position:relative;text-align:center;min-width:32px;-moz-transition:all .5s linear, border .5s ease;
 -o-transition:all .5s linear, border .5s ease;
 -ms-transition:all .5s linear, border .5s ease;
