@@ -28,10 +28,10 @@ export default class ThirdPartyLoginButtons extends Component {
   render () {
     return (
       <div className="card-footer clearfix right">
-        <a href="#!" onClick={this.loginWithGoogle.bind(this)} className="ticket-btn">
+        <a href="#!" onClick={this.loginWithGoogle.bind(this)} className="waves-effect waves-light orange btn modal-btn">
           <i className="fa fa-google-plus fa-lg" title="Google+"></i>Google+
         </a>
-        <a href="#!" onClick={this.loginWithTwitter.bind(this)} className="ticket-btn">
+        <a href="#!" onClick={this.loginWithTwitter.bind(this)} className="waves-effect waves-light orange btn modal-btn">
           <i className="fa fa-twitter fa-lg" title="Twitter"></i>Twitter
         </a>
       </div>

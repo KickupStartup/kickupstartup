@@ -3,41 +3,24 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-import ListDivider from '../../../components/list/ListDivider';
-import LiveEditor from '../../common/LiveEditor';
-import IdeaInviteCollaborator from '../../../components/ideas/IdeaInviteCollaborator';
+import IdeaEditor from './IdeaEditor';
 
 export default class DraftTabContent extends Component {
-  constructor(props) {
-    super(props);
-    this.handleDraftChange = this.handleDraftChange.bind(this);
-    this.handleDraftChange = _.debounce(this.handleDraftChange, 2000);
-  }
-  handleDraftChange(draft) {
-    const idea = this.props.idea;
-    Meteor.call("idea.update.draft", idea._id, draft, function(error, result) {
-      if(error) {
-        console.log("error", error);
-      }
-      if(result) {}
-    });
+  openAddCoauthorModal() {
+    $('.modal').modal();
+    $('#addCoauthor').modal('open');
   }
   render () {
     return (
       <div className={this.props.hidden}>
         <div className="alert alert-info clearfix" role="alert">
           <h4><T>ideas.tabs.draft.alert.header</T></h4>
-          <p><T>ideas.tabs.draft.alert.text</T></p>
+          <p><T>ideas.tabs.draft.alert.text1</T><a href="#!" onClick={this.openAddCoauthorModal}><T>ideas.tabs.draft.alert.text2</T></a><T>ideas.tabs.draft.alert.text3</T></p>
         </div>
-        <div className="white card row-border clearfix">
-          <LiveEditor
-            onChange={this.handleDraftChange}
-            value={this.props.idea.draft}
-            placeholder={i18n.__('ideas.tabs.draft.placeholder')} />
-        </div>
-        <ListDivider border={true} />
-        <IdeaInviteCollaborator idea={this.props.idea} />
-        <ListDivider />
+        <IdeaEditor
+          fieldName="draft"
+          header={i18n.__('ideas.tabs.draft.name') + ' · ' + i18n.__('ideas.locked')}
+          idea={this.props.idea} />
       </div>
     )
   }

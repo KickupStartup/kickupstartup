@@ -7,6 +7,7 @@ const T = i18n.createComponent();
 
 import ReactInput from '../../common/ReactInput';
 import BookmarkIdeaLink from '../BookmarkIdeaLink';
+import IdeaAuthorButtonGroup from './IdeaAuthorButtonGroup';
 import UnderDevelopmentIcon from '../../common/UnderDevelopmentIcon';
 
 export default class IdeaEditSubmenu extends Component {
@@ -17,12 +18,10 @@ export default class IdeaEditSubmenu extends Component {
     }
     this.switchTab = this.switchTab.bind(this);
     this.changeView = this.changeView.bind(this);
-    this.handleIdeaRemoveClick = this.handleIdeaRemoveClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
-    this.renderNavigationTabs = this.renderNavigationTabs.bind(this);
-    this.renderEditMenu = this.renderEditMenu.bind(this);
-    this.renderViewMenu = this.renderViewMenu.bind(this);
-    this.renderViewOnlyMenu = this.renderViewOnlyMenu.bind(this);
+    this.renderSubmenuViewMode = this.renderSubmenuViewMode.bind(this);
+    this.renderSubmenuEditMode = this.renderSubmenuEditMode.bind(this);
+    this.renderSubmenu = this.renderSubmenu.bind(this);
   }
   switchTab(event) {
     event.preventDefault();
@@ -46,93 +45,67 @@ export default class IdeaEditSubmenu extends Component {
       if(result) {}
     });
   }
-  handleIdeaRemoveClick(event) {
-    event.preventDefault();
-    Meteor.call("idea.remove", this.props.idea._id, function(error, result){
-      if(error){
-        console.log("error", error);
-      }
-      if(result){}
-    });
-    this.context.router.push('/ideas/yours');
-  }
   tabActiveClass(active) {
     let classes = classNames({
       'active': this.state.activeTab == active,
     });
     return classes;
   }
-  renderEditMenu() {
-    return(
-      <div className="row">
-        <div className="col s12 m6 idea_title">
-          <ReactInput id="ideaName"
-            value={this.props.idea.name}
-            onChange={this.handleNameChange}
-            placeholder={i18n.__('ideas.edit.title.placeholder')} />
-        </div>
-        <div className="col s12 m6">
-          <a href="#!" className="delete left" onClick={this.handleIdeaRemoveClick} title={i18n.__('ideas.edit.delete')}>
-            <span className="fa fa-trash fa-lg"></span>
-          </a>
-          <button onClick={this.changeView} type="submit" className="waves-effect waves-light green btn right">
-            <span className="fa fa-eye"></span><T>ideas.edit.preview</T>
-          </button>
-        </div>
-      </div>
-    );
-  }
-  renderViewOnlyMenu() {
-    return(
-      <div className="row">
-        <div className="col s12 idea_title">
-          <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}</h3>
-        </div>
-      </div>
-    );
-  }
-  renderViewMenu() {
-    return(
-      <div className="row">
-        <div className="col s12 m6 idea_title">
-          <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}
-            {this.props.authored ?
-              '' :
-              <BookmarkIdeaLink
-                bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
-                ideaId={this.props.idea._id}
-                view={true}/>
-            }</h3>
-        </div>
-        <div className="col s12 m6">
-          {this.props.authored ?
-              <button type="submit" onClick={this.changeView} className="waves-effect waves-light green btn right">
-                <span className="fa fa-pencil"></span><T>ideas.edit.edit</T>
-              </button> : ''}
-             {/* <div className="switch right">
-               <label>Unpublished<input type="checkbox" onClick={this.changeView} /><span className="lever"></span>Published</label>
-             </div> */}
-        </div>
-      </div>
-    );
-  }
-  renderNavigationTabs() {
+  renderSubmenuEditMode() {
     return (
       <ul className="nav nav-tabs">
         <li className={this.tabActiveClass(0)}><a href="#draft" data-tabindex="0" onClick={this.switchTab}><T>ideas.tabs.draft.name</T></a></li>
         <li className={this.tabActiveClass(1)}><a href="#story" data-tabindex="1" onClick={this.switchTab}><T>ideas.tabs.story.name</T></a></li>
         <li className={this.tabActiveClass(2)}><a href="#problem" data-tabindex="2" onClick={this.switchTab}><T>ideas.tabs.problem.name</T></a></li>
         <li className={this.tabActiveClass(3)}><a href="#solution" data-tabindex="3" onClick={this.switchTab}><T>ideas.tabs.solution.name</T></a></li>
-        <li className={this.tabActiveClass(4)}><a href="#validation" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation.name</T> <UnderDevelopmentIcon iconOnly={true}/></a></li>
+        <li className={this.tabActiveClass(4)}><a href="#validation" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation.name</T></a></li>
       </ul>
     );
   }
+  renderSubmenuViewMode() {
+    return (
+      <div className="row">
+        <div className="col s12 text-right">
+          <input type="checkbox" className="filled-in" id="allow-collaboration" />
+          <label htmlFor="allow-collaboration"><T>ideas.publish.button.access</T></label>
+        </div>
+      </div>
+    );
+  }
+  renderSubmenu() {
+    if (!Meteor.userId() || !this.props.authored) {
+      // do not render submenu for
+      // 1. unauthenticated users; and
+      // 2. those who are not authors of the idea
+      return;
+    }
+    return this.props.edit ? this.renderSubmenuEditMode() : this.renderSubmenuViewMode();
+  }
   render () {
+    const userId = Meteor.userId();
     return (
       <div className="main-grey">
         <div className="container main">
-          {(this.props.edit && Meteor.userId()) ? this.renderEditMenu() : (!Meteor.userId() ? this.renderViewOnlyMenu() : this.renderViewMenu())}
-          {(this.props.edit && Meteor.userId()) ? this.renderNavigationTabs() : ''}
+          <div className="row">
+            <div className="col s12 m6 idea_title">
+              {(this.props.edit && userId) ?
+                <ReactInput id="ideaName"
+                  value={this.props.idea.name}
+                  onChange={this.handleNameChange}
+                  placeholder={i18n.__('ideas.edit.title.placeholder')} /> :
+                <h3>{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}
+                  {this.props.authored ? '' :
+                    <BookmarkIdeaLink
+                      bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
+                      ideaId={this.props.idea._id}
+                      view={true}/>}
+                </h3>}
+            </div>
+            <div className="col s12 m6">
+              <IdeaAuthorButtonGroup edit={this.props.edit} idea={this.props.idea} onViewChanged={this.changeView} />
+            </div>
+          </div>
+          {this.renderSubmenu()}
         </div>
       </div>
     )

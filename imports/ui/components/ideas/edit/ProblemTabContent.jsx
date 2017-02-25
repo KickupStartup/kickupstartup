@@ -3,24 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-import ListDivider from '../../../components/list/ListDivider';
-import LiveEditor from '../../common/LiveEditor';
+import IdeaEditor from './IdeaEditor';
 
 export default class ProblemTabContent extends Component {
-  constructor(props) {
-    super(props);
-    this.handleProblemChange = this.handleProblemChange.bind(this);
-    this.handleProblemChange = _.debounce(this.handleProblemChange, 2000);
-  }
-  handleProblemChange(problem) {
-    const idea = this.props.idea;
-    Meteor.call("idea.update.problem", idea._id, problem, function(error, result) {
-      if(error) {
-        console.log("error", error);
-      }
-      if(result) {}
-    });
-  }
   render () {
     return (
       <div className={this.props.hidden}>
@@ -28,16 +13,8 @@ export default class ProblemTabContent extends Component {
           <h4><T>ideas.tabs.problem.alert.header</T></h4>
           <p><T>ideas.tabs.problem.alert.text</T></p>
         </div>
-        <div className="white card row-border clearfix">
-          <div className="banner banner-edit banner-editor"></div>
-          <LiveEditor
-            onChange={this.handleProblemChange}
-            value={this.props.idea.problem}
-            placeholder={i18n.__('ideas.tabs.problem.placeholder')} />
-        </div>
-        <ListDivider />
+        <IdeaEditor fieldName="problem" idea={this.props.idea} />
       </div>
-
     )
   }
 }

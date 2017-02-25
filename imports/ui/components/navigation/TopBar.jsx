@@ -16,22 +16,20 @@ export default class TopBar extends Component {
   renderProfileLink() {
     if (Meteor.userId()) {
       return (
-        <div className="col s2">
           <ul className="fullpage_nav nav navbar-nav right">
+            <li><Link to="/messages" className="avatar-small" activeClassName="active"><img src="../../img/no-messages.png" /></Link></li>
             <li><Link to="/profile" activeClassName="active" className="avatar-small">
-              <Avatar name={this.getProfileName()} size={50} round={true} /></Link></li>
+              <Avatar name={this.getProfileName()} size={50} round={true} /></Link>
+            </li>
           </ul>
-        </div>
       );
     } else {
       return (
-        <div className="col s2">
           <ul className="fullpage_nav nav navbar-nav right">
             <li>
               <button onClick={this.openLoginModal} className="waves-effect waves-light green btn login-btn"><i className="fa fa-user-circle"></i><T>navigation.login</T></button>
             </li>
           </ul>
-        </div>
       );
     }
   }
@@ -57,12 +55,8 @@ export default class TopBar extends Component {
       <div className="navbar navbar-fixed-top" role="navigation">
         <Link to="/" className="logo"></Link>
         <div className="container">
-          <div className="row">
-            <div className="col s10">
-              {this.renderPersonalLinks()}
-            </div>
-            {this.renderProfileLink()}
-          </div>
+          {this.renderProfileLink()}
+          {this.renderPersonalLinks()}
         </div>
       </div>
     )

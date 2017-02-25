@@ -3,7 +3,7 @@ import { Class, Enum } from 'meteor/jagi:astronomy';
 import { Mongo } from 'meteor/mongo';
 import People from './people';
 
-const maritalStatus = Enum.create({
+const MaritalStatus = Enum.create({
   name: 'MaritalStatus',
   identifiers: ['NOTSPECIFIED', 'SINGLE', 'MARRIED']
 });
@@ -11,7 +11,7 @@ const maritalStatus = Enum.create({
 const Info = Class.create({
   name: 'Info',
   fields: {
-    maritalStatus: { type: maritalStatus, default: 0 },
+    maritalStatus: { type: MaritalStatus, default: 0 },
     children: { type: Number, optional: true },
     birthDate: { type: Date, optional: true },
     age: { type: Number, transient: true }
@@ -57,30 +57,43 @@ export default Person = Class.create({
   collection: People,
   fields: {
     userId: String,
-    username: { type: String, optional: true },
+    email: { type: String, optional: true },
+    notificationEnabled: { type: Boolean, default: false },
+    ideas: { type: [String], optional: true },
     bookmarkIdeas: { type: [String], optional: true },
     headline: { type: String, optional: true },
     aboutMe: { type: String, optional: true },
     firstName: { type: String, optional: true },
     lastName: { type: String, optional: true },
     fullName: { type: String, transient: true },
+    fullLocation: { type: String, transient: true },
     info: { type: Info, optional: true },
     location: { type: Location, optional: true },
     interests: { type: Interests, optional: true },
     experience: { type: Experience, optional: true },
-    languages: { type: [String], optional: true }
+    languages: { type: [String], optional: true },
+    systemLanguage: { type: String, default: 'ru' }
   },
   events: {
     afterInit(e) {
       const doc = e.currentTarget;
-      let firstName = doc.firstName ? doc.firstName : '';
-      let lastName = doc.lastName ? doc.lastName : '';
+      const firstName = doc.firstName ? doc.firstName : '';
+      const lastName = doc.lastName ? doc.lastName : '';
       doc.fullName = (firstName + ' ' + lastName).trim();
+      if (doc.location) {
+        const city = doc.location.city || '';
+        const country = doc.location.country || '';
+        const delimiter = (city === '' || country === '') ? '' : ', ';
+        doc.fullLocation = (city + delimiter + country).trim();
+      } else {
+        doc.fullLocation = '';
+      }
     }
   },
   indexes: {
     userId: {fields:{userId: 1}, options:{unique: true}},
-    username: {fields:{username: 1}, options: {unique: true, sparse: true}}
+    suggest: {fields: {firstName: "text", lastName: "text"}},
+    email: {fields:{email: 1}, options: {unique: true, sparse: true}}
   },
   behaviors: {
     timestamp: {}

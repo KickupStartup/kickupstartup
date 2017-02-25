@@ -7,9 +7,7 @@ import ListLoading from '../../components/list/ListLoading';
 import ListDivider from '../../components/list/ListDivider';
 import ListEnd from '../../components/list/ListEnd';
 
-import BookmarkIdeaLink from '../../components/ideas/BookmarkIdeaLink';
 import IdeaView from '../../components/ideas/IdeaView';
-import IdeaInviteCollaborator from '../../components/ideas/IdeaInviteCollaborator';
 import IdeaPoll from '../../components/ideas/IdeaPoll';
 import IdeaAskForReview from '../../components/ideas/IdeaAskForReview';
 import IdeaNotFound from '../../components/ideas/IdeaNotFound';
@@ -22,13 +20,14 @@ import ProblemTabContent from '../../components/ideas/edit/ProblemTabContent';
 import SolutionTabContent from '../../components/ideas/edit/SolutionTabContent';
 import StoryTabContent from '../../components/ideas/edit/StoryTabContent';
 import ValidationTabContent from '../../components/ideas/edit/ValidationTabContent';
+import WhatNext from '../../components/ideas/edit/WhatNext';
 
 import { FormStep } from '../../../api/ideas/Idea';
 
 export default class IdeaPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { preview: false, activeTab: 0 };
+    this.state = { preview: false, activeTab: 0, initialized: false };
     this.handleTabChange = this.handleTabChange.bind(this);
     this.handleViewChange = this.handleViewChange.bind(this);
   }
@@ -37,6 +36,11 @@ export default class IdeaPage extends Component {
   }
   handleTabChange(activeTab) {
     this.setState({activeTab: activeTab});
+  }
+  componentDidUpdate() {
+    if (!this.props.loading && !this.state.initialized) {
+      this.setState({preview: this.props.idea.isPublic(), initialized: true});
+    }
   }
   render() {
     if (this.props.loading) {
@@ -49,6 +53,7 @@ export default class IdeaPage extends Component {
           <IdeaNotFound />
         );
       }
+
       const isEdit = this.props.idea
                       && this.props.idea.isAuthor(Meteor.userId())
                       && !this.state.preview;
@@ -68,17 +73,16 @@ export default class IdeaPage extends Component {
               <ProblemTabContent hidden={this.state.activeTab != 2 ? 'hidden' : ''} idea={this.props.idea} />
               <SolutionTabContent hidden={this.state.activeTab != 3 ? 'hidden' : ''} idea={this.props.idea} />
               <ValidationTabContent hidden={this.state.activeTab != 4 ? 'hidden' : ''} idea={this.props.idea}/>
+              <ListDivider border={true} />
+              <WhatNext />
+              <ListDivider border={true} />
+              <ListEnd/>
             </div> :
-            <div className="container main without-tabs">
-              <IdeaView idea={this.props.idea} author={this.props.author} profile={this.props.profile} />
+            <div className="container main with-tabs">
+              <IdeaView idea={this.props.idea} profile={this.props.profile} />
               <ListDivider border={true}/>
-              <IdeaInviteCollaborator idea={this.props.idea} />
-              <ListDivider border={true} />
-              <IdeaAskForReview idea={this.props.idea} />
-              <ListDivider border={true} />
-              <IdeaPoll idea={this.props.idea} />
-              <ListDivider border={true} />
               <Comments idea={this.props.idea} comments={this.props.comments} />
+              <ListDivider border={true} />
               <ListEnd/>
             </div>
           }
@@ -93,5 +97,4 @@ IdeaPage.propTypes = {
   idea: PropTypes.object,
   comments: PropTypes.array,
   profile: PropTypes.object,
-  author: PropTypes.object
 }

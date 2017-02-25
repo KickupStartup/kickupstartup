@@ -37,6 +37,7 @@ export default Idea = Class.create({
   fields: {
     userId: String,
     authors: { type: [String], optional: true },
+    surveyId: { type: String, optional: true },
     step: { type: FormStep, default: FormStep.NAME },
     status: { type: IdeaStatus, default: IdeaStatus.NEW },
     public: { type: Boolean, default: false },
@@ -65,6 +66,9 @@ export default Idea = Class.create({
       var authors = this.authors || [];
       authors.push(this.userId);
       return (authors.indexOf(userId) >= 0);
+    },
+    isOwner(userId) {
+      return userId === this.userId;
     },
     getAuthors() {
       var authors = this.authors || [];

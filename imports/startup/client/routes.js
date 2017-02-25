@@ -16,6 +16,7 @@ import IdeaPageContainer from '../../ui/pages/ideas/IdeaPageContainer.jsx';
 import PeoplePageContainer from '../../ui/pages/people/PeoplePageContainer.jsx';
 import PersonPageContainer from '../../ui/pages/people/PersonPageContainer.jsx';
 
+import MessagesPageContainer from '../../ui/pages/messages/MessagesPageContainer.jsx';
 import ProfilePageContainer from '../../ui/pages/profile/ProfilePageContainer.jsx';
 
 export const renderRoutes = () => (
@@ -25,6 +26,7 @@ export const renderRoutes = () => (
     </Route>
     <Route component={AppLayout}>
       <Route path="profile" component={ProfilePageContainer}/>
+      <Route path="messages" component={MessagesPageContainer}/>
       <Route path="ideas">
         <IndexRedirect to='all'/>
         <Route path="all" component={IdeasPageContainer}/>
