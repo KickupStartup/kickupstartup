@@ -51,13 +51,13 @@ class Banner extends Component {
   render() {
     if (this.props.authors) {
       return (
-          <div className="content text-center clearfix">
+        <div className="content text-center clearfix">
             <span className="label-badge right"><T>ideas.publish.status.unpublish</T></span>
-            <div className="banner" style={{background:'url(/img/banner-idea.jpg) center center no-repeat'}}></div>
-            <div className="avatar-photo small">
-              {this.renderAuthors()}
-            </div>
+          	<div className="banner" style={{background:'url(/img/banner-idea.jpg) center center no-repeat'}}></div>
+          	<div className="avatar-photo small">
+            {this.renderAuthors()}
           </div>
+        </div>
       );
     } else {
       return (<span></span>);
