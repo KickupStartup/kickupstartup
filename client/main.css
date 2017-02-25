@@ -4019,7 +4019,12 @@ blockquote div{font-style:italic}
 .dropdown-content{top:128px!important;width:auto!important}
   .dropdown-content li > a{color:#ff9100}
   .dropdown-content.dropdown-green li > a{color:#4CAF50;font-size:1em}
-.dropdown-author{top:50px!important;width:auto!important}
+.dropdown-author{left:auto!important;right:auto!important;top:50px!important;width:100%!important}
+.dropdown-author .collection{border:0;margin:0;width:100%}
+  .dropdown-author .modal-close{position:relative;top:12px;right:8px;z-index:99}
+  .dropdown-author li.collection-item{padding:0 20px 20px 20px}
+  .dropdown-author li.collection-item:hover{background-color:#fff}
+  .dropdown-author li.collection-item.avatar{padding-left:86px}
 .btn-group .part-left,.btn-group .part-right{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.16)}
 .btn-group .part-left{border-top-right-radius:0;border-bottom-right-radius:0}
 .btn-group .part-right{border-top-left-radius:0;border-bottom-left-radius:0;padding:0 12px}
