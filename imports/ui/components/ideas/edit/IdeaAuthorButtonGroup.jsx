@@ -121,12 +121,14 @@ export default class IdeaAuthorButtonGroup extends Component {
             linkText={i18n.__('ideas.remove.text')} />
         </div>
       );
-    } else {
+    } else if (Meteor.userId()) {
       return (
         <button onClick={this.requestAccess} className="dropdown-button waves-effect waves-light green btn right">
           <T>ideas.publish.button.join</T>
         </button>
       );
+    } else {
+      return (<span></span>);
     }
   }
 }

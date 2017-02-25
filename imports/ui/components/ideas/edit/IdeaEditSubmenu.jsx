@@ -19,7 +19,9 @@ export default class IdeaEditSubmenu extends Component {
     this.switchTab = this.switchTab.bind(this);
     this.changeView = this.changeView.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
-    this.renderNavigationTabs = this.renderNavigationTabs.bind(this);
+    this.renderSubmenuViewMode = this.renderSubmenuViewMode.bind(this);
+    this.renderSubmenuEditMode = this.renderSubmenuEditMode.bind(this);
+    this.renderSubmenu = this.renderSubmenu.bind(this);
   }
   switchTab(event) {
     event.preventDefault();
@@ -49,7 +51,7 @@ export default class IdeaEditSubmenu extends Component {
     });
     return classes;
   }
-  renderNavigationTabs() {
+  renderSubmenuEditMode() {
     return (
       <ul className="nav nav-tabs">
         <li className={this.tabActiveClass(0)}><a href="#draft" data-tabindex="0" onClick={this.switchTab}><T>ideas.tabs.draft.name</T></a></li>
@@ -59,6 +61,25 @@ export default class IdeaEditSubmenu extends Component {
         <li className={this.tabActiveClass(4)}><a href="#validation" data-tabindex="4" onClick={this.switchTab}><T>ideas.tabs.validation.name</T></a></li>
       </ul>
     );
+  }
+  renderSubmenuViewMode() {
+    return (
+      <div className="row">
+        <div className="col s12 text-right">
+          <input type="checkbox" className="filled-in" id="allow-collaboration" />
+          <label htmlFor="allow-collaboration"><T>ideas.publish.button.access</T></label>
+        </div>
+      </div>
+    );
+  }
+  renderSubmenu() {
+    if (!Meteor.userId() || !this.props.authored) {
+      // do not render submenu for
+      // 1. unauthenticated users; and
+      // 2. those who are not authors of the idea
+      return;
+    }
+    return this.props.edit ? this.renderSubmenuEditMode() : this.renderSubmenuViewMode();
   }
   render () {
     const userId = Meteor.userId();
@@ -84,15 +105,7 @@ export default class IdeaEditSubmenu extends Component {
               <IdeaAuthorButtonGroup edit={this.props.edit} idea={this.props.idea} onViewChanged={this.changeView} />
             </div>
           </div>
-          {(this.props.edit && Meteor.userId()) ? this.renderNavigationTabs()
-            :
-              <div className="row">
-                <div className="col s12 text-right">
-                  <input type="checkbox" className="filled-in" id="allow-collaboration" />
-                  <label htmlFor="allow-collaboration"><T>ideas.publish.button.access</T></label>
-                </div>
-              </div>
-          }
+          {this.renderSubmenu()}
         </div>
       </div>
     )
