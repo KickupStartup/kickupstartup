@@ -10,6 +10,8 @@ import ReadOnlyEditor from '../common/ReadOnlyEditor';
 import BookmarkIdeaLink from '../ideas/BookmarkIdeaLink';
 import ListDivider from './ListDivider';
 
+import Person from '../../../api/people/Person';
+
 export default class ListIdeaCard extends Component {
   constructor(props) {
     super(props);
@@ -51,7 +53,7 @@ export default class ListIdeaCard extends Component {
           bookmarks={this.props.profile ? this.props.profile.bookmarkIdeas : []}
           ideaId={this.props.idea._id}/> : ''}
         <div className="row-border pointer clearfix" onClick={this.gotoIdeaDetails.bind(this)}>
-          <Banner idea={this.props.idea} authorsIds={this.props.idea.getAuthors()} />
+          <Banner idea={this.props.idea} authors={Person.find({ userId: { $in: this.props.idea.getAuthors() } }).fetch()}/>
           <div className="white-card">
             <div className="content text-center clearfix">
               <ul className="stat"><li><h3>{this.props.idea.name}</h3></li></ul>

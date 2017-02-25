@@ -7,6 +7,8 @@ import Avatar from 'react-avatar';
 import Banner from '../common/Banner';
 import ReadOnlyEditor from '../common/ReadOnlyEditor';
 
+import Person from '../../../api/people/Person';
+
 export default class IdeaView extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,7 @@ export default class IdeaView extends Component {
   render () {
     return (
       <div className="row-border clearfix">
-        <Banner idea={this.props.idea} authorsIds={this.props.idea.getAuthors()} />
+        <Banner idea={this.props.idea} authors={Person.find({ userId: { $in: this.props.idea.getAuthors() } }).fetch()} />
         <div className="white-card">
           <div className="content text-center clearfix">
             <h3 className="modal-title">{this.props.idea.name ? this.props.idea.name : <T>ideas.view.placeholder.title</T>}</h3>
