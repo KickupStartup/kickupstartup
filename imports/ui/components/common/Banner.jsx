@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import Avatar from 'react-avatar';
 const T = i18n.createComponent();
 
-class Banner extends Component {
+export default class Banner extends Component {
   constructor(props) {
     super(props);
   }
@@ -48,11 +48,21 @@ class Banner extends Component {
       </span>
     ));
   }
+  renderUnpublishStatus() {
+    if (Meteor.userId() && this.props.idea.isAuthor(Meteor.userId()) && !this.props.idea.isPublic()) {
+      // show "idea is hidden" when it is not public and authenticated user is not an author
+      return (
+        <span className="label-badge right"><T>ideas.publish.status.unpublish</T></span>
+      );
+    } else {
+      return;
+    }
+  }
   render() {
     if (this.props.authors) {
       return (
         <div className="content text-center clearfix">
-            <span className="label-badge right"><T>ideas.publish.status.unpublish</T></span>
+            {this.renderUnpublishStatus()}
           	<div className="banner" style={{background:'url(/img/banner-idea.jpg) center center no-repeat'}}></div>
           	<div className="avatar-photo small">
             {this.renderAuthors()}
@@ -66,14 +76,6 @@ class Banner extends Component {
 }
 
 Banner.propTypes = {
-  authorsIds: PropTypes.array
+  authors: PropTypes.array,
+  idea: PropTypes.object
 };
-
-export default BannerContainer = createContainer(props => {
-  const authorsHandle = Meteor.subscribe("people.byids", props.authorsIds);
-  const loading = !authorsHandle.ready();
-  return {
-    loading,
-    authors: Person.find({ userId: { $in: props.authorsIds } }).fetch(),
-  };
-}, Banner);
