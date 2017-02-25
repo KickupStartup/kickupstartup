@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import Avatar from 'react-avatar';
+const T = i18n.createComponent();
 
 class Banner extends Component {
   constructor(props) {
@@ -51,8 +52,9 @@ class Banner extends Component {
     if (this.props.authors) {
       return (
         <div className="content text-center clearfix">
-          <div className="banner" style={{background:'url(/img/banner-idea.jpg) center center no-repeat'}}></div>
-          <div className="avatar-photo small">
+            <span className="label-badge right"><T>ideas.publish.status.unpublish</T></span>
+          	<div className="banner" style={{background:'url(/img/banner-idea.jpg) center center no-repeat'}}></div>
+          	<div className="avatar-photo small">
             {this.renderAuthors()}
           </div>
         </div>
