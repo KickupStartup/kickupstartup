@@ -66,6 +66,7 @@ export default Person = Class.create({
     firstName: { type: String, optional: true },
     lastName: { type: String, optional: true },
     fullName: { type: String, transient: true },
+    fullLocation: { type: String, transient: true },
     info: { type: Info, optional: true },
     location: { type: Location, optional: true },
     interests: { type: Interests, optional: true },
@@ -76,9 +77,17 @@ export default Person = Class.create({
   events: {
     afterInit(e) {
       const doc = e.currentTarget;
-      let firstName = doc.firstName ? doc.firstName : '';
-      let lastName = doc.lastName ? doc.lastName : '';
+      const firstName = doc.firstName ? doc.firstName : '';
+      const lastName = doc.lastName ? doc.lastName : '';
       doc.fullName = (firstName + ' ' + lastName).trim();
+      if (doc.location) {
+        const city = doc.location.city || '';
+        const country = doc.location.country || '';
+        const delimiter = (city === '' || country === '') ? '' : ', ';
+        doc.fullLocation = (city + delimiter + country).trim();
+      } else {
+        doc.fullLocation = '';
+      }
     }
   },
   indexes: {
