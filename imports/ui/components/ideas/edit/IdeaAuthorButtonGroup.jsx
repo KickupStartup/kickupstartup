@@ -20,9 +20,7 @@ export default class IdeaAuthorButtonGroup extends Component {
   }
   clickDropdown(event){
     event.preventDefault();
-    $('.dropdown-button').dropdown({
-      alignment: 'right'
-    }); /* initialize */
+    $('.dropdown-button').dropdown(); /* initialize */
     $('.dropdown-button').dropdown('open');
   }
   publishIdea(event) {

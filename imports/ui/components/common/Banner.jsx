@@ -7,9 +7,21 @@ class Banner extends Component {
   constructor(props) {
     super(props);
   }
+  clickDropdown(event){
+    event.preventDefault();
+    $('.profile').dropdown({
+      alignment: 'right'
+    }); /* initialize */
+    $('.profile').dropdown('open');
+  }
   renderAuthors() {
     return this.props.authors.map((author) => (
-      <a key={author._id} href="#!"><Avatar className="sb-avatar circle pointer" name={author.fullName} round={true} size={48} /></a>
+      <span>
+        <a key={author._id} onClick={this.clickDropdown} data-activates="authorDropdown" className="profile" href="#!"><Avatar className="sb-avatar circle pointer" name={author.fullName} round={true} size={48} /></a>
+        <div id="authorDropdown" className="dropdown-content dropdown-author dropdown-green">
+          User text info
+        </div>
+      </span>
     ));
   }
   render() {
