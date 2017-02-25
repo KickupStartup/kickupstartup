@@ -23,7 +23,7 @@ export default class ListPersonCard extends Component {
           <div className="banner" style={customImage}></div>
           <div className="avatar-photo"><Avatar name={this.props.person.fullName} textSizeRatio={1.9} round={true}/></div>
           <ul className="stat"><li><h3>{this.props.person.fullName}</h3></li></ul>
-          { this.props.person.location ? <ul className="stat"><li>{this.props.person.location.city}, {this.props.person.location.country}</li></ul> : '' }
+          { this.props.person.location ? <ul className="stat"><li>{this.props.person.fullLocation}</li></ul> : '' }
           <h4>{this.props.person.headline}</h4>
         </div>
         <p>{this.props.person.aboutMe}</p>
