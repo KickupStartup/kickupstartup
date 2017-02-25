@@ -11,6 +11,8 @@ const savingStateTimeout = 300;
 const savedText = i18n.__('editor.state.saved');
 const savingText = i18n.__('editor.state.saving');
 
+import Person from '../../../../api/people/Person';
+
 export default class IdeaEditor extends Component {
   constructor(props) {
     super(props);
@@ -45,7 +47,7 @@ export default class IdeaEditor extends Component {
   render () {
     return (
       <div className="card row-border clearfix">
-        <Banner authorsIds={this.props.idea.getAuthors()} />
+        <Banner idea={this.props.idea} authors={Person.find({ userId: { $in: this.props.idea.getAuthors() } }).fetch()} />
         <div className="white-card">
           <span className="saving right">{this.state.savingState}</span>
           {this.props.header ? <h3>{this.props.header}</h3> : ''}
