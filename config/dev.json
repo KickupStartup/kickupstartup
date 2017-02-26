@@ -25,5 +25,10 @@
     "clientId": "78besi4tjxbzrs",
     "secret": "6ikyCw5bUU2PV4bS",
     "loginStyle": "popup"
+  },
+  "vk": {
+    "appId": "5895941",
+    "secret": "UsH4JXsoROjsM18h4TzU",
+    "loginStyle": "popup"
   }
 }

@@ -12,6 +12,10 @@ export default class ThirdPartyLoginButtons extends Component {
   //   e.preventDefault();
   //   Meteor.loginWithLinkedIn({}, this.afterLogin);
   // }
+  loginWithVk(e) {
+    e.preventDefault();
+    Meteor.loginWithVk({}, this.afterLogin);
+  }
   loginWithTwitter(e) {
     e.preventDefault();
     Meteor.loginWithTwitter({}, this.afterLogin);
@@ -30,6 +34,9 @@ export default class ThirdPartyLoginButtons extends Component {
       <div className="card-footer clearfix right">
         <a href="#!" onClick={this.loginWithGoogle.bind(this)} className="waves-effect waves-light orange btn modal-btn">
           <i className="fa fa-google-plus fa-lg" title="Google+"></i>Google+
+        </a>
+        <a href="#!" onClick={this.loginWithVk.bind(this)} className="waves-effect waves-light orange btn modal-btn">
+          <i className="fa fa-vk fa-lg" title="Vkontakte"></i>Vkontakte
         </a>
         <a href="#!" onClick={this.loginWithTwitter.bind(this)} className="waves-effect waves-light orange btn modal-btn">
           <i className="fa fa-twitter fa-lg" title="Twitter"></i>Twitter

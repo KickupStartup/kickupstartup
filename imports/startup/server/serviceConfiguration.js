@@ -37,4 +37,13 @@ if (!process.env.METEOR_SETTINGS) {
       secret: Meteor.settings.linkedin.secret
     }
   });
+  ServiceConfiguration.configurations.upsert({
+    service: "vk"
+  }, {
+    $set: {
+      appId: Meteor.settings.vk.appId,
+      loginStyle: Meteor.settings.vk.loginStyle,
+      secret: Meteor.settings.vk.secret
+    }
+  });
 }
