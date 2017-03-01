@@ -1,0 +1,17 @@
+{
+	"_id" : "",
+	"createdAt" : "2017-02-23T20:03:49.379Z",
+	"services" : {
+		"twitter" : {
+			"id" : "915439638",
+			"screenName" : "dsfdsf",
+			"accessToken" : "",
+			"accessTokenSecret" : "",
+			"profile_image_url" : "http://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png",
+			"profile_image_url_https" : "https://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png",
+			"lang" : "ru"
+		},
+		"resume" : { "loginTokens" : [ ] }
+	},
+	"options" : { "profile" : { "name" : "dfsdff" } }
+}

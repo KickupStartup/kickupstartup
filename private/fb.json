@@ -1,0 +1,29 @@
+{
+  "_id" : "",
+  "createdAt" : "2017-03-01T13:34:59.910Z",
+  "services" : {
+    "facebook" : {
+      "accessToken" : "",
+      "expiresAt" : 1493559299024,
+      "id" : "",
+      "email" : "email@gmail.com",
+      "name" : "Name Surname",
+      "first_name" : "Name",
+      "last_name" : "Surname",
+      "link" : "https://www.facebook.com/app_scoped_user_id/",
+      "gender" : "male",
+      "locale" : "en_GB",
+      "age_range" : {
+        "min" : 21
+      }
+    },
+    "resume" : {
+      "loginTokens" : [ ]
+    }
+  },
+  "options" : {
+    "profile" : {
+      "name" : "Name Surname"
+    }
+  }
+}
