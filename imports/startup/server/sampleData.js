@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { moment } from 'meteor/momentjs:moment';
 import Idea from '../../api/ideas/Idea';
 import Person from '../../api/people/Person';
-import EmailNotification from '../../api/emailNotificationSettings/EmailNotification';
+import EmailNotification from '../../api/settings/EmailNotification';
 import Comment from '../../api/comments/Comment';
 
 // create test user and his personal account

@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Person from './Person';
 import People from './people';
-import EmailNotification from '../emailNotificationSettings/EmailNotification';
+import EmailNotification from '../settings/EmailNotification';
 
 const getValidatedProfile = function(userId) {
   if (!userId) {

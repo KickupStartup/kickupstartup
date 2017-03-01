@@ -1,0 +1,6 @@
+{
+  "_locale": "en",
+  "templates": {
+    "welcome": "Hello, my dear friend {{fullName}}"
+  }
+}

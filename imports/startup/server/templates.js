@@ -7,5 +7,5 @@ _.templateSettings = {
 
 export const welcomeTemplate = function() {
   const t = _.template(i18n.__('templates.welcome'));
-  return t({name: "Vitali"});
+  return t({fullName: "Vitali Hatalski"});
 }

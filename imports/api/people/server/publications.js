@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 
-import EmailNotification from '../../emailNotificationSettings/EmailNotification';
+import EmailNotification from '../../settings/EmailNotification';
 import Person from '../Person';
 import People from '../people';
 

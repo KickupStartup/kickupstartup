@@ -10,7 +10,7 @@ const MaritalStatus = Enum.create({
 
 export const Gender = Enum.create({
   name: 'Gender',
-  identifiers: ['NOTSPECIFIED', 'FEMALE', 'MALE']
+  identifiers: ['UNSPECIFIED', 'FEMALE', 'MALE']
 })
 
 const Info = Class.create({
@@ -71,7 +71,7 @@ export default Person = Class.create({
     firstName: { type: String, optional: true },
     lastName: { type: String, optional: true },
     fullName: { type: String, transient: true },
-    gender: { type: Gender, default: Gender.NOTSPECIFIED },
+    gender: { type: Gender, default: Gender.UNSPECIFIED },
     picture: { type: String, optional: true },
     info: { type: Info, optional: true },
     fullLocation: { type: String, transient: true },

@@ -7,4 +7,4 @@ import '../../api/comments/methods';
 import '../../api/messages/methods';
 import '../../api/ideas/methods';
 import '../../api/email/methods';
-import '../../api/emailNotificationSettings/methods';
+import '../../api/settings/methods';

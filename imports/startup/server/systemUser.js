@@ -2,7 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import Person from '../../api/people/Person';
-import EmailNotification from '../../api/emailNotificationSettings/EmailNotification';
+import EmailNotification from '../../api/settings/EmailNotification';
 
 Meteor.users.upsert({ email: "system@kickupstartup.com"}, {
   username: "Kick up Startup Team",
