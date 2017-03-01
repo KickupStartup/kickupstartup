@@ -12,6 +12,12 @@ export default class ThirdPartyLoginButtons extends Component {
   //   e.preventDefault();
   //   Meteor.loginWithLinkedIn({}, this.afterLogin);
   // }
+  loginWithEmail(e) {
+    //Meteor.loginWithPassword({}, this.afterLogin);
+  }
+  loginWithFacebook(e) {
+    Meteor.loginWithFacebook({}, this.afterLogin);
+  }
   loginWithVk(e) {
     e.preventDefault();
     Meteor.loginWithVk({}, this.afterLogin);
@@ -32,11 +38,17 @@ export default class ThirdPartyLoginButtons extends Component {
   render () {
     return (
       <div className="card-footer clearfix right">
+        {/* <a href="#!" onClick={this.loginWithEmail.bind(this)} className="waves-effect waves-light orange btn modal-btn">
+          <i className="fa fa-envelope fa-lg" title="Email"></i>Email
+        </a> */}
         <a href="#!" onClick={this.loginWithGoogle.bind(this)} className="waves-effect waves-light orange btn modal-btn">
           <i className="fa fa-google-plus fa-lg" title="Google+"></i>Google+
         </a>
         <a href="#!" onClick={this.loginWithVk.bind(this)} className="waves-effect waves-light orange btn modal-btn">
           <i className="fa fa-vk fa-lg" title="Vkontakte"></i>Vkontakte
+        </a>
+        <a href="#!" onClick={this.loginWithFacebook.bind(this)} className="waves-effect waves-light orange btn modal-btn">
+          <i className="fa fa-facebook-official fa-lg" title="Facebook"></i>Facebook
         </a>
         <a href="#!" onClick={this.loginWithTwitter.bind(this)} className="waves-effect waves-light orange btn modal-btn">
           <i className="fa fa-twitter fa-lg" title="Twitter"></i>Twitter

@@ -6,14 +6,24 @@
       "Amplitude": {"apiKey": "a8d93ee9287ef5ede13d4d6dd1b3a368"}
     }
   },
-  "github": {
-    "clientId": "6526ce11ed931b6125e8",
-    "secret": "8268cd0aacea96d9a13adc4b5912c24d376b38ee",
-    "loginStyle": "popup"
-  },
   "google": {
     "clientId": "114753858298-9jd3cmho37fltqjb62n76je2b9jt0er3.apps.googleusercontent.com",
     "secret": "H6U6TiO8z29hzohZElwAXdWh",
+    "loginStyle": "popup"
+  },
+  "vk": {
+    "appId": "5895941",
+    "secret": "UsH4JXsoROjsM18h4TzU",
+    "loginStyle": "popup"
+  },
+  "facebook": {
+    "appId": "1836204133258892",
+    "secret": "de957e02078a4189ec18608b7c1b5a5e",
+    "loginStyle": "popup"
+  },
+  "github": {
+    "clientId": "6526ce11ed931b6125e8",
+    "secret": "8268cd0aacea96d9a13adc4b5912c24d376b38ee",
     "loginStyle": "popup"
   },
   "twitter": {
@@ -24,11 +34,6 @@
   "linkedin": {
     "clientId": "78besi4tjxbzrs",
     "secret": "6ikyCw5bUU2PV4bS",
-    "loginStyle": "popup"
-  },
-  "vk": {
-    "appId": "5895941",
-    "secret": "UsH4JXsoROjsM18h4TzU",
     "loginStyle": "popup"
   }
 }
