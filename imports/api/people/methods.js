@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Person from './Person';
 import People from './people';
+import EmailNotification from '../emailNotificationSettings/EmailNotification';
 
 const getValidatedProfile = function(userId) {
   if (!userId) {
@@ -68,6 +69,14 @@ Meteor.methods({
     const profile = getValidatedProfile(this.userId);
     profile.aboutMe = aboutMe;
     profile.save();
+  },
+  'profile.remove':function() {
+    const profile = getValidatedProfile(this.userId);
+    const settings = EmailNotification.findOne({userId: this.userId});
+    settings.remove();
+    const p = profile.remove();
+    Meteor.users.remove({_id: this.userId});
+    return p;
   },
   'person.idea.bookmark.add':function(ideaId) {
     check(ideaId, String);
