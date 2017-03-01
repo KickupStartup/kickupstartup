@@ -8,6 +8,11 @@ const MaritalStatus = Enum.create({
   identifiers: ['NOTSPECIFIED', 'SINGLE', 'MARRIED']
 });
 
+export const Gender = Enum.create({
+  name: 'Gender',
+  identifiers: ['NOTSPECIFIED', 'FEMALE', 'MALE']
+})
+
 const Info = Class.create({
   name: 'Info',
   fields: {
@@ -66,8 +71,10 @@ export default Person = Class.create({
     firstName: { type: String, optional: true },
     lastName: { type: String, optional: true },
     fullName: { type: String, transient: true },
-    fullLocation: { type: String, transient: true },
+    gender: { type: Gender, default: Gender.NOTSPECIFIED },
+    picture: { type: String, optional: true },
     info: { type: Info, optional: true },
+    fullLocation: { type: String, transient: true },
     location: { type: Location, optional: true },
     interests: { type: Interests, optional: true },
     experience: { type: Experience, optional: true },
