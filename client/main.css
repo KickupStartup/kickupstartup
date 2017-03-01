@@ -548,6 +548,7 @@ dd {
     .no-submenu .main{padding-top:74px}
 .idea_title .input-field,.idea_title input{margin:0}
 .idea_title input{background-color:#fff;border:1px solid #ccc;padding:8px 12px;height:auto}
+.nowrap{white-space:nowrap}
 .published{padding-left:8px}
   .published label{padding-left:24px}
 .go-back,.go-next{display:block;margin:4px 12px}
