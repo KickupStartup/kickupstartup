@@ -82,11 +82,11 @@
     },
     "emailSettings": {
       "ideaCreated": "Новые идеи",
-      "ideaCommented": "Комментарии на мои идеи",
-      "iAmMentioned": "Упомянут напрямую",
-      "coauthorInvited": "Я приглашен в качестве соавтора",
+      "ideaCommented": "Комментарии к идеям",
+      "iAmMentioned": "Упоминания и ответы",
+      "coauthorInvited": "Приглашения в соавторы",
       "coauthorReplied": "Пришел ответ на мое приглашение",
-      "feedbackReceived": "Получен отзыв на мою идею",
+      "feedbackReceived": "Отзывы к идеям",
       "feedbackRequested": "У меня попросили оставить отзыв на идею"
     }
   },
