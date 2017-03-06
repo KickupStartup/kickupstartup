@@ -18,20 +18,6 @@ const getValidatedProfile = function(userId) {
 }
 
 Meteor.methods({
-  'profile.update.notificationEnabled':function(notificationEnabled) {
-    check(notificationEnabled, Boolean);
-    const profile = getValidatedProfile(this.userId);
-    profile.notificationEnabled = notificationEnabled;
-    profile.save();
-    return profile;
-  },
-  'profile.update.email':function(email) {
-    check(email, ValidEmail);
-    const profile = getValidatedProfile(this.userId);
-    profile.email = email;
-    profile.save();
-    return profile;
-  },
   'profile.update.firstName':function(firstName) {
     check(firstName, String);
     const profile = getValidatedProfile(this.userId);
@@ -124,9 +110,5 @@ Meteor.methods({
         person.save();
       }
     }
-  },
-  'people.suggestions':function(keyword) {
-    check(keyword, String);
-    return People.find({$text: { $search: keyword }}, {limit: 5}).fetch();
   }
 });

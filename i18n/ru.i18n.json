@@ -84,10 +84,8 @@
       "ideaCreated": "Новые идеи",
       "ideaCommented": "Комментарии к идеям",
       "iAmMentioned": "Упоминания и ответы",
-      "coauthorInvited": "Приглашения в соавторы",
-      "coauthorReplied": "Пришел ответ на мое приглашение",
-      "feedbackReceived": "Отзывы к идеям",
-      "feedbackRequested": "У меня попросили оставить отзыв на идею"
+      "ideaCoauthor": "Приглашения в соавторы",
+      "ideaFeedback": "Отзывы к идеям"
     }
   },
   "editor": {

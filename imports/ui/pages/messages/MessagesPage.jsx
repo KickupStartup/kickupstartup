@@ -17,7 +17,7 @@ export default class Messages extends Component {
       return (
         <div className="container main">
           <div className="col s12">
-            <EnableNotificationsForm profile={this.props.profile} />
+            <EnableNotificationsForm settings={this.props.notificationSettings} />
           </div>
           <ListDivider border={true}/>
           <MessagesCollection messages={this.props.messages}/>
