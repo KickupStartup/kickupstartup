@@ -21,7 +21,6 @@ export default class RemoveAccountPanel extends Component {
         console.log("error", error);
       }
       if(result){
-        console.log(result);
         self.context.router.push('/ideas');
       }
     });
