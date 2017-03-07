@@ -39,7 +39,8 @@ export const createProfile = function(user) {
   const existentProfile = Person.findOne(selector);
   if (!existentProfile) {
     Object.assign(profile, selector);
-    People.upsert(selector, profile);
+    const person = new Person(profile);
+    person.save();
   }
   const existentNotificationSettings = EmailNotification.findOne(selector);
   if (!existentNotificationSettings) {
