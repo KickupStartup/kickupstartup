@@ -20,7 +20,7 @@ export default class ThirdPartyLoginButtons extends Component {
   }
   loginWithVk(e) {
     e.preventDefault();
-    Meteor.loginWithVk({}, this.afterLogin);
+    Meteor.loginWithVk({ requestPermissions: ['email']}, this.afterLogin);
   }
   loginWithTwitter(e) {
     e.preventDefault();

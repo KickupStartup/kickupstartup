@@ -16,13 +16,13 @@ export default class Messages extends Component {
     } else {
       return (
         <div className="container main">
-          <div className="col s12">
+          {/* <div className="col s12">
             <EnableNotificationsForm settings={this.props.notificationSettings} />
           </div>
-          <ListDivider border={true}/>
+          <ListDivider border={true}/> */}
           <MessagesCollection messages={this.props.messages}/>
-          <ListDivider border={true} />
-          <ListEnd/>
+          {/* <ListDivider border={true} />
+          <ListEnd/> */}
         </div>
       );
     }
