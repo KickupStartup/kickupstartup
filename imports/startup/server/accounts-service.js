@@ -41,11 +41,11 @@ export const createProfile = function(user) {
     Object.assign(profile, selector);
     People.upsert(selector, profile);
   }
-  const existentNotificationSettings = EmailNotificationSettings.findOne(selector);
+  const existentNotificationSettings = EmailNotification.findOne(selector);
   if (!existentNotificationSettings) {
-    let settings = !!email ? {email: email} : {};
-    Object.assign(settings, selector);
-    EmailNotificationSettings.upsert(selector, settings);
+    const settings = new EmailNotification(selector);
+    settings.email = email;
+    settings.save();
   }
 }
 
