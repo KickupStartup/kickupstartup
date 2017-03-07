@@ -2,7 +2,11 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Person from './Person';
 import People from './people';
+import EmailNotificationSettings from '../settings/emailNotificationSettings';
 import EmailNotification from '../settings/EmailNotification';
+import Ideas from '../ideas/ideas';
+import Comments from '../comments/comments';
+import Messages from '../messages/messages';
 
 const getValidatedProfile = function(userId) {
   if (!userId) {
@@ -57,9 +61,12 @@ Meteor.methods({
     profile.save();
   },
   'profile.remove':function() {
+    const selector = {userId: this.userId};
     const profile = getValidatedProfile(this.userId);
-    const settings = EmailNotification.findOne({userId: this.userId});
-    settings.remove();
+    Messages.remove(selector);
+    Comments.remove(selector);
+    Ideas.remove(selector);
+    EmailNotificationSettings.remove(selector);
     const p = profile.remove();
     Meteor.users.remove({_id: this.userId});
     return p;
