@@ -16,6 +16,7 @@ export default class ThirdPartyLoginButtons extends Component {
     //Meteor.loginWithPassword({}, this.afterLogin);
   }
   loginWithFacebook(e) {
+    e.preventDefault();
     Meteor.loginWithFacebook({}, this.afterLogin);
   }
   loginWithVk(e) {
