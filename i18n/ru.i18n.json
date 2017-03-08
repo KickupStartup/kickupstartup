@@ -86,6 +86,11 @@
       "iAmMentioned": "Упоминания и ответы",
       "ideaCoauthor": "Приглашения в соавторы",
       "ideaFeedback": "Отзывы к идеям"
+    },
+    "services": {
+      "header": "Интеграция со сторонними сервисами",
+      "connected": "Присоединен",
+      "connectButton": "Присоединить"
     }
   },
   "editor": {

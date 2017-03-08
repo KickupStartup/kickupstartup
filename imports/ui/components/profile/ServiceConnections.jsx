@@ -3,56 +3,59 @@ import { Meteor } from 'meteor/meteor';
 import i18n from 'meteor/universe:i18n';
 const T = i18n.createComponent();
 
-import ReactCheckbox from '../common/ReactCheckbox';
-import ReactInput from '../common/ReactInput';
-
 export default class ServiceConnections extends Component {
   constructor(props) {
     super(props);
-    const services = Meteor.user().services || {};
-    console.log(Object.keys(services));
-
     this.state = {
-      connectedServices: Object.keys(services)
+      connectedServices: Object.keys(props.services || {})
     };
+    this.currentService = '';
+    this.renderSecondaryLink = this.renderSecondaryLink.bind(this);
+    this.loginWithThirdPartyService = this.loginWithThirdPartyService.bind(this);
+    this.updateConnectedServices = this.updateConnectedServices.bind(this);
   }
-  loginWithGithub(e) {
+  loginWithThirdPartyService(e, service) {
     e.preventDefault();
-    Meteor.loginWithGithub({}, this.afterLogin);
-  }
-  loginWithLinkedIn(e) {
-    e.preventDefault();
-    Meteor.loginWithLinkedIn({}, this.afterLogin);
-  }
-  loginWithFacebook(e) {
-    e.preventDefault();
-    Meteor.loginWithFacebook({}, this.afterLogin);
-  }
-  loginWithVk(e) {
-    e.preventDefault();
-    Meteor.loginWithVk({ requestPermissions: ['email']}, this.afterLogin);
-  }
-  loginWithTwitter(e) {
-    e.preventDefault();
-    Meteor.loginWithTwitter({}, this.afterLogin);
-  }
-  loginWithGoogle(e) {
-    e.preventDefault();
-    Meteor.loginWithGoogle({ requestPermissions: ['email']}, this.afterLogin);
-  }
-  afterLogin(error) {
-    if (error) {
-      console.log(error);
+    this.currentService = service;
+    switch(service) {
+      case 'google':
+        Meteor.loginWithGoogle({requestPermissions: ['email']}, this.updateConnectedServices);
+        break;
+      case 'twitter':
+        Meteor.loginWithTwitter({}, this.updateConnectedServices);
+        break;
+      case 'vk':
+        Meteor.loginWithVk({requestPermissions: ['email']}, this.updateConnectedServices);
+        break;
+      case 'facebook':
+        Meteor.loginWithFacebook({}, this.updateConnectedServices);
+        break;
+      case 'linkedin':
+        Meteor.loginWithLinkedIn({}, this.updateConnectedServices);
+        break;
+      case 'github':
+        Meteor.loginWithGithub({}, this.updateConnectedServices);
+        break;
     }
   }
-  renderSecondaryLink(service, loginFunc) {
+  updateConnectedServices(error) {
+    if (error) {
+      console.log(error);
+    } else {
+      const services = this.state.connectedServices;
+      services.push(this.currentService);
+      this.setState({connectedServices: services});
+    }
+  }
+  renderSecondaryLink(service) {
     if (this.state.connectedServices.indexOf(service) >= 0) {
       return (
-        <span className="secondary-content">Connected</span>
+        <span className="secondary-content"><T>profile.services.connected</T></span>
       );
     } else {
       return (
-        <a href="#!" onClick={loginFunc} className="waves-light waves-effect btn orange secondary-content">Connect</a>
+        <a href="#!" onClick={(e) => this.loginWithThirdPartyService(e, service)}
+          className="waves-light waves-effect btn orange secondary-content"><T>profile.services.connectButton</T></a>
       );
     }
   }
@@ -60,28 +63,28 @@ export default class ServiceConnections extends Component {
     return (
       <div className="card white row-border clearfix">
         <div className="modal-header">
-          <h3 className="modal-title">Интеграция со сторонними сервисами</h3>
+          <h3 className="modal-title"><T>profile.services.header</T></h3>
         </div>
         <div className="modal-body">
           <div className="col s12">
             <ul className="collection with-header">
               <li className="collection-item">
-                <div>Facebook{this.renderSecondaryLink('facebook', this.loginWithFacebook)}</div>
+                <div>Facebook{this.renderSecondaryLink('facebook')}</div>
               </li>
               <li className="collection-item">
-                <div>VKontakte{this.renderSecondaryLink('vk', this.loginWithVk)}</div>
+                <div>VKontakte{this.renderSecondaryLink('vk')}</div>
               </li>
               <li className="collection-item">
-                <div>Google{this.renderSecondaryLink('google', this.loginWithGoogle)}</div>
+                <div>Google{this.renderSecondaryLink('google')}</div>
               </li>
               <li className="collection-item">
-                <div>Twitter{this.renderSecondaryLink('twitter', this.loginWithTwitter)}</div>
+                <div>Twitter{this.renderSecondaryLink('twitter')}</div>
               </li>
               <li className="collection-item">
-                <div>Github{this.renderSecondaryLink('github', this.loginWithGithub)}</div>
+                <div>Github{this.renderSecondaryLink('github')}</div>
               </li>
               <li className="collection-item">
-                <div>LinkedIn{this.renderSecondaryLink('linkedin', this.loginWithLinkedIn)}</div>
+                <div>LinkedIn{this.renderSecondaryLink('linkedin')}</div>
               </li>
             </ul>
           </div>

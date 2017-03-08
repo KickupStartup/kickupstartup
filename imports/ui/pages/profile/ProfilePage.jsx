@@ -74,7 +74,7 @@ export default class ProfilePage extends Component {
                     <ListDivider />
                     <div className="col s12">
                       {/* <ThirdPartyLoginButtons /> */}
-                      <ServiceConnections />
+                      <ServiceConnections services={Meteor.user().services} />
                     </div>
                     <ListDivider />
                     <div className="col s12">

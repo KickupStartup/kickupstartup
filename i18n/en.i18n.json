@@ -86,6 +86,11 @@
       "iAmMentioned": "I am mentioned",
       "ideaCoauthor": "Coauthor invitation",
       "ideaFeedback": "Idea Feedbacks"
+    },
+    "services": {
+      "header": "Integration with third-party services",
+      "connected": "Connected",
+      "connectButton": "Connect"
     }
   },
   "editor": {
