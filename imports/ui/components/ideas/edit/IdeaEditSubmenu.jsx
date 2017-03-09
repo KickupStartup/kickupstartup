@@ -87,7 +87,7 @@ export default class IdeaEditSubmenu extends Component {
       <div className="main-grey">
         <div className="container main">
           <div className="row">
-            <div className="col s12 m6 idea_title">
+            <div className="col s12 m8 idea_title">
               {(this.props.edit && userId) ?
                 <ReactInput id="ideaName"
                   value={this.props.idea.name}
@@ -101,7 +101,7 @@ export default class IdeaEditSubmenu extends Component {
                       view={true}/>}
                 </h3>}
             </div>
-            <div className="col s12 m6">
+            <div className="col s12 m4 nowrap">
               <IdeaAuthorButtonGroup edit={this.props.edit} idea={this.props.idea} onViewChanged={this.changeView} />
             </div>
           </div>
