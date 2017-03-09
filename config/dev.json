@@ -6,6 +6,10 @@
       "Amplitude": {"apiKey": "a8d93ee9287ef5ede13d4d6dd1b3a368"}
     }
   },
+  "email": {
+    "from": "notify@kickupstartup.com",
+    "recipients": ["vh@kickupstartup.com", "aa@kickupstartup.com", "v.hatalski@gmail.com", "a.a@tutanota.com"]
+  },
   "google": {
     "clientId": "114753858298-9jd3cmho37fltqjb62n76je2b9jt0er3.apps.googleusercontent.com",
     "secret": "H6U6TiO8z29hzohZElwAXdWh",

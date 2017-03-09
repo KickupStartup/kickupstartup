@@ -19,13 +19,14 @@ export default class Notification {
     this.user = props.user;
     this.profile = props.profile;
     this.settings = props.settings;
-    this.from = 'notify@kickupstartup.com';
-    this.to = [
-      'vh@kickupstartup.com',
-      'aa@kickupstartup.com',
-      'v.hatalski@gmail.com',
-      'a.a@tutanota.com'
-    ];
+    if (process.env.METEOR_SETTINGS && !!Meteor.settings.email) {
+      this.to = Meteor.settings.email.recipients;
+      this.from = Meteor.settings.email.from;
+    } else {
+      this.to = ['v.hatalski@gmail.com'];
+      this.from = 'notify@kickupstartup.com';
+    }
+
   }
   getRecipients() {
     return EmailNotification.find({userSignedUp: true}, {email: 1, userId: 1}).fetch();
