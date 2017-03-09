@@ -32,38 +32,4 @@ Accounts.onCreateUser(function(options, user){
     notification.send();
     return user;
   }
-
-  // mergeAccounts(user);
-  // Meteor.call("message.welcome", user._id, function(error, result){
-  //   if(error){
-  //     console.log("error adding welcome message", error);
-  //   }
-  //   if(result){
-  //
-  //   }
-  // });
-  //
-  // let mail = {};
-  // let text = 'заглушка';
-  //
-  // if (text !== errorMessage) {
-  //   text = JSON.stringify(text, {indent: true});
-  // }
-  // mail.text = text.toString();
-  // mail.to = [
-  //   //'vh@kickupstartup.com',
-  //   //'aa@kickupstartup.com',
-  //   'v.hatalski@gmail.com'//,
-  //   //'a.a@tutanota.com'
-  // ];
-  // mail.subject = 'зарегистрировался новый пользователь';
-  //
-  // Meteor.call("sendEmail", mail, function(error, result){
-  //   if(error){
-  //     console.log("error", error);
-  //   }
-  //   if(result){
-  //     console.log("Notification has been sent.");
-  //   }
-  // });
 });
