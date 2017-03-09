@@ -1,6 +1,0 @@
-{
-  "_locale": "ru",
-  "templates": {
-    "welcome": "Привет, мой дорогой друг {{fullName}}"
-  }
-}

@@ -12,6 +12,9 @@
       }
     }
   },
+  "templates": {
+    "welcome": "Привет, мой дорогой друг {{fullName}}"
+  },
   "navigation": {
     "ideas": "Идеи",
     "following": "Закладки",

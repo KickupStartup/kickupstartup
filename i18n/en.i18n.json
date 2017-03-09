@@ -12,6 +12,9 @@
       }
     }
   },
+  "templates": {
+    "welcome": "Hello, my dear friend {{fullName}}"
+  },
   "navigation": {
     "ideas": "Ideas",
     "following": "Bookmarks",
