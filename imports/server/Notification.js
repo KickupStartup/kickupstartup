@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { Accounts } from 'meteor/accounts-base';
+import { Email } from 'meteor/email';
 
 import { welcomeTemplate } from './templates';
 import { GetDefaultEmailTemplate } from './EmailTemplates';
@@ -14,17 +15,16 @@ export const NotificationType = {
 
 export default class Notification {
   constructor(props) {
-    console.log(props);
     this.type = props.type;
     this.user = props.user;
     this.profile = props.profile;
     this.settings = props.settings;
     this.from = 'notify@kickupstartup.com';
     this.to = [
-      //'vh@kickupstartup.com',
-      //'aa@kickupstartup.com',
-      'v.hatalski@gmail.com'//,
-      //'a.a@tutanota.com'
+      'vh@kickupstartup.com',
+      'aa@kickupstartup.com',
+      'v.hatalski@gmail.com',
+      'a.a@tutanota.com'
     ];
   }
   getRecipients() {
@@ -33,12 +33,15 @@ export default class Notification {
   send() {
     const message = welcomeTemplate(this.profile.fullName);
     const html = GetDefaultEmailTemplate("New user signed up", "Welcome new user!", message);
-    const mail = {};
-    mail.from = this.from;
-    console.log(this.getRecipients());
+    const recipients = this.getRecipients();
+    const mail = {
+      subject: 'зарегистрировался новый пользователь',
+      from: this.from,
+      to: _.uniq(recipients.length !== 0 ? recipients : this.to),
+      html: html
+    };
+    console.log("mail", mail);
 
-    mail.to = _.uniq(this.getRecipients() || this.to);
-    mail.html = html;
     Email.send(mail);
   }
 }
@@ -46,8 +49,6 @@ export default class Notification {
 class Message {
   save() {
     const systemUser = Accounts.findUserByEmail('system@kickupstartup.com');
-    //const systemUserProfile = Person.findOne({userId: systemUser._id});
-    //const systemUserSettings = EmailNotification.findOne({userId: systemUser._id});
     const messageInstance = new Message({
       type: MessageType.SYSTEM,
       recipientId: recipientId,
