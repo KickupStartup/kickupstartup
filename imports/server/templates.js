@@ -5,7 +5,7 @@ _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
 
-export const welcomeTemplate = function() {
+export const welcomeTemplate = function(name) {
   const t = _.template(i18n.__('templates.welcome'));
-  return t({fullName: "Vitali Hatalski"});
+  return t({fullName: name});
 }

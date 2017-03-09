@@ -19,7 +19,6 @@ const parseGender = function(string) {
 
 export const createProfile = function(user) {
   check(user, Object);
-
   const profile = {};
 
   if('services' in user) {
@@ -35,19 +34,28 @@ export const createProfile = function(user) {
   }
   let email = !!user.emails ? user.emails[0].address : undefined;
 
+  const result = { user };
+
   const selector = {userId: user._id};
   const existentProfile = Person.findOne(selector);
   if (!existentProfile) {
     Object.assign(profile, selector);
     const person = new Person(profile);
     person.save();
+    result.profile = person;
+  } else {
+    result.profile = existentProfile;
   }
   const existentNotificationSettings = EmailNotification.findOne(selector);
   if (!existentNotificationSettings) {
     const settings = new EmailNotification(selector);
     settings.email = email;
     settings.save();
+    result.settings = settings;
+  } else {
+    result.settings = existentNotificationSettings;
   }
+  return result;
 }
 
 const getGoogleServiceInfo = function(user) {

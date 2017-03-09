@@ -11,7 +11,7 @@ const emailTest = 'test@kickupstartup.com';
 const johnUser = Accounts.findUserByEmail(emailTest);
 const userId = johnUser ? johnUser._id : undefined ||
   Accounts.createUser({
-    username: "test",
+    username: "system 0",
     email: emailTest,
     password: "pwd test account",
     profile: {}
@@ -96,7 +96,7 @@ const email1 = 'test1@kickupstartup.com';
 const test1User = Accounts.findUserByEmail(email1);
 const user1Id = test1User ? test1User._id : undefined ||
   Accounts.createUser({
-    username: "test 1",
+    username: "system 1",
     email: email1,
     password: "pwd test account 1",
     profile: {}
@@ -124,7 +124,7 @@ const email2 = 'test2@kickupstartup.com';
 const test2User = Accounts.findUserByEmail(email2);
 const user2Id = test2User ? test2User._id : undefined ||
   Accounts.createUser({
-    username: "test 2",
+    username: "system 2",
     email: email2,
     password: "pwd test account 2",
     profile: {}
@@ -152,7 +152,7 @@ const email3 = 'test3@kickupstartup.com';
 const test3User = Accounts.findUserByEmail(email3);
 const user3Id = test3User ? test3User._id : undefined ||
   Accounts.createUser({
-    username: "test 3",
+    username: "system 3",
     email: email3,
     password: "pwd test account 3",
     profile: {}
@@ -173,7 +173,7 @@ const email4 = 'test4@kickupstartup.com';
 const test4User = Accounts.findUserByEmail(email4);
 const user4Id = test4User ? test4User._id : undefined ||
   Accounts.createUser({
-    username: "test 4",
+    username: "system 4",
     email: email4,
     password: "pwd test account 4",
     profile: {}

@@ -4,6 +4,8 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { createProfile } from './accounts-service.js';
 
+import Notification, { NotificationType } from '../../server/Notification';
+
 const original = Accounts.updateOrCreateUserFromExternalService;
 // make sure that account with the email address in serviceData exists and used during sign up / login
 Accounts.updateOrCreateUserFromExternalService = function(serviceName, serviceData, options) {
@@ -11,17 +13,25 @@ Accounts.updateOrCreateUserFromExternalService = function(serviceName, serviceDa
   if (!!user && !user.services.hasOwnProperty(serviceName)) {
     const setAttr = {};
     setAttr["services." + serviceName] = serviceData;
-    Meteor.users.update({_id: user._id}, {$set: setAttr});
+    Meteor.users.update(user._id, {$set: setAttr});
   }
   return original.apply(this, arguments);
 }
 
 Accounts.onCreateUser(function(options, user){
-  // if (options) {
-  //   user.profile = options.profile;
-  // }
+  if (options) {
+    user.profile = options.profile;
+  }
+  const response = createProfile(user);
 
-  createProfile(user);
+  if (!!user.username && user.username.includes('system')) {
+    return user;
+  } else {
+    response.type = NotificationType.SIGNUP;
+    const notification = new Notification(response);
+    notification.send();
+    return user;
+  }
 
   // mergeAccounts(user);
   // Meteor.call("message.welcome", user._id, function(error, result){
@@ -56,6 +66,4 @@ Accounts.onCreateUser(function(options, user){
   //     console.log("Notification has been sent.");
   //   }
   // });
-
-  return user;
 });
