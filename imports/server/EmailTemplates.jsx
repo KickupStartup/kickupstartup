@@ -14,9 +14,9 @@ const DefaultEmailTemplate = function(props) {
   return (
     <Email title={props.title} headCSS={css}>
       {/* <Box border="0" cellPadding={0} cellSpacing={0} width="600"> */}
-        <Item align="center" bgcolor="#f8f8f8">
+        {/* <Item align="center" bgcolor="#f8f8f8">
           <Image alt="header image" src="img/h1.gif" width={300} height={200} />
-        </Item>
+        </Item> */}
         <Item>
           <Span>{props.header}</Span>
           <Span>{props.text}</Span>
