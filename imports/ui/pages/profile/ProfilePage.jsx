@@ -5,9 +5,12 @@ const T = i18n.createComponent();
 
 import SwitchLocaleLinks from '../../components/locale/SwitchLocaleLinks';
 import LiveEditor from '../../components/common/LiveEditor';
+import ThirdPartyLoginButtons from '../../components/common/ThirdPartyLoginButtons';
 import ListLoading from '../../components/list/ListLoading';
 import ListDivider from '../../components/list/ListDivider';
 import ProfileForm from '../../components/profile/ProfileForm';
+import ServiceConnections from '../../components/profile/ServiceConnections';
+import RemoveAccountPanel from '../../components/profile/RemoveAccountPanel';
 import EmailNotificationSettingsForm from '../../components/profile/EmailNotificationSettingsForm';
 
 export default class ProfilePage extends Component {
@@ -67,6 +70,14 @@ export default class ProfilePage extends Component {
                     <ListDivider />
                     <div className="col s12">
                       <EmailNotificationSettingsForm settings={this.props.emailSettings || {ideaCreated: true}} />
+                    </div>
+                    <ListDivider />
+                    <div className="col s12">
+                      <ServiceConnections services={Meteor.user().services} />
+                    </div>
+                    <ListDivider />
+                    <div className="col s12">
+                      <RemoveAccountPanel />
                     </div>
                   </div>
                 </div>

@@ -8,6 +8,11 @@ const MaritalStatus = Enum.create({
   identifiers: ['NOTSPECIFIED', 'SINGLE', 'MARRIED']
 });
 
+export const Gender = Enum.create({
+  name: 'Gender',
+  identifiers: ['UNSPECIFIED', 'FEMALE', 'MALE']
+})
+
 const Info = Class.create({
   name: 'Info',
   fields: {
@@ -57,8 +62,6 @@ export default Person = Class.create({
   collection: People,
   fields: {
     userId: String,
-    email: { type: String, optional: true },
-    notificationEnabled: { type: Boolean, default: false },
     ideas: { type: [String], optional: true },
     bookmarkIdeas: { type: [String], optional: true },
     headline: { type: String, optional: true },
@@ -66,8 +69,10 @@ export default Person = Class.create({
     firstName: { type: String, optional: true },
     lastName: { type: String, optional: true },
     fullName: { type: String, transient: true },
-    fullLocation: { type: String, transient: true },
+    gender: { type: Gender, default: Gender.UNSPECIFIED },
+    picture: { type: String, optional: true },
     info: { type: Info, optional: true },
+    fullLocation: { type: String, transient: true },
     location: { type: Location, optional: true },
     interests: { type: Interests, optional: true },
     experience: { type: Experience, optional: true },
@@ -92,8 +97,7 @@ export default Person = Class.create({
   },
   indexes: {
     userId: {fields:{userId: 1}, options:{unique: true}},
-    suggest: {fields: {firstName: "text", lastName: "text"}},
-    email: {fields:{email: 1}, options: {unique: true, sparse: true}}
+    suggest: {fields: {firstName: "text", lastName: "text"}}
   },
   behaviors: {
     timestamp: {}

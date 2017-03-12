@@ -12,6 +12,20 @@ const getValidatedEmailSettings = function(userId) {
 }
 
 Meteor.methods({
+  'email.settings.update.enabled':function(enabled) {
+    check(enabled, Boolean);
+    const settings = getValidatedEmailSettings(this.userId);
+    settings.enabled = enabled;
+    settings.save();
+    return settings;
+  },
+  'email.settings.update.email':function(email) {
+    check(email, ValidEmail);
+    const settings = getValidatedEmailSettings(this.userId);
+    settings.email = email;
+    settings.save();
+    return settings;
+  },
   'email.settings.update.ideaCreated':function(toSend){
      check(toSend, Boolean);
      const settings = getValidatedEmailSettings(this.userId);
@@ -33,32 +47,18 @@ Meteor.methods({
      settings.save();
      return settings;
   },
-  'email.settings.update.coauthorInvited':function(toSend){
+  'email.settings.update.ideaCoauthor':function(toSend){
      check(toSend, Boolean);
      const settings = getValidatedEmailSettings(this.userId);
-     settings.coauthorInvited = toSend;
+     settings.ideaCoauthor = toSend;
      settings.save();
      return settings;
   },
-  'email.settings.update.coauthorReplied':function(toSend){
+  'email.settings.update.ideaFeedback':function(toSend){
      check(toSend, Boolean);
      const settings = getValidatedEmailSettings(this.userId);
-     settings.coauthorReplied = toSend;
+     settings.ideaFeedback = toSend;
      settings.save();
      return settings;
-  },
-  'email.settings.update.feedbackReceived':function(toSend){
-     check(toSend, Boolean);
-     const settings = getValidatedEmailSettings(this.userId);
-     settings.feedbackReceived = toSend;
-     settings.save();
-     return settings;
-  },
-  'email.settings.update.feedbackRequested':function(toSend){
-     check(toSend, Boolean);
-     const settings = getValidatedEmailSettings(this.userId);
-     settings.feedbackRequested = toSend;
-     settings.save();
-     return settings;
-  },
+  }
 });
