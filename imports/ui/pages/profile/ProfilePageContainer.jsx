@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import Person from '../../../api/people/Person';
-import EmailNotification from '../../../api/emailNotificationSettings/EmailNotification';
+import EmailNotification from '../../../api/settings/EmailNotification';
 
 import ProfilePage from './ProfilePage';
 

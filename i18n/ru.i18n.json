@@ -12,6 +12,9 @@
       }
     }
   },
+  "templates": {
+    "welcome": "Привет, мой дорогой друг {{fullName}}"
+  },
   "navigation": {
     "ideas": "Идеи",
     "following": "Закладки",
@@ -82,12 +85,15 @@
     },
     "emailSettings": {
       "ideaCreated": "Новые идеи",
-      "ideaCommented": "Комментарии на мои идеи",
-      "iAmMentioned": "Упомянут напрямую",
-      "coauthorInvited": "Я приглашен в качестве соавтора",
-      "coauthorReplied": "Пришел ответ на мое приглашение",
-      "feedbackReceived": "Получен отзыв на мою идею",
-      "feedbackRequested": "У меня попросили оставить отзыв на идею"
+      "ideaCommented": "Комментарии к идеям",
+      "iAmMentioned": "Упоминания и ответы",
+      "ideaCoauthor": "Приглашения в соавторы",
+      "ideaFeedback": "Отзывы к идеям"
+    },
+    "services": {
+      "header": "Интеграция со сторонними сервисами",
+      "connected": "Присоединен",
+      "connectButton": "Присоединить"
     }
   },
   "editor": {

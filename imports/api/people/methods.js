@@ -2,6 +2,11 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Person from './Person';
 import People from './people';
+import EmailNotificationSettings from '../settings/emailNotificationSettings';
+import EmailNotification from '../settings/EmailNotification';
+import Ideas from '../ideas/ideas';
+import Comments from '../comments/comments';
+import Messages from '../messages/messages';
 
 const getValidatedProfile = function(userId) {
   if (!userId) {
@@ -17,20 +22,6 @@ const getValidatedProfile = function(userId) {
 }
 
 Meteor.methods({
-  'profile.update.notificationEnabled':function(notificationEnabled) {
-    check(notificationEnabled, Boolean);
-    const profile = getValidatedProfile(this.userId);
-    profile.notificationEnabled = notificationEnabled;
-    profile.save();
-    return profile;
-  },
-  'profile.update.email':function(email) {
-    check(email, ValidEmail);
-    const profile = getValidatedProfile(this.userId);
-    profile.email = email;
-    profile.save();
-    return profile;
-  },
   'profile.update.firstName':function(firstName) {
     check(firstName, String);
     const profile = getValidatedProfile(this.userId);
@@ -68,6 +59,17 @@ Meteor.methods({
     const profile = getValidatedProfile(this.userId);
     profile.aboutMe = aboutMe;
     profile.save();
+  },
+  'profile.remove':function() {
+    const selector = {userId: this.userId};
+    const profile = getValidatedProfile(this.userId);
+    Messages.remove(selector);
+    Comments.remove(selector);
+    Ideas.remove(selector);
+    EmailNotificationSettings.remove(selector);
+    const p = profile.remove();
+    Meteor.users.remove({_id: this.userId});
+    return p;
   },
   'person.idea.bookmark.add':function(ideaId) {
     check(ideaId, String);
@@ -115,9 +117,5 @@ Meteor.methods({
         person.save();
       }
     }
-  },
-  'people.suggestions':function(keyword) {
-    check(keyword, String);
-    return People.find({$text: { $search: keyword }}, {limit: 5}).fetch();
   }
 });

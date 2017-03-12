@@ -50,7 +50,7 @@ export default class Banner extends Component {
   }
   renderUnpublishStatus() {
     if (Meteor.userId() && this.props.idea.isAuthor(Meteor.userId()) && !this.props.idea.isPublic()) {
-      // show "idea is hidden" when it is not public and authenticated user is not an author
+      // show "idea is hidden" when it is not public and authenticated user is an author
       return (
         <span className="label-badge right"><T>ideas.publish.status.unpublish</T></span>
       );

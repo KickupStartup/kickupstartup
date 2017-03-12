@@ -1,0 +1,30 @@
+{
+  "_id" : "",
+  "createdAt" : "2017-02-26T09:02:57.390Z",
+  "services" : {
+    "vk" : {
+      "accessToken" : "",
+      "expiresAt" : 1488186177272,
+      "nickname" : "",
+      "first_name" : "Name",
+      "last_name" : "Surname",
+      "sex" : 2,
+      "bdate" : "1.1.1997",
+      "timezone" : 3,
+      "photo" : "http://vk.com/images/camera_50.png",
+      "photo_big" : "http://vk.com/images/camera_200.png",
+      "city" : 0,
+      "country" : 0,
+      "id" : 0
+    },
+    "resume" : {
+      "loginTokens" : [{
+        "when" : "2017-02-26T09:03:00.592Z",
+        "hashedToken" : ""
+      }]
+    }
+  },
+  "options" : {
+    "profile" : { "name" : "Name Surname" }
+  }
+}

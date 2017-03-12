@@ -1,0 +1,22 @@
+{
+	"_id" : "",
+	"createdAt" : "2017-02-23T20:06:49.275Z",
+	"services" : {
+		"google" : {
+			"accessToken" : "",
+			"idToken" : "",
+			"expiresAt" : 1487884008489,
+			"scope" : [ "https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/plus.me" ],
+			"id" : "",
+			"email" : "ssssss@gmail.com",
+			"verified_email" : true,
+			"name" : "Name Surname",
+			"given_name" : "Name",
+			"family_name" : "Surname",
+			"picture" : "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg",
+			"gender" : "male"
+		},
+		"resume" : { "loginTokens" : [ { "when" : "2017-02-23T20:06:49.442Z", "hashedToken" : "" } ] } 
+	},
+	"options" : { "profile" : { "name" : "Name Surname" } }
+}
