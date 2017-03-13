@@ -58,25 +58,25 @@ export default class EmailNotificationSettingsForm extends Component {
         <div className="modal-header">
           <div className="switch right">
             <label>
-              Off
+              <T>profile.switch.off</T>
               <input type="checkbox" />
               <span className="lever"></span>
-              On
+              <T>profile.switch.on</T>
             </label>
           </div>
-          <h3 className="modal-title">Оповещения по электронной почте</h3>
+          <h3 className="modal-title"><T>profile.settings.notifications</T></h3>
         </div>
         <div className="modal-body">
           <div className="col s12">
             <ReactInput id="email"
               type="email"
               className="validate marginBottom"
-              labelError="неверный адрес"
-              labelSuccess="правильно"
+              labelError={i18n.__('profile.settings.wrongAddress')}
+              labelSuccess={i18n.__('profile.settings.validAddress')}
               status={this.state.emailStatus}
               value={this.state.email}
               onChange={this.handleEmailChange}
-              placeholder="Введите Ваш электронный адрес" />
+              placeholder={i18n.__('profile.settings.email')} />
           </div>
           <div className="col s12">
             <ReactCheckbox id="enabled"
