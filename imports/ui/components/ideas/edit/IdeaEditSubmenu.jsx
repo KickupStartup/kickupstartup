@@ -101,7 +101,7 @@ export default class IdeaEditSubmenu extends Component {
                       view={true}/>}
                 </h3>}
             </div>
-            <div className="col s12 m4 nowrap">
+            <div className="col s12 m4">
               <IdeaAuthorButtonGroup edit={this.props.edit} idea={this.props.idea} onViewChanged={this.changeView} />
             </div>
           </div>

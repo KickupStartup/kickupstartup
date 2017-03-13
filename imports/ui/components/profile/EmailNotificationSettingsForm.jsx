@@ -56,26 +56,34 @@ export default class EmailNotificationSettingsForm extends Component {
     return (
       <div className="card white row-border clearfix">
         <div className="modal-header">
+          <div className="switch right">
+            <label>
+              Off
+              <input type="checkbox" />
+              <span className="lever"></span>
+              On
+            </label>
+          </div>
           <h3 className="modal-title">Оповещения по электронной почте</h3>
         </div>
         <div className="modal-body">
           <div className="col s12">
-            <ReactCheckbox id="enabled"
-              className="filled-in"
-              checked={this.state.enabled}
-              onChange={this.handleFieldChange}
-              label="Включить оповещения на электронную почту" />
-          </div>
-          <div className="col s12">
             <ReactInput id="email"
               type="email"
-              className="validate"
+              className="validate marginBottom"
               labelError="неверный адрес"
               labelSuccess="правильно"
               status={this.state.emailStatus}
               value={this.state.email}
               onChange={this.handleEmailChange}
               placeholder="Введите Ваш электронный адрес" />
+          </div>
+          <div className="col s12">
+            <ReactCheckbox id="enabled"
+              className="filled-in"
+              checked={this.state.enabled}
+              onChange={this.handleFieldChange}
+              label="Включить оповещения на электронную почту" />
           </div>
           <div className="col s12">
             <ReactCheckbox id="ideaCreated"

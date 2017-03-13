@@ -55,7 +55,7 @@ export default class ServiceConnections extends Component {
     } else {
       return (
         <a href="#!" onClick={(e) => this.loginWithThirdPartyService(e, service)}
-          className="waves-light waves-effect btn orange secondary-content"><T>profile.services.connectButton</T></a>
+          className="waves-light waves-effect btn-sm orange secondary-content"><T>profile.services.connectButton</T></a>
       );
     }
   }
@@ -66,28 +66,34 @@ export default class ServiceConnections extends Component {
           <h3 className="modal-title"><T>profile.services.header</T></h3>
         </div>
         <div className="modal-body">
-          <div className="col s12">
-            <ul className="collection with-header">
-              <li className="collection-item">
-                <div>Facebook{this.renderSecondaryLink('facebook')}</div>
-              </li>
-              <li className="collection-item">
-                <div>VKontakte{this.renderSecondaryLink('vk')}</div>
-              </li>
-              <li className="collection-item">
-                <div>Google{this.renderSecondaryLink('google')}</div>
-              </li>
-              <li className="collection-item">
-                <div>Twitter{this.renderSecondaryLink('twitter')}</div>
-              </li>
-              <li className="collection-item">
-                <div>Github{this.renderSecondaryLink('github')}</div>
-              </li>
-              <li className="collection-item">
-                <div>LinkedIn{this.renderSecondaryLink('linkedin')}</div>
-              </li>
-            </ul>
-          </div>
+          <ul className="collection">
+            <li className="collection-item">
+              <div className="switch right">
+                <label>
+                  Off
+                  <input type="checkbox" />
+                  <span className="lever"></span>
+                  On
+                </label>
+              </div>
+              Facebook{this.renderSecondaryLink('facebook')}
+            </li>
+            <li className="collection-item">
+              VKontakte{this.renderSecondaryLink('vk')}
+            </li>
+            <li className="collection-item">
+              <div>Google{this.renderSecondaryLink('google')}</div>
+            </li>
+            <li className="collection-item">
+              <div>Twitter{this.renderSecondaryLink('twitter')}</div>
+            </li>
+            <li className="collection-item">
+              <div>Github{this.renderSecondaryLink('github')}</div>
+            </li>
+            <li className="collection-item">
+              <div>LinkedIn{this.renderSecondaryLink('linkedin')}</div>
+            </li>
+          </ul>
         </div>
       </div>
     )

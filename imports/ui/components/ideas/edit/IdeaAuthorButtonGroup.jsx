@@ -20,7 +20,10 @@ export default class IdeaAuthorButtonGroup extends Component {
   }
   clickDropdown(event){
     event.preventDefault();
-    $('.dropdown-button').dropdown(); /* initialize */
+    $('.dropdown-button').dropdown({
+      belowOrigin: true,
+      alignment: 'right'
+    }); /* initialize */
     $('.dropdown-button').dropdown('open');
   }
   publishIdea(event) {
@@ -91,7 +94,7 @@ export default class IdeaAuthorButtonGroup extends Component {
     if (this.props.idea.isAuthor(Meteor.userId())) {
       return (
         <div className="btn-controls">
-          <div className="btn-group">
+          <div className="btn-group nowrap">
             {!this.props.idea.isPublic() ?
               <button onClick={this.publishIdea} className="dropdown-button waves-effect waves-light green part-left btn">
                 <T>ideas.publish.header.publish</T>
