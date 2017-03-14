@@ -94,6 +94,18 @@
       "header": "Integration with third-party services",
       "connected": "Connected",
       "connectButton": "Connect"
+    },
+    "switch": {
+      "off": "Off",
+      "on": "On"
+    },
+    "settings": {
+      "notifications": "Email notifications",
+      "wrongAddress": "Wrong address",
+      "validAddress": "Valid address",
+      "email": "Enter your email address",
+      "deleteAccount": "Delete account",
+      "deleteAccountButton": "Delete"
     }
   },
   "editor": {

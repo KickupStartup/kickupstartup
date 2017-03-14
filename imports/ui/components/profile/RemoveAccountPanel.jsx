@@ -31,11 +31,11 @@ export default class RemoveAccountPanel extends Component {
     } else {
       return (
         <div className="white card row-border clearfix">
-          <h3>Delete account</h3>
+          <h3><T>profile.settings.deleteAccount</T></h3>
           <span className="modal-title">ID: {Meteor.userId()}</span>
           <div class="modal-bottom-link clearfix">
             <button className="waves-effect waves-light btn btn-lg red right"
-              onClick={this.removeAccount}>Удалить аккаунт</button></div>
+              onClick={this.removeAccount}><T>profile.settings.deleteAccountButton</T></button></div>
         </div>
       );
     }
