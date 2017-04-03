@@ -108,6 +108,15 @@ Meteor.methods({
     idea.save();
     return idea;
   },
+  'idea.update.banner': function(ideaId, bannerUrl) {
+    check(ideaId, String);
+    check(bannerUrl, String);
+
+    const idea = getValidatedOwnIdea(this.userId, ideaId);
+    idea.bannerUrl = bannerUrl;
+    idea.save();
+    return idea;
+  },
   'idea.update.customer': function(ideaId, market, geographic, demographic, gender) {
     check(ideaId, String);
     check(market, Number);

@@ -59,11 +59,16 @@ export default class Banner extends Component {
     }
   }
   render() {
+    let bannerUrl = this.props.idea.bannerUrl || '/img/banner-idea.jpg';
+    bannerUrl = bannerUrl[0] === '/' ? bannerUrl : '/' + bannerUrl;
+    const bannerStyle = {
+      background: 'url(' + bannerUrl + ') center center no-repeat',
+    };
     if (this.props.authors) {
       return (
         <div className="content text-center clearfix">
             {this.renderUnpublishStatus()}
-          	<div className="banner" style={{background:'url(/img/banner-idea.jpg) center center no-repeat'}}></div>
+          	<div className="banner" style={bannerStyle}></div>
           	<div className="avatar-photo small">
             {this.renderAuthors()}
           </div>

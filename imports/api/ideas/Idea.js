@@ -36,6 +36,7 @@ export default Idea = Class.create({
   collection: Ideas,
   fields: {
     userId: String,
+    bannerUrl: { type: String, optional: true },
     authors: { type: [String], optional: true },
     surveyId: { type: String, optional: true },
     step: { type: FormStep, default: FormStep.NAME },
